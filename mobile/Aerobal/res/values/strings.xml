@@ -4,5 +4,6 @@
     <string name="app_name">Aerobal</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="experiment_not_running">No experiment running</string>
 
 </resources>
