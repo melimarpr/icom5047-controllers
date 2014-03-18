@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AeroBal</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- Action Button -->
+    <string name="ab_btn_stop">Stop</string>
+    <string name="ab_btn_bluetooth">Bluetooth</string>
+    <string name="title_activity_login">LoginActivity</string>
+    
+    <!-- BT Dialog -->
+    <string name="dialog_bt_empty_list">No Bluetooth Device Paired</string>
+	<string name="dialog_bt_disconnect">Disconnect from AeroBal?</string>
+	<string name="dialog_bt_yes">Yes</string>
+	<string name="dialog_bt_no">No</string>
+</resources>

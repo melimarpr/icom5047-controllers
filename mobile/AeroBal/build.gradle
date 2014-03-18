@@ -1,0 +1,31 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'org.gradle.api.plugins:gradle-android-plugin:1.2.1'
+  }
+}
+apply plugin: 'eclipse'
+apply plugin: 'java'
+//apply plugin: 'android'
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+  main {
+    java {
+      srcDir 'src'
+    }
+  }
+}
+
+
+
+dependencies {
+	compile "com.google.http-client:google-http-client:1.17.0-rc"
+	compile "com.google.http-client:google-http-client-gson:1.17.0-rc"
+	compile "com.google.http-client:google-http-client-jackson:1.17.0-rc"
+	compile "com.google.http-client:google-http-client-android:1.17.0-rc"
+}
