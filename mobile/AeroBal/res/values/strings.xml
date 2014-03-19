@@ -8,6 +8,7 @@
     <!-- Action Button -->
     <string name="ab_btn_stop">Stop</string>
     <string name="ab_btn_bluetooth">Bluetooth</string>
+    <string name="ab_btn_units">Units</string>
     <string name="title_activity_login">LoginActivity</string>
     
     <!-- BT Dialog -->
@@ -15,4 +16,17 @@
 	<string name="dialog_bt_disconnect">Disconnect from AeroBal?</string>
 	<string name="dialog_bt_yes">Yes</string>
 	<string name="dialog_bt_no">No</string>
+	
+	<!-- Units Dialog -->
+	<string name="dialog_units_default">Default</string>
+	<string name="dialog_units_save">Save</string>
+	<string name="dialog_units_cancel">Cancel</string>
+	<string name="dialog_units_pressure">Pressure:</string>
+	<string name="dialog_units_force">Force:</string>
+	<string name="dialog_units_humidity">Humidity:</string>
+	<string name="dialog_units_temperature">Temperature:</string>
+	<string name="dialog_units_speed">Speed:</string>
+	<string name="dialog_units_directions">Direction:</string>
+	
+	
 </resources>

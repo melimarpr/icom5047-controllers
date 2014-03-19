@@ -2,10 +2,13 @@ package icom5047.aerobal.activities;
 
 import icom5047.aerobal.adapters.DrawerAdapter;
 import icom5047.aerobal.controllers.BluetoothController;
+import icom5047.aerobal.controllers.UnitController;
 import icom5047.aerobal.controllers.UserController;
 import icom5047.aerobal.dialog.NewDialog;
 import icom5047.aerobal.dialog.OpenDialog;
 import icom5047.aerobal.fragments.ExperimentFragment;
+import icom5047.aerobal.resources.UnitFactory;
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -14,6 +17,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,8 +36,10 @@ public class MainActivity extends FragmentActivity {
 	 //Controllers Instants Fields
      private UserController userController;
      private BluetoothController btController;
+     private UnitController unitController;
      
      
+	@SuppressLint("UseSparseArrays")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,6 +49,15 @@ public class MainActivity extends FragmentActivity {
 		/* ------------------------------ Application Logic ------------------------- */
 		userController = new UserController(this, null);
 		btController = new BluetoothController(this);
+		SparseArray<Integer> values = new SparseArray<Integer>();
+		values.append(UnitFactory.Type.PRESSURE, UnitFactory.Pressure.UNIT_PASCAL);
+		values.append(UnitFactory.Type.FORCE, UnitFactory.Force.UNIT_NEWTON);
+		values.append(UnitFactory.Type.HUMIDITY, UnitFactory.Humidity.UNIT_PERCENTAGE);
+		values.append(UnitFactory.Type.TEMPERATURE, UnitFactory.Temperature.UNIT_CELSIUS);
+		values.append(UnitFactory.Type.SPEED, UnitFactory.Speed.UNIT_MS);
+		values.append(UnitFactory.Type.DIRECTION, UnitFactory.Direction.UNIT_DEGREES);
+	
+		unitController = new UnitController(values);
 		
 		/* ------------------------------ View Logic ------------------------- */
 		
@@ -119,6 +134,7 @@ public class MainActivity extends FragmentActivity {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
         menu.findItem(R.id.ab_btn_bluetooth).setVisible(!drawerOpen);
+        menu.findItem(R.id.ab_btn_units).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
     
@@ -143,7 +159,9 @@ public class MainActivity extends FragmentActivity {
 			DialogFragment df = btController.getCurrentDialog(abMenu.findItem(R.id.ab_btn_bluetooth));
 			if(df != null)
 				df.show(getSupportFragmentManager(), "Bluetooth Dialog");
-				
+			break;
+		case R.id.ab_btn_units:
+			unitController.getDialog().show(getSupportFragmentManager(), "Units Dialog");
 			break;
 		}
        

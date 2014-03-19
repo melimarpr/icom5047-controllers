@@ -3,4 +3,5 @@
     <string name="title_actvity_main_menu">Main Menu</string>
     <string name="title_dialog_bt_selector">Select AeroBal Controller</string>
     <string name="title_dialog_bt_disconenct">Disconnect?</string>
+    <string name="title_dialog_units">Units</string>
 </resources>
