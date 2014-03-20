@@ -1,0 +1,28 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            runProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:+'
+    compile 'org.scala-lang:scala-library:2.10.3'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile "com.google.http-client:google-http-client:1.17.0-rc"
+    compile "com.google.http-client:google-http-client-gson:1.17.0-rc"
+    compile "com.google.http-client:google-http-client-jackson:1.17.0-rc"
+    compile "com.google.http-client:google-http-client-android:1.17.0-rc"
+}

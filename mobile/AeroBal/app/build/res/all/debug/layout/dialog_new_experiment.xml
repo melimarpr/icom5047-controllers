@@ -1,0 +1,126 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:stretchColumns="0,1"
+    android:padding="10dp"
+    android:layout_height="fill_parent" >
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/dialogNewExpTvName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/dialog_new_exp_name"
+            android:gravity="center_vertical|left" 
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/dialogNewExpEtName"
+            android:hint="@string/dialog_new_exp_name_hint"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+        </EditText>
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+       <TextView
+            android:id="@+id/dialogNewExpTvWindSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/dialog_new_exp_wind_speeds"
+            android:gravity="center_vertical|left" 
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/dialogNewExpEtWindSpeed"
+            android:hint="@string/dialog_new_exp_wind_speeds_hint"
+            android:inputType="numberDecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+         </EditText>
+            
+        <TextView
+            android:id="@+id/dialogNewExpTvWindSpeedUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/placeholder_units"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center" 
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+       <TextView
+            android:id="@+id/dialogNewExpTvSample"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/dialog_new_exp_samples"
+            android:gravity="center_vertical|left" 
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/dialogNewExpEtSample"
+            android:hint="@string/dialog_new_exp_samples_hint"
+            android:inputType="numberDecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+         </EditText>
+     
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+       <TextView
+            android:id="@+id/dialogNewExpTvTimeInterval"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/dialog_new_exp_interval"
+            android:gravity="center_vertical|left" 
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/dialogNewExpEtTimeInterval"
+            android:hint="@string/dialog_new_exp_interval_hint"
+            android:inputType="number"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+         </EditText>
+            
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/units_seconds"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center" 
+            android:textSize="20sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </TableRow>
+  
+  
+
+</TableLayout><!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBal/app/src/main/res/layout/dialog_new_experiment.xml -->

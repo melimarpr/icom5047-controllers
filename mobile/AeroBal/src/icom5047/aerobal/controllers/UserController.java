@@ -24,6 +24,7 @@ public class UserController {
 	
 	public UserController(Context context, User user){
 		this.context = context;
+		this.user = user;
 		init();
 	}
 	
@@ -33,6 +34,11 @@ public class UserController {
 		logIn = pref.getBoolean(Keys.SharedPref.LoginStatus, false);
 		
 		
+	}
+	
+	//Returns User o.w. Null
+	public User getCurrentUser(){
+		return user;
 	}
 	
 	

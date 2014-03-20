@@ -101,6 +101,7 @@ public class BluetoothDialog extends DialogFragment {
 			final BluetoothDialog bd = this;
 			builder.setNegativeButton(R.string.dialog_bt_no, new DialogInterface.OnClickListener() {
 				
+				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					//NoOp
 					dialog.dismiss();
@@ -108,6 +109,7 @@ public class BluetoothDialog extends DialogFragment {
 			});
 			builder.setPositiveButton(R.string.dialog_bt_yes, new DialogInterface.OnClickListener() {
 				
+				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					Map<String, Object> map = new HashMap<String, Object>();
 					

@@ -63,7 +63,7 @@ public class BluetoothController {
 	
 	
 
-	private void btErrorToast(){
+	public void btErrorToast(){
 		Toast.makeText(context, R.string.toast_no_bt_found, Toast.LENGTH_LONG).show();
 	}
 	
