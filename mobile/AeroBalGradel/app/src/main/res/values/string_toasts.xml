@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toast_no_bt_found">No Bluetooth Module found in Device.</string>
+    <string name="toast_invalid_exp_name_empty">Experiment Name Missing</string>
+    <string name="toast_invalid_exp_name_char_limit">Experiment Name is Over 100 Characters</string>
+    <string name="toast_invalid_exp_wind_speed_empty">Wind Speed Value Missing</string>
+    <string name="toast_invalid_exp_wind_speed_min">Wind Speed Value Below Minimum of:</string>
+    <string name="toast_invalid_exp_wind_speed_max">Wind Speed Value Above Maximum of:</string>
+    <string name="toast_invalid_exp_interval_empty">Time Interval Value Missing</string>
+    <string name="toast_invalid_exp_interval_min">Time Interval Value Below Minimum of:</string>
+    <string name="toast_invalid_exp_interval_max">Time Interval Value Above Maximum of:</string>
+    <string name="toast_invalid_exp_samples_empty">Samples Value Missing</string>
+    <string name="toast_invalid_exp_samples_min">Samples Value Below Minimum of:</string>
+    <string name="toast_invalid_exp_samples_max">Samples Value Above Maximum of:</string>
+    
+    
+</resources>

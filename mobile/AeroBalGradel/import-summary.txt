@@ -1,0 +1,261 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .gitignore
+* .gradle/
+* .gradle/1.5/
+* .gradle/1.5/taskArtifacts/
+* .gradle/1.5/taskArtifacts/cache.properties
+* .gradle/1.5/taskArtifacts/cache.properties.lock
+* .gradle/1.5/taskArtifacts/fileHashes.bin
+* .gradle/1.5/taskArtifacts/fileSnapshots.bin
+* .gradle/1.5/taskArtifacts/outputFileStates.bin
+* .gradle/1.5/taskArtifacts/taskArtifacts.bin
+* .gradle/1.9/
+* .gradle/1.9/taskArtifacts/
+* .gradle/1.9/taskArtifacts/cache.properties
+* .gradle/1.9/taskArtifacts/cache.properties.lock
+* .gradle/1.9/taskArtifacts/fileHashes.bin
+* .gradle/1.9/taskArtifacts/fileSnapshots.bin
+* .gradle/1.9/taskArtifacts/outputFileStates.bin
+* .gradle/1.9/taskArtifacts/taskArtifacts.bin
+* .idea/
+* .idea/.name
+* .idea/compiler.xml
+* .idea/copyright/
+* .idea/copyright/profiles_settings.xml
+* .idea/encodings.xml
+* .idea/gradle.xml
+* .idea/libraries/
+* .idea/libraries/DataLib.xml
+* .idea/libraries/Gradle__DataLib.xml
+* .idea/libraries/Gradle__google_http_client_1_17_0_rc.xml
+* .idea/libraries/Gradle__google_http_client_android_1_17_0_rc.xml
+* .idea/libraries/Gradle__google_http_client_gson_1_17_0_rc.xml
+* .idea/libraries/Gradle__google_http_client_jackson_1_17_0_rc.xml
+* .idea/libraries/Gradle__gson_2_2_4.xml
+* .idea/libraries/Gradle__jackson_core_asl_1_9_11.xml
+* .idea/libraries/Gradle__jsr305_1_3_9.xml
+* .idea/libraries/Gradle__scala_library_2_10_3.xml
+* .idea/libraries/Gradle__support_v4_19_0_1.xml
+* .idea/libraries/google_http_client_1_17_0_rc.xml
+* .idea/libraries/google_http_client_android_1_17_0_rc.xml
+* .idea/libraries/google_http_client_gson_1_17_0_rc.xml
+* .idea/libraries/google_http_client_jackson_1_17_0_rc.xml
+* .idea/libraries/gson_2_2_4.xml
+* .idea/libraries/jackson_core_asl_1_9_11.xml
+* .idea/libraries/jsr305_1_3_9.xml
+* .idea/libraries/scala_library_2_10_3.xml
+* .idea/libraries/support_v4_19_0_1.xml
+* .idea/misc.xml
+* .idea/modules.xml
+* .idea/scopes/
+* .idea/scopes/scope_settings.xml
+* .idea/vcs.xml
+* .idea/workspace.xml
+* AeroBal.iml
+* app/
+* app/app.iml
+* app/build.gradle
+* app/build/
+* app/build/assets/
+* app/build/assets/debug/
+* app/build/assets/debug/fonts/
+* app/build/assets/debug/fonts/Roboto-Thin.ttf
+* app/build/incremental/
+* app/build/incremental/aidl/
+* app/build/incremental/aidl/debug/
+* app/build/incremental/aidl/debug/dependency.store
+* app/build/incremental/mergeAssets/
+* app/build/incremental/mergeAssets/debug/
+* app/build/incremental/mergeAssets/debug/merger.xml
+* app/build/incremental/mergeResources/
+* app/build/incremental/mergeResources/debug/
+* app/build/incremental/mergeResources/debug/merger.xml
+* app/build/libs/
+* app/build/libs/app-debug.ap_
+* app/build/manifests/
+* app/build/manifests/debug/
+* app/build/manifests/debug/AndroidManifest.xml
+* app/build/res/
+* app/build/res/all/
+* app/build/res/all/debug/
+* app/build/res/all/debug/drawable-hdpi/
+* app/build/res/all/debug/drawable-hdpi/ic_launcher.png
+* app/build/res/all/debug/drawable-mdpi/
+* app/build/res/all/debug/drawable-mdpi/ic_launcher.png
+* app/build/res/all/debug/drawable-xhdpi/
+* app/build/res/all/debug/drawable-xhdpi/ic_launcher.png
+* app/build/res/all/debug/drawable-xxhdpi/
+* app/build/res/all/debug/drawable-xxhdpi/ic_launcher.png
+* app/build/res/all/debug/drawable/
+* app/build/res/all/debug/drawable/ic_bluetooth.png
+* app/build/res/all/debug/drawable/ic_bluetooth_connected.png
+* app/build/res/all/debug/drawable/ic_drawer.png
+* app/build/res/all/debug/drawable/ic_stop.png
+* app/build/res/all/debug/drawable/selector_drawer.xml
+* app/build/res/all/debug/layout/
+* app/build/res/all/debug/layout/activity_login.xml
+* app/build/res/all/debug/layout/activity_main.xml
+* app/build/res/all/debug/layout/dialog_bluetooth_list.xml
+* app/build/res/all/debug/layout/dialog_new_experiment.xml
+* app/build/res/all/debug/layout/dialog_units.xml
+* app/build/res/all/debug/layout/fragment_experiment_summary.xml
+* app/build/res/all/debug/layout/row_dialog_bt_lv.xml
+* app/build/res/all/debug/layout/row_drawer_lv.xml
+* app/build/res/all/debug/menu/
+* app/build/res/all/debug/menu/login.xml
+* app/build/res/all/debug/menu/main_menu.xml
+* app/build/res/all/debug/values-sw720dp-land/
+* app/build/res/all/debug/values-sw720dp-land/values.xml
+* app/build/res/all/debug/values-v11/
+* app/build/res/all/debug/values-v11/values.xml
+* app/build/res/all/debug/values-v14/
+* app/build/res/all/debug/values-v14/values.xml
+* app/build/res/all/debug/values/
+* app/build/res/all/debug/values/values.xml
+* app/build/source/
+* app/build/source/buildConfig/
+* app/build/source/buildConfig/debug/
+* app/build/source/buildConfig/debug/icom5047/
+* app/build/source/buildConfig/debug/icom5047/aerobal/
+* app/build/source/buildConfig/debug/icom5047/aerobal/activities/
+* app/build/source/buildConfig/debug/icom5047/aerobal/activities/BuildConfig.java
+* app/build/source/r/
+* app/build/source/r/debug/
+* app/build/source/r/debug/icom5047/
+* app/build/source/r/debug/icom5047/aerobal/
+* app/build/source/r/debug/icom5047/aerobal/activities/
+* app/build/source/r/debug/icom5047/aerobal/activities/R.java
+* app/src/
+* app/src/main/
+* app/src/main/AndroidManifest.xml
+* app/src/main/assets/
+* app/src/main/assets/fonts/
+* app/src/main/assets/fonts/Roboto-Thin.ttf
+* app/src/main/java/
+* app/src/main/java/icom5047/
+* app/src/main/java/icom5047/aerobal/
+* app/src/main/java/icom5047/aerobal/activities/
+* app/src/main/java/icom5047/aerobal/activities/LoginActivity.java
+* app/src/main/java/icom5047/aerobal/activities/MainActivity.java
+* app/src/main/java/icom5047/aerobal/adapters/
+* app/src/main/java/icom5047/aerobal/adapters/DrawerAdapter.java
+* app/src/main/java/icom5047/aerobal/controllers/
+* app/src/main/java/icom5047/aerobal/controllers/BluetoothController.java
+* app/src/main/java/icom5047/aerobal/controllers/UnitController.java
+* app/src/main/java/icom5047/aerobal/controllers/UserController.java
+* app/src/main/java/icom5047/aerobal/dialog/
+* app/src/main/java/icom5047/aerobal/dialog/BluetoothDialog.java
+* app/src/main/java/icom5047/aerobal/dialog/NewDialog.java
+* app/src/main/java/icom5047/aerobal/dialog/OpenDialog.java
+* app/src/main/java/icom5047/aerobal/dialog/UnitsDialog.java
+* app/src/main/java/icom5047/aerobal/exceptions/
+* app/src/main/java/icom5047/aerobal/exceptions/InvalidUnitException.java
+* app/src/main/java/icom5047/aerobal/fragments/
+* app/src/main/java/icom5047/aerobal/fragments/ExperimentFragment.java
+* app/src/main/java/icom5047/aerobal/interfaces/
+* app/src/main/java/icom5047/aerobal/interfaces/AeroCallback.java
+* app/src/main/java/icom5047/aerobal/resources/
+* app/src/main/java/icom5047/aerobal/resources/GlobalConstants.java
+* app/src/main/java/icom5047/aerobal/resources/Keys.java
+* app/src/main/java/icom5047/aerobal/resources/UnitFactory.java
+* app/src/main/res/
+* app/src/main/res/drawable-hdpi/
+* app/src/main/res/drawable-hdpi/ic_launcher.png
+* app/src/main/res/drawable-mdpi/
+* app/src/main/res/drawable-mdpi/ic_launcher.png
+* app/src/main/res/drawable-xhdpi/
+* app/src/main/res/drawable-xhdpi/ic_launcher.png
+* app/src/main/res/drawable-xxhdpi/
+* app/src/main/res/drawable-xxhdpi/ic_launcher.png
+* app/src/main/res/drawable/
+* app/src/main/res/drawable/ic_bluetooth.png
+* app/src/main/res/drawable/ic_bluetooth_connected.png
+* app/src/main/res/drawable/ic_drawer.png
+* app/src/main/res/drawable/ic_stop.png
+* app/src/main/res/drawable/selector_drawer.xml
+* app/src/main/res/layout/
+* app/src/main/res/layout/activity_login.xml
+* app/src/main/res/layout/activity_main.xml
+* app/src/main/res/layout/dialog_bluetooth_list.xml
+* app/src/main/res/layout/dialog_new_experiment.xml
+* app/src/main/res/layout/dialog_units.xml
+* app/src/main/res/layout/fragment_experiment_summary.xml
+* app/src/main/res/layout/row_dialog_bt_lv.xml
+* app/src/main/res/layout/row_drawer_lv.xml
+* app/src/main/res/menu/
+* app/src/main/res/menu/login.xml
+* app/src/main/res/menu/main_menu.xml
+* app/src/main/res/values-sw600dp/
+* app/src/main/res/values-sw600dp/dimens.xml
+* app/src/main/res/values-sw720dp-land/
+* app/src/main/res/values-sw720dp-land/dimens.xml
+* app/src/main/res/values-v11/
+* app/src/main/res/values-v11/styles.xml
+* app/src/main/res/values-v14/
+* app/src/main/res/values-v14/styles.xml
+* app/src/main/res/values/
+* app/src/main/res/values/colors.xml
+* app/src/main/res/values/dimens.xml
+* app/src/main/res/values/string_fragment_experiment_summary.xml
+* app/src/main/res/values/string_placeholders.xml
+* app/src/main/res/values/string_titles.xml
+* app/src/main/res/values/string_toasts.xml
+* app/src/main/res/values/strings.xml
+* app/src/main/res/values/strings_accesability.xml
+* app/src/main/res/values/styles.xml
+* build.gradle
+* gradle/
+* gradle/wrapper/
+* gradle/wrapper/gradle-wrapper.jar
+* gradle/wrapper/gradle-wrapper.properties
+* gradlew
+* gradlew.bat
+* ic_launcher-web.png
+* import-summary.txt
+* proguard-project.txt
+* settings.gradle
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:+
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app/src/main/AndroidManifest.xml
+* assets/ => app/src/main/assets/
+* res/ => app/src/main/res/
+* src/ => app/src/main/java/
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

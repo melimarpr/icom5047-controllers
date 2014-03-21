@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_actvity_main_menu">Main Menu</string>
+    <string name="title_dialog_bt_selector">Select AeroBal Controller</string>
+    <string name="title_dialog_bt_disconenct">Disconnect?</string>
+    <string name="title_dialog_units">Units</string>
+    <string name="title_dialog_new_experiment">New Experiment</string>
+    <string name="title_dialog_open_experiment">Open Experiment?</string>
+</resources>

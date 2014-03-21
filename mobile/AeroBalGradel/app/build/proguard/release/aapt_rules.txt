@@ -1,0 +1,9 @@
+# view res/layout/activity_main.xml #generated:2
+-keep class android.support.v4.widget.DrawerLayout { <init>(...); }
+
+# view AndroidManifest.xml #generated:13
+-keep class icom5047.aerobal.activities.LoginActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:6
+-keep class icom5047.aerobal.activities.MainActivity { <init>(...); }
+
