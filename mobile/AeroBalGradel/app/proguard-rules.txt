@@ -1,1 +1,4 @@
 -dontwarn scala.**
+-keep class icom5047.aerobal.** { *; }
+-dontwarn icom5047.aerobal.**
+-dontobfuscate

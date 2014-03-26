@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="placeholder_menu_option">Lorem</string>    
-	<string name="placeholder_title">Lorem Ipsum</string>
-	<string name="placeholder_mac">01:23:45:67:89:ab</string>
-	<string name="placeholder_units">***</string>
+    <string name="placeholder_menu_option">Lorem</string>
+    <string name="placeholder_title">Lorem Ipsum</string>
+    <string name="placeholder_mac">01:23:45:67:89:ab</string>
+    <string name="placeholder_units">***</string>
+    <string name="placeholder_double_value">0.000</string>
+    <string name="placeholder_integer_value">000</string>
 </resources>

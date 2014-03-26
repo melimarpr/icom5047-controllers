@@ -10,11 +10,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_login" android:name="icom5047.aerobal.activities.LoginActivity">
-        </activity>
-        
-        
+        <activity android:label="@string/title_activity_login" android:name="icom5047.aerobal.activities.LoginActivity"/>
+
+
     </application>
-    
+
 
 </manifest>

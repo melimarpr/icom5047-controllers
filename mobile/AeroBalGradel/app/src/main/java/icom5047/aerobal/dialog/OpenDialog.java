@@ -21,27 +21,25 @@ public class OpenDialog extends DialogFragment {
     private UserController userController;
 
 
-    public static OpenDialog getOpenDialog(UserController controller, AeroCallback callback){
+    public static OpenDialog getOpenDialog(UserController controller, AeroCallback callback) {
         OpenDialog od = new OpenDialog();
         od.setCallback(callback);
         od.setUserController(controller);
         return od;
     }
 
-    private void setCallback(AeroCallback callback){
+    private void setCallback(AeroCallback callback) {
         this.callback = callback;
     }
 
-    private  void setUserController(UserController userController){
+    private void setUserController(UserController userController) {
         this.userController = userController;
     }
 
 
-    public OpenDialog(){
+    public OpenDialog() {
         super();
     }
-
-
 
 
     @Override
@@ -72,8 +70,6 @@ public class OpenDialog extends DialogFragment {
                 callback.callback(map);
             }
         });
-
-
 
 
         return builder.create();

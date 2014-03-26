@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="0dp"
+        android:textStyle="bold"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/placeholder_title"
+        android:layout_weight="6"
+        android:gravity="left|center_vertical"
+        android:id="@+id/rowAveUnitTitle" />
+
+    <View
+        android:layout_width="3dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_height="match_parent"
+        android:background="@color/divider_light_grey">
+
+    </View>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/placeholder_integer_value"
+        android:id="@+id/rowAveUnitValue" />
+
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center|left"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/placeholder_units"
+        android:id="@+id/rowAve3UnitUnit" />
+</LinearLayout>

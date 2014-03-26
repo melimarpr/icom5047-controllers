@@ -6,4 +6,5 @@
     <string name="title_dialog_units">Units</string>
     <string name="title_dialog_new_experiment">New Experiment</string>
     <string name="title_dialog_open_experiment">Open Experiment?</string>
+    <string name="title_dialog_save_exp_name">Experiment Name?</string>
 </resources>

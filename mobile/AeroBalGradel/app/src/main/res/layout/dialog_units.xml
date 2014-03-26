@@ -1,7 +1,7 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:stretchColumns="1"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent">
 
     <TableRow
         android:layout_width="wrap_content"
@@ -9,7 +9,7 @@
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
         android:paddingRight="10dp"
-        android:layout_weight="1" >
+        android:layout_weight="1">
 
         <TextView
             android:paddingLeft="10dp"
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/dialog_units_pressure"
-            android:gravity="center_vertical|left" 
+            android:gravity="center_vertical|left"
             android:textSize="20sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -36,7 +36,7 @@
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
         android:paddingRight="10dp"
-        android:layout_weight="1" >
+        android:layout_weight="1">
 
         <TextView
             android:paddingLeft="10dp"
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/dialog_units_force"
-            android:gravity="center_vertical|left" 
+            android:gravity="center_vertical|left"
             android:textSize="20sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -56,13 +56,14 @@
             android:layout_height="match_parent" />
 
     </TableRow>
+
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
         android:paddingRight="10dp"
-        android:layout_weight="1" >
+        android:layout_weight="1">
 
         <TextView
             android:paddingLeft="10dp"
@@ -70,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/dialog_units_humidity"
-            android:gravity="center_vertical|left" 
+            android:gravity="center_vertical|left"
             android:textSize="20sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -83,13 +84,13 @@
 
     </TableRow>
 
-   <TableRow
+    <TableRow
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
         android:paddingRight="10dp"
-        android:layout_weight="1" >
+        android:layout_weight="1">
 
         <TextView
             android:paddingLeft="10dp"
@@ -97,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/dialog_units_temperature"
-            android:gravity="center_vertical|left" 
+            android:gravity="center_vertical|left"
             android:textSize="20sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -109,13 +110,14 @@
             android:layout_height="match_parent" />
 
     </TableRow>
-	<TableRow
+
+    <TableRow
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
         android:paddingRight="10dp"
-        android:layout_weight="1" >
+        android:layout_weight="1">
 
         <TextView
             android:paddingLeft="10dp"
@@ -123,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/dialog_units_speed"
-            android:gravity="center_vertical|left" 
+            android:gravity="center_vertical|left"
             android:textSize="20sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -142,7 +144,7 @@
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
         android:paddingRight="10dp"
-        android:layout_weight="1" >
+        android:layout_weight="1">
 
         <TextView
             android:paddingLeft="10dp"
@@ -150,7 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/dialog_units_directions"
-            android:gravity="center_vertical|left" 
+            android:gravity="center_vertical|left"
             android:textSize="20sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 

@@ -12,6 +12,6 @@
     <string name="toast_invalid_exp_samples_empty">Samples Value Missing</string>
     <string name="toast_invalid_exp_samples_min">Samples Value Below Minimum of:</string>
     <string name="toast_invalid_exp_samples_max">Samples Value Above Maximum of:</string>
-    
-    
+
+
 </resources>

@@ -6,52 +6,63 @@
     <string name="hello_world">Hello world!</string>
 
     <!-- General Words -->
-   <string name="cancel">Cancel</string>
-   <string name="save">Save</string>
-   <string name="create">Create</string>
-   <string name="online">Online</string>
-   <string name="local">Local</string>
-   
-   
-   <!-- Units -->
-   <string name="units_seconds">sec</string>
-   
-    
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="create">Create</string>
+    <string name="online">Online</string>
+    <string name="local">Local</string>
+
+
+    <!-- Units -->
+    <string name="units_seconds">sec</string>
+
+
     <!-- Action Button -->
     <string name="ab_btn_stop">Stop</string>
     <string name="ab_btn_bluetooth">Bluetooth</string>
     <string name="ab_btn_units">Units</string>
+    <string name="ab_btn_start_run">Start Run</string>
+    <string name="ab_btn_show_data">Show Data</string>
+    <string name="ab_btn_save_online">Save Online</string>
+    <string name="ab_btn_export">Export</string>
+    <string name="ab_btn_close">Close</string>
     <string name="title_activity_login">LoginActivity</string>
-    
+
     <!-- BT Dialog -->
     <string name="dialog_bt_empty_list">No Bluetooth Device Paired</string>
-	<string name="dialog_bt_disconnect">Disconnect from AeroBal?</string>
-	<string name="dialog_bt_yes">Yes</string>
-	<string name="dialog_bt_no">No</string>
-	
-	<!-- Units Dialog -->
-	<string name="dialog_units_default">Default</string>
-	<string name="dialog_units_pressure">Pressure:</string>
-	<string name="dialog_units_force">Force:</string>
-	<string name="dialog_units_humidity">Humidity:</string>
-	<string name="dialog_units_temperature">Temperature:</string>
-	<string name="dialog_units_speed">Speed:</string>
-	<string name="dialog_units_directions">Direction:</string>
-	
-	<!-- New Dialog -->
-	<string name="dialog_new_exp_name">Name:</string>
-	<string name="dialog_new_exp_wind_speeds">Wind Speed:</string>
-	<string name="dialog_new_exp_samples">Samples:</string>
-	<string name="dialog_new_exp_interval">Time Interval</string>
-	<string name="dialog_new_exp_name_hint">Experiment Name</string>
-	<string name="dialog_new_exp_wind_speeds_hint">0.00</string>
-	<string name="dialog_new_exp_samples_hint">0</string>
-	<string name="dialog_new_exp_interval_hint">0</string>
+    <string name="dialog_bt_disconnect">Disconnect from AeroBal?</string>
+    <string name="dialog_bt_yes">Yes</string>
+    <string name="dialog_bt_no">No</string>
+
+    <!-- Units Dialog -->
+    <string name="dialog_units_default">Default</string>
+    <string name="dialog_units_pressure">Pressure:</string>
+    <string name="dialog_units_force">Force:</string>
+    <string name="dialog_units_humidity">Humidity:</string>
+    <string name="dialog_units_temperature">Temperature:</string>
+    <string name="dialog_units_speed">Speed:</string>
+    <string name="dialog_units_directions">Direction:</string>
+
+    <!-- New Dialog -->
+    <string name="dialog_new_exp_name">Name:</string>
+    <string name="dialog_new_exp_wind_speeds">Wind Speed:</string>
+    <string name="dialog_new_exp_samples">Samples:</string>
+    <string name="dialog_new_exp_interval">Time Interval:</string>
+    <string name="dialog_new_exp_name_hint">Experiment Name</string>
+    <string name="dialog_new_exp_wind_speeds_hint">0.00</string>
+    <string name="dialog_new_exp_samples_hint">0</string>
+    <string name="dialog_new_exp_interval_hint">0</string>
 
 
     <!-- Open Dialog -->
 
-	   
-	
-	
+
+    <!-- Experiment Fragment -->
+    <string name="frag_exp_sum_parameters">Parameters:</string>
+    <string name="frag_exp_sum_summary">Summary:</string>
+    <string name="frag_exp_sum_wind_speeds">Expected Wind Speed:</string>
+    <string name="frag_exp_sum_samples">Samples:</string>
+    <string name="frag_exp_sum_interval">Time Interval:</string>
+
+
 </resources>

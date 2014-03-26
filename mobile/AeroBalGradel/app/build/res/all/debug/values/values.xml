@@ -5,7 +5,8 @@
     <eat-comment />
 
     <color name="dark_grey">#7a7a7a</color>
-    <color name="divider_grey">#d8d8d8</color>
+    <color name="divider_dark_grey">#c4c4c4</color>
+    <color name="divider_light_grey">#d8d8d8</color>
     <color name="super_dim_white">#fafafa</color>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/dimens.xml -->
     <eat-comment />
@@ -16,6 +17,11 @@
     <eat-comment />
 
     <string name="ab_btn_bluetooth">Bluetooth</string>
+    <string name="ab_btn_close">Close</string>
+    <string name="ab_btn_export">Export</string>
+    <string name="ab_btn_save_online">Save Online</string>
+    <string name="ab_btn_show_data">Show Data</string>
+    <string name="ab_btn_start_run">Start Run</string>
     <string name="ab_btn_stop">Stop</string>
     <string name="ab_btn_units">Units</string>
     <string name="action_settings">Settings</string>
@@ -26,7 +32,7 @@
     <string name="dialog_bt_empty_list">No Bluetooth Device Paired</string>
     <string name="dialog_bt_no">No</string>
     <string name="dialog_bt_yes">Yes</string>
-    <string name="dialog_new_exp_interval">Time Interval</string>
+    <string name="dialog_new_exp_interval">Time Interval:</string>
     <string name="dialog_new_exp_interval_hint">0</string>
     <string name="dialog_new_exp_name">Name:</string>
     <string name="dialog_new_exp_name_hint">Experiment Name</string>
@@ -46,6 +52,14 @@
 
     <string name="drawer_close">Drwaer Closed</string>
     <string name="drawer_open">Drawer Opened</string>
+    <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="frag_exp_sum_interval">Time Interval:</string>
+    <string name="frag_exp_sum_parameters">Parameters:</string>
+    <string name="frag_exp_sum_samples">Samples:</string>
+    <string name="frag_exp_sum_summary">Summary:</string>
+    <string name="frag_exp_sum_wind_speeds">Expected Wind Speed:</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_fragment_experiment_summary.xml -->
     <eat-comment />
 
@@ -59,6 +73,8 @@
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_placeholders.xml -->
     <eat-comment />
 
+    <string name="placeholder_double_value">0.000</string>
+    <string name="placeholder_integer_value">000</string>
     <string name="placeholder_mac">01:23:45:67:89:ab</string>
     <string name="placeholder_menu_option">Lorem</string>
     <string name="placeholder_title">Lorem Ipsum</string>
@@ -76,6 +92,7 @@
     <string name="title_dialog_bt_selector">Select AeroBal Controller</string>
     <string name="title_dialog_new_experiment">New Experiment</string>
     <string name="title_dialog_open_experiment">Open Experiment?</string>
+    <string name="title_dialog_save_exp_name">Experiment Name?</string>
     <string name="title_dialog_units">Units</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml -->
     <eat-comment />

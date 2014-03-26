@@ -1,19 +1,53 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item 
-        android:id="@+id/ab_btn_stop" 
-        android:showAsAction="ifRoom" 
-        android:title="@string/ab_btn_stop" 
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ab_btn_stop"
+        android:showAsAction="ifRoom"
+        android:title="@string/ab_btn_stop"
         android:orderInCategory="100"
         android:icon="@drawable/ic_stop"
         android:visible="false"></item>
-    <item 
+    <item
         android:id="@+id/ab_btn_bluetooth"
-        android:orderInCategory="200" 
-        android:title="@string/ab_btn_bluetooth" 
+        android:orderInCategory="200"
+        android:title="@string/ab_btn_bluetooth"
         android:showAsAction="always"
         android:icon="@drawable/ic_bluetooth"></item>
-    <item android:id="@+id/ab_btn_units" android:orderInCategory="1100" android:title="@string/ab_btn_units" android:showAsAction="never|withText"></item>
+    <item
+        android:id="@+id/ab_btn_units"
+        android:orderInCategory="1700"
+        android:title="@string/ab_btn_units"
+        android:showAsAction="never|withText"></item>
 
-    
+    <item
+        android:id="@+id/ab_btn_start_run"
+        android:orderInCategory="1200"
+        android:title="@string/ab_btn_start_run"
+        android:visible="false"
+        android:showAsAction="never|withText"></item>
+    <item
+        android:id="@+id/ab_btn_show_data"
+        android:orderInCategory="1300"
+        android:title="@string/ab_btn_show_data"
+        android:visible="false"
+        android:showAsAction="never|withText"></item>
+    <item
+        android:id="@+id/ab_btn_save_online"
+        android:orderInCategory="1400"
+        android:title="@string/ab_btn_save_online"
+        android:visible="false"
+        android:showAsAction="never|withText"></item>
+    <item
+        android:id="@+id/ab_btn_export"
+        android:orderInCategory="1500"
+        android:title="@string/ab_btn_export"
+        android:visible="false"
+        android:showAsAction="never|withText"></item>
+    <item
+        android:id="@+id/ab_btn_close"
+        android:orderInCategory="1600"
+        android:title="@string/ab_btn_close"
+        android:visible="false"
+        android:showAsAction="never|withText"></item>
+
 
 </menu>
