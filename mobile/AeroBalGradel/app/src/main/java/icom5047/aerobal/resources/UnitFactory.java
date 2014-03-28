@@ -1,9 +1,9 @@
 package icom5047.aerobal.resources;
 
-import icom5047.aerobal.exceptions.InvalidUnitException;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import icom5047.aerobal.exceptions.InvalidUnitException;
 
 public class UnitFactory {
 
@@ -15,6 +15,15 @@ public class UnitFactory {
         public static final int DIRECTION = 3;
         public static final int SPEED = 4;
         public static final int FORCE = 5;
+
+        public static final String PRESSURE_STRING = "Pressure";
+        public static final String HUMIDITY_STRING = "Humidity";
+        public static final String TEMPERATURE_STRING = "Temperature";
+        public static final String DIRECTION_STRING = "Direction";
+        public static final String SPEED_STRING = "Speed";
+        public static final String FORCE_STRING = "Force";
+
+
 
     }
 
@@ -269,6 +278,20 @@ public class UnitFactory {
             //Always Valid
             e.printStackTrace();
         }
+        return map;
+    }
+
+    public static Map<Integer, String> getAllType(){
+        HashMap<Integer, String> map = new HashMap<Integer, String>();
+
+        map.put(Type.PRESSURE, Type.PRESSURE_STRING);
+        map.put(Type.DIRECTION, Type.DIRECTION_STRING);
+        map.put(Type.FORCE, Type.FORCE_STRING);
+        map.put(Type.HUMIDITY, Type.HUMIDITY_STRING);
+        map.put(Type.SPEED, Type.SPEED_STRING);
+        map.put(Type.TEMPERATURE, Type.TEMPERATURE_STRING);
+
+
         return map;
     }
 

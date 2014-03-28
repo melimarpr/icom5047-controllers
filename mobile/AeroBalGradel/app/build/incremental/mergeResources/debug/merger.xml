@@ -160,7 +160,13 @@
                 qualifiers="" >
                 <string name="title_actvity_main_menu" >Main Menu
                 </string>
+                <string name="title_fragment_data_graph" >Graph
+                </string>
+                <string name="title_fragment_data_raw" >Raw Data
+                </string>
                 <string name="title_dialog_bt_disconenct" >Disconnect?
+                </string>
+                <string name="title_fragment_data_summary" >Summary
                 </string>
                 <string name="title_dialog_units" >Units
                 </string>
@@ -220,13 +226,13 @@
                 </string>
                 <string name="dialog_new_exp_samples_hint" >0
                 </string>
-                <string name="frag_exp_sum_samples" >Samples:
-                </string>
                 <string name="cancel" >Cancel
                 </string>
-                <string name="frag_exp_sum_wind_speeds" >Expected Wind Speed:
+                <string name="frag_exp_sum_samples" >Samples:
                 </string>
                 <string name="dialog_units_default" >Default
+                </string>
+                <string name="frag_exp_sum_wind_speeds" >Expected Wind Speed:
                 </string>
                 <string name="dialog_bt_yes" >Yes
                 </string>
@@ -273,6 +279,8 @@
                 <string name="app_name" >AeroBal
                 </string>
                 <string name="ab_btn_close" >Close
+                </string>
+                <string name="title_activity_data_detail" >DataDetailActivity
                 </string>
                 <string name="ab_btn_units" >Units
                 </string>
@@ -360,6 +368,42 @@
             <file
                 name="dialog_edit_text"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_edit_text.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_data_detail"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/activity_data_detail.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="data_detail"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/menu/data_detail.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="fragment_data_detail"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/fragment_data_detail.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values-w820dp/dimens.xml"
+                qualifiers="w820dp" >
+                <dimen name="activity_horizontal_margin" >64dp
+                </dimen>
+            </file>
+            <file
+                name="spinner_action_bar"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/spinner_action_bar.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="fragment_data_summary"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/fragment_data_summary.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="spinner_white_item"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/spinner_white_item.xml"
                 qualifiers=""
                 type="layout" />
         </source>

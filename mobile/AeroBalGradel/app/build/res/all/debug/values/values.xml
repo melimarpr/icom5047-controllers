@@ -83,6 +83,7 @@
     <eat-comment />
 
     <string name="save">Save</string>
+    <string name="title_activity_data_detail">DataDetailActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_titles.xml -->
     <eat-comment />
@@ -94,6 +95,9 @@
     <string name="title_dialog_open_experiment">Open Experiment?</string>
     <string name="title_dialog_save_exp_name">Experiment Name?</string>
     <string name="title_dialog_units">Units</string>
+    <string name="title_fragment_data_graph">Graph</string>
+    <string name="title_fragment_data_raw">Raw Data</string>
+    <string name="title_fragment_data_summary">Summary</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml -->
     <eat-comment />
 

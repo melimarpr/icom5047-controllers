@@ -12,10 +12,8 @@
     <string name="online">Online</string>
     <string name="local">Local</string>
 
-
     <!-- Units -->
     <string name="units_seconds">sec</string>
-
 
     <!-- Action Button -->
     <string name="ab_btn_stop">Stop</string>
@@ -53,7 +51,6 @@
     <string name="dialog_new_exp_samples_hint">0</string>
     <string name="dialog_new_exp_interval_hint">0</string>
 
-
     <!-- Open Dialog -->
 
 
@@ -63,6 +60,11 @@
     <string name="frag_exp_sum_wind_speeds">Expected Wind Speed:</string>
     <string name="frag_exp_sum_samples">Samples:</string>
     <string name="frag_exp_sum_interval">Time Interval:</string>
+
+     <!-- Data Detail Activity -->
+
+    <string name="title_activity_data_detail">DataDetailActivity</string>
+
 
 
 </resources>

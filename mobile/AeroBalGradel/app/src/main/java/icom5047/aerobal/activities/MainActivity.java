@@ -2,6 +2,7 @@ package icom5047.aerobal.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -11,7 +12,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
-import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +21,7 @@ import android.widget.ListView;
 
 import com.aerobal.data.objects.Experiment;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import icom5047.aerobal.adapters.DrawerAdapter;
@@ -62,14 +63,16 @@ public class MainActivity extends FragmentActivity {
 		/* ------------------------------ Application Logic ------------------------- */
         userController = new UserController(this, null);
         btController = new BluetoothController(this);
-        experimentController = new ExperimentController(this);
-        SparseArray<Integer> values = new SparseArray<Integer>();
-        values.append(UnitFactory.Type.PRESSURE, UnitFactory.Pressure.UNIT_PASCAL);
-        values.append(UnitFactory.Type.FORCE, UnitFactory.Force.UNIT_NEWTON);
-        values.append(UnitFactory.Type.HUMIDITY, UnitFactory.Humidity.UNIT_PERCENTAGE);
-        values.append(UnitFactory.Type.TEMPERATURE, UnitFactory.Temperature.UNIT_CELSIUS);
-        values.append(UnitFactory.Type.SPEED, UnitFactory.Speed.UNIT_MS);
-        values.append(UnitFactory.Type.DIRECTION, UnitFactory.Direction.UNIT_DEGREES);
+        experimentController = new ExperimentController();
+
+
+        HashMap<Integer, Integer> values = new HashMap<Integer, Integer>();
+        values.put(UnitFactory.Type.PRESSURE, UnitFactory.Pressure.UNIT_PASCAL);
+        values.put(UnitFactory.Type.FORCE, UnitFactory.Force.UNIT_NEWTON);
+        values.put(UnitFactory.Type.HUMIDITY, UnitFactory.Humidity.UNIT_PERCENTAGE);
+        values.put(UnitFactory.Type.TEMPERATURE, UnitFactory.Temperature.UNIT_CELSIUS);
+        values.put(UnitFactory.Type.SPEED, UnitFactory.Speed.UNIT_MS);
+        values.put(UnitFactory.Type.DIRECTION, UnitFactory.Direction.UNIT_DEGREES);
 
         unitController = new UnitController(values);
 
@@ -152,11 +155,11 @@ public class MainActivity extends FragmentActivity {
         menu.findItem(R.id.ab_btn_units).setVisible(!drawerOpen);
 
         if (expMenuBoolean) {
-            abMenu.findItem(R.id.ab_btn_start_run).setVisible(!drawerOpen);
-            abMenu.findItem(R.id.ab_btn_show_data).setVisible(!drawerOpen);
-            abMenu.findItem(R.id.ab_btn_save_online).setVisible(!drawerOpen);
-            abMenu.findItem(R.id.ab_btn_export).setVisible(!drawerOpen);
-            abMenu.findItem(R.id.ab_btn_close).setVisible(!drawerOpen);
+            menu.findItem(R.id.ab_btn_start_run).setVisible(!drawerOpen);
+            menu.findItem(R.id.ab_btn_show_data).setVisible(!drawerOpen);
+            menu.findItem(R.id.ab_btn_save_online).setVisible(!drawerOpen);
+            menu.findItem(R.id.ab_btn_export).setVisible(!drawerOpen);
+            menu.findItem(R.id.ab_btn_close).setVisible(!drawerOpen);
         }
 
         return super.onPrepareOptionsMenu(menu);
@@ -216,6 +219,16 @@ public class MainActivity extends FragmentActivity {
             case R.id.ab_btn_start_run:
                 break;
             case R.id.ab_btn_show_data:
+                //Start New Activity
+                Intent intent = new Intent(this, DataDetailActivity.class);
+
+                //Send Extra
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(Keys.BundleKeys.ExperimentController, experimentController);
+                bundle.putSerializable(Keys.BundleKeys.UnitController, unitController);
+                intent.putExtras(bundle);
+                this.startActivity(intent);
+
                 break;
             case R.id.ab_btn_save_online:
                 break;

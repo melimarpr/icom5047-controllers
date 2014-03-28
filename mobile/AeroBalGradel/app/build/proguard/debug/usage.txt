@@ -1,3 +1,25 @@
+android.support.v13.app.FragmentCompat
+android.support.v13.app.FragmentCompat$BaseFragmentCompatImpl
+android.support.v13.app.FragmentCompat$FragmentCompatImpl
+android.support.v13.app.FragmentCompat$ICSFragmentCompatImpl
+android.support.v13.app.FragmentCompat$ICSMR1FragmentCompatImpl
+android.support.v13.app.FragmentCompatICS
+android.support.v13.app.FragmentCompatICSMR1
+android.support.v13.app.FragmentPagerAdapter
+android.support.v13.app.FragmentStatePagerAdapter
+android.support.v13.app.FragmentTabHost:
+    private android.widget.FrameLayout mRealTabContent
+====    44:124:public FragmentTabHost(android.content.Context)
+====    44:129:public FragmentTabHost(android.content.Context,android.util.AttributeSet)
+====    132:138:private void initFragmentTabHost(android.content.Context,android.util.AttributeSet)
+====    143:166:private void ensureHierarchy(android.content.Context)
+====    180:185:public void setup(android.content.Context,android.app.FragmentManager)
+====    188:201:public void setup(android.content.Context,android.app.FragmentManager,int)
+====    204:211:private void ensureContent()
+====    219:238:public void addTab(android.widget.TabHost$TabSpec,java.lang.Class,android.os.Bundle)
+android.support.v13.app.FragmentTabHost$DummyTabFactory
+android.support.v13.app.FragmentTabHost$TabInfo:
+====    59:63:FragmentTabHost$TabInfo(java.lang.String,java.lang.Class,android.os.Bundle)
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat$AccessibilityServiceInfoIcsImpl
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat$AccessibilityServiceInfoJellyBeanMr2
@@ -100,7 +122,6 @@ android.support.v4.app.FragmentManagerImpl:
 ====    588:596:public android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
 android.support.v4.app.FragmentManagerImpl$2
 android.support.v4.app.FragmentManagerImpl$3
-android.support.v4.app.FragmentPagerAdapter
 android.support.v4.app.FragmentStatePagerAdapter
 android.support.v4.app.FragmentTabHost:
     private android.widget.FrameLayout mRealTabContent
@@ -466,12 +487,6 @@ android.support.v4.view.MotionEventCompat:
 ====    25:80:public MotionEventCompat()
 android.support.v4.view.MotionEventCompatEclair:
 ====    24:24:MotionEventCompatEclair()
-android.support.v4.view.PagerAdapter:
-    public static final int POSITION_UNCHANGED
-    public static final int POSITION_NONE
-====    78:79:public PagerAdapter()
-====    276:277:public void notifyDataSetChanged()
-====    307:307:public java.lang.CharSequence getPageTitle(int)
 android.support.v4.view.PagerTabStrip
 android.support.v4.view.PagerTabStrip$1
 android.support.v4.view.PagerTabStrip$2
@@ -636,11 +651,10 @@ android.support.v4.view.ViewCompatJellybeanMr1:
 ====    32:33:public static void setLabelFor(android.view.View,int)
 ====    44:45:public static void setLayoutDirection(android.view.View,int)
 android.support.v4.view.ViewCompatKitKat
-android.support.v4.view.ViewConfigurationCompat
-android.support.v4.view.ViewConfigurationCompat$BaseViewConfigurationVersionImpl
-android.support.v4.view.ViewConfigurationCompat$FroyoViewConfigurationVersionImpl
-android.support.v4.view.ViewConfigurationCompat$ViewConfigurationVersionImpl
-android.support.v4.view.ViewConfigurationCompatFroyo
+android.support.v4.view.ViewConfigurationCompat:
+====    25:46:public ViewConfigurationCompat()
+android.support.v4.view.ViewConfigurationCompatFroyo:
+====    24:24:ViewConfigurationCompatFroyo()
 android.support.v4.view.ViewGroupCompat:
     public static final int LAYOUT_MODE_CLIP_BOUNDS
     public static final int LAYOUT_MODE_OPTICAL_BOUNDS
@@ -684,9 +698,6 @@ android.support.v4.view.ViewPager:
     public static final int SCROLL_STATE_IDLE
     public static final int SCROLL_STATE_DRAGGING
     public static final int SCROLL_STATE_SETTLING
-====    130:346:public ViewPager(android.content.Context)
-====    130:351:public ViewPager(android.content.Context,android.util.AttributeSet)
-====    354:379:void initViewPager()
 ====    608:620:public void setPageTransformer(boolean,android.support.v4.view.ViewPager$PageTransformer)
 ====    654:656:android.support.v4.view.ViewPager$OnPageChangeListener setInternalPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)
 ====    778:779:void smoothScrollTo(int,int)
@@ -694,12 +705,6 @@ android.support.v4.view.ViewPager:
 ====    2299:2320:public void endFakeDrag()
 ====    2330:2368:public void fakeDragBy(float)
 ====    2380:2380:public boolean isFakeDragging()
-====    84:84:static synthetic void access$000(android.support.v4.view.ViewPager,int)
-====    84:84:static synthetic android.support.v4.view.PagerAdapter access$200(android.support.v4.view.ViewPager)
-====    84:84:static synthetic int access$300(android.support.v4.view.ViewPager)
-android.support.v4.view.ViewPager$3
-android.support.v4.view.ViewPager$MyAccessibilityDelegate
-android.support.v4.view.ViewPager$SimpleOnPageChangeListener
 android.support.v4.view.ViewParentCompat
 android.support.v4.view.ViewParentCompat$ViewParentCompatICSImpl
 android.support.v4.view.ViewParentCompat$ViewParentCompatImpl
@@ -771,7 +776,6 @@ android.support.v4.view.accessibility.AccessibilityNodeInfoCompat:
 ====    1501:1502:public void setCheckable(boolean)
 ====    1525:1526:public void setChecked(boolean)
 ====    1743:1744:public void setPassword(boolean)
-====    1767:1768:public void setScrollable(boolean)
 ====    1839:1840:public void setText(java.lang.CharSequence)
 ====    1889:1890:public void setViewIdResourceName(java.lang.String)
 ====    1927:1927:public int getLiveRegion()
@@ -788,7 +792,6 @@ android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityN
 ====    579:580:public void setCheckable(java.lang.Object,boolean)
 ====    584:585:public void setChecked(java.lang.Object,boolean)
 ====    634:635:public void setPassword(java.lang.Object,boolean)
-====    639:640:public void setScrollable(java.lang.Object,boolean)
 ====    654:655:public void setText(java.lang.Object,java.lang.CharSequence)
 android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityNodeInfoImpl:
 ====    public abstract java.lang.Object obtain()
@@ -811,7 +814,6 @@ android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityN
 ====    public abstract void setCheckable(java.lang.Object,boolean)
 ====    public abstract void setChecked(java.lang.Object,boolean)
 ====    public abstract void setPassword(java.lang.Object,boolean)
-====    public abstract void setScrollable(java.lang.Object,boolean)
 ====    public abstract void setText(java.lang.Object,java.lang.CharSequence)
 ====    public abstract void setViewIdResourceName(java.lang.Object,java.lang.String)
 ====    public abstract int getLiveRegion(java.lang.Object)
@@ -848,7 +850,6 @@ android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityN
 ====    293:293:public void setCheckable(java.lang.Object,boolean)
 ====    298:298:public void setChecked(java.lang.Object,boolean)
 ====    358:358:public void setPassword(java.lang.Object,boolean)
-====    363:363:public void setScrollable(java.lang.Object,boolean)
 ====    378:378:public void setSource(java.lang.Object,android.view.View,int)
 ====    382:382:public java.lang.Object findFocus(java.lang.Object,int)
 ====    387:387:public java.lang.Object focusSearch(java.lang.Object,int)
@@ -870,7 +871,6 @@ android.support.v4.view.accessibility.AccessibilityNodeInfoCompatIcs:
 ====    153:154:public static void setCheckable(java.lang.Object,boolean)
 ====    157:158:public static void setChecked(java.lang.Object,boolean)
 ====    197:198:public static void setPassword(java.lang.Object,boolean)
-====    201:202:public static void setScrollable(java.lang.Object,boolean)
 ====    213:214:public static void setText(java.lang.Object,java.lang.CharSequence)
 android.support.v4.view.accessibility.AccessibilityNodeInfoCompatJellyBean:
 ====    26:26:AccessibilityNodeInfoCompatJellyBean()
@@ -891,13 +891,215 @@ android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean:
 ====    28:29:AccessibilityNodeProviderCompatJellyBean()
 android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat:
 ====    28:29:AccessibilityNodeProviderCompatKitKat()
-android.support.v4.view.accessibility.AccessibilityRecordCompat
-android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordIcsImpl
-android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordIcsMr1Impl
-android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordImpl
-android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordJellyBeanImpl
-android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordStubImpl
-android.support.v4.view.accessibility.AccessibilityRecordCompatIcs
+android.support.v4.view.accessibility.AccessibilityRecordCompat:
+====    539:539:public java.lang.Object getImpl()
+====    550:550:public static android.support.v4.view.accessibility.AccessibilityRecordCompat obtain(android.support.v4.view.accessibility.AccessibilityRecordCompat)
+====    571:572:public void setSource(android.view.View)
+====    589:590:public void setSource(android.view.View,int)
+====    605:605:public android.support.v4.view.accessibility.AccessibilityNodeInfoCompat getSource()
+====    614:614:public int getWindowId()
+====    623:623:public boolean isChecked()
+====    634:635:public void setChecked(boolean)
+====    643:643:public boolean isEnabled()
+====    654:655:public void setEnabled(boolean)
+====    663:663:public boolean isPassword()
+====    674:675:public void setPassword(boolean)
+====    683:683:public boolean isFullScreen()
+====    694:695:public void setFullScreen(boolean)
+====    703:703:public boolean isScrollable()
+====    723:723:public int getItemCount()
+====    743:743:public int getCurrentItemIndex()
+====    754:755:public void setCurrentItemIndex(int)
+====    766:766:public int getFromIndex()
+====    790:790:public int getToIndex()
+====    809:809:public int getScrollX()
+====    818:819:public void setScrollX(int)
+====    827:827:public int getScrollY()
+====    836:837:public void setScrollY(int)
+====    845:845:public int getMaxScrollX()
+====    853:854:public void setMaxScrollX(int)
+====    862:862:public int getMaxScrollY()
+====    871:872:public void setMaxScrollY(int)
+====    880:880:public int getAddedCount()
+====    891:892:public void setAddedCount(int)
+====    900:900:public int getRemovedCount()
+====    911:912:public void setRemovedCount(int)
+====    920:920:public java.lang.CharSequence getClassName()
+====    931:932:public void setClassName(java.lang.CharSequence)
+====    941:941:public java.util.List getText()
+====    950:950:public java.lang.CharSequence getBeforeText()
+====    961:962:public void setBeforeText(java.lang.CharSequence)
+====    970:970:public java.lang.CharSequence getContentDescription()
+====    981:982:public void setContentDescription(java.lang.CharSequence)
+====    990:990:public android.os.Parcelable getParcelableData()
+====    1001:1002:public void setParcelableData(android.os.Parcelable)
+====    1014:1015:public void recycle()
+android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordIcsImpl:
+====    276:276:public java.lang.Object obtain(java.lang.Object)
+====    281:281:public int getAddedCount(java.lang.Object)
+====    286:286:public java.lang.CharSequence getBeforeText(java.lang.Object)
+====    291:291:public java.lang.CharSequence getClassName(java.lang.Object)
+====    296:296:public java.lang.CharSequence getContentDescription(java.lang.Object)
+====    301:301:public int getCurrentItemIndex(java.lang.Object)
+====    306:306:public int getFromIndex(java.lang.Object)
+====    311:311:public int getItemCount(java.lang.Object)
+====    316:316:public android.os.Parcelable getParcelableData(java.lang.Object)
+====    321:321:public int getRemovedCount(java.lang.Object)
+====    326:326:public int getScrollX(java.lang.Object)
+====    331:331:public int getScrollY(java.lang.Object)
+====    336:336:public android.support.v4.view.accessibility.AccessibilityNodeInfoCompat getSource(java.lang.Object)
+====    342:342:public java.util.List getText(java.lang.Object)
+====    347:347:public int getToIndex(java.lang.Object)
+====    352:352:public int getWindowId(java.lang.Object)
+====    357:357:public boolean isChecked(java.lang.Object)
+====    362:362:public boolean isEnabled(java.lang.Object)
+====    367:367:public boolean isFullScreen(java.lang.Object)
+====    372:372:public boolean isPassword(java.lang.Object)
+====    377:377:public boolean isScrollable(java.lang.Object)
+====    382:383:public void recycle(java.lang.Object)
+====    387:388:public void setAddedCount(java.lang.Object,int)
+====    392:393:public void setBeforeText(java.lang.Object,java.lang.CharSequence)
+====    397:398:public void setChecked(java.lang.Object,boolean)
+====    402:403:public void setClassName(java.lang.Object,java.lang.CharSequence)
+====    407:408:public void setContentDescription(java.lang.Object,java.lang.CharSequence)
+====    412:413:public void setCurrentItemIndex(java.lang.Object,int)
+====    417:418:public void setEnabled(java.lang.Object,boolean)
+====    427:428:public void setFullScreen(java.lang.Object,boolean)
+====    437:438:public void setParcelableData(java.lang.Object,android.os.Parcelable)
+====    442:443:public void setPassword(java.lang.Object,boolean)
+====    447:448:public void setRemovedCount(java.lang.Object,int)
+====    452:453:public void setScrollX(java.lang.Object,int)
+====    457:458:public void setScrollY(java.lang.Object,int)
+====    467:468:public void setSource(java.lang.Object,android.view.View)
+android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordIcsMr1Impl:
+====    479:479:public int getMaxScrollX(java.lang.Object)
+====    484:484:public int getMaxScrollY(java.lang.Object)
+====    489:490:public void setMaxScrollX(java.lang.Object,int)
+====    494:495:public void setMaxScrollY(java.lang.Object,int)
+android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordImpl:
+====    public abstract java.lang.Object obtain(java.lang.Object)
+====    public abstract void setSource(java.lang.Object,android.view.View)
+====    public abstract void setSource(java.lang.Object,android.view.View,int)
+====    public abstract android.support.v4.view.accessibility.AccessibilityNodeInfoCompat getSource(java.lang.Object)
+====    public abstract int getWindowId(java.lang.Object)
+====    public abstract boolean isChecked(java.lang.Object)
+====    public abstract void setChecked(java.lang.Object,boolean)
+====    public abstract boolean isEnabled(java.lang.Object)
+====    public abstract void setEnabled(java.lang.Object,boolean)
+====    public abstract boolean isPassword(java.lang.Object)
+====    public abstract void setPassword(java.lang.Object,boolean)
+====    public abstract boolean isFullScreen(java.lang.Object)
+====    public abstract void setFullScreen(java.lang.Object,boolean)
+====    public abstract boolean isScrollable(java.lang.Object)
+====    public abstract int getItemCount(java.lang.Object)
+====    public abstract int getCurrentItemIndex(java.lang.Object)
+====    public abstract void setCurrentItemIndex(java.lang.Object,int)
+====    public abstract int getFromIndex(java.lang.Object)
+====    public abstract int getToIndex(java.lang.Object)
+====    public abstract int getScrollX(java.lang.Object)
+====    public abstract void setScrollX(java.lang.Object,int)
+====    public abstract int getScrollY(java.lang.Object)
+====    public abstract void setScrollY(java.lang.Object,int)
+====    public abstract int getMaxScrollX(java.lang.Object)
+====    public abstract void setMaxScrollX(java.lang.Object,int)
+====    public abstract int getMaxScrollY(java.lang.Object)
+====    public abstract void setMaxScrollY(java.lang.Object,int)
+====    public abstract int getAddedCount(java.lang.Object)
+====    public abstract void setAddedCount(java.lang.Object,int)
+====    public abstract int getRemovedCount(java.lang.Object)
+====    public abstract void setRemovedCount(java.lang.Object,int)
+====    public abstract java.lang.CharSequence getClassName(java.lang.Object)
+====    public abstract void setClassName(java.lang.Object,java.lang.CharSequence)
+====    public abstract java.util.List getText(java.lang.Object)
+====    public abstract java.lang.CharSequence getBeforeText(java.lang.Object)
+====    public abstract void setBeforeText(java.lang.Object,java.lang.CharSequence)
+====    public abstract java.lang.CharSequence getContentDescription(java.lang.Object)
+====    public abstract void setContentDescription(java.lang.Object,java.lang.CharSequence)
+====    public abstract android.os.Parcelable getParcelableData(java.lang.Object)
+====    public abstract void setParcelableData(java.lang.Object,android.os.Parcelable)
+====    public abstract void recycle(java.lang.Object)
+android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordJellyBeanImpl:
+====    501:502:public void setSource(java.lang.Object,android.view.View,int)
+android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordStubImpl:
+====    88:88:public java.lang.Object obtain(java.lang.Object)
+====    92:92:public int getAddedCount(java.lang.Object)
+====    96:96:public java.lang.CharSequence getBeforeText(java.lang.Object)
+====    100:100:public java.lang.CharSequence getClassName(java.lang.Object)
+====    104:104:public java.lang.CharSequence getContentDescription(java.lang.Object)
+====    108:108:public int getCurrentItemIndex(java.lang.Object)
+====    112:112:public int getFromIndex(java.lang.Object)
+====    116:116:public int getItemCount(java.lang.Object)
+====    120:120:public int getMaxScrollX(java.lang.Object)
+====    124:124:public int getMaxScrollY(java.lang.Object)
+====    128:128:public android.os.Parcelable getParcelableData(java.lang.Object)
+====    132:132:public int getRemovedCount(java.lang.Object)
+====    136:136:public int getScrollX(java.lang.Object)
+====    140:140:public int getScrollY(java.lang.Object)
+====    144:144:public android.support.v4.view.accessibility.AccessibilityNodeInfoCompat getSource(java.lang.Object)
+====    148:148:public java.util.List getText(java.lang.Object)
+====    152:152:public int getToIndex(java.lang.Object)
+====    156:156:public int getWindowId(java.lang.Object)
+====    160:160:public boolean isChecked(java.lang.Object)
+====    164:164:public boolean isEnabled(java.lang.Object)
+====    168:168:public boolean isFullScreen(java.lang.Object)
+====    172:172:public boolean isPassword(java.lang.Object)
+====    176:176:public boolean isScrollable(java.lang.Object)
+====    181:181:public void recycle(java.lang.Object)
+====    185:185:public void setAddedCount(java.lang.Object,int)
+====    189:189:public void setBeforeText(java.lang.Object,java.lang.CharSequence)
+====    193:193:public void setChecked(java.lang.Object,boolean)
+====    197:197:public void setClassName(java.lang.Object,java.lang.CharSequence)
+====    201:201:public void setContentDescription(java.lang.Object,java.lang.CharSequence)
+====    205:205:public void setCurrentItemIndex(java.lang.Object,int)
+====    209:209:public void setEnabled(java.lang.Object,boolean)
+====    217:217:public void setFullScreen(java.lang.Object,boolean)
+====    225:225:public void setMaxScrollX(java.lang.Object,int)
+====    229:229:public void setMaxScrollY(java.lang.Object,int)
+====    233:233:public void setParcelableData(java.lang.Object,android.os.Parcelable)
+====    237:237:public void setPassword(java.lang.Object,boolean)
+====    241:241:public void setRemovedCount(java.lang.Object,int)
+====    245:245:public void setScrollX(java.lang.Object,int)
+====    249:249:public void setScrollY(java.lang.Object,int)
+====    257:257:public void setSource(java.lang.Object,android.view.View)
+====    261:261:public void setSource(java.lang.Object,android.view.View,int)
+android.support.v4.view.accessibility.AccessibilityRecordCompatIcs:
+====    28:28:AccessibilityRecordCompatIcs()
+====    35:35:public static java.lang.Object obtain(java.lang.Object)
+====    39:39:public static int getAddedCount(java.lang.Object)
+====    43:43:public static java.lang.CharSequence getBeforeText(java.lang.Object)
+====    47:47:public static java.lang.CharSequence getClassName(java.lang.Object)
+====    51:51:public static java.lang.CharSequence getContentDescription(java.lang.Object)
+====    55:55:public static int getCurrentItemIndex(java.lang.Object)
+====    59:59:public static int getFromIndex(java.lang.Object)
+====    63:63:public static int getItemCount(java.lang.Object)
+====    67:67:public static android.os.Parcelable getParcelableData(java.lang.Object)
+====    71:71:public static int getRemovedCount(java.lang.Object)
+====    75:75:public static int getScrollX(java.lang.Object)
+====    79:79:public static int getScrollY(java.lang.Object)
+====    83:83:public static java.lang.Object getSource(java.lang.Object)
+====    87:87:public static java.util.List getText(java.lang.Object)
+====    91:91:public static int getToIndex(java.lang.Object)
+====    95:95:public static int getWindowId(java.lang.Object)
+====    99:99:public static boolean isChecked(java.lang.Object)
+====    103:103:public static boolean isEnabled(java.lang.Object)
+====    107:107:public static boolean isFullScreen(java.lang.Object)
+====    111:111:public static boolean isPassword(java.lang.Object)
+====    115:115:public static boolean isScrollable(java.lang.Object)
+====    119:120:public static void recycle(java.lang.Object)
+====    123:124:public static void setAddedCount(java.lang.Object,int)
+====    127:128:public static void setBeforeText(java.lang.Object,java.lang.CharSequence)
+====    131:132:public static void setChecked(java.lang.Object,boolean)
+====    135:136:public static void setClassName(java.lang.Object,java.lang.CharSequence)
+====    139:140:public static void setContentDescription(java.lang.Object,java.lang.CharSequence)
+====    143:144:public static void setCurrentItemIndex(java.lang.Object,int)
+====    147:148:public static void setEnabled(java.lang.Object,boolean)
+====    155:156:public static void setFullScreen(java.lang.Object,boolean)
+====    163:164:public static void setParcelableData(java.lang.Object,android.os.Parcelable)
+====    167:168:public static void setPassword(java.lang.Object,boolean)
+====    171:172:public static void setRemovedCount(java.lang.Object,int)
+====    175:176:public static void setScrollX(java.lang.Object,int)
+====    179:180:public static void setScrollY(java.lang.Object,int)
+====    187:188:public static void setSource(java.lang.Object,android.view.View)
 android.support.v4.view.accessibility.AccessibilityRecordCompatIcsMr1
 android.support.v4.view.accessibility.AccessibilityRecordCompatJellyBean
 android.support.v4.widget.AutoScrollHelper
@@ -937,20 +1139,15 @@ android.support.v4.widget.DrawerLayout$LayoutParams:
 ====    1509:1511:public DrawerLayout$LayoutParams(int,int,int)
 android.support.v4.widget.DrawerLayout$SimpleDrawerListener
 android.support.v4.widget.EdgeEffectCompat:
-====    132:134:public EdgeEffectCompat(android.content.Context)
 ====    204:204:public boolean onAbsorb(int)
 android.support.v4.widget.EdgeEffectCompat$BaseEdgeEffectImpl:
-====    60:60:public java.lang.Object newEdgeEffect(android.content.Context)
 ====    82:82:public boolean onAbsorb(java.lang.Object,int)
 android.support.v4.widget.EdgeEffectCompat$EdgeEffectIcsImpl:
-====    92:92:public java.lang.Object newEdgeEffect(android.content.Context)
 ====    116:116:public boolean onAbsorb(java.lang.Object,int)
 android.support.v4.widget.EdgeEffectCompat$EdgeEffectImpl:
-====    public abstract java.lang.Object newEdgeEffect(android.content.Context)
 ====    public abstract boolean onAbsorb(java.lang.Object,int)
 android.support.v4.widget.EdgeEffectCompatIcs:
 ====    28:28:EdgeEffectCompatIcs()
-====    30:30:public static java.lang.Object newEdgeEffect(android.content.Context)
 ====    57:58:public static boolean onAbsorb(java.lang.Object,int)
 android.support.v4.widget.ExploreByTouchHelper
 android.support.v4.widget.ExploreByTouchHelper$1

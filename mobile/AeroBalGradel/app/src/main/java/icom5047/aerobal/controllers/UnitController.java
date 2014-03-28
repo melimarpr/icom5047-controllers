@@ -1,7 +1,7 @@
 package icom5047.aerobal.controllers;
 
-import android.util.SparseArray;
-
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 import icom5047.aerobal.dialog.UnitsDialog;
@@ -10,14 +10,14 @@ import icom5047.aerobal.interfaces.AeroCallback;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
 
-public class UnitController {
+public class UnitController implements Serializable{
 
-    private SparseArray<Integer> currValues;
-    private SparseArray<Integer> defaults;
+    private HashMap<Integer, Integer> currValues;
+    private HashMap<Integer, Integer> defaults;
 
 
-    public UnitController(SparseArray<Integer> defaults) {
-        currValues = defaults.clone();
+    public UnitController(HashMap<Integer, Integer> defaults) {
+        currValues = new HashMap<Integer, Integer>(defaults);
         this.defaults = defaults;
 
     }
@@ -80,11 +80,11 @@ public class UnitController {
 
 
     public void setDefaults() {
-        this.currValues = defaults.clone();
+        this.currValues = new HashMap<Integer, Integer>(defaults);
     }
 
     public void setCurrentType(int type, int value) {
-        this.currValues.setValueAt(type, value);
+        this.currValues.put(type, value);
     }
 
     public Integer getCurrentType(int type) {
@@ -93,7 +93,7 @@ public class UnitController {
 
 
     public UnitsDialog getDialog(final AeroCallback refreshCallback) {
-        UnitsDialog ud = UnitsDialog.getUnitsDialog(this, new AeroCallback() {
+        return UnitsDialog.getUnitsDialog(this, new AeroCallback() {
 
             @Override
             public void callback(Map<String, Object> objectMap) {
@@ -115,7 +115,6 @@ public class UnitController {
                 refreshCallback.callback(null);
             }
         });
-        return ud;
     }
 
 

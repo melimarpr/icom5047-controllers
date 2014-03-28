@@ -1,3 +1,6 @@
+android.support.v13.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
+android.support.v13.app.FragmentTabHost$SavedState
+android.support.v13.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.ActionBarDrawerToggle: android.support.v4.app.ActionBarDrawerToggle$ActionBarDrawerToggleImpl IMPL
 android.support.v4.app.ActionBarDrawerToggle: float TOGGLE_DRAWABLE_OFFSET
 android.support.v4.app.ActionBarDrawerToggle: int ID_HOME
@@ -279,6 +282,23 @@ android.support.v4.app.FragmentActivity: android.support.v4.app.LoaderManager ge
 android.support.v4.app.FragmentActivity: android.support.v4.app.LoaderManagerImpl getLoaderManager(java.lang.String,boolean,boolean)
 android.support.v4.app.FragmentManagerState
 android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentPagerAdapter: java.lang.String TAG
+android.support.v4.app.FragmentPagerAdapter: boolean DEBUG
+android.support.v4.app.FragmentPagerAdapter: android.support.v4.app.FragmentManager mFragmentManager
+android.support.v4.app.FragmentPagerAdapter: android.support.v4.app.FragmentTransaction mCurTransaction
+android.support.v4.app.FragmentPagerAdapter: android.support.v4.app.Fragment mCurrentPrimaryItem
+android.support.v4.app.FragmentPagerAdapter: FragmentPagerAdapter(android.support.v4.app.FragmentManager)
+android.support.v4.app.FragmentPagerAdapter: android.support.v4.app.Fragment getItem(int)
+android.support.v4.app.FragmentPagerAdapter: void startUpdate(android.view.ViewGroup)
+android.support.v4.app.FragmentPagerAdapter: java.lang.Object instantiateItem(android.view.ViewGroup,int)
+android.support.v4.app.FragmentPagerAdapter: void destroyItem(android.view.ViewGroup,int,java.lang.Object)
+android.support.v4.app.FragmentPagerAdapter: void setPrimaryItem(android.view.ViewGroup,int,java.lang.Object)
+android.support.v4.app.FragmentPagerAdapter: void finishUpdate(android.view.ViewGroup)
+android.support.v4.app.FragmentPagerAdapter: boolean isViewFromObject(android.view.View,java.lang.Object)
+android.support.v4.app.FragmentPagerAdapter: android.os.Parcelable saveState()
+android.support.v4.app.FragmentPagerAdapter: void restoreState(android.os.Parcelable,java.lang.ClassLoader)
+android.support.v4.app.FragmentPagerAdapter: long getItemId(int)
+android.support.v4.app.FragmentPagerAdapter: java.lang.String makeFragmentName(int,long)
 android.support.v4.app.FragmentState
 android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
 android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
@@ -286,6 +306,30 @@ android.support.v4.app.FragmentTabHost$SavedState
 android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
+android.support.v4.view.PagerAdapter: android.database.DataSetObservable mObservable
+android.support.v4.view.PagerAdapter: int POSITION_UNCHANGED
+android.support.v4.view.PagerAdapter: int POSITION_NONE
+android.support.v4.view.PagerAdapter: PagerAdapter()
+android.support.v4.view.PagerAdapter: int getCount()
+android.support.v4.view.PagerAdapter: void startUpdate(android.view.ViewGroup)
+android.support.v4.view.PagerAdapter: java.lang.Object instantiateItem(android.view.ViewGroup,int)
+android.support.v4.view.PagerAdapter: void destroyItem(android.view.ViewGroup,int,java.lang.Object)
+android.support.v4.view.PagerAdapter: void setPrimaryItem(android.view.ViewGroup,int,java.lang.Object)
+android.support.v4.view.PagerAdapter: void finishUpdate(android.view.ViewGroup)
+android.support.v4.view.PagerAdapter: void startUpdate(android.view.View)
+android.support.v4.view.PagerAdapter: java.lang.Object instantiateItem(android.view.View,int)
+android.support.v4.view.PagerAdapter: void destroyItem(android.view.View,int,java.lang.Object)
+android.support.v4.view.PagerAdapter: void setPrimaryItem(android.view.View,int,java.lang.Object)
+android.support.v4.view.PagerAdapter: void finishUpdate(android.view.View)
+android.support.v4.view.PagerAdapter: boolean isViewFromObject(android.view.View,java.lang.Object)
+android.support.v4.view.PagerAdapter: android.os.Parcelable saveState()
+android.support.v4.view.PagerAdapter: void restoreState(android.os.Parcelable,java.lang.ClassLoader)
+android.support.v4.view.PagerAdapter: int getItemPosition(java.lang.Object)
+android.support.v4.view.PagerAdapter: void notifyDataSetChanged()
+android.support.v4.view.PagerAdapter: void registerDataSetObserver(android.database.DataSetObserver)
+android.support.v4.view.PagerAdapter: void unregisterDataSetObserver(android.database.DataSetObserver)
+android.support.v4.view.PagerAdapter: java.lang.CharSequence getPageTitle(int)
+android.support.v4.view.PagerAdapter: float getPageWidth(int)
 android.support.v4.view.PagerTabStrip: void setTabIndicatorColor(int)
 android.support.v4.view.PagerTabStrip: void setTabIndicatorColorResource(int)
 android.support.v4.view.PagerTabStrip: int getTabIndicatorColor()
@@ -303,6 +347,9 @@ android.support.v4.view.PagerTitleStrip: void setNonPrimaryAlpha(float)
 android.support.v4.view.PagerTitleStrip: void setTextColor(int)
 android.support.v4.view.PagerTitleStrip: void setGravity(int)
 android.support.v4.view.PagerTitleStrip: int getMinHeight()
+android.support.v4.view.ViewPager
+android.support.v4.view.ViewPager: ViewPager(android.content.Context)
+android.support.v4.view.ViewPager: ViewPager(android.content.Context,android.util.AttributeSet)
 android.support.v4.view.ViewPager: void setScrollState(int)
 android.support.v4.view.ViewPager: void setAdapter(android.support.v4.view.PagerAdapter)
 android.support.v4.view.ViewPager: android.support.v4.view.PagerAdapter getAdapter()
@@ -321,6 +368,10 @@ android.support.v4.view.ViewPager: void setPageMarginDrawable(int)
 android.support.v4.view.ViewPager: void setScrollingCacheEnabled(boolean)
 android.support.v4.view.ViewPager$SavedState
 android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.view.ViewPager$SimpleOnPageChangeListener: ViewPager$SimpleOnPageChangeListener()
+android.support.v4.view.ViewPager$SimpleOnPageChangeListener: void onPageScrolled(int,float,int)
+android.support.v4.view.ViewPager$SimpleOnPageChangeListener: void onPageSelected(int)
+android.support.v4.view.ViewPager$SimpleOnPageChangeListener: void onPageScrollStateChanged(int)
 android.support.v4.widget.DrawerLayout
 android.support.v4.widget.DrawerLayout: DrawerLayout(android.content.Context)
 android.support.v4.widget.DrawerLayout: DrawerLayout(android.content.Context,android.util.AttributeSet)
@@ -361,6 +412,37 @@ icom5047.aerobal.activities.BuildConfig: java.lang.String FLAVOR
 icom5047.aerobal.activities.BuildConfig: int VERSION_CODE
 icom5047.aerobal.activities.BuildConfig: BuildConfig()
 icom5047.aerobal.activities.BuildConfig: void <clinit>()
+icom5047.aerobal.activities.DataDetailActivity
+icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.activities.DataDetailActivity$SectionsPagerAdapter mSectionsPagerAdapter
+icom5047.aerobal.activities.DataDetailActivity: android.support.v4.view.ViewPager mViewPager
+icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.controllers.ExperimentController experimentController
+icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.controllers.UnitController unitController
+icom5047.aerobal.activities.DataDetailActivity: DataDetailActivity()
+icom5047.aerobal.activities.DataDetailActivity: void onCreate(android.os.Bundle)
+icom5047.aerobal.activities.DataDetailActivity: int generatePositionForSpinner(int)
+icom5047.aerobal.activities.DataDetailActivity: boolean onOptionsItemSelected(android.view.MenuItem)
+icom5047.aerobal.activities.DataDetailActivity: void onTabSelected(android.app.ActionBar$Tab,android.app.FragmentTransaction)
+icom5047.aerobal.activities.DataDetailActivity: void onTabUnselected(android.app.ActionBar$Tab,android.app.FragmentTransaction)
+icom5047.aerobal.activities.DataDetailActivity: void onTabReselected(android.app.ActionBar$Tab,android.app.FragmentTransaction)
+icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.controllers.ExperimentController getExperimentController()
+icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.controllers.UnitController getUnitController()
+icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.controllers.ExperimentController access$000(icom5047.aerobal.activities.DataDetailActivity)
+icom5047.aerobal.activities.DataDetailActivity$1
+icom5047.aerobal.activities.DataDetailActivity$1: android.app.ActionBar val$actionBar
+icom5047.aerobal.activities.DataDetailActivity$1: icom5047.aerobal.activities.DataDetailActivity this$0
+icom5047.aerobal.activities.DataDetailActivity$1: DataDetailActivity$1(icom5047.aerobal.activities.DataDetailActivity,android.app.ActionBar)
+icom5047.aerobal.activities.DataDetailActivity$1: void onPageSelected(int)
+icom5047.aerobal.activities.DataDetailActivity$2
+icom5047.aerobal.activities.DataDetailActivity$2: icom5047.aerobal.activities.DataDetailActivity this$0
+icom5047.aerobal.activities.DataDetailActivity$2: DataDetailActivity$2(icom5047.aerobal.activities.DataDetailActivity)
+icom5047.aerobal.activities.DataDetailActivity$2: void onItemSelected(android.widget.AdapterView,android.view.View,int,long)
+icom5047.aerobal.activities.DataDetailActivity$2: void onNothingSelected(android.widget.AdapterView)
+icom5047.aerobal.activities.DataDetailActivity$SectionsPagerAdapter
+icom5047.aerobal.activities.DataDetailActivity$SectionsPagerAdapter: icom5047.aerobal.activities.DataDetailActivity this$0
+icom5047.aerobal.activities.DataDetailActivity$SectionsPagerAdapter: DataDetailActivity$SectionsPagerAdapter(icom5047.aerobal.activities.DataDetailActivity,android.support.v4.app.FragmentManager)
+icom5047.aerobal.activities.DataDetailActivity$SectionsPagerAdapter: android.support.v4.app.Fragment getItem(int)
+icom5047.aerobal.activities.DataDetailActivity$SectionsPagerAdapter: int getCount()
+icom5047.aerobal.activities.DataDetailActivity$SectionsPagerAdapter: java.lang.CharSequence getPageTitle(int)
 icom5047.aerobal.activities.LoginActivity
 icom5047.aerobal.activities.LoginActivity: LoginActivity()
 icom5047.aerobal.activities.LoginActivity: void onCreate(android.os.Bundle)
@@ -473,6 +555,8 @@ icom5047.aerobal.activities.R$id: int dialog_lv_bt_empty
 icom5047.aerobal.activities.R$id: int dialog_lv_bt_selector
 icom5047.aerobal.activities.R$id: int drawer_layout
 icom5047.aerobal.activities.R$id: int drawer_list
+icom5047.aerobal.activities.R$id: int fragDataSumList
+icom5047.aerobal.activities.R$id: int fragDataSumSpinner
 icom5047.aerobal.activities.R$id: int fragExpSumListView
 icom5047.aerobal.activities.R$id: int fragExpSumParams
 icom5047.aerobal.activities.R$id: int fragExpSumSampleValue
@@ -483,30 +567,39 @@ icom5047.aerobal.activities.R$id: int fragExpSumTittle
 icom5047.aerobal.activities.R$id: int fragExpSumWindSpeedUnits
 icom5047.aerobal.activities.R$id: int fragExpSumWindSpeedValue
 icom5047.aerobal.activities.R$id: int frag_experiment_summary
+icom5047.aerobal.activities.R$id: int pager
 icom5047.aerobal.activities.R$id: int rowAve3UnitUnit
 icom5047.aerobal.activities.R$id: int rowAveUnitTitle
 icom5047.aerobal.activities.R$id: int rowAveUnitValue
 icom5047.aerobal.activities.R$id: int row_dialog_bt_ip
 icom5047.aerobal.activities.R$id: int row_dialog_bt_name
 icom5047.aerobal.activities.R$id: int row_drawer_tv
+icom5047.aerobal.activities.R$id: int section_label
 icom5047.aerobal.activities.R$id: int selector_drawer
+icom5047.aerobal.activities.R$id: int spinnerWhiteItem
 icom5047.aerobal.activities.R$id: int textView1
 icom5047.aerobal.activities.R$id: R$id()
 icom5047.aerobal.activities.R$layout
+icom5047.aerobal.activities.R$layout: int activity_data_detail
 icom5047.aerobal.activities.R$layout: int activity_login
 icom5047.aerobal.activities.R$layout: int activity_main
 icom5047.aerobal.activities.R$layout: int dialog_bluetooth_list
 icom5047.aerobal.activities.R$layout: int dialog_edit_text
 icom5047.aerobal.activities.R$layout: int dialog_new_experiment
 icom5047.aerobal.activities.R$layout: int dialog_units
+icom5047.aerobal.activities.R$layout: int fragment_data_detail
+icom5047.aerobal.activities.R$layout: int fragment_data_summary
 icom5047.aerobal.activities.R$layout: int fragment_experiment_empty
 icom5047.aerobal.activities.R$layout: int fragment_experiment_summary
 icom5047.aerobal.activities.R$layout: int row_average_2_unit_lv
 icom5047.aerobal.activities.R$layout: int row_average_3_unit_lv
 icom5047.aerobal.activities.R$layout: int row_dialog_bt_lv
 icom5047.aerobal.activities.R$layout: int row_drawer_lv
+icom5047.aerobal.activities.R$layout: int spinner_action_bar
+icom5047.aerobal.activities.R$layout: int spinner_white_item
 icom5047.aerobal.activities.R$layout: R$layout()
 icom5047.aerobal.activities.R$menu
+icom5047.aerobal.activities.R$menu: int data_detail
 icom5047.aerobal.activities.R$menu: int login
 icom5047.aerobal.activities.R$menu: int main_menu
 icom5047.aerobal.activities.R$menu: R$menu()
@@ -560,6 +653,7 @@ icom5047.aerobal.activities.R$string: int placeholder_menu_option
 icom5047.aerobal.activities.R$string: int placeholder_title
 icom5047.aerobal.activities.R$string: int placeholder_units
 icom5047.aerobal.activities.R$string: int save
+icom5047.aerobal.activities.R$string: int title_activity_data_detail
 icom5047.aerobal.activities.R$string: int title_activity_login
 icom5047.aerobal.activities.R$string: int title_actvity_main_menu
 icom5047.aerobal.activities.R$string: int title_dialog_bt_disconenct
@@ -568,6 +662,9 @@ icom5047.aerobal.activities.R$string: int title_dialog_new_experiment
 icom5047.aerobal.activities.R$string: int title_dialog_open_experiment
 icom5047.aerobal.activities.R$string: int title_dialog_save_exp_name
 icom5047.aerobal.activities.R$string: int title_dialog_units
+icom5047.aerobal.activities.R$string: int title_fragment_data_graph
+icom5047.aerobal.activities.R$string: int title_fragment_data_raw
+icom5047.aerobal.activities.R$string: int title_fragment_data_summary
 icom5047.aerobal.activities.R$string: int toast_invalid_exp_interval_empty
 icom5047.aerobal.activities.R$string: int toast_invalid_exp_interval_max
 icom5047.aerobal.activities.R$string: int toast_invalid_exp_interval_min
@@ -589,6 +686,12 @@ icom5047.aerobal.activities.R$style: R$style()
 icom5047.aerobal.adapters.DrawerAdapter
 icom5047.aerobal.adapters.DrawerAdapter: DrawerAdapter(android.content.Context,java.util.List)
 icom5047.aerobal.adapters.DrawerAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
+icom5047.aerobal.containers.SpinnerContainer
+icom5047.aerobal.containers.SpinnerContainer: int spinnerIndex
+icom5047.aerobal.containers.SpinnerContainer: int index
+icom5047.aerobal.containers.SpinnerContainer: java.lang.String name
+icom5047.aerobal.containers.SpinnerContainer: SpinnerContainer(int,int,java.lang.String)
+icom5047.aerobal.containers.SpinnerContainer: java.lang.String toString()
 icom5047.aerobal.controllers.BluetoothController
 icom5047.aerobal.controllers.BluetoothController: android.content.Context context
 icom5047.aerobal.controllers.BluetoothController: int REQUEST_ENABLE_BT
@@ -613,16 +716,25 @@ icom5047.aerobal.controllers.BluetoothController$1: icom5047.aerobal.controllers
 icom5047.aerobal.controllers.BluetoothController$1: BluetoothController$1(icom5047.aerobal.controllers.BluetoothController,android.view.MenuItem)
 icom5047.aerobal.controllers.BluetoothController$1: void callback(java.util.Map)
 icom5047.aerobal.controllers.ExperimentController
+icom5047.aerobal.controllers.ExperimentController: int ALL_RUNS
+icom5047.aerobal.controllers.ExperimentController: java.lang.String ALL_RUNS_STRING
 icom5047.aerobal.controllers.ExperimentController: com.aerobal.data.objects.Experiment experiment
-icom5047.aerobal.controllers.ExperimentController: android.content.Context context
-icom5047.aerobal.controllers.ExperimentController: ExperimentController(android.content.Context)
+icom5047.aerobal.controllers.ExperimentController: icom5047.aerobal.containers.SpinnerContainer activeRun
+icom5047.aerobal.controllers.ExperimentController: icom5047.aerobal.containers.SpinnerContainer activeMeasurement
+icom5047.aerobal.controllers.ExperimentController: ExperimentController()
 icom5047.aerobal.controllers.ExperimentController: void setExperiment(com.aerobal.data.objects.Experiment)
 icom5047.aerobal.controllers.ExperimentController: boolean isExperimentSet()
 icom5047.aerobal.controllers.ExperimentController: com.aerobal.data.objects.Experiment getExperiment()
+icom5047.aerobal.controllers.ExperimentController: java.util.List getRunsListSpinner()
+icom5047.aerobal.controllers.ExperimentController: icom5047.aerobal.containers.SpinnerContainer getActiveRun()
+icom5047.aerobal.controllers.ExperimentController: icom5047.aerobal.containers.SpinnerContainer getActiveMeasurementValue()
+icom5047.aerobal.controllers.ExperimentController: void setActiveRun(icom5047.aerobal.containers.SpinnerContainer)
+icom5047.aerobal.controllers.ExperimentController: void setActiveMeasurement(icom5047.aerobal.containers.SpinnerContainer)
+icom5047.aerobal.controllers.ExperimentController: void <clinit>()
 icom5047.aerobal.controllers.UnitController
-icom5047.aerobal.controllers.UnitController: android.util.SparseArray currValues
-icom5047.aerobal.controllers.UnitController: android.util.SparseArray defaults
-icom5047.aerobal.controllers.UnitController: UnitController(android.util.SparseArray)
+icom5047.aerobal.controllers.UnitController: java.util.HashMap currValues
+icom5047.aerobal.controllers.UnitController: java.util.HashMap defaults
+icom5047.aerobal.controllers.UnitController: UnitController(java.util.HashMap)
 icom5047.aerobal.controllers.UnitController: java.lang.String getCurrentPressureUnit()
 icom5047.aerobal.controllers.UnitController: java.lang.String getCurrentForceUnit()
 icom5047.aerobal.controllers.UnitController: java.lang.String getCurrentHumidityUnit()
@@ -761,6 +873,21 @@ icom5047.aerobal.exceptions.InvalidUnitException: InvalidUnitException()
 icom5047.aerobal.exceptions.InvalidUnitException: InvalidUnitException(java.lang.String)
 icom5047.aerobal.exceptions.InvalidUnitException: InvalidUnitException(java.lang.Throwable)
 icom5047.aerobal.exceptions.InvalidUnitException: InvalidUnitException(java.lang.String,java.lang.Throwable)
+icom5047.aerobal.fragments.DataGraphFragment
+icom5047.aerobal.fragments.DataGraphFragment: DataGraphFragment()
+icom5047.aerobal.fragments.DataRawDataFragment
+icom5047.aerobal.fragments.DataRawDataFragment: DataRawDataFragment()
+icom5047.aerobal.fragments.DataSummaryFragment
+icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.controllers.ExperimentController experimentController
+icom5047.aerobal.fragments.DataSummaryFragment: DataSummaryFragment()
+icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.fragments.DataSummaryFragment getInstance(icom5047.aerobal.controllers.ExperimentController)
+icom5047.aerobal.fragments.DataSummaryFragment: void setExperimentController(icom5047.aerobal.controllers.ExperimentController)
+icom5047.aerobal.fragments.DataSummaryFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
+icom5047.aerobal.fragments.DataSummaryFragment$1
+icom5047.aerobal.fragments.DataSummaryFragment$1: icom5047.aerobal.fragments.DataSummaryFragment this$0
+icom5047.aerobal.fragments.DataSummaryFragment$1: DataSummaryFragment$1(icom5047.aerobal.fragments.DataSummaryFragment)
+icom5047.aerobal.fragments.DataSummaryFragment$1: void onItemSelected(android.widget.AdapterView,android.view.View,int,long)
+icom5047.aerobal.fragments.DataSummaryFragment$1: void onNothingSelected(android.widget.AdapterView)
 icom5047.aerobal.fragments.EmptyFragment
 icom5047.aerobal.fragments.EmptyFragment: EmptyFragment()
 icom5047.aerobal.fragments.EmptyFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
@@ -811,8 +938,35 @@ icom5047.aerobal.resources.GlobalConstants: int SamplesMinimum
 icom5047.aerobal.resources.GlobalConstants: int SampleMaximum
 icom5047.aerobal.resources.GlobalConstants: int DecimalPrecision
 icom5047.aerobal.resources.GlobalConstants: GlobalConstants()
+icom5047.aerobal.resources.GlobalConstants$Measurements
+icom5047.aerobal.resources.GlobalConstants$Measurements: int WindSpeedKey
+icom5047.aerobal.resources.GlobalConstants$Measurements: int TemperatureKey
+icom5047.aerobal.resources.GlobalConstants$Measurements: int HumidityKey
+icom5047.aerobal.resources.GlobalConstants$Measurements: int WindDirectionKey
+icom5047.aerobal.resources.GlobalConstants$Measurements: int PressureKey
+icom5047.aerobal.resources.GlobalConstants$Measurements: int TiltKey
+icom5047.aerobal.resources.GlobalConstants$Measurements: int DragKey
+icom5047.aerobal.resources.GlobalConstants$Measurements: int LiftKey
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.lang.String WindSpeedString
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.lang.String HumidityString
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.lang.String TemperatureString
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.lang.String WindDirectionString
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.lang.String PressureString
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.lang.String TiltString
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.lang.String DragString
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.lang.String LiftString
+icom5047.aerobal.resources.GlobalConstants$Measurements: GlobalConstants$Measurements()
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.util.Map measurementToUnitMapping()
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.util.Map measurementToStringMapping()
+icom5047.aerobal.resources.GlobalConstants$Measurements: java.util.List getMeasurementListSpinner()
+icom5047.aerobal.resources.GlobalConstants$Measurements: void <clinit>()
 icom5047.aerobal.resources.Keys
 icom5047.aerobal.resources.Keys: Keys()
+icom5047.aerobal.resources.Keys$BundleKeys
+icom5047.aerobal.resources.Keys$BundleKeys: java.lang.String ExperimentController
+icom5047.aerobal.resources.Keys$BundleKeys: java.lang.String UnitController
+icom5047.aerobal.resources.Keys$BundleKeys: Keys$BundleKeys()
+icom5047.aerobal.resources.Keys$BundleKeys: void <clinit>()
 icom5047.aerobal.resources.Keys$CallbackMap
 icom5047.aerobal.resources.Keys$CallbackMap: java.lang.String BluetoothDevice
 icom5047.aerobal.resources.Keys$CallbackMap: java.lang.String BluetoothDialog
@@ -844,6 +998,7 @@ icom5047.aerobal.resources.Keys$SharedPref: void <clinit>()
 icom5047.aerobal.resources.UnitFactory
 icom5047.aerobal.resources.UnitFactory: UnitFactory()
 icom5047.aerobal.resources.UnitFactory: java.util.Map getAllUnits()
+icom5047.aerobal.resources.UnitFactory: java.util.Map getAllType()
 icom5047.aerobal.resources.UnitFactory$Direction
 icom5047.aerobal.resources.UnitFactory$Direction: int UNIT_DEGREES
 icom5047.aerobal.resources.UnitFactory$Direction: UnitFactory$Direction()
@@ -891,7 +1046,18 @@ icom5047.aerobal.resources.UnitFactory$Type: int TEMPERATURE
 icom5047.aerobal.resources.UnitFactory$Type: int DIRECTION
 icom5047.aerobal.resources.UnitFactory$Type: int SPEED
 icom5047.aerobal.resources.UnitFactory$Type: int FORCE
+icom5047.aerobal.resources.UnitFactory$Type: java.lang.String PRESSURE_STRING
+icom5047.aerobal.resources.UnitFactory$Type: java.lang.String HUMIDITY_STRING
+icom5047.aerobal.resources.UnitFactory$Type: java.lang.String TEMPERATURE_STRING
+icom5047.aerobal.resources.UnitFactory$Type: java.lang.String DIRECTION_STRING
+icom5047.aerobal.resources.UnitFactory$Type: java.lang.String SPEED_STRING
+icom5047.aerobal.resources.UnitFactory$Type: java.lang.String FORCE_STRING
 icom5047.aerobal.resources.UnitFactory$Type: UnitFactory$Type()
+icom5047.aerobal.resources.ViewGroupUtils
+icom5047.aerobal.resources.ViewGroupUtils: ViewGroupUtils()
+icom5047.aerobal.resources.ViewGroupUtils: android.view.ViewGroup getParent(android.view.View)
+icom5047.aerobal.resources.ViewGroupUtils: void removeView(android.view.View)
+icom5047.aerobal.resources.ViewGroupUtils: void replaceView(android.view.View,android.view.View)
 javax.annotation.meta.When: javax.annotation.meta.When[] values()
 javax.annotation.meta.When: javax.annotation.meta.When valueOf(java.lang.String)
 org.codehaus.jackson.JsonEncoding: org.codehaus.jackson.JsonEncoding[] values()

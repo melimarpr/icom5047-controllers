@@ -7,7 +7,6 @@ import android.content.DialogInterface.OnClickListener;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -157,9 +156,7 @@ public class UnitsDialog extends DialogFragment {
     private int positionFromString(String unit, String[] arrayValue) {
 
         for (int i = 0; i < arrayValue.length; i++) {
-            Log.v("value", "Value: " + arrayValue[i]);
             if (arrayValue[i].equals(unit)) {
-                Log.v("value", "Value: " + arrayValue[i] + "Index" + i);
                 return i;
             }
         }
