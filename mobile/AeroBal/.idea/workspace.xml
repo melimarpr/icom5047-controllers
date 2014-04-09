@@ -7,30 +7,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10237bc7-9ea8-4936-9a51-51abaf32260c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AeroBal.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/DataLib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__DataLib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__support_v4_19_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_19_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/AeroBal.apk" afterPath="$PROJECT_DIR$/bin/AeroBal.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../resources/jars/DataLib.jar" afterPath="$PROJECT_DIR$/../../resources/jars/DataLib.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes.dex" afterPath="$PROJECT_DIR$/bin/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/resources.ap_" afterPath="$PROJECT_DIR$/bin/resources.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/icom5047/aerobal/controllers/BluetoothController.java" afterPath="$PROJECT_DIR$/src/icom5047/aerobal/controllers/BluetoothController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/icom5047/aerobal/dialog/BluetoothDialog.java" afterPath="$PROJECT_DIR$/src/icom5047/aerobal/dialog/BluetoothDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/icom5047/aerobal/resources/Keys.java" afterPath="$PROJECT_DIR$/src/icom5047/aerobal/resources/Keys.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/icom5047/aerobal/activities/MainActivity.java" afterPath="$PROJECT_DIR$/src/icom5047/aerobal/activities/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/icom5047/aerobal/dialog/NewDialog.java" afterPath="$PROJECT_DIR$/src/icom5047/aerobal/dialog/NewDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/icom5047/aerobal/dialog/UnitsDialog.java" afterPath="$PROJECT_DIR$/src/icom5047/aerobal/dialog/UnitsDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/icom5047/aerobal/controllers/UserController.java" afterPath="$PROJECT_DIR$/src/icom5047/aerobal/controllers/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/string_placeholders.xml" afterPath="$PROJECT_DIR$/res/values/string_placeholders.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/string_titles.xml" afterPath="$PROJECT_DIR$/res/values/string_titles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/string_toasts.xml" afterPath="$PROJECT_DIR$/res/values/string_toasts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/dialog/BluetoothDialog$BluetoothListAdapter.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/dialog/BluetoothDialog$BluetoothListAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/adapters/DrawerAdapter.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/adapters/DrawerAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/fragments/ExperimentFragment$AverageAdapter.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/fragments/ExperimentFragment$AverageAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/fragments/ExperimentFragment.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/fragments/ExperimentFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/MainActivity$DrawerOnClickListener.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/MainActivity$DrawerOnClickListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/MainActivity.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/MainActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R$id.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R$layout.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R$menu.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R$menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R$string.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R$style.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R$style.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R.class" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes/debug/icom5047/aerobal/activities/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/apk/app-debug-unaligned.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/libs/app-debug.ap_" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/libs/app-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/libs/app-debug.dex" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/libs/app-debug.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/.gradle/1.9/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/../AeroBalGradel/.gradle/1.9/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes-proguard/debug/classes.jar" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/classes-proguard/debug/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/.gradle/1.9/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/../AeroBalGradel/.gradle/1.9/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/.gradle/1.9/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/../AeroBalGradel/.gradle/1.9/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/.gradle/1.9/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/../AeroBalGradel/.gradle/1.9/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/source/r/debug/icom5047/aerobal/activities/R.java" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/source/r/debug/icom5047/aerobal/activities/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/proguard/debug/dump.txt" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/proguard/debug/dump.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/incremental/mergeResources/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/app/build/proguard/debug/seeds.txt" afterPath="$PROJECT_DIR$/../AeroBalGradel/app/build/proguard/debug/seeds.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../AeroBalGradel/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../AeroBalGradel/.idea/workspace.xml" />
     </list>
     <ignored path="AeroBal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,17 +99,7 @@
     <favorites_list name="AeroBal" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="build.gradle" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="311" selection-end="311" vertical-scroll-proportion="0.37625417" vertical-offset="0" max-vertical-offset="598">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -534,7 +526,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -543,8 +534,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AeroBal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AeroBal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -555,6 +557,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -590,6 +593,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -615,19 +631,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -734,7 +737,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3290461" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32857144" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -747,7 +750,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21446079" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21383648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -781,15 +784,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/BluetoothController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="43" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.2872928" vertical-offset="324" max-vertical-offset="1455">
-          <folding>
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#2058#2539#0" expanded="true" />
-            <element signature="e#2534#2535#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="47" column="43" selection-start="1265" selection-end="1265" vertical-scroll-proportion="0.2872928" vertical-offset="324" max-vertical-offset="1455" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/adapters/DrawerAdapter.java">
@@ -799,33 +803,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="47" selection-start="590" selection-end="590" vertical-scroll-proportion="0.32608697" vertical-offset="0" max-vertical-offset="1200">
-          <folding>
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1008#1009#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="24" column="47" selection-start="590" selection-end="590" vertical-scroll-proportion="0.32608697" vertical-offset="0" max-vertical-offset="1200" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/import-summary.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="16" selection-start="5929" selection-end="5929" vertical-scroll-proportion="0.74916387" vertical-offset="1862" max-vertical-offset="2460">
-          <folding />
-        </state>
+        <state line="154" column="16" selection-start="5929" selection-end="5929" vertical-scroll-proportion="0.74916387" vertical-offset="1862" max-vertical-offset="2460" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="543">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="543" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.classpath">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="466" selection-end="466" vertical-scroll-proportion="0.2257525" vertical-offset="0" max-vertical-offset="598">
-          <folding />
-        </state>
+        <state line="9" column="0" selection-start="466" selection-end="466" vertical-scroll-proportion="0.2257525" vertical-offset="0" max-vertical-offset="598" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
@@ -837,7 +830,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="311" selection-end="311" vertical-scroll-proportion="0.37625417" vertical-offset="0" max-vertical-offset="598">
+        <state line="15" column="0" selection-start="311" selection-end="311" vertical-scroll-proportion="0.4032258" vertical-offset="0" max-vertical-offset="558">
           <folding />
         </state>
       </provider>

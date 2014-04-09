@@ -217,6 +217,10 @@ public class MainActivity extends FragmentActivity {
 
         switch (id) {
             case R.id.ab_btn_start_run:
+
+                experimentController.generateExperimentRun(btController, this);
+
+
                 break;
             case R.id.ab_btn_show_data:
                 //Start New Activity
@@ -261,6 +265,28 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+    /**
+     * Activity Result for Open
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(requestCode == Keys.ActivityOnResult.OpenKey){
+
+            if(resultCode == Keys.ResultCode.FileOpenSuccessful){
+
+            }
+            else if( resultCode == Keys.ResultCode.FileOpenUnSuccessful){
+
+            }
+
+
+
+
+
+        }
+        //super.onActivityResult(requestCode, resultCode, data);
+    }
 
     public class DrawerOnClickListener implements OnItemClickListener {
 
@@ -271,7 +297,7 @@ public class MainActivity extends FragmentActivity {
             switch (pos) {
                 case 0:
                     //New
-                    if (!btController.hasBluetoothModule() && false) {
+                    if (!btController.hasBluetoothModule()) {
                         //TODO: Change for testing purpose
                         btController.btErrorToast();
                     } else {
@@ -303,6 +329,34 @@ public class MainActivity extends FragmentActivity {
                     OpenDialog.getOpenDialog(userController, new AeroCallback() {
                         @Override
                         public void callback(Map<String, Object> objectMap) {
+
+
+                            String value = (String) objectMap.get(Keys.CallbackMap.OpenType);
+
+                            if(value.equalsIgnoreCase(OpenDialog.LOCAL)){
+
+                                Intent intentLocal = new Intent(getBaseContext(), OpenActivity.class);
+                                Bundle bnd = new Bundle();
+                                bnd.putSerializable(Keys.BundleKeys.ExperimentController, experimentController);
+                                bnd.putSerializable(Keys.BundleKeys.OpenType, value);
+                                intentLocal.putExtras(bnd);
+
+                                startActivityForResult(intentLocal, Keys.ActivityOnResult.OpenKey);
+
+
+                            }
+                            else if(value.equalsIgnoreCase(OpenDialog.ONLINE)){
+
+                                    Intent intentView = new Intent(getBaseContext(), OpenActivity.class);
+                                    Bundle bnd = new Bundle();
+                                    bnd.putSerializable(Keys.BundleKeys.ExperimentController, experimentController);
+                                    bnd.putString(Keys.BundleKeys.OpenType, value);
+                                    intentView.putExtras(bnd);
+                                    startActivityForResult(intentView, Keys.ActivityOnResult.OpenKey);
+
+
+
+                            }
                             closeDrawer();
                         }
                     }).show(getSupportFragmentManager(), "Open Experiment Dialog");
@@ -323,6 +377,8 @@ public class MainActivity extends FragmentActivity {
                     break;
             }
         }
+
+
     }
 
 

@@ -12,6 +12,17 @@
     <string name="toast_invalid_exp_samples_empty">Samples Value Missing</string>
     <string name="toast_invalid_exp_samples_min">Samples Value Below Minimum of:</string>
     <string name="toast_invalid_exp_samples_max">Samples Value Above Maximum of:</string>
+    <string name="toast_invalid_open_user_not_login">Unable to Open Experiment User Not Log In</string>
+    <string name="toast_invalid_user_pass">Empty Username or Password</string>
+    <string name="toast_invalid_email">Invalid Email</string>
+
+    <!-- Progress Dialogs -->
+    <string name="progress_login">Login-In&#8230;</string>
+    <string name="progress_running">Running Experiment&#8230;</string>
+    <string name="progress_finish">Finishing&#8230;</string>
+
+
+
 
 
 </resources>

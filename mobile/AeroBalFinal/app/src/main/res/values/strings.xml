@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    
+    <string name="app_name">AeroBal</string>
+    <string name="btn_connect">Connect Bluetooth</string>
+    <string name="btn_disconnect">Disconnect</string>
+    <string name="btn_changeunits">Change Units: </string>
+    <string name="btn_on">On</string>
+    <string name="btn_off">Off</string>
+    
+    <string name="bt_disconnected">Bluetooth Disconnected</string>
+    <string name="bt_connected">Bluetooth Connect</string>
+    <!-- First Grid -->
+    <string name="pressure">Presure:</string>
+    <string name="direction">Direction:</string>
+    <string name="windspeed">Wind Speed:</string>
+    <string name="temperature">Temperature:</string>
+    <string name="humidity">Humidity:</string>
+    <string name="placeholde_value">#</string>
+    
+    <!-- Second Grid -->
+    <string name="currentdrag">Current Drag:</string>
+    <string name="currentlift">Current Lift:</string>
+    <string name="currenttilt">Current Tilt:</string>
+    <string name="placholder_grid2">#lbs/N</string>
+    <string name="initdrag">Initial Drag: # lbs/N</string>
+    <string name="initlift">Initial Lift # lbs/N</string>
+    <string name="inittilt">Initial Tilt # lbs/N</string>
+    
+    <!-- Button -->
+    <string name="poweron">Init Experiment</string>
+    <string name="messure">Take Messurement</string>
+    <string name="poweroff">Finish Experiment</string>
+    
+    
+    <!-- Connect Dialog Values -->
+    <string name="title_btdialog">Connect To Bluetooth</string>
+    <string name="init">Initializing Values</string>
+
+</resources>

@@ -10,4 +10,8 @@
     <string name="title_fragment_data_summary">Summary</string>
     <string name="title_fragment_data_graph">Graph</string>
     <string name="title_fragment_data_raw">Raw Data</string>
+    <string name="title_activity_open_online">Online</string>
+    <string name="title_activity_open_local">Local</string>
+    <string name="title_dialog_forgot_password">Forgot Password?</string>
+    <string name="title_dialog_confirm_run">Object Added?</string>
 </resources>

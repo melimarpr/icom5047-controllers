@@ -80,7 +80,6 @@ public class UserController {
         Intent intent = new Intent(context, LoginActivity.class);
         context.startActivity(intent);
 
-
     }
 
 

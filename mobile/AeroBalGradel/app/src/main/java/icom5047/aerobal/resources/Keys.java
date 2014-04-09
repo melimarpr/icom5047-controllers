@@ -27,6 +27,7 @@ public class Keys {
         public static String UnitsDirection = "unitsDirection";
         public static String NewExperimentDialog = "newExperimentDialog";
         public static String NewExperimentObject = "newExperimentObject";
+        public static String OpenType = "openType";
 
     }
 
@@ -40,7 +41,21 @@ public class Keys {
 
         public static String ExperimentController = "keyExperimentController";
         public static String UnitController = "keyUnitController";
+        public static String OpenType = "openType";
 
+
+    }
+    public static class ActivityOnResult{
+
+        public static int OpenKey = 0x001;
+
+    }
+
+
+    public static class ResultCode{
+
+        public static int FileOpenSuccessful = 0x000;
+        public static int FileOpenUnSuccessful = 0x001;
 
     }
 

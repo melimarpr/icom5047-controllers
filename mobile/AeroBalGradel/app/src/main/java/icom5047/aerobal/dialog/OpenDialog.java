@@ -5,14 +5,15 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import icom5047.aerobal.activities.R;
-import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.controllers.UserController;
 import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.resources.Keys;
 
 public class OpenDialog extends DialogFragment {
 
@@ -20,6 +21,9 @@ public class OpenDialog extends DialogFragment {
     private AeroCallback callback;
     private UserController userController;
 
+
+    public static final String LOCAL = "local";
+    public static final String ONLINE = "online";
 
     public static OpenDialog getOpenDialog(UserController controller, AeroCallback callback) {
         OpenDialog od = new OpenDialog();
@@ -59,6 +63,8 @@ public class OpenDialog extends DialogFragment {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Map<String, Object> map = new HashMap<String, Object>();
 
+                map.put( Keys.CallbackMap.OpenType, LOCAL);
+
                 callback.callback(map);
             }
         });
@@ -67,7 +73,17 @@ public class OpenDialog extends DialogFragment {
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 Map<String, Object> map = new HashMap<String, Object>();
+
+                if(userController.isUserLogIn() || true){
+                    //TODO: Change For User
+                    map.put(Keys.CallbackMap.OpenType, ONLINE);
+
+                }
+                else
+                    Toast.makeText(getActivity(), R.string.toast_invalid_open_user_not_login, Toast.LENGTH_SHORT).show();
+
                 callback.callback(map);
+
             }
         });
 

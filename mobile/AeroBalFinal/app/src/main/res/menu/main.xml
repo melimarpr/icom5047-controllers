@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/btn_configuration" android:orderInCategory="100" android:showAsAction="always" android:title="@string/btn_connect" android:onClick="onBtnConfigurationListener"></item>
+    <item android:id="@+id/btn_change_units" android:showAsAction="always" android:orderInCategory="200" android:title="@string/btn_changeunits" android:onClick="onChangeUnitsListener"></item>
+    <item android:id="@+id/btn_on" android:orderInCategory="300" android:onClick="onBtnOnListener" android:title="@string/btn_on" android:showAsAction="always"></item>
+    <item android:id="@+id/btn_off" android:orderInCategory="400" android:onClick="onBtnOffListener" android:showAsAction="always" android:title="@string/btn_off"></item>
+
+</menu>

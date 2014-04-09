@@ -1,11 +1,17 @@
 package icom5047.aerobal.controllers;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.support.v4.app.FragmentActivity;
+
 import com.aerobal.data.objects.Experiment;
 
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
+import icom5047.aerobal.activities.R;
 import icom5047.aerobal.containers.SpinnerContainer;
 import icom5047.aerobal.resources.GlobalConstants;
 
@@ -79,6 +85,54 @@ public class ExperimentController implements Serializable{
 
     public void setActiveMeasurement(SpinnerContainer activeMeasurement) {
         this.activeMeasurement = activeMeasurement;
+    }
+
+    //Run a Run
+    public void generateExperimentRun(BluetoothController btController, FragmentActivity context){
+
+
+        ProgressDialog progressDialog = new ProgressDialog(context);
+
+
+        progressDialog.setMessage( context.getString(R.string.progress_running) );
+
+        progressDialog.show();
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        showConfirmDialog(context, progressDialog);
+
+
+
+
+    }
+
+    private void showConfirmDialog(FragmentActivity activity, final ProgressDialog progressDialog){
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+
+        builder.setTitle(R.string.title_dialog_confirm_run);
+
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //NoOp
+            }
+        });
+
+         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+             @Override
+             public void onClick(DialogInterface dialog, int which) {
+                progressDialog.dismiss();
+
+             }
+         });
+
+
+        builder.create().show();
+
     }
 
 

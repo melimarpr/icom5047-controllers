@@ -5,12 +5,18 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 
+
+    <!-- HTTP -->
+    <string name="website_register">http://www.google.com</string>
+
     <!-- General Words -->
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="create">Create</string>
     <string name="online">Online</string>
     <string name="local">Local</string>
+    <string name="login">Log-In</string>
+    <string name="send">Send</string>
 
     <!-- Units -->
     <string name="units_seconds">sec</string>
@@ -61,9 +67,19 @@
     <string name="frag_exp_sum_samples">Samples:</string>
     <string name="frag_exp_sum_interval">Time Interval:</string>
 
-     <!-- Data Detail Activity -->
+    <!-- Data Detail Activity -->
 
     <string name="title_activity_data_detail">DataDetailActivity</string>
+    <string name="title_activity_open">OpenActivity</string>
+
+
+    <!-- LogIn Screen -->
+    <string name="logo_img_desc">Logo</string>
+    <string name="activity_login_hint_username">Username or Email</string>
+    <string name="activity_login_hint_password">Password</string>
+    <string name="activity_login_button_register">Register</string>
+    <string name="activity_login_button_forgot">Forgot Credentials</string>
+    <string name="dialog_login_forgot_password">Enter Email Address</string>
 
 
 

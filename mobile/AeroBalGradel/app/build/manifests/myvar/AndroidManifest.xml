@@ -1,0 +1,25 @@
+<!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="icom5047.aerobal.activities">
+    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19"/>
+
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name="icom5047.aerobal.activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_login" android:name="icom5047.aerobal.activities.LoginActivity"/>
+        <activity android:label="@string/title_activity_data_detail" android:name="icom5047.aerobal.activities.DataDetailActivity">
+        </activity>
+        <activity android:label="@string/title_activity_open" android:name="icom5047.aerobal.activities.OpenActivity">
+        </activity>
+    </application>
+
+</manifest>

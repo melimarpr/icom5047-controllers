@@ -29,7 +29,10 @@ android.support.v4.accessibilityservice.AccessibilityServiceInfoCompatIcs
 android.support.v4.accessibilityservice.AccessibilityServiceInfoCompatJellyBeanMr2
 android.support.v4.app.ActionBarDrawerToggleHoneycomb:
     private static final java.lang.String TAG
-====    39:92:ActionBarDrawerToggleHoneycomb()
+====    40:98:ActionBarDrawerToggleHoneycomb()
+android.support.v4.app.ActionBarDrawerToggleJellybeanMR2:
+    private static final java.lang.String TAG
+====    27:27:ActionBarDrawerToggleJellybeanMR2()
 android.support.v4.app.ActivityCompat
 android.support.v4.app.ActivityCompatHoneycomb:
 ====    27:27:ActivityCompatHoneycomb()
@@ -94,8 +97,9 @@ android.support.v4.app.FragmentManager:
 ====    public abstract android.support.v4.app.Fragment getFragment(android.os.Bundle,java.lang.String)
 ====    public abstract java.util.List getFragments()
 ====    public abstract android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
+====    public abstract boolean isDestroyed()
 ====    public abstract void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])
-====    345:346:public static void enableDebugLogging(boolean)
+====    351:352:public static void enableDebugLogging(boolean)
 android.support.v4.app.FragmentManager$BackStackEntry
 android.support.v4.app.FragmentManagerImpl:
     static final java.lang.String TAG
@@ -110,16 +114,17 @@ android.support.v4.app.FragmentManagerImpl:
     public static final int ANIM_STYLE_CLOSE_EXIT
     public static final int ANIM_STYLE_FADE_ENTER
     public static final int ANIM_STYLE_FADE_EXIT
-====    477:482:public void popBackStack()
-====    493:498:public void popBackStack(java.lang.String,int)
-====    502:504:public boolean popBackStackImmediate(java.lang.String,int)
-====    521:526:public boolean popBackStackImmediate(int,int)
-====    531:531:public int getBackStackEntryCount()
-====    536:536:public android.support.v4.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
-====    541:545:public void addOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
-====    549:552:public void removeOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
-====    583:583:public java.util.List getFragments()
-====    588:596:public android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
+====    483:488:public void popBackStack()
+====    499:504:public void popBackStack(java.lang.String,int)
+====    508:510:public boolean popBackStackImmediate(java.lang.String,int)
+====    527:532:public boolean popBackStackImmediate(int,int)
+====    537:537:public int getBackStackEntryCount()
+====    542:542:public android.support.v4.app.FragmentManager$BackStackEntry getBackStackEntryAt(int)
+====    547:551:public void addOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
+====    555:558:public void removeOnBackStackChangedListener(android.support.v4.app.FragmentManager$OnBackStackChangedListener)
+====    589:589:public java.util.List getFragments()
+====    594:602:public android.support.v4.app.Fragment$SavedState saveFragmentInstanceState(android.support.v4.app.Fragment)
+====    607:607:public boolean isDestroyed()
 android.support.v4.app.FragmentManagerImpl$2
 android.support.v4.app.FragmentManagerImpl$3
 android.support.v4.app.FragmentStatePagerAdapter
@@ -196,10 +201,12 @@ android.support.v4.app.NotificationCompat$Builder
 android.support.v4.app.NotificationCompat$InboxStyle
 android.support.v4.app.NotificationCompat$NotificationCompatImpl
 android.support.v4.app.NotificationCompat$NotificationCompatImplBase
+android.support.v4.app.NotificationCompat$NotificationCompatImplGingerbread
 android.support.v4.app.NotificationCompat$NotificationCompatImplHoneycomb
 android.support.v4.app.NotificationCompat$NotificationCompatImplIceCreamSandwich
 android.support.v4.app.NotificationCompat$NotificationCompatImplJellybean
 android.support.v4.app.NotificationCompat$Style
+android.support.v4.app.NotificationCompatGingerbread
 android.support.v4.app.NotificationCompatHoneycomb
 android.support.v4.app.NotificationCompatIceCreamSandwich
 android.support.v4.app.NotificationCompatJellybean
@@ -1106,6 +1113,7 @@ android.support.v4.widget.AutoScrollHelper
 android.support.v4.widget.AutoScrollHelper$1
 android.support.v4.widget.AutoScrollHelper$ClampedScroller
 android.support.v4.widget.AutoScrollHelper$ScrollAnimationRunnable
+android.support.v4.widget.BakedBezierInterpolator
 android.support.v4.widget.ContentLoadingProgressBar
 android.support.v4.widget.ContentLoadingProgressBar$1
 android.support.v4.widget.ContentLoadingProgressBar$2
@@ -1130,13 +1138,14 @@ android.support.v4.widget.DrawerLayout:
     private static final boolean ALLOW_EDGE_LOCK
     private static final boolean CHILDREN_DISALLOW_INTERCEPT
     private static final float TOUCH_SLOP_SENSITIVITY
-====    265:275:public void setDrawerShadow(android.graphics.drawable.Drawable,int)
-====    285:286:public void setDrawerShadow(int,int)
-====    394:400:public void setDrawerLockMode(int,android.view.View)
-====    410:417:public int getDrawerLockMode(int)
-====    540:549:void moveDrawerToOffset(android.view.View,float)
+====    270:280:public void setDrawerShadow(android.graphics.drawable.Drawable,int)
+====    290:291:public void setDrawerShadow(int,int)
+====    399:405:public void setDrawerLockMode(int,android.view.View)
+====    415:422:public int getDrawerLockMode(int)
+====    453:460:public void setDrawerTitle(int,java.lang.CharSequence)
+====    593:602:void moveDrawerToOffset(android.view.View,float)
 android.support.v4.widget.DrawerLayout$LayoutParams:
-====    1509:1511:public DrawerLayout$LayoutParams(int,int,int)
+====    1562:1564:public DrawerLayout$LayoutParams(int,int,int)
 android.support.v4.widget.DrawerLayout$SimpleDrawerListener
 android.support.v4.widget.EdgeEffectCompat:
 ====    204:204:public boolean onAbsorb(int)
@@ -1238,11 +1247,11 @@ android.support.v4.widget.SlidingPaneLayout:
 ====    328:331:void dispatchOnPanelSlide(android.view.View)
 ====    334:338:void dispatchOnPanelOpened(android.view.View)
 ====    341:345:void dispatchOnPanelClosed(android.view.View)
-====    848:849:public void smoothSlideOpen()
-====    866:867:public void smoothSlideClosed()
-====    895:895:public boolean canSlide()
-====    909:922:private void onPanelDragged(int)
-====    1103:1122:protected boolean canScroll(android.view.View,boolean,int,int,int)
+====    850:851:public void smoothSlideOpen()
+====    868:869:public void smoothSlideClosed()
+====    897:897:public boolean canSlide()
+====    911:930:private void onPanelDragged(int)
+====    1111:1130:protected boolean canScroll(android.view.View,boolean,int,int,int)
 ====    88:88:static synthetic boolean access$100(android.support.v4.widget.SlidingPaneLayout)
 ====    88:88:static synthetic android.support.v4.widget.ViewDragHelper access$200(android.support.v4.widget.SlidingPaneLayout)
 ====    88:88:static synthetic float access$300(android.support.v4.widget.SlidingPaneLayout)
@@ -1253,13 +1262,23 @@ android.support.v4.widget.SlidingPaneLayout:
 android.support.v4.widget.SlidingPaneLayout$AccessibilityDelegate
 android.support.v4.widget.SlidingPaneLayout$DragHelperCallback
 android.support.v4.widget.SlidingPaneLayout$LayoutParams:
-====    1257:1278:public SlidingPaneLayout$LayoutParams(int,int)
-====    1257:1291:public SlidingPaneLayout$LayoutParams(android.support.v4.widget.SlidingPaneLayout$LayoutParams)
+====    1265:1286:public SlidingPaneLayout$LayoutParams(int,int)
+====    1265:1299:public SlidingPaneLayout$LayoutParams(android.support.v4.widget.SlidingPaneLayout$LayoutParams)
 android.support.v4.widget.SlidingPaneLayout$PanelSlideListener:
 ====    public abstract void onPanelSlide(android.view.View,float)
 ====    public abstract void onPanelOpened(android.view.View)
 ====    public abstract void onPanelClosed(android.view.View)
 android.support.v4.widget.SlidingPaneLayout$SimplePanelSlideListener
+android.support.v4.widget.SwipeProgressBar
+android.support.v4.widget.SwipeRefreshLayout
+android.support.v4.widget.SwipeRefreshLayout$1
+android.support.v4.widget.SwipeRefreshLayout$2
+android.support.v4.widget.SwipeRefreshLayout$3
+android.support.v4.widget.SwipeRefreshLayout$4
+android.support.v4.widget.SwipeRefreshLayout$5
+android.support.v4.widget.SwipeRefreshLayout$6
+android.support.v4.widget.SwipeRefreshLayout$BaseAnimationListener
+android.support.v4.widget.SwipeRefreshLayout$OnRefreshListener
 android.support.v4.widget.ViewDragHelper:
     private static final java.lang.String TAG
     public static final int INVALID_POINTER

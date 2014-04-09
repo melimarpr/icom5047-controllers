@@ -4,6 +4,8 @@
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson/1.17.0-rc/894d58c7d514ea094810c44db1c940d6cd264f10/google-http-client-jackson-1.17.0-rc.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson/1.17.0-rc/18bd997cfab9587091531b163394f26965db45b1/google-http-client-jackson-1.17.0-rc-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

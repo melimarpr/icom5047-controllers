@@ -1,9 +1,18 @@
+# view res/layout/activity_data_detail.xml #generated:1
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
 # view res/layout/activity_main.xml #generated:2
 -keep class android.support.v4.widget.DrawerLayout { <init>(...); }
 
-# view AndroidManifest.xml #generated:13
+# view AndroidManifest.xml #generated:19
+-keep class icom5047.aerobal.activities.DataDetailActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:18
 -keep class icom5047.aerobal.activities.LoginActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:6
+# view AndroidManifest.xml #generated:11
 -keep class icom5047.aerobal.activities.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:21
+-keep class icom5047.aerobal.activities.OpenActivity { <init>(...); }
 
