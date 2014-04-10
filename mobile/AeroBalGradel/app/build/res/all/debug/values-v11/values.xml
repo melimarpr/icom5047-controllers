@@ -4,8 +4,9 @@
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values-v11/styles.xml -->
     <eat-comment />
 
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- API 11 theme customizations can go here. -->
+        <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
     </style>
 
 </resources>

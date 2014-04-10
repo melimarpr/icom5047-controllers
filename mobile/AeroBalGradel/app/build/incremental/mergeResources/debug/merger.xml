@@ -19,11 +19,6 @@
                 qualifiers=""
                 type="drawable" />
             <file
-                name="ic_drawer"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable/ic_drawer.png"
-                qualifiers=""
-                type="drawable" />
-            <file
                 name="ic_edit"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable/ic_edit.png"
                 qualifiers=""
@@ -254,19 +249,11 @@
             <file
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml"
                 qualifiers="" >
-                <string name="toast_invalid_exp_interval_max" >Time Interval Value Above Maximum of:
-                </string>
-                <string name="progress_finish" >Finishing…
-                </string>
                 <string name="toast_invalid_user_pass" >Empty Username or Password
-                </string>
-                <string name="toast_invalid_exp_samples_min" >Samples Value Below Minimum of:
                 </string>
                 <string name="toast_invalid_exp_wind_speed_empty" >Wind Speed Value Missing
                 </string>
                 <string name="toast_invalid_open_user_not_login" >Unable to Open Experiment User Not Log In
-                </string>
-                <string name="toast_invalid_exp_samples_empty" >Samples Value Missing
                 </string>
                 <string name="toast_no_bt_found" >No Bluetooth Module found in Device.
                 </string>
@@ -274,13 +261,21 @@
                 </string>
                 <string name="progress_running" >Running Experiment…
                 </string>
-                <string name="progress_login" >Login-In…
+                <string name="toast_invalid_exp_name_empty" >Experiment Name Missing
                 </string>
                 <string name="toast_invalid_email" >Invalid Email
                 </string>
-                <string name="toast_invalid_exp_name_empty" >Experiment Name Missing
-                </string>
                 <string name="toast_invalid_exp_name_char_limit" >Experiment Name is Over 100 Characters
+                </string>
+                <string name="toast_invalid_exp_interval_max" >Time Interval Value Above Maximum of:
+                </string>
+                <string name="progress_finish" >Finishing…
+                </string>
+                <string name="toast_invalid_exp_samples_min" >Samples Value Below Minimum of:
+                </string>
+                <string name="toast_invalid_exp_samples_empty" >Samples Value Missing
+                </string>
+                <string name="progress_login" >Login-In…
                 </string>
                 <string name="toast_invalid_exp_wind_speed_max" >Wind Speed Value Above Maximum of:
                 </string>
@@ -322,9 +317,9 @@
                 </string>
                 <string name="dialog_new_exp_wind_speeds_hint" >0.00
                 </string>
-                <string name="logo_img_desc" >Logo
-                </string>
                 <string name="dialog_bt_disconnect" >Disconnect from AeroBal?
+                </string>
+                <string name="logo_img_desc" >Logo
                 </string>
                 <string name="activity_login_hint_username" >Username or Email
                 </string>
@@ -332,9 +327,9 @@
                 </string>
                 <string name="save" >Save
                 </string>
-                <string name="ab_btn_close" >Close
-                </string>
                 <string name="title_activity_data_detail" >DataDetailActivity
+                </string>
+                <string name="ab_btn_close" >Close
                 </string>
                 <string name="ab_btn_units" >Units
                 </string>
@@ -402,9 +397,9 @@
                 </string>
                 <string name="dialog_new_exp_samples" >Samples:
                 </string>
-                <string name="dialog_units_pressure" >Pressure:
-                </string>
                 <string name="dialog_new_exp_name" >Name:
+                </string>
+                <string name="dialog_units_pressure" >Pressure:
                 </string>
                 <string name="dialog_units_force" >Force:
                 </string>
@@ -423,13 +418,23 @@
 
                 <style
                     name="AppBaseTheme"
-                    parent="android:Theme.Light" >
+                    parent="android:Theme.Holo.Light.DarkActionBar" >
 
                     <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
                     -->
+
+                </style>
+
+                <style
+                    name="MyActionBar"
+                    parent="android:Widget.Holo.Light.ActionBar.Solid" >
+>
+                    <item name="android:background">
+@drawable/ic_actionbar
+                    </item>
                 </style>
 
                 <style
@@ -437,6 +442,8 @@
                     parent="AppBaseTheme" >
 
                     <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+                    <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
+
                 </style>
             </file>
             <file
@@ -451,9 +458,10 @@
 
                 <style
                     name="AppBaseTheme"
-                    parent="android:Theme.Holo.Light" >
+                    parent="android:Theme.Holo.Light.DarkActionBar" >
 
                     <!-- API 11 theme customizations can go here. -->
+                    <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
                 </style>
             </file>
             <file
@@ -461,10 +469,75 @@
                 qualifiers="v14" >
 
                 <style
+                    name="MyActionBar"
+                    parent="android:Widget.Holo.Light.ActionBar.Solid" >
+>
+                    <item name="android:background">
+@drawable/ic_actionbar
+                    </item>
+                    <item name="android:titleTextStyle">
+@style/MyActionBarTitleText
+                    </item>
+                    <item name="android:textColor">
+@android:color/white
+                    </item>
+                </style>
+
+                <style
                     name="AppBaseTheme"
-                    parent="android:Theme.Holo.Light.DarkActionBar" >
+                    parent="android:Theme.Holo.Light" >
 
                     <!-- API 14 theme customizations can go here. -->
+                    <item name="android:actionBarStyle">
+@style/MyActionBar
+                    </item>
+                    <item name="android:actionBarTabBarStyle">
+@style/MyActionBarTabBarStyle
+                    </item>
+                    <item name="android:actionBarTabTextStyle">
+@style/MyActionBarTabText
+                    </item>
+                    <item name="android:actionMenuTextColor">
+@android:color/white
+                    </item>
+                    <item name="android:actionOverflowButtonStyle">
+@style/OverFlow
+                    </item>
+                    <item name="android:homeAsUpIndicator">
+@drawable/ic_caret
+                    </item>
+                </style>
+
+                <style
+                    name="MyActionBarTabBarStyle"
+                    parent="android:Widget.Holo.Light.ActionBar.TabView" >
+                    <item name="android:background">
+@android:color/white
+                    </item>
+                </style>
+
+                <style
+                    name="OverFlow"
+                    parent="@android:style/Widget.Holo.ActionButton.Overflow" >
+                    <item name="android:src">
+@drawable/ic_action_overflow
+                    </item>
+                </style>
+
+                <style
+                    name="MyActionBarTabText"
+                    parent="@android:Widget.Holo.ActionBar.TabText" >
+                    <item name="android:textColor">
+@android:color/black
+                    </item>
+                </style>
+
+                <style
+                    name="MyActionBarTitleText"
+                    parent="android:TextAppearance.Holo.Widget.ActionBar.Title" >
+                    <item name="android:textColor">
+@android:color/white
+                    </item>
                 </style>
             </file>
             <file
@@ -523,6 +596,71 @@
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_graph.xml"
                 qualifiers=""
                 type="layout" />
+            <file
+                name="ic_actionbar"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable/ic_actionbar.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="ic_action_overflow"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable/ic_action_overflow.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="ic_action_overflow"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_action_overflow.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_action_overflow"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_action_overflow.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_action_overflow"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_action_overflow.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_drawer"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_drawer.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_drawer"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_drawer.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_drawer"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_drawer.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_drawer"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_drawer.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_caret"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_caret.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_caret"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_caret.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_caret"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_caret.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_caret"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_caret.png"
+                qualifiers="hdpi"
+                type="drawable" />
         </source>
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/rs/debug" />
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/generated/debug" />

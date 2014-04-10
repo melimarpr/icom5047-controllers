@@ -595,8 +595,11 @@ icom5047.aerobal.activities.R$dimen: R$dimen()
 icom5047.aerobal.activities.R$drawable
 icom5047.aerobal.activities.R$drawable: int bg_card
 icom5047.aerobal.activities.R$drawable: int bg_login
+icom5047.aerobal.activities.R$drawable: int ic_action_overflow
+icom5047.aerobal.activities.R$drawable: int ic_actionbar
 icom5047.aerobal.activities.R$drawable: int ic_bluetooth
 icom5047.aerobal.activities.R$drawable: int ic_bluetooth_connected
+icom5047.aerobal.activities.R$drawable: int ic_caret
 icom5047.aerobal.activities.R$drawable: int ic_drawer
 icom5047.aerobal.activities.R$drawable: int ic_edit
 icom5047.aerobal.activities.R$drawable: int ic_folder
@@ -828,6 +831,11 @@ icom5047.aerobal.activities.R$string: R$string()
 icom5047.aerobal.activities.R$style
 icom5047.aerobal.activities.R$style: int AppBaseTheme
 icom5047.aerobal.activities.R$style: int AppTheme
+icom5047.aerobal.activities.R$style: int MyActionBar
+icom5047.aerobal.activities.R$style: int MyActionBarTabBarStyle
+icom5047.aerobal.activities.R$style: int MyActionBarTabText
+icom5047.aerobal.activities.R$style: int MyActionBarTitleText
+icom5047.aerobal.activities.R$style: int OverFlow
 icom5047.aerobal.activities.R$style: R$style()
 icom5047.aerobal.adapters.DrawerAdapter
 icom5047.aerobal.adapters.DrawerAdapter: DrawerAdapter(android.content.Context,java.util.List)

@@ -2,6 +2,6 @@
 
 <Spinner xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:layout_width="50dp" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
 </Spinner><!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/spinner_action_bar.xml -->
