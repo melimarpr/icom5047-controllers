@@ -20,6 +20,10 @@ public class GlobalConstants {
     public static final int DecimalPrecision = 3;
 
 
+
+    public static final String[] allMeasurementType = new String[]{ "Average", "Max", "Min", "Standard Deviation", "Median" };
+
+
     public static class Measurements{
 
 
@@ -30,7 +34,7 @@ public class GlobalConstants {
         public static int PressureKey = 4;
         public static int TiltKey = 5;
         public static int DragKey = 6;
-        public static int LiftKey = 6;
+        public static int LiftKey = 7;
 
 
 
@@ -92,8 +96,6 @@ public class GlobalConstants {
 
             return list;
         }
-
-
 
 
 

@@ -222,6 +222,8 @@
                 </string>
                 <string name="title_fragment_data_raw" >Raw Data
                 </string>
+                <string name="title_dialog_save_online" >Save Experiment Online?
+                </string>
                 <string name="title_dialog_units" >Units
                 </string>
                 <string name="title_activity_open_local" >Local
@@ -240,6 +242,8 @@
                 </string>
                 <string name="title_dialog_bt_disconenct" >Disconnect?
                 </string>
+                <string name="title_dialog_gen_graph" >Generate Graph?
+                </string>
                 <string name="title_fragment_data_summary" >Summary
                 </string>
                 <string name="title_activity_open_online" >Online
@@ -250,11 +254,19 @@
             <file
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml"
                 qualifiers="" >
+                <string name="toast_invalid_exp_interval_max" >Time Interval Value Above Maximum of:
+                </string>
+                <string name="progress_finish" >Finishing…
+                </string>
                 <string name="toast_invalid_user_pass" >Empty Username or Password
+                </string>
+                <string name="toast_invalid_exp_samples_min" >Samples Value Below Minimum of:
                 </string>
                 <string name="toast_invalid_exp_wind_speed_empty" >Wind Speed Value Missing
                 </string>
                 <string name="toast_invalid_open_user_not_login" >Unable to Open Experiment User Not Log In
+                </string>
+                <string name="toast_invalid_exp_samples_empty" >Samples Value Missing
                 </string>
                 <string name="toast_no_bt_found" >No Bluetooth Module found in Device.
                 </string>
@@ -262,21 +274,13 @@
                 </string>
                 <string name="progress_running" >Running Experiment…
                 </string>
-                <string name="toast_invalid_exp_name_empty" >Experiment Name Missing
+                <string name="progress_login" >Login-In…
                 </string>
                 <string name="toast_invalid_email" >Invalid Email
                 </string>
+                <string name="toast_invalid_exp_name_empty" >Experiment Name Missing
+                </string>
                 <string name="toast_invalid_exp_name_char_limit" >Experiment Name is Over 100 Characters
-                </string>
-                <string name="toast_invalid_exp_interval_max" >Time Interval Value Above Maximum of:
-                </string>
-                <string name="progress_finish" >Finishing…
-                </string>
-                <string name="toast_invalid_exp_samples_min" >Samples Value Below Minimum of:
-                </string>
-                <string name="toast_invalid_exp_samples_empty" >Samples Value Missing
-                </string>
-                <string name="progress_login" >Login-In…
                 </string>
                 <string name="toast_invalid_exp_wind_speed_max" >Wind Speed Value Above Maximum of:
                 </string>
@@ -292,6 +296,8 @@
                 qualifiers="" >
                 <string name="activity_login_hint_password" >Password
                 </string>
+                <string name="dialog_graph_xaxis" >X Axis:
+                </string>
                 <string name="units_seconds" >sec
                 </string>
                 <string name="ab_btn_bluetooth" >Bluetooth
@@ -306,6 +312,8 @@
                 </string>
                 <string name="dialog_bt_empty_list" >No Bluetooth Device Paired
                 </string>
+                <string name="title_activity_graph" >GraphActivity
+                </string>
                 <string name="local" >Local
                 </string>
                 <string name="ab_btn_show_data" >Show Data
@@ -314,9 +322,9 @@
                 </string>
                 <string name="dialog_new_exp_wind_speeds_hint" >0.00
                 </string>
-                <string name="dialog_bt_disconnect" >Disconnect from AeroBal?
-                </string>
                 <string name="logo_img_desc" >Logo
+                </string>
+                <string name="dialog_bt_disconnect" >Disconnect from AeroBal?
                 </string>
                 <string name="activity_login_hint_username" >Username or Email
                 </string>
@@ -324,9 +332,9 @@
                 </string>
                 <string name="save" >Save
                 </string>
-                <string name="title_activity_data_detail" >DataDetailActivity
-                </string>
                 <string name="ab_btn_close" >Close
+                </string>
+                <string name="title_activity_data_detail" >DataDetailActivity
                 </string>
                 <string name="ab_btn_units" >Units
                 </string>
@@ -350,6 +358,8 @@
                 </string>
                 <string name="frag_exp_sum_samples" >Samples:
                 </string>
+                <string name="dialog_no_session" >No Session Found
+                </string>
                 <string name="dialog_login_forgot_password" >Enter Email Address
                 </string>
                 <string name="activity_login_button_register" >Register
@@ -372,6 +382,8 @@
                 </string>
                 <string name="frag_exp_sum_summary" >Summary:
                 </string>
+                <string name="dialog_graph_yaxis" >Y Axis:
+                </string>
                 <string name="create" >Create
                 </string>
                 <string name="online" >Online
@@ -390,9 +402,9 @@
                 </string>
                 <string name="dialog_new_exp_samples" >Samples:
                 </string>
-                <string name="dialog_new_exp_name" >Name:
-                </string>
                 <string name="dialog_units_pressure" >Pressure:
+                </string>
+                <string name="dialog_new_exp_name" >Name:
                 </string>
                 <string name="dialog_units_force" >Force:
                 </string>
@@ -481,6 +493,36 @@
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable/logo_aerobal.png"
                 qualifiers=""
                 type="drawable" />
+            <file
+                name="row_raw_data"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_raw_data.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="dialog_save_experiment"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_save_experiment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_graph"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/activity_graph.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="ic_graph"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable/ic_graph.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="graph"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/menu/graph.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="dialog_graph"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_graph.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/rs/debug" />
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/generated/debug" />

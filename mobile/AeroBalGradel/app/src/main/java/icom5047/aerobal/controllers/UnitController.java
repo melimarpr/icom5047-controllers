@@ -92,6 +92,29 @@ public class UnitController implements Serializable{
     }
 
 
+    public String getCurrentUnitForType(int type){
+
+        switch (type){
+            case UnitFactory.Type.TEMPERATURE:
+                return getCurrentTemperatureUnit();
+            case UnitFactory.Type.FORCE:
+                return getCurrentForceUnit();
+            case UnitFactory.Type.PRESSURE:
+                return getCurrentPressureUnit();
+            case UnitFactory.Type.DIRECTION:
+                return getCurrentDirectionUnit();
+            case UnitFactory.Type.HUMIDITY:
+                return getCurrentHumidityUnit();
+            case UnitFactory.Type.SPEED:
+                return getCurrentSpeedUnit();
+        }
+
+        return "";
+
+    }
+
+
+
     public UnitsDialog getDialog(final AeroCallback refreshCallback) {
         return UnitsDialog.getUnitsDialog(this, new AeroCallback() {
 

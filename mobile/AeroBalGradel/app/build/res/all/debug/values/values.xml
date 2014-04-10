@@ -36,6 +36,8 @@
     <string name="dialog_bt_empty_list">No Bluetooth Device Paired</string>
     <string name="dialog_bt_no">No</string>
     <string name="dialog_bt_yes">Yes</string>
+    <string name="dialog_graph_xaxis">X Axis:</string>
+    <string name="dialog_graph_yaxis">Y Axis:</string>
     <string name="dialog_login_forgot_password">Enter Email Address</string>
     <string name="dialog_new_exp_interval">Time Interval:</string>
     <string name="dialog_new_exp_interval_hint">0</string>
@@ -45,6 +47,7 @@
     <string name="dialog_new_exp_samples_hint">0</string>
     <string name="dialog_new_exp_wind_speeds">Wind Speed:</string>
     <string name="dialog_new_exp_wind_speeds_hint">0.00</string>
+    <string name="dialog_no_session">No Session Found</string>
     <string name="dialog_units_default">Default</string>
     <string name="dialog_units_directions">Direction:</string>
     <string name="dialog_units_force">Force:</string>
@@ -98,6 +101,7 @@
     <string name="save">Save</string>
     <string name="send">Send</string>
     <string name="title_activity_data_detail">DataDetailActivity</string>
+    <string name="title_activity_graph">GraphActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_open">OpenActivity</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_titles.xml -->
@@ -110,9 +114,11 @@
     <string name="title_dialog_bt_selector">Select AeroBal Controller</string>
     <string name="title_dialog_confirm_run">Object Added?</string>
     <string name="title_dialog_forgot_password">Forgot Password?</string>
+    <string name="title_dialog_gen_graph">Generate Graph?</string>
     <string name="title_dialog_new_experiment">New Experiment</string>
     <string name="title_dialog_open_experiment">Open Experiment?</string>
     <string name="title_dialog_save_exp_name">Experiment Name?</string>
+    <string name="title_dialog_save_online">Save Experiment Online?</string>
     <string name="title_dialog_units">Units</string>
     <string name="title_fragment_data_graph">Graph</string>
     <string name="title_fragment_data_raw">Raw Data</string>

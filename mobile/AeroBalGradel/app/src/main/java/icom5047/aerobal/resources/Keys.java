@@ -42,6 +42,10 @@ public class Keys {
         public static String ExperimentController = "keyExperimentController";
         public static String UnitController = "keyUnitController";
         public static String OpenType = "openType";
+        public static String XAxis = "xAxis";
+        public static String YAxis = "yAxis";
+        public static String XAxisTitle = "xAxisTitle";
+        public static String YAxisTitle = "yAxisTitle";
 
 
     }

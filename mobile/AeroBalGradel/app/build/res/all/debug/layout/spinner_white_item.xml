@@ -4,5 +4,5 @@
     android:id="@+id/spinnerWhiteItem"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textSize="20sp"
+    android:textSize="30sp"
     android:textColor="@android:color/white" /><!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/spinner_white_item.xml -->

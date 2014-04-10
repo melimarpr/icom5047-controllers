@@ -2,6 +2,9 @@ package icom5047.aerobal.activities;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -17,11 +20,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.aerobal.data.objects.Experiment;
+import com.aerobal.data.objects.Session;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import icom5047.aerobal.adapters.DrawerAdapter;
@@ -34,6 +43,7 @@ import icom5047.aerobal.dialog.OpenDialog;
 import icom5047.aerobal.fragments.EmptyFragment;
 import icom5047.aerobal.fragments.ExperimentFragment;
 import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.mockers.Mocker;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
 
@@ -235,9 +245,11 @@ public class MainActivity extends FragmentActivity {
 
                 break;
             case R.id.ab_btn_save_online:
+                saveExperimentOnlineDialog();
                 break;
 
             case R.id.ab_btn_export:
+                exportExperimentDialog();
                 break;
             case R.id.ab_btn_close:
                 FragmentManager fm = getSupportFragmentManager();
@@ -253,6 +265,74 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+    private void exportExperimentDialog() {
+
+
+    }
+
+    private void saveExperimentOnlineDialog() {
+
+        //TODO: Get Session From Jesus
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.title_dialog_save_online);
+
+        View view = this.getLayoutInflater().inflate(R.layout.dialog_save_experiment, null);
+
+
+
+        builder.setView(view);
+
+        doHttpLoadSessions(view);
+
+
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //NoOp;
+            }
+        });
+
+        builder.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        Dialog dialog = builder.create();
+
+
+        dialog.show();
+
+
+    }
+
+
+    private void doHttpLoadSessions(View view){
+
+        //Get Vars
+        TextView textView = (TextView) view.findViewById(R.id.dialogSaveExpOnlineNoSession);
+        ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.dialogSaveExpOnlineProgressBar);
+        Spinner spinner = (Spinner) view.findViewById(R.id.dialogSaveExpOnlineSpinner);
+
+        List<Session> sessions = Mocker.generateFakeSessions(10);
+
+        //TODO: Changed Mocker
+
+        progressBar.setVisibility(View.GONE);
+
+        if(sessions.size() == 0){
+            textView.setVisibility(View.VISIBLE);
+        }
+        else{
+            spinner.setAdapter(new ArrayAdapter<Session>(this, android.R.layout.simple_dropdown_item_1line, sessions));
+            spinner.setVisibility(View.VISIBLE);
+        }
+
+
+
+
+    }
 
     private void closeDrawer() {
         mDrawerLayout.closeDrawers();

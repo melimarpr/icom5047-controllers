@@ -1,7 +1,10 @@
 package icom5047.aerobal.activities;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +12,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,9 +24,10 @@ import java.util.Locale;
 import icom5047.aerobal.containers.SpinnerContainer;
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.controllers.UnitController;
-import icom5047.aerobal.fragments.DataGraphFragment;
 import icom5047.aerobal.fragments.DataRawDataFragment;
 import icom5047.aerobal.fragments.DataSummaryFragment;
+import icom5047.aerobal.mockers.Mocker;
+import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.ViewGroupUtils;
 
@@ -145,9 +150,15 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
         switch (item.getItemId()){
             case android.R.id.home:
                 finish();
+            case R.id.ab_btn_graph:
+                showGraphDialog();
+                break;
+
         }
         return true;
     }
+
+
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
@@ -190,13 +201,10 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            Fragment returnFrag = DataSummaryFragment.getInstance(experimentController);
+            Fragment returnFrag = DataSummaryFragment.getInstance(experimentController, unitController);
             switch (position){
                 case 1:
-                    returnFrag = DataGraphFragment.getInstance(experimentController);
-                    break;
-                case 2:
-                    returnFrag = DataRawDataFragment.getInstance(experimentController);
+                    returnFrag = DataRawDataFragment.getInstance(experimentController, unitController);
                     break;
             }
 
@@ -206,7 +214,7 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 2;
         }
 
         @Override
@@ -216,13 +224,71 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
                 case 0:
                     return getString(R.string.title_fragment_data_summary).toUpperCase(l);
                 case 1:
-                    return getString(R.string.title_fragment_data_graph).toUpperCase(l);
-                case 2:
                     return getString(R.string.title_fragment_data_raw).toUpperCase(l);
             }
             return null;
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.data_detail, menu);
+        return true;
+    }
+
+    private void showGraphDialog() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.title_dialog_gen_graph);
+
+        View view = this.getLayoutInflater().inflate(R.layout.dialog_graph, null, false);
+
+        final Spinner xSpinner = (Spinner) view.findViewById(R.id.dialogGraphXAxisSpinner);
+
+        //Measurement Spinner
+        xSpinner.setAdapter(new ArrayAdapter<SpinnerContainer>(this, android.R.layout.simple_dropdown_item_1line, GlobalConstants.Measurements.getMeasurementListSpinner()));
+        xSpinner.setSelection(0);
+
+
+        final Spinner ySpinner = (Spinner) view.findViewById(R.id.dialogGraphYAxisSpinner);
+        //Measurement Spinner
+        ySpinner.setAdapter(new ArrayAdapter<SpinnerContainer>(this, android.R.layout.simple_dropdown_item_1line, GlobalConstants.Measurements.getMeasurementListSpinner()));
+        ySpinner.setSelection(1);
+
+        builder.setView(view);
+
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //NoOp
+            }
+        });
+
+        builder.setPositiveButton(R.string.create, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent intent = new Intent(getBaseContext(), GraphActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString(Keys.BundleKeys.XAxisTitle, ((SpinnerContainer)xSpinner.getSelectedItem()).name);
+                bundle.putString(Keys.BundleKeys.YAxisTitle, ((SpinnerContainer)ySpinner.getSelectedItem()).name);
+                bundle.putDoubleArray(Keys.BundleKeys.XAxis, Mocker.generateLinearDoubleArray(10));
+                bundle.putDoubleArray(Keys.BundleKeys.YAxis, Mocker.generateLinearDoubleArray(10));
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+
+            }
+        });
+
+
+
+        builder.create().show();
+
+
+    }
+
 
 
 }

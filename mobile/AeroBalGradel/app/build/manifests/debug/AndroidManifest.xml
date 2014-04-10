@@ -1,7 +1,6 @@
 <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="icom5047.aerobal.activities">
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19"/>
 
-
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -19,6 +18,8 @@
         <activity android:label="@string/title_activity_data_detail" android:name="icom5047.aerobal.activities.DataDetailActivity" android:screenOrientation="portrait">
         </activity>
         <activity android:label="@string/title_activity_open" android:name="icom5047.aerobal.activities.OpenActivity" android:screenOrientation="portrait">
+        </activity>
+        <activity android:label="@string/title_activity_graph" android:name="icom5047.aerobal.activities.GraphActivity">
         </activity>
     </application>
 

@@ -78,6 +78,7 @@
     <orderEntry type="library" exported="" name="DataLib" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-gson-1.17.0-rc" level="project" />
+    <orderEntry type="library" exported="" name="achartengine-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-jackson-1.17.0-rc" level="project" />
     <orderEntry type="library" exported="" name="scala-library-2.10.3" level="project" />
     <orderEntry type="library" exported="" name="support-v13-19.1.0" level="project" />

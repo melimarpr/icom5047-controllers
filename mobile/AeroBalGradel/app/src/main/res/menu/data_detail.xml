@@ -2,8 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="icom5047.aerobal.activities.DataDetailActivity" >
     
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    <item android:id="@+id/ab_btn_graph"
+        android:title="@string/title_fragment_data_graph"
         android:orderInCategory="100"
-        android:showAsAction="never" />
+        android:icon="@drawable/ic_graph"
+        android:showAsAction="always|withText" />
 </menu>
