@@ -77,12 +77,13 @@ public class OpenDialog extends DialogFragment {
                 if(userController.isUserLogIn() || true){
                     //TODO: Change For User
                     map.put(Keys.CallbackMap.OpenType, ONLINE);
+                    callback.callback(map);
 
                 }
                 else
                     Toast.makeText(getActivity(), R.string.toast_invalid_open_user_not_login, Toast.LENGTH_SHORT).show();
 
-                callback.callback(map);
+
 
             }
         });

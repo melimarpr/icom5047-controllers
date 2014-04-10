@@ -1,8 +1,13 @@
 package icom5047.aerobal.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.dialog.OpenDialog;
@@ -13,11 +18,24 @@ public class OpenActivity extends Activity {
 
     private ExperimentController experimentController;
     private String type;
+    private ProgressBar progressBar;
+    private TextView textViewNotFound;
+    private ListView listViewOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open);
+
+        final ActionBar ab = this.getActionBar();
+
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setHomeButtonEnabled(true);
+
+        //Instance Field
+        progressBar = (ProgressBar) findViewById(R.id.activityOpenProgress);
+        textViewNotFound = (TextView) findViewById(R.id.activityOpenNoSession);
+        listViewOptions = (ListView) findViewById(R.id.activityOpenListView);
 
 
         Bundle bnd = getIntent().getExtras();
@@ -29,13 +47,26 @@ public class OpenActivity extends Activity {
 
 
         if(type.equalsIgnoreCase(OpenDialog.LOCAL)){
+            doHttpOnline();
             setTitle(R.string.title_activity_open_local);
         }
+        else{
+            setTitle(R.string.title_activity_open_online);
+            doHttpOnline();
+        }
 
-        setTitle(R.string.title_activity_open_online);
 
 
 
+
+
+
+    }
+
+    private void doHttpOnline() {
+
+        progressBar.setVisibility(View.GONE);
+        textViewNotFound.setVisibility(View.VISIBLE);
 
 
     }
@@ -46,7 +77,8 @@ public class OpenActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == android.R.id.home) {
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);

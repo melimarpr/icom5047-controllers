@@ -237,9 +237,9 @@
                 </string>
                 <string name="title_dialog_forgot_password" >Forgot Password?
                 </string>
-                <string name="title_dialog_bt_disconenct" >Disconnect?
-                </string>
                 <string name="title_dialog_confirm_run" >Object Added?
+                </string>
+                <string name="title_dialog_bt_disconenct" >Disconnect?
                 </string>
                 <string name="title_dialog_gen_graph" >Generate Graph?
                 </string>
@@ -277,9 +277,9 @@
                 </string>
                 <string name="toast_invalid_exp_interval_max" >Time Interval Value Above Maximum of:
                 </string>
-                <string name="toast_file_create" >File Successfully Created
-                </string>
                 <string name="progress_finish" >Finishing…
+                </string>
+                <string name="toast_file_create" >File Successfully Created
                 </string>
                 <string name="toast_invalid_exp_samples_min" >Samples Value Below Minimum of:
                 </string>
@@ -289,9 +289,9 @@
                 </string>
                 <string name="toast_invalid_exp_wind_speed_max" >Wind Speed Value Above Maximum of:
                 </string>
-                <string name="toast_invalid_filename" >Invalid File Name: Empty or Less than 3 Characthers
-                </string>
                 <string name="toast_invalid_exp_samples_max" >Samples Value Above Maximum of:
+                </string>
+                <string name="toast_invalid_filename" >Invalid File Name: Empty or Less than 3 Characthers
                 </string>
                 <string name="toast_invalid_exp_wind_speed_min" >Wind Speed Value Below Minimum of:
                 </string>
@@ -313,6 +313,8 @@
                 </string>
                 <string name="dialog_export_radio_aerobal" >Aerobal
                 </string>
+                <string name="activity_error_no_session_found" >No Sessions Found
+                </string>
                 <string name="dialog_new_exp_samples_hint" >0
                 </string>
                 <string name="ab_btn_export" >Export
@@ -331,9 +333,9 @@
                 </string>
                 <string name="dialog_new_exp_wind_speeds_hint" >0.00
                 </string>
-                <string name="dialog_bt_disconnect" >Disconnect from AeroBal?
-                </string>
                 <string name="logo_img_desc" >Logo
+                </string>
+                <string name="dialog_bt_disconnect" >Disconnect from AeroBal?
                 </string>
                 <string name="activity_login_hint_username" >Username or Email
                 </string>
@@ -341,11 +343,11 @@
                 </string>
                 <string name="save" >Save
                 </string>
-                <string name="dialog_export_et_hint" >File Name
+                <string name="ab_btn_close" >Close
                 </string>
                 <string name="title_activity_data_detail" >DataDetailActivity
                 </string>
-                <string name="ab_btn_close" >Close
+                <string name="dialog_export_et_hint" >File Name
                 </string>
                 <string name="ab_btn_units" >Units
                 </string>
@@ -397,9 +399,9 @@
                 </string>
                 <string name="dialog_graph_yaxis" >Y Axis:
                 </string>
-                <string name="email" >Email
-                </string>
                 <string name="create" >Create
+                </string>
+                <string name="email" >Email
                 </string>
                 <string name="online" >Online
                 </string>
@@ -417,9 +419,9 @@
                 </string>
                 <string name="dialog_new_exp_samples" >Samples:
                 </string>
-                <string name="dialog_new_exp_name" >Name:
-                </string>
                 <string name="dialog_units_pressure" >Pressure:
+                </string>
+                <string name="dialog_new_exp_name" >Name:
                 </string>
                 <string name="dialog_units_force" >Force:
                 </string>
@@ -449,21 +451,21 @@
                 </style>
 
                 <style
-                    name="MyActionBar"
-                    parent="android:Widget.Holo.Light.ActionBar.Solid" >
->
-                    <item name="android:background">
-@drawable/ic_actionbar
-                    </item>
-                </style>
-
-                <style
                     name="AppTheme"
                     parent="AppBaseTheme" >
 
                     <!-- All customizations that are NOT specific to a particular API-level can go here. -->
                     <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
 
+                </style>
+
+                <style
+                    name="MyActionBar"
+                    parent="android:Widget.Holo.Light.ActionBar.Solid" >
+>
+                    <item name="android:background">
+@drawable/ic_actionbar
+                    </item>
                 </style>
             </file>
             <file

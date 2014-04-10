@@ -58,6 +58,7 @@
     <string name="dialog_new_exp_interval_hint">0</string>
 
     <!-- Open Dialog -->
+    <string name="activity_error_no_session_found">No Sessions Found</string>
 
 
     <!-- Experiment Fragment -->

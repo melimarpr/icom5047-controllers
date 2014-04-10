@@ -603,8 +603,12 @@ icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$2: void callback(
 icom5047.aerobal.activities.OpenActivity
 icom5047.aerobal.activities.OpenActivity: icom5047.aerobal.controllers.ExperimentController experimentController
 icom5047.aerobal.activities.OpenActivity: java.lang.String type
+icom5047.aerobal.activities.OpenActivity: android.widget.ProgressBar progressBar
+icom5047.aerobal.activities.OpenActivity: android.widget.TextView textViewNotFound
+icom5047.aerobal.activities.OpenActivity: android.widget.ListView listViewOptions
 icom5047.aerobal.activities.OpenActivity: OpenActivity()
 icom5047.aerobal.activities.OpenActivity: void onCreate(android.os.Bundle)
+icom5047.aerobal.activities.OpenActivity: void doHttpOnline()
 icom5047.aerobal.activities.OpenActivity: boolean onOptionsItemSelected(android.view.MenuItem)
 icom5047.aerobal.activities.R
 icom5047.aerobal.activities.R: R()
@@ -649,6 +653,9 @@ icom5047.aerobal.activities.R$id: int ab_btn_start_run
 icom5047.aerobal.activities.R$id: int ab_btn_stop
 icom5047.aerobal.activities.R$id: int ab_btn_units
 icom5047.aerobal.activities.R$id: int action_settings
+icom5047.aerobal.activities.R$id: int activityOpenListView
+icom5047.aerobal.activities.R$id: int activityOpenNoSession
+icom5047.aerobal.activities.R$id: int activityOpenProgress
 icom5047.aerobal.activities.R$id: int chart
 icom5047.aerobal.activities.R$id: int content_frame
 icom5047.aerobal.activities.R$id: int dialogEditText
@@ -702,14 +709,12 @@ icom5047.aerobal.activities.R$id: int fragExpSumTittle
 icom5047.aerobal.activities.R$id: int fragExpSumWindSpeedUnits
 icom5047.aerobal.activities.R$id: int fragExpSumWindSpeedValue
 icom5047.aerobal.activities.R$id: int frag_experiment_summary
-icom5047.aerobal.activities.R$id: int listView
 icom5047.aerobal.activities.R$id: int loginButton
 icom5047.aerobal.activities.R$id: int loginButtonForgot
 icom5047.aerobal.activities.R$id: int loginButtonRegister
 icom5047.aerobal.activities.R$id: int loginPassword
 icom5047.aerobal.activities.R$id: int loginUsername
 icom5047.aerobal.activities.R$id: int pager
-icom5047.aerobal.activities.R$id: int progressBar
 icom5047.aerobal.activities.R$id: int rowAve3UnitUnit
 icom5047.aerobal.activities.R$id: int rowAveUnitTitle
 icom5047.aerobal.activities.R$id: int rowAveUnitValue
@@ -723,7 +728,6 @@ icom5047.aerobal.activities.R$id: int row_drawer_tv
 icom5047.aerobal.activities.R$id: int section_label
 icom5047.aerobal.activities.R$id: int selector_drawer
 icom5047.aerobal.activities.R$id: int spinnerWhiteItem
-icom5047.aerobal.activities.R$id: int textView
 icom5047.aerobal.activities.R$id: int textView1
 icom5047.aerobal.activities.R$id: R$id()
 icom5047.aerobal.activities.R$layout
@@ -770,6 +774,7 @@ icom5047.aerobal.activities.R$string: int ab_btn_start_run
 icom5047.aerobal.activities.R$string: int ab_btn_stop
 icom5047.aerobal.activities.R$string: int ab_btn_units
 icom5047.aerobal.activities.R$string: int action_settings
+icom5047.aerobal.activities.R$string: int activity_error_no_session_found
 icom5047.aerobal.activities.R$string: int activity_login_button_forgot
 icom5047.aerobal.activities.R$string: int activity_login_button_register
 icom5047.aerobal.activities.R$string: int activity_login_hint_password
