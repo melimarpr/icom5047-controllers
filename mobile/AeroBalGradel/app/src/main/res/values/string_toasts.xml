@@ -15,6 +15,9 @@
     <string name="toast_invalid_open_user_not_login">Unable to Open Experiment User Not Log In</string>
     <string name="toast_invalid_user_pass">Empty Username or Password</string>
     <string name="toast_invalid_email">Invalid Email</string>
+    <string name="toast_invalid_filename">Invalid File Name: Empty or Less than 3 Characthers</string>
+    <string name="toast_file_create">File Successfully Created</string>
+    <string name="toast_file_not_create">File Not Successfully Created</string>
 
     <!-- Progress Dialogs -->
     <string name="progress_login">Login-In&#8230;</string>

@@ -7,7 +7,9 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -15,20 +17,26 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aerobal.data.objects.Experiment;
 import com.aerobal.data.objects.Session;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -267,8 +275,125 @@ public class MainActivity extends FragmentActivity {
 
     private void exportExperimentDialog() {
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle(R.string.title_dialog_export);
+        builder.setIcon(R.drawable.ic_export);
+
+        View view = this.getLayoutInflater().inflate(R.layout.dialog_export, null, false);
+        final EditText et = (EditText) view.findViewById(R.id.dialogExportEt);
+        final RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.dialogExportRadioFormat);
+
+
+        builder.setView(view);
+
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //NoOp
+            }
+        });
+
+        builder.setNeutralButton(R.string.local, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+
+                File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                if (!path.mkdirs()) {
+                    Log.e("DIR_TAG", "Directory not created");
+                }
+
+                String fileName = "experiment";
+                if(validFileName(et.getText().toString().trim())){
+                    fileName = et.getText().toString().trim();
+                }
+                else{
+                    Toast.makeText(getBaseContext(), R.string.toast_invalid_filename, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String suffix = ".csv";
+                int id = radioGroup.getCheckedRadioButtonId();
+                switch(id){
+                    case R.id.dialogExportRadioCSV:
+                        suffix = ".csv";
+                        break;
+                    case R.id.dialogExportRadioAerobal:
+                        suffix = ".aero";
+                        break;
+                }
+
+                File file = new File(path, fileName+suffix);
+                try {
+                   boolean success =  file.createNewFile();
+                   if(success){
+                       Toast.makeText(getBaseContext(), R.string.toast_file_create, Toast.LENGTH_SHORT).show();
+                   }
+                   else {
+                       Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
+                   }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
+        builder.setPositiveButton(R.string.email, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Aerobal Experiment");
+
+                File tmpFile = null;
+
+                String fileName = "experiment";
+                if(validFileName(et.getText().toString().trim())){
+                    fileName = et.getText().toString().trim();
+                }
+                else{
+                    Toast.makeText(getBaseContext(), R.string.toast_invalid_filename, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+
+                String suffix = ".csv";
+                int id = radioGroup.getCheckedRadioButtonId();
+                switch(id){
+                    case R.id.dialogExportRadioCSV:
+                        suffix = ".csv";
+                        break;
+                    case R.id.dialogExportRadioAerobal:
+                        suffix = ".aero";
+                        break;
+                }
+
+                try {
+                    tmpFile = File.createTempFile(fileName, suffix, getBaseContext().getCacheDir());
+                }catch (IOException e) {
+                    // Error while creating file
+                }
+
+                File file = tmpFile;
+
+                Uri uri = Uri.parse("file://" + file);
+                intent.putExtra(Intent.EXTRA_STREAM, uri);
+                startActivity(Intent.createChooser(intent, getResources().getString(R.string.title_intent_email)));
+            }
+        });
+
+        builder.create().show();
+
 
     }
+
+    private boolean validFileName(String str){
+        return !str.isEmpty() && str.length() >= 3;
+    }
+
 
     private void saveExperimentOnlineDialog() {
 
@@ -383,22 +508,68 @@ public class MainActivity extends FragmentActivity {
                     } else {
                         NewDialog.getNewDialog(unitController, new AeroCallback() {
                             @Override
-                            public void callback(Map<String, Object> objectMap) {
+                            public void callback(final Map<String, Object> objectMap) {
 
-                                experimentController.setExperiment((Experiment) objectMap.get(Keys.CallbackMap.NewExperimentObject));
-                                ((NewDialog) objectMap.get(Keys.CallbackMap.NewExperimentDialog)).dismiss();
+                               final Experiment experiment = (Experiment) objectMap.get(Keys.CallbackMap.NewExperimentObject);
 
-                                //Open new fragment
-
-                                //Remove Old
-                                FragmentManager fm = getSupportFragmentManager();
-                                FragmentTransaction ft = fm.beginTransaction();
-                                ft.replace(R.id.content_frame, ExperimentFragment.getExperimentFragment(experimentController, unitController), Keys.FragmentTag.ExperimentTag);
-                                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                                ft.commit();
+                                if(!experimentController.isExperimentSet()) {
 
 
-                                closeDrawer();
+                                    experimentController.setExperiment(experiment);
+                                    ((NewDialog) objectMap.get(Keys.CallbackMap.NewExperimentDialog)).dismiss();
+
+                                    //Open new fragment
+
+                                    //Remove Old
+                                    FragmentManager fm = getSupportFragmentManager();
+                                    FragmentTransaction ft = fm.beginTransaction();
+                                    ft.replace(R.id.content_frame, ExperimentFragment.getExperimentFragment(experimentController, unitController), Keys.FragmentTag.ExperimentTag);
+                                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                                    ft.commit();
+                                    closeDrawer();
+                                    return;
+
+                                }
+                                else{
+                                    closeDrawer();
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext());
+
+                                    builder.setTitle(R.string.title_dialog_overide);
+
+                                    builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            //NoOp
+                                        }
+                                    });
+
+                                    builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            experimentController.setExperiment(experiment);
+                                            ((NewDialog) objectMap.get(Keys.CallbackMap.NewExperimentDialog)).dismiss();
+
+                                            //Open new fragment
+
+                                            //Remove Old
+                                            FragmentManager fm = getSupportFragmentManager();
+                                            FragmentTransaction ft = fm.beginTransaction();
+                                            ft.replace(R.id.content_frame, ExperimentFragment.getExperimentFragment(experimentController, unitController), Keys.FragmentTag.ExperimentTag);
+                                            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                                            ft.commit();
+
+                                        }
+                                    });
+
+                                    builder.create().show();
+
+
+
+                                }
+
+
+
+
                             }
                         }).show(getSupportFragmentManager(), "New Experiment Dialog");
                     }

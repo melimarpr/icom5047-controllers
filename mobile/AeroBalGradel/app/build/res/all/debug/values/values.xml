@@ -36,6 +36,9 @@
     <string name="dialog_bt_empty_list">No Bluetooth Device Paired</string>
     <string name="dialog_bt_no">No</string>
     <string name="dialog_bt_yes">Yes</string>
+    <string name="dialog_export_et_hint">File Name</string>
+    <string name="dialog_export_radio_aerobal">Aerobal</string>
+    <string name="dialog_export_radio_csv">CSV</string>
     <string name="dialog_graph_xaxis">X Axis:</string>
     <string name="dialog_graph_yaxis">Y Axis:</string>
     <string name="dialog_login_forgot_password">Enter Email Address</string>
@@ -63,6 +66,7 @@
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="email">Email</string>
     <string name="frag_exp_sum_interval">Time Interval:</string>
     <string name="frag_exp_sum_parameters">Parameters:</string>
     <string name="frag_exp_sum_samples">Samples:</string>
@@ -113,19 +117,24 @@
     <string name="title_dialog_bt_disconenct">Disconnect?</string>
     <string name="title_dialog_bt_selector">Select AeroBal Controller</string>
     <string name="title_dialog_confirm_run">Object Added?</string>
+    <string name="title_dialog_export">Export Experiment?</string>
     <string name="title_dialog_forgot_password">Forgot Password?</string>
     <string name="title_dialog_gen_graph">Generate Graph?</string>
     <string name="title_dialog_new_experiment">New Experiment</string>
     <string name="title_dialog_open_experiment">Open Experiment?</string>
+    <string name="title_dialog_overide">Override Current Experiment?</string>
     <string name="title_dialog_save_exp_name">Experiment Name?</string>
     <string name="title_dialog_save_online">Save Experiment Online?</string>
     <string name="title_dialog_units">Units</string>
     <string name="title_fragment_data_graph">Graph</string>
     <string name="title_fragment_data_raw">Raw Data</string>
     <string name="title_fragment_data_summary">Summary</string>
+    <string name="title_intent_email">Send Email…</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml -->
     <eat-comment />
 
+    <string name="toast_file_create">File Successfully Created</string>
+    <string name="toast_file_not_create">File Not Successfully Created</string>
     <string name="toast_invalid_email">Invalid Email</string>
     <string name="toast_invalid_exp_interval_empty">Time Interval Value Missing</string>
     <string name="toast_invalid_exp_interval_max">Time Interval Value Above Maximum of:</string>
@@ -138,6 +147,7 @@
     <string name="toast_invalid_exp_wind_speed_empty">Wind Speed Value Missing</string>
     <string name="toast_invalid_exp_wind_speed_max">Wind Speed Value Above Maximum of:</string>
     <string name="toast_invalid_exp_wind_speed_min">Wind Speed Value Below Minimum of:</string>
+    <string name="toast_invalid_filename">Invalid File Name: Empty or Less than 3 Characthers</string>
     <string name="toast_invalid_open_user_not_login">Unable to Open Experiment User Not Log In</string>
     <string name="toast_invalid_user_pass">Empty Username or Password</string>
     <string name="toast_no_bt_found">No Bluetooth Module found in Device.</string>

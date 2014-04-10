@@ -221,9 +221,13 @@
                 </string>
                 <string name="title_dialog_units" >Units
                 </string>
+                <string name="title_dialog_overide" >Override Current Experiment?
+                </string>
                 <string name="title_activity_open_local" >Local
                 </string>
                 <string name="title_dialog_save_exp_name" >Experiment Name?
+                </string>
+                <string name="title_intent_email" >Send Email…
                 </string>
                 <string name="title_dialog_new_experiment" >New Experiment
                 </string>
@@ -233,13 +237,15 @@
                 </string>
                 <string name="title_dialog_forgot_password" >Forgot Password?
                 </string>
-                <string name="title_dialog_confirm_run" >Object Added?
-                </string>
                 <string name="title_dialog_bt_disconenct" >Disconnect?
+                </string>
+                <string name="title_dialog_confirm_run" >Object Added?
                 </string>
                 <string name="title_dialog_gen_graph" >Generate Graph?
                 </string>
                 <string name="title_fragment_data_summary" >Summary
+                </string>
+                <string name="title_dialog_export" >Export Experiment?
                 </string>
                 <string name="title_activity_open_online" >Online
                 </string>
@@ -255,9 +261,9 @@
                 </string>
                 <string name="toast_invalid_open_user_not_login" >Unable to Open Experiment User Not Log In
                 </string>
-                <string name="toast_no_bt_found" >No Bluetooth Module found in Device.
-                </string>
                 <string name="toast_invalid_exp_interval_empty" >Time Interval Value Missing
+                </string>
+                <string name="toast_no_bt_found" >No Bluetooth Module found in Device.
                 </string>
                 <string name="progress_running" >Running Experiment…
                 </string>
@@ -267,7 +273,11 @@
                 </string>
                 <string name="toast_invalid_exp_name_char_limit" >Experiment Name is Over 100 Characters
                 </string>
+                <string name="toast_file_not_create" >File Not Successfully Created
+                </string>
                 <string name="toast_invalid_exp_interval_max" >Time Interval Value Above Maximum of:
+                </string>
+                <string name="toast_file_create" >File Successfully Created
                 </string>
                 <string name="progress_finish" >Finishing…
                 </string>
@@ -278,6 +288,8 @@
                 <string name="progress_login" >Login-In…
                 </string>
                 <string name="toast_invalid_exp_wind_speed_max" >Wind Speed Value Above Maximum of:
+                </string>
+                <string name="toast_invalid_filename" >Invalid File Name: Empty or Less than 3 Characthers
                 </string>
                 <string name="toast_invalid_exp_samples_max" >Samples Value Above Maximum of:
                 </string>
@@ -298,6 +310,8 @@
                 <string name="ab_btn_bluetooth" >Bluetooth
                 </string>
                 <string name="dialog_new_exp_wind_speeds" >Wind Speed:
+                </string>
+                <string name="dialog_export_radio_aerobal" >Aerobal
                 </string>
                 <string name="dialog_new_exp_samples_hint" >0
                 </string>
@@ -326,6 +340,8 @@
                 <string name="dialog_new_exp_name_hint" >Experiment Name
                 </string>
                 <string name="save" >Save
+                </string>
+                <string name="dialog_export_et_hint" >File Name
                 </string>
                 <string name="title_activity_data_detail" >DataDetailActivity
                 </string>
@@ -367,6 +383,8 @@
                 </string>
                 <string name="ab_btn_save_online" >Save Online
                 </string>
+                <string name="dialog_export_radio_csv" >CSV
+                </string>
                 <string name="hello_world" >Hello world!
                 </string>
                 <string name="login" >Log-In
@@ -378,6 +396,8 @@
                 <string name="frag_exp_sum_summary" >Summary:
                 </string>
                 <string name="dialog_graph_yaxis" >Y Axis:
+                </string>
+                <string name="email" >Email
                 </string>
                 <string name="create" >Create
                 </string>
@@ -660,6 +680,31 @@
                 name="ic_caret"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_caret.png"
                 qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_export"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_export.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_export"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_export.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="dialog_export"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_export.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="ic_export"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_export.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_export"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_export.png"
+                qualifiers="xxhdpi"
                 type="drawable" />
         </source>
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/rs/debug" />

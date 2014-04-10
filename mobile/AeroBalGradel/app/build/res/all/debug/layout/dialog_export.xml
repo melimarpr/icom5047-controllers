@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:inputType="text"
+        android:layout_gravity="center"
+        android:hint="@string/dialog_export_et_hint"
+        android:id="@+id/dialogExportEt" />
+
+
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dialogExportRadioFormat"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:checkedButton="@+id/dialogExportRadioCSV"
+        android:orientation="horizontal">
+        <RadioButton
+
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_export_radio_csv"
+            android:id="@+id/dialogExportRadioCSV" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_export_radio_aerobal"
+            android:id="@+id/dialogExportRadioAerobal" />
+    </RadioGroup>
+
+
+</LinearLayout><!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_export.xml -->

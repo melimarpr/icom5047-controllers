@@ -23,6 +23,10 @@ public class GlobalConstants {
 
     public static final String[] allMeasurementType = new String[]{ "Average", "Max", "Min", "Standard Deviation", "Median" };
 
+    public static class File{
+        public static String folderName = "Aerobal";
+
+    }
 
     public static class Measurements{
 

@@ -16,6 +16,7 @@
     <string name="local">Local</string>
     <string name="login">Log-In</string>
     <string name="send">Send</string>
+    <string name="email">Email</string>
 
     <!-- Units -->
     <string name="units_seconds">sec</string>
@@ -86,6 +87,11 @@
     <!-- Graph Dialog -->
     <string name="dialog_graph_xaxis">X Axis:</string>
     <string name="dialog_graph_yaxis">Y Axis:</string>
+
+    <!--Export Dialog-->
+    <string name="dialog_export_et_hint">File Name</string>
+    <string name="dialog_export_radio_csv">CSV</string>
+    <string name="dialog_export_radio_aerobal">Aerobal</string>
 
 
 </resources>

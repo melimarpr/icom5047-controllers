@@ -532,6 +532,7 @@ icom5047.aerobal.activities.MainActivity: boolean onCreateOptionsMenu(android.vi
 icom5047.aerobal.activities.MainActivity: boolean onOptionsItemSelected(android.view.MenuItem)
 icom5047.aerobal.activities.MainActivity: void onExperimentLoadedItemSelected(int)
 icom5047.aerobal.activities.MainActivity: void exportExperimentDialog()
+icom5047.aerobal.activities.MainActivity: boolean validFileName(java.lang.String)
 icom5047.aerobal.activities.MainActivity: void saveExperimentOnlineDialog()
 icom5047.aerobal.activities.MainActivity: void doHttpLoadSessions(android.view.View)
 icom5047.aerobal.activities.MainActivity: void closeDrawer()
@@ -539,10 +540,11 @@ icom5047.aerobal.activities.MainActivity: void setExperimentMenuVisibility(boole
 icom5047.aerobal.activities.MainActivity: void onActivityResult(int,int,android.content.Intent)
 icom5047.aerobal.activities.MainActivity: icom5047.aerobal.controllers.ExperimentController access$000(icom5047.aerobal.activities.MainActivity)
 icom5047.aerobal.activities.MainActivity: icom5047.aerobal.controllers.UnitController access$100(icom5047.aerobal.activities.MainActivity)
-icom5047.aerobal.activities.MainActivity: icom5047.aerobal.controllers.BluetoothController access$200(icom5047.aerobal.activities.MainActivity)
-icom5047.aerobal.activities.MainActivity: void access$300(icom5047.aerobal.activities.MainActivity)
-icom5047.aerobal.activities.MainActivity: icom5047.aerobal.controllers.UserController access$400(icom5047.aerobal.activities.MainActivity)
-icom5047.aerobal.activities.MainActivity: android.view.Menu access$500(icom5047.aerobal.activities.MainActivity)
+icom5047.aerobal.activities.MainActivity: boolean access$200(icom5047.aerobal.activities.MainActivity,java.lang.String)
+icom5047.aerobal.activities.MainActivity: icom5047.aerobal.controllers.BluetoothController access$300(icom5047.aerobal.activities.MainActivity)
+icom5047.aerobal.activities.MainActivity: void access$400(icom5047.aerobal.activities.MainActivity)
+icom5047.aerobal.activities.MainActivity: icom5047.aerobal.controllers.UserController access$500(icom5047.aerobal.activities.MainActivity)
+icom5047.aerobal.activities.MainActivity: android.view.Menu access$600(icom5047.aerobal.activities.MainActivity)
 icom5047.aerobal.activities.MainActivity$1
 icom5047.aerobal.activities.MainActivity$1: icom5047.aerobal.activities.MainActivity this$0
 icom5047.aerobal.activities.MainActivity$1: MainActivity$1(icom5047.aerobal.activities.MainActivity,android.app.Activity,android.support.v4.widget.DrawerLayout,int,int,int)
@@ -557,9 +559,25 @@ icom5047.aerobal.activities.MainActivity$3: icom5047.aerobal.activities.MainActi
 icom5047.aerobal.activities.MainActivity$3: MainActivity$3(icom5047.aerobal.activities.MainActivity)
 icom5047.aerobal.activities.MainActivity$3: void onClick(android.content.DialogInterface,int)
 icom5047.aerobal.activities.MainActivity$4
+icom5047.aerobal.activities.MainActivity$4: android.widget.EditText val$et
+icom5047.aerobal.activities.MainActivity$4: android.widget.RadioGroup val$radioGroup
 icom5047.aerobal.activities.MainActivity$4: icom5047.aerobal.activities.MainActivity this$0
-icom5047.aerobal.activities.MainActivity$4: MainActivity$4(icom5047.aerobal.activities.MainActivity)
+icom5047.aerobal.activities.MainActivity$4: MainActivity$4(icom5047.aerobal.activities.MainActivity,android.widget.EditText,android.widget.RadioGroup)
 icom5047.aerobal.activities.MainActivity$4: void onClick(android.content.DialogInterface,int)
+icom5047.aerobal.activities.MainActivity$5
+icom5047.aerobal.activities.MainActivity$5: android.widget.EditText val$et
+icom5047.aerobal.activities.MainActivity$5: android.widget.RadioGroup val$radioGroup
+icom5047.aerobal.activities.MainActivity$5: icom5047.aerobal.activities.MainActivity this$0
+icom5047.aerobal.activities.MainActivity$5: MainActivity$5(icom5047.aerobal.activities.MainActivity,android.widget.EditText,android.widget.RadioGroup)
+icom5047.aerobal.activities.MainActivity$5: void onClick(android.content.DialogInterface,int)
+icom5047.aerobal.activities.MainActivity$6
+icom5047.aerobal.activities.MainActivity$6: icom5047.aerobal.activities.MainActivity this$0
+icom5047.aerobal.activities.MainActivity$6: MainActivity$6(icom5047.aerobal.activities.MainActivity)
+icom5047.aerobal.activities.MainActivity$6: void onClick(android.content.DialogInterface,int)
+icom5047.aerobal.activities.MainActivity$7
+icom5047.aerobal.activities.MainActivity$7: icom5047.aerobal.activities.MainActivity this$0
+icom5047.aerobal.activities.MainActivity$7: MainActivity$7(icom5047.aerobal.activities.MainActivity)
+icom5047.aerobal.activities.MainActivity$7: void onClick(android.content.DialogInterface,int)
 icom5047.aerobal.activities.MainActivity$DrawerOnClickListener
 icom5047.aerobal.activities.MainActivity$DrawerOnClickListener: icom5047.aerobal.activities.MainActivity this$0
 icom5047.aerobal.activities.MainActivity$DrawerOnClickListener: MainActivity$DrawerOnClickListener(icom5047.aerobal.activities.MainActivity)
@@ -568,6 +586,16 @@ icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1
 icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1: icom5047.aerobal.activities.MainActivity$DrawerOnClickListener this$1
 icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1: MainActivity$DrawerOnClickListener$1(icom5047.aerobal.activities.MainActivity$DrawerOnClickListener)
 icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1: void callback(java.util.Map)
+icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1$1
+icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1$1: icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1 this$2
+icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1$1: MainActivity$DrawerOnClickListener$1$1(icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1)
+icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1$1: void onClick(android.content.DialogInterface,int)
+icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1$2
+icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1$2: com.aerobal.data.objects.Experiment val$experiment
+icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1$2: java.util.Map val$objectMap
+icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1$2: icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1 this$2
+icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1$2: MainActivity$DrawerOnClickListener$1$2(icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1,com.aerobal.data.objects.Experiment,java.util.Map)
+icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$1$2: void onClick(android.content.DialogInterface,int)
 icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$2
 icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$2: icom5047.aerobal.activities.MainActivity$DrawerOnClickListener this$1
 icom5047.aerobal.activities.MainActivity$DrawerOnClickListener$2: MainActivity$DrawerOnClickListener$2(icom5047.aerobal.activities.MainActivity$DrawerOnClickListener)
@@ -602,6 +630,7 @@ icom5047.aerobal.activities.R$drawable: int ic_bluetooth_connected
 icom5047.aerobal.activities.R$drawable: int ic_caret
 icom5047.aerobal.activities.R$drawable: int ic_drawer
 icom5047.aerobal.activities.R$drawable: int ic_edit
+icom5047.aerobal.activities.R$drawable: int ic_export
 icom5047.aerobal.activities.R$drawable: int ic_folder
 icom5047.aerobal.activities.R$drawable: int ic_graph
 icom5047.aerobal.activities.R$drawable: int ic_launcher
@@ -623,6 +652,10 @@ icom5047.aerobal.activities.R$id: int action_settings
 icom5047.aerobal.activities.R$id: int chart
 icom5047.aerobal.activities.R$id: int content_frame
 icom5047.aerobal.activities.R$id: int dialogEditText
+icom5047.aerobal.activities.R$id: int dialogExportEt
+icom5047.aerobal.activities.R$id: int dialogExportRadioAerobal
+icom5047.aerobal.activities.R$id: int dialogExportRadioCSV
+icom5047.aerobal.activities.R$id: int dialogExportRadioFormat
 icom5047.aerobal.activities.R$id: int dialogGraphXAxisSpinner
 icom5047.aerobal.activities.R$id: int dialogGraphYAxisSpinner
 icom5047.aerobal.activities.R$id: int dialogNewExpEtName
@@ -701,6 +734,7 @@ icom5047.aerobal.activities.R$layout: int activity_main
 icom5047.aerobal.activities.R$layout: int activity_open
 icom5047.aerobal.activities.R$layout: int dialog_bluetooth_list
 icom5047.aerobal.activities.R$layout: int dialog_edit_text
+icom5047.aerobal.activities.R$layout: int dialog_export
 icom5047.aerobal.activities.R$layout: int dialog_graph
 icom5047.aerobal.activities.R$layout: int dialog_new_experiment
 icom5047.aerobal.activities.R$layout: int dialog_save_experiment
@@ -747,6 +781,9 @@ icom5047.aerobal.activities.R$string: int dialog_bt_disconnect
 icom5047.aerobal.activities.R$string: int dialog_bt_empty_list
 icom5047.aerobal.activities.R$string: int dialog_bt_no
 icom5047.aerobal.activities.R$string: int dialog_bt_yes
+icom5047.aerobal.activities.R$string: int dialog_export_et_hint
+icom5047.aerobal.activities.R$string: int dialog_export_radio_aerobal
+icom5047.aerobal.activities.R$string: int dialog_export_radio_csv
 icom5047.aerobal.activities.R$string: int dialog_graph_xaxis
 icom5047.aerobal.activities.R$string: int dialog_graph_yaxis
 icom5047.aerobal.activities.R$string: int dialog_login_forgot_password
@@ -768,6 +805,7 @@ icom5047.aerobal.activities.R$string: int dialog_units_speed
 icom5047.aerobal.activities.R$string: int dialog_units_temperature
 icom5047.aerobal.activities.R$string: int drawer_close
 icom5047.aerobal.activities.R$string: int drawer_open
+icom5047.aerobal.activities.R$string: int email
 icom5047.aerobal.activities.R$string: int frag_exp_sum_interval
 icom5047.aerobal.activities.R$string: int frag_exp_sum_parameters
 icom5047.aerobal.activities.R$string: int frag_exp_sum_samples
@@ -800,16 +838,21 @@ icom5047.aerobal.activities.R$string: int title_actvity_main_menu
 icom5047.aerobal.activities.R$string: int title_dialog_bt_disconenct
 icom5047.aerobal.activities.R$string: int title_dialog_bt_selector
 icom5047.aerobal.activities.R$string: int title_dialog_confirm_run
+icom5047.aerobal.activities.R$string: int title_dialog_export
 icom5047.aerobal.activities.R$string: int title_dialog_forgot_password
 icom5047.aerobal.activities.R$string: int title_dialog_gen_graph
 icom5047.aerobal.activities.R$string: int title_dialog_new_experiment
 icom5047.aerobal.activities.R$string: int title_dialog_open_experiment
+icom5047.aerobal.activities.R$string: int title_dialog_overide
 icom5047.aerobal.activities.R$string: int title_dialog_save_exp_name
 icom5047.aerobal.activities.R$string: int title_dialog_save_online
 icom5047.aerobal.activities.R$string: int title_dialog_units
 icom5047.aerobal.activities.R$string: int title_fragment_data_graph
 icom5047.aerobal.activities.R$string: int title_fragment_data_raw
 icom5047.aerobal.activities.R$string: int title_fragment_data_summary
+icom5047.aerobal.activities.R$string: int title_intent_email
+icom5047.aerobal.activities.R$string: int toast_file_create
+icom5047.aerobal.activities.R$string: int toast_file_not_create
 icom5047.aerobal.activities.R$string: int toast_invalid_email
 icom5047.aerobal.activities.R$string: int toast_invalid_exp_interval_empty
 icom5047.aerobal.activities.R$string: int toast_invalid_exp_interval_max
@@ -822,6 +865,7 @@ icom5047.aerobal.activities.R$string: int toast_invalid_exp_samples_min
 icom5047.aerobal.activities.R$string: int toast_invalid_exp_wind_speed_empty
 icom5047.aerobal.activities.R$string: int toast_invalid_exp_wind_speed_max
 icom5047.aerobal.activities.R$string: int toast_invalid_exp_wind_speed_min
+icom5047.aerobal.activities.R$string: int toast_invalid_filename
 icom5047.aerobal.activities.R$string: int toast_invalid_open_user_not_login
 icom5047.aerobal.activities.R$string: int toast_invalid_user_pass
 icom5047.aerobal.activities.R$string: int toast_no_bt_found
@@ -1173,6 +1217,10 @@ icom5047.aerobal.resources.GlobalConstants: int DecimalPrecision
 icom5047.aerobal.resources.GlobalConstants: java.lang.String[] allMeasurementType
 icom5047.aerobal.resources.GlobalConstants: GlobalConstants()
 icom5047.aerobal.resources.GlobalConstants: void <clinit>()
+icom5047.aerobal.resources.GlobalConstants$File
+icom5047.aerobal.resources.GlobalConstants$File: java.lang.String folderName
+icom5047.aerobal.resources.GlobalConstants$File: GlobalConstants$File()
+icom5047.aerobal.resources.GlobalConstants$File: void <clinit>()
 icom5047.aerobal.resources.GlobalConstants$Measurements
 icom5047.aerobal.resources.GlobalConstants$Measurements: int WindSpeedKey
 icom5047.aerobal.resources.GlobalConstants$Measurements: int TemperatureKey
