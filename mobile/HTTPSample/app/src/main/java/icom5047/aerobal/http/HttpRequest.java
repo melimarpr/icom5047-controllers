@@ -34,9 +34,13 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 	private HttpCallback callback;
 	
 	private Bundle params;
-	private JSONObject payload;
+	private Object payload;
 	
 	private HttpUriRequest request;
+    private String contentType;
+
+    public static final String CONTENT_TYPE_JSON = "application/json";
+    public static final String CONTENT_TYPE_X_FORM_URL_ENCODED = "application/x-www-form-urlencoded";
 	
 	private boolean success;
 	
@@ -58,10 +62,11 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 		}
 	}
 	
-	public HttpRequest(Bundle params, JSONObject payload, HttpCallback callback) {
+	public HttpRequest(Bundle params, Object payload, HttpCallback callback, String contentType) {
 		this.params = params;
 		this.callback = callback;
 		this.payload = payload;
+        this.contentType = contentType;
 		
 		try {
 			processParams(params);
@@ -95,18 +100,19 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 				request = new HttpPost(url.toString());
 				if(payload != null) {
 					HttpPost post = (HttpPost) request;
-					post.setEntity(new StringEntity(payload.toString()));
-					post.setHeader("Content-Type", "application/json");
+					post.setEntity(new StringEntity(ContentConverters.convert(payload, contentType)));
+					post.setHeader("Content-Type", contentType);
 				}
 			} else if (method.equalsIgnoreCase("PUT")) {
 				request = new HttpPut(url.toString());
 				if(payload != null) {
 					HttpPut put = (HttpPut) request;
-					put.setEntity(new StringEntity(payload.toString()));
-					put.setHeader("Content-Type", "application/json");
+					put.setEntity(new StringEntity(ContentConverters.convert(payload, contentType)));
+					put.setHeader("Content-Type", contentType);
 				}
 			} else if (method.equalsIgnoreCase("DELETE")) {
 				request = new HttpDelete(url.toString());
+
 			} else {
 				throw new InvalidParameterException("Invalid http method parameter");
 			}
@@ -194,5 +200,23 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 		public abstract void onFailed();
 		public void onDone() {};
 	}
+
+
+    public static class ContentConverters {
+
+        public static String convert(Object params, String contentType){
+
+            if(contentType.equals(CONTENT_TYPE_JSON)){
+                JSONObject temp = (JSONObject) params;
+                return temp.toString();
+            }
+            else if(contentType.equals(CONTENT_TYPE_X_FORM_URL_ENCODED)){
+                String temp = (String) params;
+                return temp;
+            }
+            return "";
+        }
+
+    }
 
 }

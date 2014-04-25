@@ -60,6 +60,7 @@ public class MainActivity extends FragmentActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
+    private DrawerAdapter mDrawerAdapter;
     private Menu abMenu;
     private boolean expMenuBoolean;
 
@@ -79,7 +80,7 @@ public class MainActivity extends FragmentActivity {
 
 		
 		/* ------------------------------ Application Logic ------------------------- */
-        userController = new UserController(this, null);
+        userController = new UserController(this);
         btController = new BluetoothController(this);
         experimentController = new ExperimentController();
 
@@ -108,7 +109,8 @@ public class MainActivity extends FragmentActivity {
         mDrawerList = (ListView) findViewById(R.id.drawer_list);
 
         // set up the drawer's list view with items and click listener
-        mDrawerList.setAdapter(new DrawerAdapter(this, userController.getDrawerList()));
+        mDrawerAdapter = new DrawerAdapter(this, userController.getDrawerList());
+        mDrawerList.setAdapter(mDrawerAdapter);
 
         //Set Drawer List to React to Click
         mDrawerList.setOnItemClickListener(new DrawerOnClickListener());
@@ -148,6 +150,16 @@ public class MainActivity extends FragmentActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        //Refresh Data After Log-In
+        mDrawerAdapter.clear();
+        mDrawerAdapter.addAll(userController.getDrawerList());
+        mDrawerAdapter.notifyDataSetChanged();
+
+    }
+
+    @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
@@ -168,9 +180,17 @@ public class MainActivity extends FragmentActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
+        if(btController.isAeroBalConnected()){
+            menu.findItem(R.id.ab_btn_bluetooth).setIcon(R.drawable.ic_bluetooth_connected);
+        } else {
+            menu.findItem(R.id.ab_btn_bluetooth).setIcon(R.drawable.ic_bluetooth);
+        }
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
         menu.findItem(R.id.ab_btn_bluetooth).setVisible(!drawerOpen);
         menu.findItem(R.id.ab_btn_units).setVisible(!drawerOpen);
+        if(btController.isAeroBalConnected()){
+
+        }
 
         if (expMenuBoolean) {
             menu.findItem(R.id.ab_btn_start_run).setVisible(!drawerOpen);
@@ -475,22 +495,36 @@ public class MainActivity extends FragmentActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.v("Works", "Enter");
+        switch (requestCode){
+            case Keys.ActivityOnResult.OpenKey:
 
-        if(requestCode == Keys.ActivityOnResult.OpenKey){
+                    if(resultCode == Keys.ResultCode.FileOpenSuccessful){
 
-            if(resultCode == Keys.ResultCode.FileOpenSuccessful){
+                    }
+                    else if( resultCode == Keys.ResultCode.FileOpenUnSuccessful){
 
-            }
-            else if( resultCode == Keys.ResultCode.FileOpenUnSuccessful){
+                    }
+             break;
 
-            }
-
-
-
-
-
+            case BluetoothController.REQUEST_ENABLE_BT:
+                if (resultCode == RESULT_CANCELED) {
+                    Toast.makeText(this, R.string.toast_bt_activation_cancel, Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(this, R.string.toast_bt_enable, Toast.LENGTH_SHORT).show();
+                }
+            break;
+            case UserController.REQUEST_LOGIN:
+                Log.v("Works", "Works");
+                if(resultCode == RESULT_OK ){
+                    String token = data.getExtras().getString(Keys.BundleKeys.UserToken);
+                    userController.setToken(token);
+                    onResume();
+                }
+            break;
         }
-        //super.onActivityResult(requestCode, resultCode, data);
     }
 
     public class DrawerOnClickListener implements OnItemClickListener {
@@ -502,18 +536,16 @@ public class MainActivity extends FragmentActivity {
             switch (pos) {
                 case 0:
                     //New
-                    if (!btController.hasBluetoothModule()) {
-                        //TODO: Change for testing purpose
-                        btController.btErrorToast();
+                    if (!btController.hasBluetoothRadio()) {
+                        btController.btNotFoundErrorToast();
                     } else {
                         NewDialog.getNewDialog(unitController, new AeroCallback() {
                             @Override
                             public void callback(final Map<String, Object> objectMap) {
 
+                               //Get Experiment f
                                final Experiment experiment = (Experiment) objectMap.get(Keys.CallbackMap.NewExperimentObject);
-
                                 if(!experimentController.isExperimentSet()) {
-
 
                                     experimentController.setExperiment(experiment);
                                     ((NewDialog) objectMap.get(Keys.CallbackMap.NewExperimentDialog)).dismiss();
@@ -531,6 +563,7 @@ public class MainActivity extends FragmentActivity {
 
                                 }
                                 else{
+                                    //TODO: Fix
                                     closeDrawer();
                                     AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext());
 
@@ -580,8 +613,6 @@ public class MainActivity extends FragmentActivity {
                     OpenDialog.getOpenDialog(userController, new AeroCallback() {
                         @Override
                         public void callback(Map<String, Object> objectMap) {
-
-
                             String value = (String) objectMap.get(Keys.CallbackMap.OpenType);
 
                             if(value.equalsIgnoreCase(OpenDialog.LOCAL)){
@@ -602,11 +633,9 @@ public class MainActivity extends FragmentActivity {
                                     Bundle bnd = new Bundle();
                                     bnd.putSerializable(Keys.BundleKeys.ExperimentController, experimentController);
                                     bnd.putString(Keys.BundleKeys.OpenType, value);
+                                    bnd.putSerializable(Keys.BundleKeys.UserController, userController);
                                     intentView.putExtras(bnd);
                                     startActivityForResult(intentView, Keys.ActivityOnResult.OpenKey);
-
-
-
                             }
                             closeDrawer();
                         }
@@ -622,8 +651,9 @@ public class MainActivity extends FragmentActivity {
                     //Log-in //Log-out
                     if (userController.isUserLogIn()) {
                         userController.logout();
+                        onResume();
                     } else {
-                        userController.login();
+                        login();
                     }
                     break;
             }
@@ -631,6 +661,13 @@ public class MainActivity extends FragmentActivity {
 
 
     }
+
+    public void login() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivityForResult(intent, UserController.REQUEST_LOGIN);
+    }
+
+
 
 
 }

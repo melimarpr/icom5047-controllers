@@ -29,7 +29,7 @@
     <string name="activity_login_button_forgot">Forgot Credentials</string>
     <string name="activity_login_button_register">Register</string>
     <string name="activity_login_hint_password">Password</string>
-    <string name="activity_login_hint_username">Username or Email</string>
+    <string name="activity_login_hint_username">Email</string>
     <string name="app_name">AeroBal</string>
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
@@ -100,6 +100,7 @@
     <string name="progress_finish">Finishing…</string>
     <string name="progress_login">Login-In…</string>
     <string name="progress_running">Running Experiment…</string>
+    <string name="progress_token_verification">Verifying User…</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
@@ -134,6 +135,10 @@
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml -->
     <eat-comment />
 
+    <string name="toast_bt_activation_cancel">Failed to turn on Device Bluetooth</string>
+    <string name="toast_bt_enable">Bluetooth Enable. Try Again.</string>
+    <string name="toast_bt_not_connected">Bluetooth Not Connected</string>
+    <string name="toast_bt_unable_to_connect">Unable to Connect</string>
     <string name="toast_file_create">File Successfully Created</string>
     <string name="toast_file_not_create">File Not Successfully Created</string>
     <string name="toast_invalid_email">Invalid Email</string>
@@ -150,8 +155,12 @@
     <string name="toast_invalid_exp_wind_speed_min">Wind Speed Value Below Minimum of:</string>
     <string name="toast_invalid_filename">Invalid File Name: Empty or Less than 3 Characthers</string>
     <string name="toast_invalid_open_user_not_login">Unable to Open Experiment User Not Log In</string>
-    <string name="toast_invalid_user_pass">Empty Username or Password</string>
+    <string name="toast_invalid_user_pass">Empty Email or Password</string>
+    <string name="toast_net_error">Unable to Connect to Server</string>
+    <string name="toast_net_forgot_success">Email Sent</string>
+    <string name="toast_net_login_fail">Unable to Log In</string>
     <string name="toast_no_bt_found">No Bluetooth Module found in Device.</string>
+    <string name="toast_user_logout">Log Out Successful</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/strings.xml -->
     <eat-comment />
 

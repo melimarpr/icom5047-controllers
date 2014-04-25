@@ -7,21 +7,29 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LoginActivity extends Activity {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import icom5047.aerobal.http.HttpRequest;
+import icom5047.aerobal.http.Server;
+import icom5047.aerobal.resources.Keys;
+
+public class LoginActivity extends FragmentActivity {
 
 
 
     //Intance Fields
     private ProgressDialog progressDialog;
-    private Button login;
     private EditText username;
     private EditText password;
+    private Activity myself;
 
 
     @Override
@@ -31,6 +39,9 @@ public class LoginActivity extends Activity {
 
         //ActionBar
         this.getActionBar().hide();
+
+        //Set Activity
+        myself = this;
 
         //Set Up Progress Dialog
 
@@ -130,18 +141,85 @@ public class LoginActivity extends Activity {
         builder.create().show();
     }
 
-    //TODO: Implement when Integration
     public void doHttpLogin(String user, String pass){
 
-        progressDialog.dismiss();
-        startActivity(new Intent(this, MainActivity.class));
+        Bundle params = new Bundle();
+        params.putString("method", "POST");
+        params.putString("url", Server.User.POST_LOGIN);
+
+        String payload = "user="+user.trim()+"&"+"password="+pass.trim();
+
+        HttpRequest request = new HttpRequest(params, payload, HttpRequest.CONTENT_TYPE_X_FORM_URL_ENCODED, new HttpRequest.HttpCallback() {
+            @Override
+            public void onSucess(JSONObject json) {
+
+                Log.d("JSON:", json.toString());
+                if(!json.has("error")){
+
+                    try{
+                        String token = json.getString("token");
+                        doResult(token);
+
+                    } catch (JSONException e){
+                        Toast.makeText(getBaseContext(), R.string.toast_net_login_fail, Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    Toast.makeText(getBaseContext(), R.string.toast_net_login_fail, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailed() {
+                Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onDone() {
+                progressDialog.dismiss();
+            }
+        });
+        request.execute();
 
 
 
     }
 
+    private void doResult(String token) {
+        Intent mainIntent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putString(Keys.BundleKeys.UserToken, token);
+        mainIntent.putExtras(bundle);
+        setResult(Activity.RESULT_OK, mainIntent);
+        finish();
+    }
+
     public void doHttpForgot(String email){
-        progressDialog.dismiss();
+
+        Uri.Builder urlB = Uri.parse(Server.User.GET_FORGOT_PASSWORD).buildUpon();
+        urlB.appendQueryParameter("email", email);
+
+        Bundle params = new Bundle();
+        params.putString("method", "GET");
+        params.putString("url", urlB.toString().trim());
+
+        HttpRequest request = new HttpRequest(params, new HttpRequest.HttpCallback() {
+            @Override
+            public void onSucess(JSONObject json) {
+                Toast.makeText(getBaseContext(), R.string.toast_net_forgot_success, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailed() {
+                Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onDone() {
+                progressDialog.dismiss();
+            }
+        });
+        request.execute();
     }
 
 }

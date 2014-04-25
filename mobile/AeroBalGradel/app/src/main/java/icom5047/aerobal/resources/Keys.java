@@ -46,12 +46,14 @@ public class Keys {
         public static String YAxis = "yAxis";
         public static String XAxisTitle = "xAxisTitle";
         public static String YAxisTitle = "yAxisTitle";
+        public static String UserToken = "userToken";
+        public static String UserController = "keyUserController";
 
 
     }
     public static class ActivityOnResult{
 
-        public static int OpenKey = 0x001;
+        public static final int OpenKey = 0x001;
 
     }
 

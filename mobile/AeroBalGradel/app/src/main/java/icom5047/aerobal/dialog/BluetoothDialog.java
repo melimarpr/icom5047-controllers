@@ -1,14 +1,5 @@
 package icom5047.aerobal.dialog;
 
-import icom5047.aerobal.activities.R;
-import icom5047.aerobal.controllers.BluetoothController;
-import icom5047.aerobal.interfaces.AeroCallback;
-import icom5047.aerobal.resources.Keys;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -25,6 +16,15 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import icom5047.aerobal.activities.R;
+import icom5047.aerobal.controllers.BluetoothController;
+import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.resources.Keys;
 
 
 public class BluetoothDialog extends DialogFragment {
@@ -63,9 +63,9 @@ public class BluetoothDialog extends DialogFragment {
 
         final ListView lv = (ListView) view.findViewById(R.id.dialog_lv_bt_selector);
 
-        if (!btController.isControllerConnected()) {
+        if (!btController.isAeroBalConnected()) {
             builder.setTitle(R.string.title_dialog_bt_selector);
-            Set<BluetoothDevice> btDevices = btController.getBluethoodDevices();
+            Set<BluetoothDevice> btDevices = btController.getBluetoothBondedDevices();
             if (btDevices.size() == 0) {
                 lv.setVisibility(View.GONE);
                 view.findViewById(R.id.dialog_lv_bt_empty).setVisibility(View.VISIBLE);
@@ -82,11 +82,9 @@ public class BluetoothDialog extends DialogFragment {
                                         long arg3) {
 
                     Map<String, Object> map = new HashMap<String, Object>();
-
                     map.put(Keys.CallbackMap.BluetoothDialog, bd);
                     map.put(Keys.CallbackMap.BluetoothDevice, lv.getItemAtPosition(position));
                     map.put(Keys.CallbackMap.BluetoothConnectedStatus, true);
-
                     callback.callback(map);
                 }
             });
@@ -110,7 +108,6 @@ public class BluetoothDialog extends DialogFragment {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Map<String, Object> map = new HashMap<String, Object>();
-
                     map.put(Keys.CallbackMap.BluetoothDialog, bd);
                     map.put(Keys.CallbackMap.BluetoothDevice, null);
                     map.put(Keys.CallbackMap.BluetoothConnectedStatus, false);

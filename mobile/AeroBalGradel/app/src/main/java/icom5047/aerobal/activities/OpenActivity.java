@@ -2,15 +2,14 @@ package icom5047.aerobal.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.dialog.OpenDialog;
+import icom5047.aerobal.fragments.OpenLocalFragment;
+import icom5047.aerobal.fragments.OpenOnlineFragment;
 import icom5047.aerobal.resources.Keys;
 
 
@@ -18,9 +17,6 @@ public class OpenActivity extends Activity {
 
     private ExperimentController experimentController;
     private String type;
-    private ProgressBar progressBar;
-    private TextView textViewNotFound;
-    private ListView listViewOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +29,6 @@ public class OpenActivity extends Activity {
         ab.setHomeButtonEnabled(true);
 
         //Instance Field
-        progressBar = (ProgressBar) findViewById(R.id.activityOpenProgress);
-        textViewNotFound = (TextView) findViewById(R.id.activityOpenNoSession);
-        listViewOptions = (ListView) findViewById(R.id.activityOpenListView);
 
 
         Bundle bnd = getIntent().getExtras();
@@ -45,14 +38,15 @@ public class OpenActivity extends Activity {
             experimentController = (ExperimentController) bnd.getSerializable(Keys.BundleKeys.ExperimentController);
         }
 
-
+        FragmentManager fragmentManager = getFragmentManager();
         if(type.equalsIgnoreCase(OpenDialog.LOCAL)){
-            doHttpOnline();
             setTitle(R.string.title_activity_open_local);
+            fragmentManager.beginTransaction().replace(R.id.main_container, new OpenLocalFragment());
+
         }
         else{
             setTitle(R.string.title_activity_open_online);
-            doHttpOnline();
+            fragmentManager.beginTransaction().replace(R.id.main_container, new OpenOnlineFragment());
         }
 
 
@@ -63,13 +57,6 @@ public class OpenActivity extends Activity {
 
     }
 
-    private void doHttpOnline() {
-
-        progressBar.setVisibility(View.GONE);
-        textViewNotFound.setVisibility(View.VISIBLE);
-
-
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

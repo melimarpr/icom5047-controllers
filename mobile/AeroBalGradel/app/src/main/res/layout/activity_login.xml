@@ -17,15 +17,14 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:src="@drawable/logo_aerobal"
-        android:layout_gravity="center_horizontal"
         android:layout_weight="1" />
 
 
     <LinearLayout
         android:background="@drawable/bg_card"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -34,11 +33,13 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:ems="15"
             android:hint="@string/activity_login_hint_username"
             android:id="@+id/loginUsername" />
 
         <EditText
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/activity_login_hint_password"
@@ -60,7 +61,7 @@
 
         <TableRow
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="wrap_content">
             <Button
                 style="?android:attr/buttonBarButtonStyle"
                 android:id="@+id/loginButtonRegister"

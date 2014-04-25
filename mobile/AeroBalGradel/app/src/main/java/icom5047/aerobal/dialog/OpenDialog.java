@@ -74,8 +74,7 @@ public class OpenDialog extends DialogFragment {
 
                 Map<String, Object> map = new HashMap<String, Object>();
 
-                if(userController.isUserLogIn() || true){
-                    //TODO: Change For User
+                if(userController.isUserLogIn()){
                     map.put(Keys.CallbackMap.OpenType, ONLINE);
                     callback.callback(map);
 

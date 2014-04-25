@@ -30,10 +30,7 @@ public class BluetoothDataManager extends AsyncTask<Void, String, String> {
 
 
     //Special Constructor
-    public BluetoothDataManager(BluetoothSocket btSocket, AeroCallback callback){
-        //Set Callback
-        this.callback = callback;
-
+    public BluetoothDataManager(BluetoothSocket btSocket){
         //Set Socket
         mSocket = btSocket;
 
@@ -52,12 +49,35 @@ public class BluetoothDataManager extends AsyncTask<Void, String, String> {
 
     }
 
+    //Sender Command
+    public void send(String command, boolean addTerminator){
+
+        if(addTerminator)
+            command += "\r\n";
+
+        try{
+            mOutputStream.write(command.getBytes());
+            mOutputStream.flush();
+            //Flush
+        }catch (IOException e){};
+    }
+
+
+
+    //Callback Setter
+    public void setCallback(AeroCallback callback){
+        this.callback = callback;
+    }
+
+    public boolean isCallbackSet(){
+        return this.callback != null;
+    }
+
 
 
 
     @Override
     protected String doInBackground(Void... params) {
-        Log.v("RunningLoop", "Works");
         loopReceiver();
         return null;
     }
@@ -65,7 +85,6 @@ public class BluetoothDataManager extends AsyncTask<Void, String, String> {
 
     //Listening Loop
     private void loopReceiver() {
-
         BufferedReader br = new BufferedReader(new InputStreamReader(mInputStream));
 
 
@@ -93,7 +112,7 @@ public class BluetoothDataManager extends AsyncTask<Void, String, String> {
     @Override
     protected void onProgressUpdate(String... values) {
        //Assume Value 1
-       Log.v("ValueOnProgressUpdate", values[0]);
+
        //Callback Map
        Map<String, Object> map = new HashMap<String, Object>();
        map.put(RECEIVER_KEY, values[0]);
@@ -103,22 +122,9 @@ public class BluetoothDataManager extends AsyncTask<Void, String, String> {
 
 
 
-    //Use same socket for ease
-    public void send(String command, boolean addTerminator){
 
-        if(addTerminator)
-            command += "\r\n";
-
-        try{
-            mOutputStream.write(command.getBytes());
-            mOutputStream.flush();
-            //Flush
-        }catch (IOException e){};
-    }
 
     //Close Socket when Called
-
-
     @Override
     protected void onCancelled() {
         try {
