@@ -12,10 +12,10 @@
     <string name="toast_invalid_exp_samples_empty">Samples Value Missing</string>
     <string name="toast_invalid_exp_samples_min">Samples Value Below Minimum of:</string>
     <string name="toast_invalid_exp_samples_max">Samples Value Above Maximum of:</string>
-    <string name="toast_invalid_open_user_not_login">Unable to Open Experiment User Not Log In</string>
+    <string name="toast_invalid_open_user_not_login">User Not Log-In</string>
     <string name="toast_invalid_user_pass">Empty Email or Password</string>
     <string name="toast_invalid_email">Invalid Email</string>
-    <string name="toast_invalid_filename">Invalid File Name: Empty or Less than 3 Characthers</string>
+    <string name="toast_invalid_filename">Invalid File Name: Empty or Less than 3 Characters</string>
     <string name="toast_file_create">File Successfully Created</string>
     <string name="toast_file_not_create">File Not Successfully Created</string>
     <string name="toast_bt_activation_cancel">Failed to turn on Device Bluetooth</string>
@@ -26,6 +26,8 @@
     <string name="toast_net_error">Unable to Connect to Server</string>
     <string name="toast_net_forgot_success">Email Sent</string>
     <string name="toast_net_login_fail">Unable to Log In</string>
+    <string name="toast_file_mount_error">Unable to Access External Storage</string>
+    <string name="toast_file_parent_error">Unable to Go Back</string>
 
 
 

@@ -48,6 +48,8 @@ public class Keys {
         public static String YAxisTitle = "yAxisTitle";
         public static String UserToken = "userToken";
         public static String UserController = "keyUserController";
+        public static String FileRoot = "keyFileRoot";
+        public static String Experiment = "keyExperiment";
 
 
     }

@@ -2,9 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="icom5047.aerobal.activities.OpenActivity" >
     
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    <item android:id="@+id/ab_btn_back"
+        android:title="@string/back"
+        android:icon="@drawable/ic_back"
         android:orderInCategory="100"
-        android:showAsAction="never" />
+        android:showAsAction="always|withText" />
 </menu>
 <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/menu/open.xml -->

@@ -249,6 +249,11 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="fragment_open_local"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/fragment_open_local.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="row_average_2_unit_lv"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_average_2_unit_lv.xml"
                 qualifiers=""
@@ -377,9 +382,9 @@
                 </string>
                 <string name="title_dialog_forgot_password" >Forgot Password?
                 </string>
-                <string name="title_dialog_confirm_run" >Object Added?
-                </string>
                 <string name="title_dialog_bt_disconenct" >Disconnect?
+                </string>
+                <string name="title_dialog_confirm_run" >Object Added?
                 </string>
                 <string name="title_dialog_gen_graph" >Generate Graph?
                 </string>
@@ -395,9 +400,9 @@
             <file
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml"
                 qualifiers="" >
-                <string name="toast_invalid_exp_wind_speed_empty" >Wind Speed Value Missing
-                </string>
                 <string name="toast_bt_unable_to_connect" >Unable to Connect
+                </string>
+                <string name="toast_invalid_exp_wind_speed_empty" >Wind Speed Value Missing
                 </string>
                 <string name="toast_net_error" >Unable to Connect to Server
                 </string>
@@ -417,17 +422,17 @@
                 </string>
                 <string name="progress_finish" >Finishing…
                 </string>
+                <string name="toast_invalid_exp_samples_min" >Samples Value Below Minimum of:
+                </string>
                 <string name="toast_bt_not_connected" >Bluetooth Not Connected
                 </string>
                 <string name="toast_user_logout" >Log Out Successful
-                </string>
-                <string name="toast_invalid_exp_samples_min" >Samples Value Below Minimum of:
                 </string>
                 <string name="toast_invalid_exp_wind_speed_max" >Wind Speed Value Above Maximum of:
                 </string>
                 <string name="toast_invalid_exp_samples_max" >Samples Value Above Maximum of:
                 </string>
-                <string name="toast_invalid_filename" >Invalid File Name: Empty or Less than 3 Characthers
+                <string name="toast_invalid_filename" >Invalid File Name: Empty or Less than 3 Characters
                 </string>
                 <string name="toast_invalid_exp_wind_speed_min" >Wind Speed Value Below Minimum of:
                 </string>
@@ -439,7 +444,7 @@
                 </string>
                 <string name="progress_token_verification" >Verifying User…
                 </string>
-                <string name="toast_invalid_open_user_not_login" >Unable to Open Experiment User Not Log In
+                <string name="toast_invalid_open_user_not_login" >User Not Log-In
                 </string>
                 <string name="toast_no_bt_found" >No Bluetooth Module found in Device.
                 </string>
@@ -453,7 +458,11 @@
                 </string>
                 <string name="progress_login" >Login-In…
                 </string>
+                <string name="toast_file_mount_error" >Unable to Access External Storage
+                </string>
                 <string name="toast_net_login_fail" >Unable to Log In
+                </string>
+                <string name="toast_file_parent_error" >Unable to Go Back
                 </string>
             </file>
             <file
@@ -481,9 +490,9 @@
                 </string>
                 <string name="dialog_bt_empty_list" >No Bluetooth Device Paired
                 </string>
-                <string name="title_activity_graph" >GraphActivity
-                </string>
                 <string name="local" >Local
+                </string>
+                <string name="title_activity_graph" >GraphActivity
                 </string>
                 <string name="ab_btn_show_data" >Show Data
                 </string>
@@ -491,9 +500,9 @@
                 </string>
                 <string name="dialog_new_exp_wind_speeds_hint" >0.00
                 </string>
-                <string name="logo_img_desc" >Logo
-                </string>
                 <string name="dialog_bt_disconnect" >Disconnect from AeroBal?
+                </string>
+                <string name="logo_img_desc" >Logo
                 </string>
                 <string name="activity_login_hint_username" >Email
                 </string>
@@ -501,11 +510,11 @@
                 </string>
                 <string name="save" >Save
                 </string>
-                <string name="dialog_export_et_hint" >File Name
-                </string>
                 <string name="ab_btn_close" >Close
                 </string>
                 <string name="title_activity_data_detail" >DataDetailActivity
+                </string>
+                <string name="dialog_export_et_hint" >File Name
                 </string>
                 <string name="ab_btn_units" >Units
                 </string>
@@ -555,11 +564,17 @@
                 </string>
                 <string name="frag_exp_sum_summary" >Summary:
                 </string>
+                <string name="activity_error_no_file_folder_found" >No File or Folder Found
+                </string>
                 <string name="dialog_graph_yaxis" >Y Axis:
+                </string>
+                <string name="email" >Email
                 </string>
                 <string name="create" >Create
                 </string>
-                <string name="email" >Email
+                <string name="back" >Back
+                </string>
+                <string name="fragment_folder_no_found" >Folder is Empty
                 </string>
                 <string name="online" >Online
                 </string>
@@ -577,9 +592,9 @@
                 </string>
                 <string name="dialog_new_exp_samples" >Samples:
                 </string>
-                <string name="dialog_units_pressure" >Pressure:
-                </string>
                 <string name="dialog_new_exp_name" >Name:
+                </string>
+                <string name="dialog_units_pressure" >Pressure:
                 </string>
                 <string name="dialog_units_force" >Force:
                 </string>
@@ -609,21 +624,21 @@
                 </style>
 
                 <style
-                    name="MyActionBar"
-                    parent="android:Widget.Holo.Light.ActionBar.Solid" >
->
-                    <item name="android:background">
-@drawable/ic_actionbar
-                    </item>
-                </style>
-
-                <style
                     name="AppTheme"
                     parent="AppBaseTheme" >
 
                     <!-- All customizations that are NOT specific to a particular API-level can go here. -->
                     <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
 
+                </style>
+
+                <style
+                    name="MyActionBar"
+                    parent="android:Widget.Holo.Light.ActionBar.Solid" >
+>
+                    <item name="android:background">
+@drawable/ic_actionbar
+                    </item>
                 </style>
             </file>
             <file
@@ -726,6 +741,71 @@
                 <dimen name="activity_horizontal_margin" >64dp
                 </dimen>
             </file>
+            <file
+                name="ic_back"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_back.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_back"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_back.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_back"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_back.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_back"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_back.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_file"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_file.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_file"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_file.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_file"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_file.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_folder"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_folder.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_folder"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_folder.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_folder"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_folder.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_folder"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_folder.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_file"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_file.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="row_file_dir"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_file_dir.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/rs/debug" />
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/generated/debug" />
