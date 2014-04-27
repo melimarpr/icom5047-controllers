@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_margin="15dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:src="@drawable/ic_file"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:textSize="30sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/placeholder_title"
+        android:textStyle="bold"
+        android:layout_weight="4"
+        android:maxLines="1"
+        android:gravity="left|center_vertical"
+        android:id="@+id/rowOpenExperimentTitle" />
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/ic_info"
+        android:layout_gravity="center"
+        android:id="@+id/rowOpenExperimentInfo"
+        />
+
+
+
+</LinearLayout><!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_open_experiment.xml -->
