@@ -27,6 +27,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.InvalidParameterException;
+import java.util.Map;
 
 public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 
@@ -35,12 +36,14 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 	
 	private Bundle params;
 	private Object payload;
+    private Map<String, String> headers;
 	
 	private HttpUriRequest request;
     private String contentType;
 
     public static final String CONTENT_TYPE_JSON = "application/json";
     public static final String CONTENT_TYPE_X_FORM_URL_ENCODED = "application/x-www-form-urlencoded";
+    public static final String ERROR_RESPONSE = "response";
 	
 	private boolean success;
 	
@@ -75,6 +78,40 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 			e.printStackTrace();
 		}
 	}
+
+    public HttpRequest(Bundle params, Map<String, String> headers, HttpCallback callback) {
+        this.params = params;
+        this.callback = callback;
+        this.headers = headers;
+
+        try {
+            processParams(params);
+        } catch (InvalidParameterException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public HttpRequest(Bundle params, Object payload, Map<String, String> headers ,String contentType, HttpCallback callback) {
+        this.params = params;
+        this.callback = callback;
+        this.payload = payload;
+        this.contentType = contentType;
+        this.headers = headers;
+
+        try {
+            processParams(params);
+        } catch (InvalidParameterException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
 	
 	private void processParams(Bundle params) throws InvalidParameterException, UnsupportedEncodingException, MalformedURLException {
 		if(!params.containsKey("url")) {
@@ -90,6 +127,9 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 			
 			if(method.equalsIgnoreCase("GET")) {
 				request = new HttpGet(url.toString());
+                if(headers != null){
+                    setHeaders(request);
+                }
 
 			} else if (method.equalsIgnoreCase("POST")) {
 				request = new HttpPost(url.toString());
@@ -98,6 +138,9 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 					post.setEntity(new StringEntity(ContentConverters.convert(payload, contentType)));
 					post.setHeader("Content-Type", contentType);
 				}
+                if(headers != null){
+                    setHeaders(request);
+                }
 			} else if (method.equalsIgnoreCase("PUT")) {
 				request = new HttpPut(url.toString());
 				if(payload != null) {
@@ -105,14 +148,28 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 					put.setEntity(new StringEntity(ContentConverters.convert(payload, contentType)));
 					put.setHeader("Content-Type", contentType);
 				}
+                if(headers != null){
+                    setHeaders(request);
+                }
 			} else if (method.equalsIgnoreCase("DELETE")) {
 				request = new HttpDelete(url.toString());
+                if(headers != null){
+                    setHeaders(request);
+                }
 
 			} else {
 				throw new InvalidParameterException("Invalid http method parameter");
 			}
 		}
 	}
+
+    private void setHeaders(HttpUriRequest request){
+
+        for(Map.Entry<String, String> e: headers.entrySet()){
+            request.setHeader(e.getKey(), e.getValue());
+        }
+
+    }
 	
 	@Override
 	protected void onPreExecute() {
@@ -153,7 +210,13 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 				return result;
 			} else {
 				Log.d("HttpRequest", "HttpRequest Code: " + statusCode);
+                //Get Code
 				success = false;
+                String errRes = EntityUtils.toString(response.getEntity());
+
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put(ERROR_RESPONSE, errRes);
+                return  jsonObject;
 			}
 		
 		} catch (JSONException e) {
@@ -183,7 +246,7 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 		if(success) {
 			callback.onSucess(result);
 		} else {
-			callback.onFailed();
+			callback.onFailed(result);
 		}
 		
 		callback.onDone();
@@ -192,7 +255,7 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 	public static abstract class HttpCallback {
 		public abstract void onSucess(JSONObject json);
 		//public abstract void onProgress();
-		public abstract void onFailed();
+		public abstract void onFailed(JSONObject json);
 		public void onDone() {};
 	}
 

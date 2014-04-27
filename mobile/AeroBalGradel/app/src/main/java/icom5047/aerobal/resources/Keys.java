@@ -50,6 +50,8 @@ public class Keys {
         public static String UserController = "keyUserController";
         public static String FileRoot = "keyFileRoot";
         public static String Experiment = "keyExperiment";
+        public static String SessionID = "experimentIDKey";
+
 
 
     }

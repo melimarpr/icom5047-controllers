@@ -36,7 +36,9 @@ import com.aerobal.data.objects.Experiment;
 import com.aerobal.data.objects.Session;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -319,7 +321,7 @@ public class MainActivity extends FragmentActivity {
             public void onClick(DialogInterface dialog, int which) {
 
 
-                File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                File path = new File(Environment.getExternalStorageDirectory(),"AeroBal");
                 if (!path.mkdirs()) {
                     Log.e("DIR_TAG", "Directory not created");
                 }
@@ -344,16 +346,32 @@ public class MainActivity extends FragmentActivity {
                 }
 
                 File file = new File(path, fileName+suffix);
+
+                //Check File Exits
+                if(file.exists()){
+                    dialog.dismiss();
+                    overrideFile(file);
+                    return;
+                }
+
+
                 try {
                    boolean success =  file.createNewFile();
+
                    if(success){
+                       FileOutputStream fout = new FileOutputStream(file);
+                       ObjectOutputStream oos = new ObjectOutputStream(fout);
+                       oos.writeObject(experimentController.getExperiment());
+                       oos.close();
                        Toast.makeText(getBaseContext(), R.string.toast_file_create, Toast.LENGTH_SHORT).show();
                    }
                    else {
                        Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
                    }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Log.e("File", "Error");
+                    file.delete();
+                    Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -365,7 +383,7 @@ public class MainActivity extends FragmentActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Aerobal Experiment");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "AeroBal Experiment");
 
                 File tmpFile = null;
 
@@ -393,7 +411,12 @@ public class MainActivity extends FragmentActivity {
 
                 try {
                     tmpFile = File.createTempFile(fileName, suffix, getBaseContext().getCacheDir());
+                    FileOutputStream fout = new FileOutputStream(tmpFile);
+                    ObjectOutputStream oos = new ObjectOutputStream(fout);
+                    oos.writeObject(experimentController.getExperiment());
+                    oos.close();
                 }catch (IOException e) {
+                    Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
                     // Error while creating file
                 }
 
@@ -406,6 +429,45 @@ public class MainActivity extends FragmentActivity {
         });
 
         builder.create().show();
+
+
+    }
+
+    private void overrideFile(final File file){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setIcon(R.drawable.ic_file);
+        builder.setTitle(R.string.title_dialog_override);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                try {
+
+                        FileOutputStream fout = new FileOutputStream(file);
+                        ObjectOutputStream oos = new ObjectOutputStream(fout);
+                        oos.flush();
+                        oos.writeObject(experimentController.getExperiment());
+                        oos.close();
+                        Toast.makeText(getBaseContext(), R.string.toast_file_updated, Toast.LENGTH_SHORT).show();
+
+                } catch (IOException e) {
+                    Log.e("File", "Error");
+                    Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+        builder.setNeutralButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //No-Op
+            }
+        });
+
+        Dialog dialog = builder.create();
+        dialog.show();
 
 
     }
@@ -496,14 +558,12 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.v("Works", "Enter");
         switch (requestCode){
             case Keys.ActivityOnResult.OpenKey:
 
-                    if(resultCode == Keys.ResultCode.FileOpenSuccessful){
-
-                    }
-                    else if( resultCode == Keys.ResultCode.FileOpenUnSuccessful){
+                    if(resultCode == RESULT_OK){
+                        Experiment experiment = (Experiment) data.getExtras().getSerializable(Keys.BundleKeys.Experiment);
+                        newExperiment(experiment);
 
                     }
              break;
@@ -517,7 +577,6 @@ public class MainActivity extends FragmentActivity {
                 }
             break;
             case UserController.REQUEST_LOGIN:
-                Log.v("Works", "Works");
                 if(resultCode == RESULT_OK ){
                     String token = data.getExtras().getString(Keys.BundleKeys.UserToken);
                     userController.setToken(token);
@@ -543,64 +602,11 @@ public class MainActivity extends FragmentActivity {
                             @Override
                             public void callback(final Map<String, Object> objectMap) {
 
-                               //Get Experiment f
+                               //Get Experiment
                                final Experiment experiment = (Experiment) objectMap.get(Keys.CallbackMap.NewExperimentObject);
-                                if(!experimentController.isExperimentSet()) {
-
-                                    experimentController.setExperiment(experiment);
-                                    ((NewDialog) objectMap.get(Keys.CallbackMap.NewExperimentDialog)).dismiss();
-
-                                    //Open new fragment
-
-                                    //Remove Old
-                                    FragmentManager fm = getSupportFragmentManager();
-                                    FragmentTransaction ft = fm.beginTransaction();
-                                    ft.replace(R.id.content_frame, ExperimentFragment.getExperimentFragment(experimentController, unitController), Keys.FragmentTag.ExperimentTag);
-                                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                                    ft.commit();
-                                    closeDrawer();
-                                    return;
-
-                                }
-                                else{
-                                    //TODO: Fix
-                                    closeDrawer();
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext());
-
-                                    builder.setTitle(R.string.title_dialog_overide);
-
-                                    builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            //NoOp
-                                        }
-                                    });
-
-                                    builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            experimentController.setExperiment(experiment);
-                                            ((NewDialog) objectMap.get(Keys.CallbackMap.NewExperimentDialog)).dismiss();
-
-                                            //Open new fragment
-
-                                            //Remove Old
-                                            FragmentManager fm = getSupportFragmentManager();
-                                            FragmentTransaction ft = fm.beginTransaction();
-                                            ft.replace(R.id.content_frame, ExperimentFragment.getExperimentFragment(experimentController, unitController), Keys.FragmentTag.ExperimentTag);
-                                            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                                            ft.commit();
-
-                                        }
-                                    });
-
-                                    builder.create().show();
-
-
-
-                                }
-
-
+                                ((NewDialog) objectMap.get(Keys.CallbackMap.NewExperimentDialog)).dismiss();
+                                closeDrawer();
+                                newExperiment(experiment);
 
 
                             }
@@ -619,7 +625,6 @@ public class MainActivity extends FragmentActivity {
 
                                 Intent intentLocal = new Intent(getBaseContext(), OpenActivity.class);
                                 Bundle bnd = new Bundle();
-                                bnd.putSerializable(Keys.BundleKeys.ExperimentController, experimentController);
                                 bnd.putSerializable(Keys.BundleKeys.OpenType, value);
                                 intentLocal.putExtras(bnd);
 
@@ -631,9 +636,8 @@ public class MainActivity extends FragmentActivity {
 
                                     Intent intentView = new Intent(getBaseContext(), OpenActivity.class);
                                     Bundle bnd = new Bundle();
-                                    bnd.putSerializable(Keys.BundleKeys.ExperimentController, experimentController);
                                     bnd.putString(Keys.BundleKeys.OpenType, value);
-                                    bnd.putSerializable(Keys.BundleKeys.UserController, userController);
+                                    bnd.putSerializable(Keys.BundleKeys.UnitController, unitController);
                                     intentView.putExtras(bnd);
                                     startActivityForResult(intentView, Keys.ActivityOnResult.OpenKey);
                             }
@@ -667,6 +671,59 @@ public class MainActivity extends FragmentActivity {
         startActivityForResult(intent, UserController.REQUEST_LOGIN);
     }
 
+    private void newExperiment(final Experiment experiment){
+
+        if(!experimentController.isExperimentSet()) {
+
+            experimentController.setExperiment(experiment);
+
+            //Open new fragment
+
+            //Remove Old
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.content_frame, ExperimentFragment.getExperimentFragment(experimentController, unitController), Keys.FragmentTag.ExperimentTag);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.commit();
+            closeDrawer();
+            return;
+
+        }
+        else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle(R.string.title_dialog_override);
+            builder.setIcon(R.drawable.ic_file);
+
+            builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //NoOp
+                }
+            });
+
+            builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    experimentController.setExperiment(experiment);
+                    //Open new fragment
+                    //Remove Old
+                    FragmentManager fm = getSupportFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.replace(R.id.content_frame, ExperimentFragment.getExperimentFragment(experimentController, unitController), Keys.FragmentTag.ExperimentTag);
+                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                    ft.commit();
+
+                }
+            });
+
+            Dialog dialog = builder.create();
+            dialog.show();
+
+
+
+        }
+    }
 
 
 

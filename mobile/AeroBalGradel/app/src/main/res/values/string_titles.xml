@@ -16,7 +16,8 @@
     <string name="title_dialog_confirm_run">Object Added?</string>
     <string name="title_dialog_save_online">Save Experiment Online?</string>
     <string name="title_dialog_gen_graph">Generate Graph?</string>
-    <string name="title_dialog_overide">Override Current Experiment?</string>
+    <string name="title_dialog_override">Replace Current Experiment?</string>
     <string name="title_dialog_export">Export Experiment?</string>
     <string name="title_intent_email">Send Email&#8230;</string>
+    <string name="title_dialog_experiment_info">Experiment Information</string>
 </resources>

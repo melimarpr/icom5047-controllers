@@ -40,8 +40,9 @@
     <string name="dialog_bt_no">No</string>
     <string name="dialog_bt_yes">Yes</string>
     <string name="dialog_export_et_hint">File Name</string>
-    <string name="dialog_export_radio_aerobal">Aerobal</string>
+    <string name="dialog_export_radio_aerobal">AeroBal</string>
     <string name="dialog_export_radio_csv">CSV</string>
+    <string name="dialog_file_override">Override file?</string>
     <string name="dialog_graph_xaxis">X Axis:</string>
     <string name="dialog_graph_yaxis">Y Axis:</string>
     <string name="dialog_login_forgot_password">Enter Email Address</string>
@@ -83,6 +84,8 @@
     <eat-comment />
 
     <string name="fragment_folder_no_found">Folder is Empty</string>
+    <string name="fragment_open_online_no_exp_in_session">No Experiment in Session</string>
+    <string name="fragment_open_online_no_session">No Session Found</string>
     <string name="hello_world">Hello world!</string>
     <string name="local">Local</string>
     <string name="login">Log-In</string>
@@ -95,6 +98,7 @@
     <string name="placeholder_integer_value">000</string>
     <string name="placeholder_mac">01:23:45:67:89:ab</string>
     <string name="placeholder_menu_option">Lorem</string>
+    <string name="placeholder_paragraph">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.</string>
     <string name="placeholder_title">Lorem Ipsum</string>
     <string name="placeholder_units">***</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml -->
@@ -122,12 +126,13 @@
     <string name="title_dialog_bt_disconenct">Disconnect?</string>
     <string name="title_dialog_bt_selector">Select AeroBal Controller</string>
     <string name="title_dialog_confirm_run">Object Added?</string>
+    <string name="title_dialog_experiment_info">Experiment Information</string>
     <string name="title_dialog_export">Export Experiment?</string>
     <string name="title_dialog_forgot_password">Forgot Password?</string>
     <string name="title_dialog_gen_graph">Generate Graph?</string>
     <string name="title_dialog_new_experiment">New Experiment</string>
     <string name="title_dialog_open_experiment">Open Experiment?</string>
-    <string name="title_dialog_overide">Override Current Experiment?</string>
+    <string name="title_dialog_override">Replace Current Experiment?</string>
     <string name="title_dialog_save_exp_name">Experiment Name?</string>
     <string name="title_dialog_save_online">Save Experiment Online?</string>
     <string name="title_dialog_units">Units</string>
@@ -142,10 +147,15 @@
     <string name="toast_bt_enable">Bluetooth Enable. Try Again.</string>
     <string name="toast_bt_not_connected">Bluetooth Not Connected</string>
     <string name="toast_bt_unable_to_connect">Unable to Connect</string>
+    <string name="toast_error_bad_password">Incorrect Password</string>
+    <string name="toast_error_bad_username">Invalid Email Address</string>
+    <string name="toast_error_json">Bad JSON Parsing</string>
     <string name="toast_file_create">File Successfully Created</string>
     <string name="toast_file_mount_error">Unable to Access External Storage</string>
     <string name="toast_file_not_create">File Not Successfully Created</string>
     <string name="toast_file_parent_error">Unable to Go Back</string>
+    <string name="toast_file_updated">File Successfully Updated</string>
+    <string name="toast_invalid_access">Invalid Access without Log-in</string>
     <string name="toast_invalid_email">Invalid Email</string>
     <string name="toast_invalid_exp_interval_empty">Time Interval Value Missing</string>
     <string name="toast_invalid_exp_interval_max">Time Interval Value Above Maximum of:</string>

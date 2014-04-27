@@ -1,6 +1,5 @@
 package icom5047.aerobal.controllers;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
@@ -19,14 +18,11 @@ public class UserController implements Serializable{
     private Context context;
     private String[] baseStringArray = new String[]{"New", "Open", "Bluetooth Setup"};
     private String token = "";
-    private ProgressDialog progressDialog;
     public static final int REQUEST_LOGIN = 15;
 
 
     public UserController(Context context) {
         this.context = context;
-        this.progressDialog = new ProgressDialog(context);
-        this.progressDialog.setMessage(context.getResources().getString(R.string.progress_token_verification));
         init();
     }
 
@@ -39,6 +35,10 @@ public class UserController implements Serializable{
 
     public boolean isUserLogIn() {
         return !token.equals("");
+    }
+
+    public String getToken() {
+        return token;
     }
 
 
@@ -74,6 +74,9 @@ public class UserController implements Serializable{
 
     public void invalidateToken(){
         token = "";
+        SharedPreferences.Editor editor = this.context.getSharedPreferences(Keys.SharedPref.UserSharedPreferences, Context.MODE_PRIVATE).edit();
+        editor.putString(Keys.SharedPref.LoginStatus, "");
+        editor.commit();
     }
 
 

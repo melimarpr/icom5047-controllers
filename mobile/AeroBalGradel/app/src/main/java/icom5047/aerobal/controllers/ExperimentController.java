@@ -1,23 +1,25 @@
 package icom5047.aerobal.controllers;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import com.aerobal.data.objects.Experiment;
 
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.TimerTask;
 
-import icom5047.aerobal.activities.R;
+import icom5047.aerobal.comm.BluetoothDataManager;
+import icom5047.aerobal.comm.BluetoothTimer;
 import icom5047.aerobal.containers.SpinnerContainer;
+import icom5047.aerobal.interfaces.AeroCallback;
 
 /**
  * Created by enrique on 3/20/14.
  */
-public class ExperimentController implements Serializable{
+public class ExperimentController extends TimerTask implements Serializable, AeroCallback {
 
 
     //Constants
@@ -25,6 +27,10 @@ public class ExperimentController implements Serializable{
     public static String ALL_RUNS_STRING = "All";
 
     private Experiment experiment;
+    private BluetoothDataManager ioBtManager;
+    private BluetoothTimer timer;
+
+    private long dataSamplesCounter;
 
 
 
@@ -35,6 +41,8 @@ public class ExperimentController implements Serializable{
         experiment = null;
         this.activeRun = new SpinnerContainer(0, ALL_RUNS, ALL_RUNS_STRING);
     }
+
+
 
 
     public void setExperiment(Experiment experiment) {
@@ -81,54 +89,44 @@ public class ExperimentController implements Serializable{
     public void generateExperimentRun(BluetoothController btController, FragmentActivity context){
 
 
-        ProgressDialog progressDialog = new ProgressDialog(context);
+        ioBtManager = btController.getIOManager();
+        if(ioBtManager == null){
+            return;
+        }
+        //Set Callback When Data Received
+        ioBtManager.setCallback(this);
+        //Start Listening
+        ioBtManager.execute();
 
 
-        progressDialog.setMessage( context.getString(R.string.progress_running) );
+        //Run Schedule Task
+        this.timer = new BluetoothTimer();
+        this.timer.runTask(this, experiment.frequency());
 
-        progressDialog.show();
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
+    }
+
+    @Override
+    public void run() {
+        //Reset if Run Multiple Times
+        if (dataSamplesCounter == experiment.amountOfValues()){
+            timer.reset();
         }
 
-        showConfirmDialog(context, progressDialog);
+        //Sent Data
+        ioBtManager.send("bt:ack", true);
 
-
-
-
-    }
-
-    private void showConfirmDialog(FragmentActivity activity, final ProgressDialog progressDialog){
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-
-        builder.setTitle(R.string.title_dialog_confirm_run);
-
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //NoOp
-            }
-        });
-
-         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-             @Override
-             public void onClick(DialogInterface dialog, int which) {
-                progressDialog.dismiss();
-
-             }
-         });
-
-
-        builder.create().show();
-
+        //Add to Counter
+        dataSamplesCounter++;
     }
 
 
+    @Override
+    public void callback(Map<String, Object> objectMap) {
+
+        Log.v("BTRun", "Called");
+        //Status Check
 
 
-
-
-
+    }
 }

@@ -16,9 +16,10 @@ import com.aerobal.data.objects.Experiment;
 
 import java.util.Stack;
 
+import icom5047.aerobal.controllers.UnitController;
 import icom5047.aerobal.dialog.OpenDialog;
 import icom5047.aerobal.fragments.OpenLocalFragment;
-import icom5047.aerobal.fragments.OpenOnlineFragment;
+import icom5047.aerobal.fragments.OpenOnlineSessionsFragment;
 import icom5047.aerobal.resources.Keys;
 
 
@@ -26,6 +27,7 @@ public class OpenActivity extends Activity {
 
     private Stack<Fragment> fragmentStack;
     private String type;
+    private UnitController unitController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +69,14 @@ public class OpenActivity extends Activity {
 
         }
         else{
+
             setTitle(R.string.title_activity_open_online);
-            fragmentManager.beginTransaction().replace(R.id.main_container, new OpenOnlineFragment()).commit();
+            OpenOnlineSessionsFragment openOnlineFragment = new OpenOnlineSessionsFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(Keys.BundleKeys.UnitController, bnd.getSerializable(Keys.BundleKeys.UnitController));
+            openOnlineFragment.setArguments(bundle);
+            fragmentStack.push(openOnlineFragment);
+            fragmentManager.beginTransaction().replace(R.id.main_container, fragmentStack.peek()).commit();
         }
 
 
@@ -117,6 +125,9 @@ public class OpenActivity extends Activity {
         intent.putExtras(bundle);
         setResult(RESULT_OK, intent);
         finish();
+    }
+    public void setActivityResultDTO(com.aerobal.data.dto.Experiment experiment){
+
     }
 
     public void loadFragmentIntoActivity(Fragment fragment){

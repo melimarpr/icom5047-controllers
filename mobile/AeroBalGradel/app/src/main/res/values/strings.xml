@@ -62,6 +62,11 @@
     <string name="activity_error_no_session_found">No Sessions Found</string>
     <string name="activity_error_no_file_folder_found">No File or Folder Found</string>
     <string name="fragment_folder_no_found">Folder is Empty</string>
+    <string name="dialog_file_override">Override file?</string>
+
+    <!-- Open Online -->
+    <string name="fragment_open_online_no_session">No Session Found</string>
+    <string name="fragment_open_online_no_exp_in_session">No Experiment in Session</string>
 
 
     <!-- Experiment Fragment -->
@@ -95,7 +100,7 @@
     <!--Export Dialog-->
     <string name="dialog_export_et_hint">File Name</string>
     <string name="dialog_export_radio_csv">CSV</string>
-    <string name="dialog_export_radio_aerobal">Aerobal</string>
+    <string name="dialog_export_radio_aerobal">AeroBal</string>
 
 
 </resources>

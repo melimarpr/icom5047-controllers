@@ -17,6 +17,7 @@
     <string name="toast_invalid_email">Invalid Email</string>
     <string name="toast_invalid_filename">Invalid File Name: Empty or Less than 3 Characters</string>
     <string name="toast_file_create">File Successfully Created</string>
+    <string name="toast_file_updated">File Successfully Updated</string>
     <string name="toast_file_not_create">File Not Successfully Created</string>
     <string name="toast_bt_activation_cancel">Failed to turn on Device Bluetooth</string>
     <string name="toast_bt_enable">Bluetooth Enable. Try Again.</string>
@@ -28,6 +29,10 @@
     <string name="toast_net_login_fail">Unable to Log In</string>
     <string name="toast_file_mount_error">Unable to Access External Storage</string>
     <string name="toast_file_parent_error">Unable to Go Back</string>
+    <string name="toast_invalid_access">Invalid Access without Log-in</string>
+    <string name="toast_error_json">Bad JSON Parsing</string>
+    <string name="toast_error_bad_username">Invalid Email Address</string>
+    <string name="toast_error_bad_password">Incorrect Password</string>
 
 
 

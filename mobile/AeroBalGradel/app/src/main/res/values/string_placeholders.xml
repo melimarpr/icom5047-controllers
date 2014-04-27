@@ -6,4 +6,6 @@
     <string name="placeholder_units">***</string>
     <string name="placeholder_double_value">0.000</string>
     <string name="placeholder_integer_value">000</string>
+    <string name="placeholder_empty_desc">Image</string>
+    <string name="placeholder_paragraph">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.</string>
 </resources>

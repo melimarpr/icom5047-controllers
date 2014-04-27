@@ -1321,14 +1321,27 @@ com.aerobal.comms.server.Puts$
 com.aerobal.comms.server.ServerCommLib
 com.aerobal.comms.server.ServerCommLib$
 com.aerobal.controller.StateMachine
-com.aerobal.data.dto.Experiment
+com.aerobal.data.dto.Experiment:
+====    public static scala.Function1 tupled()
+====    public static scala.Function1 curried()
+====    5:6:public com.aerobal.data.dto.Experiment copy(int,int,java.lang.String,int,int,double,java.sql.Timestamp)
+====    5:5:public int copy$default$1()
+====    5:5:public int copy$default$2()
+====    5:5:public java.lang.String copy$default$3()
+====    5:5:public int copy$default$4()
+====    5:5:public int copy$default$5()
+====    6:6:public double copy$default$6()
+====    6:6:public java.sql.Timestamp copy$default$7()
+====    5:6:public Experiment(int,int,java.lang.String,int,int,double,java.sql.Timestamp)
 com.aerobal.data.dto.Experiment$
 com.aerobal.data.dto.Experiments
 com.aerobal.data.dto.Experiments$
 com.aerobal.data.dto.Group
 com.aerobal.data.dto.Group$
-com.aerobal.data.dto.JSONifier
-com.aerobal.data.dto.JSONifier$class
+com.aerobal.data.dto.JSONifier:
+====    public abstract java.lang.String toString()
+com.aerobal.data.dto.JSONifier$class:
+====    6:6:public static void $init$(com.aerobal.data.dto.JSONifier)
 com.aerobal.data.dto.Measurement
 com.aerobal.data.dto.Measurement$
 com.aerobal.data.dto.Measurements
@@ -1337,7 +1350,28 @@ com.aerobal.data.dto.Run
 com.aerobal.data.dto.Run$
 com.aerobal.data.dto.Runs
 com.aerobal.data.dto.Runs$
-com.aerobal.data.dto.Session
+com.aerobal.data.dto.Session:
+    private scala.collection.immutable.List experiments
+    private scala.collection.immutable.List users
+    private scala.collection.immutable.List groups
+    private volatile byte bitmap$0
+====    public static scala.Function1 tupled()
+====    public static scala.Function1 curried()
+====    5:7:private scala.collection.immutable.List experiments$lzycompute()
+====    5:8:private scala.collection.immutable.List users$lzycompute()
+====    5:9:private scala.collection.immutable.List groups$lzycompute()
+====    5:7:public scala.collection.immutable.List experiments()
+====    5:8:public scala.collection.immutable.List users()
+====    5:9:public scala.collection.immutable.List groups()
+====    5:6:public com.aerobal.data.dto.Session copy(int,int,java.lang.String,java.lang.String,boolean,java.sql.Timestamp,boolean)
+====    5:5:public int copy$default$1()
+====    5:5:public int copy$default$2()
+====    5:5:public java.lang.String copy$default$3()
+====    5:5:public java.lang.String copy$default$4()
+====    5:5:public boolean copy$default$5()
+====    6:6:public java.sql.Timestamp copy$default$6()
+====    6:6:public boolean copy$default$7()
+====    5:6:public Session(int,int,java.lang.String,java.lang.String,boolean,java.sql.Timestamp,boolean)
 com.aerobal.data.dto.Session$
 com.aerobal.data.dto.Sessions
 com.aerobal.data.dto.Sessions$
@@ -1656,158 +1690,200 @@ com.google.api.client.util.store.MemoryDataStoreFactory
 com.google.api.client.util.store.MemoryDataStoreFactory$InstanceHolder
 com.google.api.client.util.store.MemoryDataStoreFactory$MemoryDataStore
 com.google.gson.DefaultDateTypeAdapter
-com.google.gson.ExclusionStrategy
-com.google.gson.FieldAttributes
-com.google.gson.FieldNamingPolicy
-com.google.gson.FieldNamingPolicy$1
-com.google.gson.FieldNamingPolicy$2
-com.google.gson.FieldNamingPolicy$3
-com.google.gson.FieldNamingPolicy$4
-com.google.gson.FieldNamingPolicy$5
-com.google.gson.FieldNamingStrategy
-com.google.gson.Gson
-com.google.gson.Gson$1
-com.google.gson.Gson$2
-com.google.gson.Gson$3
-com.google.gson.Gson$4
-com.google.gson.Gson$5
-com.google.gson.Gson$FutureTypeAdapter
+com.google.gson.FieldAttributes:
+====    53:53:public java.lang.Class getDeclaringClass()
+====    60:60:public java.lang.String getName()
+====    80:80:public java.lang.reflect.Type getDeclaredType()
+====    100:100:public java.lang.Class getDeclaredClass()
+====    111:111:public java.lang.annotation.Annotation getAnnotation(java.lang.Class)
+====    121:121:public java.util.Collection getAnnotations()
+====    135:135:public boolean hasModifier(int)
+====    146:146:java.lang.Object get(java.lang.Object)
+====    155:155:boolean isSynthetic()
+com.google.gson.Gson:
+    static final boolean DEFAULT_JSON_NON_EXECUTABLE
+    private static final java.lang.String JSON_NON_EXECUTABLE_PREFIX
+====    462:465:public com.google.gson.JsonElement toJsonTree(java.lang.Object)
+====    485:487:public com.google.gson.JsonElement toJsonTree(java.lang.Object,java.lang.reflect.Type)
+====    546:551:public void toJson(java.lang.Object,java.lang.Appendable)
+====    740:743:public java.lang.Object fromJson(java.io.Reader,java.lang.Class)
+====    841:842:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.Class)
+====    865:868:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.reflect.Type)
+com.google.gson.Gson$1:
+====    126:126:public java.lang.Object deserialize(com.google.gson.JsonElement,java.lang.reflect.Type)
+com.google.gson.Gson$2:
+====    132:132:public com.google.gson.JsonElement serialize(java.lang.Object)
+====    135:135:public com.google.gson.JsonElement serialize(java.lang.Object,java.lang.reflect.Type)
 com.google.gson.GsonBuilder
-com.google.gson.InstanceCreator
-com.google.gson.JsonArray
-com.google.gson.JsonDeserializationContext
+com.google.gson.JsonArray:
+====    45:49:com.google.gson.JsonArray deepCopy()
+====    70:71:public void addAll(com.google.gson.JsonArray)
+====    79:79:public int size()
+====    101:101:public com.google.gson.JsonElement get(int)
+====    163:166:public java.math.BigDecimal getAsBigDecimal()
+====    180:183:public java.math.BigInteger getAsBigInteger()
+====    196:199:public float getAsFloat()
+====    236:239:public byte getAsByte()
+====    244:247:public char getAsCharacter()
+====    260:263:public short getAsShort()
+====    33:33:bridge synthetic com.google.gson.JsonElement deepCopy()
+com.google.gson.JsonDeserializationContext:
+====    public abstract java.lang.Object deserialize(com.google.gson.JsonElement,java.lang.reflect.Type)
 com.google.gson.JsonDeserializer
-com.google.gson.JsonElement
-com.google.gson.JsonIOException
-com.google.gson.JsonNull
-com.google.gson.JsonObject
-com.google.gson.JsonParseException
+com.google.gson.JsonElement:
+====    abstract com.google.gson.JsonElement deepCopy()
+====    136:139:public com.google.gson.JsonNull getAsJsonNull()
+====    217:217:public float getAsFloat()
+====    257:257:public byte getAsByte()
+====    271:271:public char getAsCharacter()
+====    285:285:public java.math.BigDecimal getAsBigDecimal()
+====    299:299:public java.math.BigInteger getAsBigInteger()
+====    312:312:public short getAsShort()
+com.google.gson.JsonIOException:
+    private static final long serialVersionUID
+====    33:34:public JsonIOException(java.lang.String,java.lang.Throwable)
+com.google.gson.JsonNull:
+====    45:45:com.google.gson.JsonNull deepCopy()
+====    26:26:bridge synthetic com.google.gson.JsonElement deepCopy()
+com.google.gson.JsonObject:
+====    38:42:com.google.gson.JsonObject deepCopy()
+====    68:68:public com.google.gson.JsonElement remove(java.lang.String)
+====    79:80:public void addProperty(java.lang.String,java.lang.String)
+====    90:91:public void addProperty(java.lang.String,java.lang.Number)
+====    101:102:public void addProperty(java.lang.String,java.lang.Boolean)
+====    112:113:public void addProperty(java.lang.String,java.lang.Character)
+====    122:122:private com.google.gson.JsonElement createJsonElement(java.lang.Object)
+====    142:142:public boolean has(java.lang.String)
+====    152:152:public com.google.gson.JsonElement get(java.lang.String)
+====    162:162:public com.google.gson.JsonPrimitive getAsJsonPrimitive(java.lang.String)
+====    172:172:public com.google.gson.JsonArray getAsJsonArray(java.lang.String)
+====    182:182:public com.google.gson.JsonObject getAsJsonObject(java.lang.String)
+====    32:32:bridge synthetic com.google.gson.JsonElement deepCopy()
+com.google.gson.JsonParseException:
+    static final long serialVersionUID
 com.google.gson.JsonParser
-com.google.gson.JsonPrimitive
-com.google.gson.JsonSerializationContext
+com.google.gson.JsonPrimitive:
+====    74:76:public JsonPrimitive(java.lang.Character)
+====    84:86:JsonPrimitive(java.lang.Object)
+====    90:90:com.google.gson.JsonPrimitive deepCopy()
+====    204:204:public java.math.BigDecimal getAsBigDecimal()
+====    215:215:public java.math.BigInteger getAsBigInteger()
+====    227:227:public float getAsFloat()
+====    249:249:public short getAsShort()
+====    265:265:public byte getAsByte()
+====    270:270:public char getAsCharacter()
+====    33:33:bridge synthetic com.google.gson.JsonElement deepCopy()
+com.google.gson.JsonSerializationContext:
+====    public abstract com.google.gson.JsonElement serialize(java.lang.Object)
+====    public abstract com.google.gson.JsonElement serialize(java.lang.Object,java.lang.reflect.Type)
 com.google.gson.JsonSerializer
 com.google.gson.JsonStreamParser
-com.google.gson.JsonSyntaxException
-com.google.gson.LongSerializationPolicy
-com.google.gson.LongSerializationPolicy$1
-com.google.gson.LongSerializationPolicy$2
+com.google.gson.JsonSyntaxException:
+    private static final long serialVersionUID
+com.google.gson.LongSerializationPolicy:
+====    public abstract com.google.gson.JsonElement serialize(java.lang.Long)
+com.google.gson.LongSerializationPolicy$1:
+====    36:36:public com.google.gson.JsonElement serialize(java.lang.Long)
+com.google.gson.LongSerializationPolicy$2:
+====    47:47:public com.google.gson.JsonElement serialize(java.lang.Long)
 com.google.gson.TreeTypeAdapter
 com.google.gson.TreeTypeAdapter$1
 com.google.gson.TreeTypeAdapter$SingleTypeFactory
-com.google.gson.TypeAdapter
+com.google.gson.TypeAdapter:
+====    141:143:public final void toJson(java.io.Writer,java.lang.Object)
+====    186:186:public final com.google.gson.TypeAdapter nullSafe()
+====    215:217:public final java.lang.String toJson(java.lang.Object)
+====    255:256:public final java.lang.Object fromJson(java.io.Reader)
+====    269:269:public final java.lang.Object fromJson(java.lang.String)
+====    280:283:public final java.lang.Object fromJsonTree(com.google.gson.JsonElement)
 com.google.gson.TypeAdapter$1
-com.google.gson.TypeAdapterFactory
-com.google.gson.annotations.Expose
-com.google.gson.annotations.SerializedName
-com.google.gson.annotations.Since
-com.google.gson.annotations.Until
-com.google.gson.internal.$Gson$Preconditions
-com.google.gson.internal.$Gson$Types
-com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl
-com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl
-com.google.gson.internal.$Gson$Types$WildcardTypeImpl
-com.google.gson.internal.ConstructorConstructor
-com.google.gson.internal.ConstructorConstructor$1
-com.google.gson.internal.ConstructorConstructor$10
-com.google.gson.internal.ConstructorConstructor$11
-com.google.gson.internal.ConstructorConstructor$12
-com.google.gson.internal.ConstructorConstructor$2
-com.google.gson.internal.ConstructorConstructor$3
-com.google.gson.internal.ConstructorConstructor$4
-com.google.gson.internal.ConstructorConstructor$5
-com.google.gson.internal.ConstructorConstructor$6
-com.google.gson.internal.ConstructorConstructor$7
-com.google.gson.internal.ConstructorConstructor$8
-com.google.gson.internal.ConstructorConstructor$9
-com.google.gson.internal.Excluder
-com.google.gson.internal.Excluder$1
-com.google.gson.internal.JsonReaderInternalAccess
-com.google.gson.internal.LazilyParsedNumber
-com.google.gson.internal.LinkedTreeMap
-com.google.gson.internal.LinkedTreeMap$1
-com.google.gson.internal.LinkedTreeMap$EntrySet
-com.google.gson.internal.LinkedTreeMap$EntrySet$1
-com.google.gson.internal.LinkedTreeMap$KeySet
-com.google.gson.internal.LinkedTreeMap$KeySet$1
-com.google.gson.internal.LinkedTreeMap$LinkedTreeMapIterator
-com.google.gson.internal.LinkedTreeMap$Node
-com.google.gson.internal.ObjectConstructor
-com.google.gson.internal.Primitives
-com.google.gson.internal.Streams
-com.google.gson.internal.Streams$1
-com.google.gson.internal.Streams$AppendableWriter
-com.google.gson.internal.Streams$AppendableWriter$CurrentWrite
-com.google.gson.internal.UnsafeAllocator
-com.google.gson.internal.UnsafeAllocator$1
-com.google.gson.internal.UnsafeAllocator$2
-com.google.gson.internal.UnsafeAllocator$3
-com.google.gson.internal.UnsafeAllocator$4
-com.google.gson.internal.bind.ArrayTypeAdapter
-com.google.gson.internal.bind.ArrayTypeAdapter$1
-com.google.gson.internal.bind.CollectionTypeAdapterFactory
-com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter
-com.google.gson.internal.bind.DateTypeAdapter
-com.google.gson.internal.bind.DateTypeAdapter$1
-com.google.gson.internal.bind.JsonTreeReader
-com.google.gson.internal.bind.JsonTreeReader$1
-com.google.gson.internal.bind.JsonTreeWriter
-com.google.gson.internal.bind.JsonTreeWriter$1
-com.google.gson.internal.bind.MapTypeAdapterFactory
-com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter
-com.google.gson.internal.bind.ObjectTypeAdapter
-com.google.gson.internal.bind.ObjectTypeAdapter$1
-com.google.gson.internal.bind.ObjectTypeAdapter$2
-com.google.gson.internal.bind.ReflectiveTypeAdapterFactory
-com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1
-com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter
-com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$BoundField
-com.google.gson.internal.bind.SqlDateTypeAdapter
-com.google.gson.internal.bind.SqlDateTypeAdapter$1
-com.google.gson.internal.bind.TimeTypeAdapter
-com.google.gson.internal.bind.TimeTypeAdapter$1
-com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper
-com.google.gson.internal.bind.TypeAdapters
-com.google.gson.internal.bind.TypeAdapters$1
-com.google.gson.internal.bind.TypeAdapters$10
-com.google.gson.internal.bind.TypeAdapters$11
-com.google.gson.internal.bind.TypeAdapters$12
-com.google.gson.internal.bind.TypeAdapters$13
-com.google.gson.internal.bind.TypeAdapters$14
-com.google.gson.internal.bind.TypeAdapters$15
-com.google.gson.internal.bind.TypeAdapters$16
-com.google.gson.internal.bind.TypeAdapters$17
-com.google.gson.internal.bind.TypeAdapters$18
-com.google.gson.internal.bind.TypeAdapters$19
-com.google.gson.internal.bind.TypeAdapters$2
-com.google.gson.internal.bind.TypeAdapters$20
-com.google.gson.internal.bind.TypeAdapters$21
-com.google.gson.internal.bind.TypeAdapters$22
-com.google.gson.internal.bind.TypeAdapters$22$1
-com.google.gson.internal.bind.TypeAdapters$23
-com.google.gson.internal.bind.TypeAdapters$24
-com.google.gson.internal.bind.TypeAdapters$25
-com.google.gson.internal.bind.TypeAdapters$26
+com.google.gson.internal.$Gson$Preconditions:
+====    32:32:public $Gson$Preconditions()
+com.google.gson.internal.$Gson$Types:
+====    45:45:private $Gson$Types()
+com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl:
+    private static final long serialVersionUID
+com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl:
+    private static final long serialVersionUID
+com.google.gson.internal.$Gson$Types$WildcardTypeImpl:
+    private static final long serialVersionUID
+com.google.gson.internal.Excluder:
+    private static final double IGNORE_VERSIONS
+====    70:72:public com.google.gson.internal.Excluder withVersion(double)
+====    76:81:public varargs com.google.gson.internal.Excluder withModifiers(int[])
+====    85:87:public com.google.gson.internal.Excluder disableInnerClassSerialization()
+====    91:93:public com.google.gson.internal.Excluder excludeFieldsWithoutExposeAnnotation()
+====    98:108:public com.google.gson.internal.Excluder withExclusionStrategy(com.google.gson.ExclusionStrategy,boolean,boolean)
+com.google.gson.internal.LazilyParsedNumber:
+====    76:76:private java.lang.Object writeReplace()
+com.google.gson.internal.LinkedTreeMap:
+====    625:625:private java.lang.Object writeReplace()
+com.google.gson.internal.Primitives:
+====    32:32:private Primitives()
+====    80:80:public static boolean isWrapperType(java.lang.reflect.Type)
+====    113:115:public static java.lang.Class unwrap(java.lang.Class)
+com.google.gson.internal.Streams:
+====    35:79:public Streams()
+====    40:60:public static com.google.gson.JsonElement parse(com.google.gson.stream.JsonReader)
+com.google.gson.internal.bind.JsonTreeReader:
+====    50:55:public JsonTreeReader(com.google.gson.JsonElement)
+com.google.gson.internal.bind.JsonTreeWriter:
+====    163:167:public com.google.gson.stream.JsonWriter value(double)
+com.google.gson.internal.bind.TypeAdapters:
+====    58:58:private TypeAdapters()
+====    769:769:public static com.google.gson.TypeAdapterFactory newFactory(com.google.gson.reflect.TypeToken,com.google.gson.TypeAdapter)
+com.google.gson.internal.bind.TypeAdapters$23:
+    private static final java.lang.String YEAR
+    private static final java.lang.String MONTH
+    private static final java.lang.String DAY_OF_MONTH
+    private static final java.lang.String HOUR_OF_DAY
+    private static final java.lang.String MINUTE
+    private static final java.lang.String SECOND
 com.google.gson.internal.bind.TypeAdapters$27
-com.google.gson.internal.bind.TypeAdapters$28
-com.google.gson.internal.bind.TypeAdapters$29
-com.google.gson.internal.bind.TypeAdapters$3
-com.google.gson.internal.bind.TypeAdapters$30
-com.google.gson.internal.bind.TypeAdapters$31
-com.google.gson.internal.bind.TypeAdapters$32
-com.google.gson.internal.bind.TypeAdapters$4
-com.google.gson.internal.bind.TypeAdapters$5
-com.google.gson.internal.bind.TypeAdapters$6
-com.google.gson.internal.bind.TypeAdapters$7
-com.google.gson.internal.bind.TypeAdapters$8
-com.google.gson.internal.bind.TypeAdapters$9
-com.google.gson.internal.bind.TypeAdapters$EnumTypeAdapter
-com.google.gson.reflect.TypeToken
-com.google.gson.stream.JsonReader
-com.google.gson.stream.JsonReader$1
+com.google.gson.reflect.TypeToken:
+====    112:112:public boolean isAssignableFrom(java.lang.Class)
+====    123:140:public boolean isAssignableFrom(java.lang.reflect.Type)
+====    153:153:public boolean isAssignableFrom(com.google.gson.reflect.TypeToken)
+====    161:178:private static boolean isAssignableFrom(java.lang.reflect.Type,java.lang.reflect.GenericArrayType)
+====    188:231:private static boolean isAssignableFrom(java.lang.reflect.Type,java.lang.reflect.ParameterizedType,java.util.Map)
+====    240:250:private static boolean typeEquals(java.lang.reflect.ParameterizedType,java.lang.reflect.ParameterizedType,java.util.Map)
+====    257:265:private static varargs java.lang.AssertionError buildUnexpectedTypeError(java.lang.reflect.Type,java.lang.Class[])
+====    273:273:private static boolean matches(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)
+com.google.gson.stream.JsonReader:
+    private static final long MIN_INCOMPLETE_INTEGER
+    private static final int PEEKED_NONE
+    private static final int PEEKED_BEGIN_OBJECT
+    private static final int PEEKED_END_OBJECT
+    private static final int PEEKED_BEGIN_ARRAY
+    private static final int PEEKED_END_ARRAY
+    private static final int PEEKED_TRUE
+    private static final int PEEKED_FALSE
+    private static final int PEEKED_NULL
+    private static final int PEEKED_SINGLE_QUOTED
+    private static final int PEEKED_DOUBLE_QUOTED
+    private static final int PEEKED_UNQUOTED
+    private static final int PEEKED_BUFFERED
+    private static final int PEEKED_SINGLE_QUOTED_NAME
+    private static final int PEEKED_DOUBLE_QUOTED_NAME
+    private static final int PEEKED_UNQUOTED_NAME
+    private static final int PEEKED_LONG
+    private static final int PEEKED_NUMBER
+    private static final int PEEKED_EOF
+    private static final int NUMBER_CHAR_NONE
+    private static final int NUMBER_CHAR_SIGN
+    private static final int NUMBER_CHAR_DIGIT
+    private static final int NUMBER_CHAR_DECIMAL
+    private static final int NUMBER_CHAR_FRACTION_DIGIT
+    private static final int NUMBER_CHAR_EXP_E
+    private static final int NUMBER_CHAR_EXP_SIGN
+    private static final int NUMBER_CHAR_EXP_DIGIT
 com.google.gson.stream.JsonScope
-com.google.gson.stream.JsonToken
-com.google.gson.stream.JsonWriter
-com.google.gson.stream.MalformedJsonException
+com.google.gson.stream.JsonWriter:
+====    462:468:public com.google.gson.stream.JsonWriter value(double)
+com.google.gson.stream.MalformedJsonException:
+    private static final long serialVersionUID
+====    33:37:public MalformedJsonException(java.lang.String,java.lang.Throwable)
+====    39:43:public MalformedJsonException(java.lang.Throwable)
 javax.annotation.CheckForNull
 javax.annotation.CheckForSigned
 javax.annotation.CheckReturnValue

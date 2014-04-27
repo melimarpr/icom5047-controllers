@@ -170,8 +170,26 @@ public class LoginActivity extends FragmentActivity {
             }
 
             @Override
-            public void onFailed() {
-                Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
+            public void onFailed(JSONObject json) {
+                if(json.has(HttpRequest.ERROR_RESPONSE)){
+
+                    try {
+                        String response = json.getString(HttpRequest.ERROR_RESPONSE);
+                        if(response.equals(Server.ErrorStrings.USER_NOT_FOUND)){
+                            Toast.makeText(getBaseContext(), R.string.toast_error_bad_username, Toast.LENGTH_SHORT).show();
+                        } else if(response.equals(Server.ErrorStrings.PASSWORD_INVALID)){
+                            Toast.makeText(getBaseContext(), R.string.toast_error_bad_password, Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        Toast.makeText(getBaseContext(), R.string.toast_error_json, Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } else
+                    Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -210,8 +228,8 @@ public class LoginActivity extends FragmentActivity {
             }
 
             @Override
-            public void onFailed() {
-                Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
+            public void onFailed(JSONObject json) {
+                    Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
             }
 
             @Override
