@@ -16,17 +16,27 @@ public class Server {
 
     public static class Session{
         public static final String GET_USER_SESSION = url+"sessions";
+        public static final String POST_NEW_SESSION = url+"new_session";
     }
 
     public static class Experiments{
         public static final String GET_EXPERIMENTS_FOR_SESSION = url+"experiments";
+        public static final String GET_EXPERIMENT_COMPLETE = url+"full_experiment";
+        public static final String POST_COMPLETE_EXPERIMENT = url+"submit_experiment";
 
         public static class Parmas{
             public static final String SESSION_ID = "sessionId";
+            public static final String EXPERIMENT_ID = "experimentId";
+
         }
+    }
+
+    public static class Params{
+        public static final String ID = "id";
     }
     public static class Headers{
         public static final String TOKEN = "token";
+        public static final String SESSION_ID = "sessionId";
 
     }
 

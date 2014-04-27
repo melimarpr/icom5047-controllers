@@ -1320,129 +1320,211 @@ com.aerobal.comms.server.Puts
 com.aerobal.comms.server.Puts$
 com.aerobal.comms.server.ServerCommLib
 com.aerobal.comms.server.ServerCommLib$
+com.aerobal.comms.server.ServerCommLib$$anonfun$makeHttpContent$1
 com.aerobal.controller.StateMachine
-com.aerobal.data.dto.Experiment:
+com.aerobal.controller.StateMachine$
+com.aerobal.controller.StateMachine$$anon$1
+com.aerobal.controller.StateMachine$$anonfun$1
+com.aerobal.data.dto.ExperimentDto:
 ====    public static scala.Function1 tupled()
 ====    public static scala.Function1 curried()
-====    5:6:public com.aerobal.data.dto.Experiment copy(int,int,java.lang.String,int,int,double,java.sql.Timestamp)
-====    5:5:public int copy$default$1()
-====    5:5:public int copy$default$2()
-====    5:5:public java.lang.String copy$default$3()
-====    5:5:public int copy$default$4()
-====    5:5:public int copy$default$5()
-====    6:6:public double copy$default$6()
-====    6:6:public java.sql.Timestamp copy$default$7()
-====    5:6:public Experiment(int,int,java.lang.String,int,int,double,java.sql.Timestamp)
-com.aerobal.data.dto.Experiment$
-com.aerobal.data.dto.Experiments
-com.aerobal.data.dto.Experiments$
-com.aerobal.data.dto.Group
-com.aerobal.data.dto.Group$
-com.aerobal.data.dto.JSONifier:
-====    public abstract java.lang.String toString()
-com.aerobal.data.dto.JSONifier$class:
-====    6:6:public static void $init$(com.aerobal.data.dto.JSONifier)
-com.aerobal.data.dto.Measurement
-com.aerobal.data.dto.Measurement$
-com.aerobal.data.dto.Measurements
-com.aerobal.data.dto.Measurements$
-com.aerobal.data.dto.Run
-com.aerobal.data.dto.Run$
-com.aerobal.data.dto.Runs
-com.aerobal.data.dto.Runs$
-com.aerobal.data.dto.Session:
-    private scala.collection.immutable.List experiments
-    private scala.collection.immutable.List users
-    private scala.collection.immutable.List groups
-    private volatile byte bitmap$0
+====    7:7:public void sessionId_$eq(long)
+====    7:7:public void setSessionId(long)
+====    8:8:public void name_$eq(java.lang.String)
+====    8:8:public void setName(java.lang.String)
+====    9:9:public void amountOfValues_$eq(int)
+====    9:9:public void setAmountOfValues(int)
+====    10:10:public void frequency_$eq(int)
+====    10:10:public void setFrequency(int)
+====    11:11:public void windSpeed_$eq(double)
+====    11:11:public void setWindSpeed(double)
+====    12:12:public void id_$eq(long)
+====    12:12:public void setId(long)
+====    13:13:public boolean isActive()
+====    13:13:public void isActive_$eq(boolean)
+====    13:13:public void setIsActive(boolean)
+====    14:14:public java.sql.Timestamp timestamp()
+====    14:14:public void timestamp_$eq(java.sql.Timestamp)
+====    14:14:public void setTimestamp(java.sql.Timestamp)
+====    7:7:public long getSessionId()
+====    8:8:public java.lang.String getName()
+====    9:9:public int getAmountOfValues()
+====    10:10:public int getFrequency()
+====    11:11:public double getWindSpeed()
+====    12:12:public long getId()
+====    13:13:public boolean getIsActive()
+====    14:14:public java.sql.Timestamp getTimestamp()
+====    7:11:public com.aerobal.data.dto.ExperimentDto copy(long,java.lang.String,int,int,double)
+====    7:7:public long copy$default$1()
+====    8:8:public java.lang.String copy$default$2()
+====    9:9:public int copy$default$3()
+====    10:10:public int copy$default$4()
+====    11:11:public double copy$default$5()
+com.aerobal.data.dto.ExperimentDto$
+com.aerobal.data.dto.ExperimentStatDto
+com.aerobal.data.dto.ExperimentStatDto$
+com.aerobal.data.dto.MeasurementDto
+com.aerobal.data.dto.MeasurementDto$
+com.aerobal.data.dto.RunDto
+com.aerobal.data.dto.RunDto$
+com.aerobal.data.dto.RunStatDto
+com.aerobal.data.dto.RunStatDto$
+com.aerobal.data.dto.SessionDto:
 ====    public static scala.Function1 tupled()
 ====    public static scala.Function1 curried()
-====    5:7:private scala.collection.immutable.List experiments$lzycompute()
-====    5:8:private scala.collection.immutable.List users$lzycompute()
-====    5:9:private scala.collection.immutable.List groups$lzycompute()
-====    5:7:public scala.collection.immutable.List experiments()
-====    5:8:public scala.collection.immutable.List users()
-====    5:9:public scala.collection.immutable.List groups()
-====    5:6:public com.aerobal.data.dto.Session copy(int,int,java.lang.String,java.lang.String,boolean,java.sql.Timestamp,boolean)
-====    5:5:public int copy$default$1()
-====    5:5:public int copy$default$2()
-====    5:5:public java.lang.String copy$default$3()
-====    5:5:public java.lang.String copy$default$4()
-====    5:5:public boolean copy$default$5()
-====    6:6:public java.sql.Timestamp copy$default$6()
-====    6:6:public boolean copy$default$7()
-====    5:6:public Session(int,int,java.lang.String,java.lang.String,boolean,java.sql.Timestamp,boolean)
-com.aerobal.data.dto.Session$
-com.aerobal.data.dto.Sessions
-com.aerobal.data.dto.Sessions$
-com.aerobal.data.dto.Stats
-com.aerobal.data.dto.Stats$
-com.aerobal.data.dto.User
-com.aerobal.data.dto.User$
-com.aerobal.data.dto.Users
-com.aerobal.data.dto.Users$
+====    7:7:public void userId_$eq(long)
+====    7:7:public void setUserId(long)
+====    8:8:public void name_$eq(java.lang.String)
+====    8:8:public void setName(java.lang.String)
+====    9:9:public void description_$eq(java.lang.String)
+====    9:9:public void setDescription(java.lang.String)
+====    10:10:public void isPublic_$eq(boolean)
+====    10:10:public void setIsPublic(boolean)
+====    11:11:public void id_$eq(long)
+====    11:11:public void setId(long)
+====    12:12:public boolean isActive()
+====    12:12:public void isActive_$eq(boolean)
+====    12:12:public void setIsActive(boolean)
+====    13:13:public java.sql.Timestamp timestamp()
+====    13:13:public void timestamp_$eq(java.sql.Timestamp)
+====    13:13:public void setTimestamp(java.sql.Timestamp)
+====    7:7:public long getUserId()
+====    8:8:public java.lang.String getName()
+====    9:9:public java.lang.String getDescription()
+====    10:10:public boolean getIsPublic()
+====    11:11:public long getId()
+====    12:12:public boolean getIsActive()
+====    13:13:public java.sql.Timestamp getTimestamp()
+====    7:10:public com.aerobal.data.dto.SessionDto copy(long,java.lang.String,java.lang.String,boolean)
+====    7:7:public long copy$default$1()
+====    8:8:public java.lang.String copy$default$2()
+====    9:9:public java.lang.String copy$default$3()
+====    10:10:public boolean copy$default$4()
+com.aerobal.data.dto.SessionDto$
+com.aerobal.data.dto.StatsDto
+com.aerobal.data.dto.StatsDto$
+com.aerobal.data.dto.UserDto
+com.aerobal.data.dto.UserDto$
 com.aerobal.data.objects.Experiment:
 ====    public static scala.Function1 tupled()
 ====    public static scala.Function1 curried()
-====    7:7:public void name_$eq(java.lang.String)
-====    7:7:public java.lang.String getName()
-====    7:8:public com.aerobal.data.objects.Experiment copy(java.lang.String,int,int,double,scala.Option)
-====    7:7:public java.lang.String copy$default$1()
-====    7:7:public int copy$default$2()
-====    7:7:public int copy$default$3()
-====    8:8:public double copy$default$4()
-====    8:8:public scala.Option copy$default$5()
+====    11:11:public void name_$eq(java.lang.String)
+====    12:12:public void amountOfValues_$eq(int)
+====    12:12:public void setAmountOfValues(int)
+====    13:13:public void frequency_$eq(int)
+====    13:13:public void setFrequency(int)
+====    14:14:public void windSpeed_$eq(double)
+====    14:14:public void setWindSpeed(double)
+====    15:15:public void setId(long)
+====    16:16:public void setTimestamp(java.sql.Timestamp)
+====    11:11:public java.lang.String getName()
+====    12:12:public int getAmountOfValues()
+====    13:13:public int getFrequency()
+====    14:14:public double getWindSpeed()
+====    15:15:public long getId()
+====    16:16:public java.sql.Timestamp getTimestamp()
+====    11:14:public com.aerobal.data.objects.Experiment copy(java.lang.String,int,int,double)
+====    11:11:public java.lang.String copy$default$1()
+====    12:12:public int copy$default$2()
+====    13:13:public int copy$default$3()
+====    14:14:public double copy$default$4()
+====    19:21:public Experiment(com.aerobal.data.dto.ExperimentDto)
 com.aerobal.data.objects.Experiment$
-com.aerobal.data.objects.Measurement
-com.aerobal.data.objects.Measurement$
-com.aerobal.data.objects.OptionWrapper:
-====    public static scala.Option some(java.lang.Object)
-com.aerobal.data.objects.OptionWrapper$:
-====    6:6:public scala.Option some(java.lang.Object)
-com.aerobal.data.objects.Run
-com.aerobal.data.objects.Run$
-com.aerobal.data.objects.Run$$anonfun$1
-com.aerobal.data.objects.Run$$anonfun$initMap$1
-com.aerobal.data.objects.Run$$anonfun$recalculateStats$1
-com.aerobal.data.objects.Session:
+com.aerobal.data.objects.Measurement:
 ====    public static scala.Function1 tupled()
 ====    public static scala.Function1 curried()
-====    5:5:public com.aerobal.data.objects.Session copy(com.aerobal.data.objects.User,java.lang.String,java.lang.String,boolean)
-====    5:5:public com.aerobal.data.objects.User copy$default$1()
-====    5:5:public java.lang.String copy$default$2()
-====    5:5:public java.lang.String copy$default$3()
-====    5:5:public boolean copy$default$4()
+====    9:9:public void typeOf_$eq(com.aerobal.data.objects.measurementTypes.MeasurementType)
+====    9:9:public void setTypeOf(com.aerobal.data.objects.measurementTypes.MeasurementType)
+====    10:10:public void value_$eq(double)
+====    10:10:public void setValue(double)
+====    11:11:public void setId(long)
+====    12:12:public void setTimestamp(java.sql.Timestamp)
+====    9:9:public com.aerobal.data.objects.measurementTypes.MeasurementType getTypeOf()
+====    10:10:public double getValue()
+====    11:11:public long getId()
+====    12:12:public java.sql.Timestamp getTimestamp()
+====    9:10:public com.aerobal.data.objects.Measurement copy(com.aerobal.data.objects.measurementTypes.MeasurementType,double)
+====    9:9:public com.aerobal.data.objects.measurementTypes.MeasurementType copy$default$1()
+====    10:10:public double copy$default$2()
+====    15:17:public Measurement(com.aerobal.data.dto.MeasurementDto)
+com.aerobal.data.objects.Measurement$
+com.aerobal.data.objects.OptionWrapper
+com.aerobal.data.objects.OptionWrapper$
+com.aerobal.data.objects.Run:
+====    10:10:public void setId(long)
+====    11:11:public void setTimestamp(java.sql.Timestamp)
+====    10:10:public long getId()
+====    11:11:public java.sql.Timestamp getTimestamp()
+====    9:9:public com.aerobal.data.objects.Run copy()
+====    14:16:public Run(com.aerobal.data.dto.RunDto)
+com.aerobal.data.objects.Run$
+com.aerobal.data.objects.Session:
+    private long id
+====    public static scala.Function1 tupled()
+====    public static scala.Function1 curried()
+====    8:8:public void name_$eq(java.lang.String)
+====    8:8:public void setName(java.lang.String)
+====    9:9:public void description_$eq(java.lang.String)
+====    9:9:public void setDescription(java.lang.String)
+====    10:10:public void isPublic_$eq(boolean)
+====    10:10:public void setIsPublic(boolean)
+====    11:11:public long id()
+====    11:11:public void id_$eq(long)
+====    11:11:public void setId(long)
+====    12:12:public java.sql.Timestamp timestamp()
+====    12:12:public void timestamp_$eq(java.sql.Timestamp)
+====    12:12:public void setTimestamp(java.sql.Timestamp)
+====    8:8:public java.lang.String getName()
+====    9:9:public java.lang.String getDescription()
+====    10:10:public boolean getIsPublic()
+====    11:11:public long getId()
+====    12:12:public java.sql.Timestamp getTimestamp()
+====    8:10:public com.aerobal.data.objects.Session copy(java.lang.String,java.lang.String,boolean)
+====    8:8:public java.lang.String copy$default$1()
+====    9:9:public java.lang.String copy$default$2()
+====    10:10:public boolean copy$default$3()
+====    15:17:public Session(com.aerobal.data.dto.SessionDto)
 com.aerobal.data.objects.Session$
 com.aerobal.data.objects.Stats
 com.aerobal.data.objects.Stats$
 com.aerobal.data.objects.Stats$$anonfun$1
-com.aerobal.data.objects.Stats$$anonfun$recalculate$1
-com.aerobal.data.objects.User:
-====    public static scala.Function1 tupled()
-====    public static scala.Function1 curried()
-====    6:6:public com.aerobal.data.objects.User copy(java.lang.String,java.lang.String,java.lang.String)
-====    6:6:public java.lang.String copy$default$1()
-====    6:6:public java.lang.String copy$default$2()
-====    6:6:public java.lang.String copy$default$3()
-====    6:6:public User(java.lang.String,java.lang.String,java.lang.String)
+com.aerobal.data.objects.Stats$$anonfun$1$$anonfun$apply$1
+com.aerobal.data.objects.Stats$$anonfun$1$$anonfun$apply$2
+com.aerobal.data.objects.Stats$$anonfun$2
+com.aerobal.data.objects.Stats$$anonfun$calculateStats$1
+com.aerobal.data.objects.User
 com.aerobal.data.objects.User$
 com.aerobal.data.objects.measurementTypes.Drag
-com.aerobal.data.objects.measurementTypes.Drag$
+com.aerobal.data.objects.measurementTypes.Drag$:
+====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.Humidity
-com.aerobal.data.objects.measurementTypes.Humidity$
+com.aerobal.data.objects.measurementTypes.Humidity$:
+====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.Lift
-com.aerobal.data.objects.measurementTypes.Lift$
-com.aerobal.data.objects.measurementTypes.MeasurementType
+com.aerobal.data.objects.measurementTypes.Lift$:
+====    3:3:private java.lang.Object readResolve()
+com.aerobal.data.objects.measurementTypes.MeasurementType:
+====    public abstract int id()
+====    public abstract java.lang.String toString()
+com.aerobal.data.objects.measurementTypes.MeasurementTypes
+com.aerobal.data.objects.measurementTypes.MeasurementTypes$:
+====    27:27:private scala.collection.immutable.HashMap idMap()
+====    39:39:public com.aerobal.data.objects.measurementTypes.MeasurementType getType(int)
 com.aerobal.data.objects.measurementTypes.Pressure
-com.aerobal.data.objects.measurementTypes.Pressure$
+com.aerobal.data.objects.measurementTypes.Pressure$:
+====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.Temperature
-com.aerobal.data.objects.measurementTypes.Temperature$
+com.aerobal.data.objects.measurementTypes.Temperature$:
+====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.Tilt
-com.aerobal.data.objects.measurementTypes.Tilt$
+com.aerobal.data.objects.measurementTypes.Tilt$:
+====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.WindDirection
-com.aerobal.data.objects.measurementTypes.WindDirection$
+com.aerobal.data.objects.measurementTypes.WindDirection$:
+====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.WindSpeed
-com.aerobal.data.objects.measurementTypes.WindSpeed$
+com.aerobal.data.objects.measurementTypes.WindSpeed$:
+====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.statTypes.Max
 com.aerobal.data.objects.statTypes.Max$
 com.aerobal.data.objects.statTypes.Mean
@@ -1460,6 +1542,15 @@ com.aerobal.data.processing.DataProcessing$$anonfun$standardDeviation$1
 com.aerobal.data.processing.Main
 com.aerobal.data.processing.Main$
 com.aerobal.data.processing.exceptions.EmptyListException
+com.aerobal.data.serializers.ExperimentSerializer
+com.aerobal.data.serializers.ExperimentSerializer$$anonfun$serialize$1:
+    public static final long serialVersionUID
+com.aerobal.data.serializers.JSONifier:
+====    public abstract java.lang.String toString()
+com.aerobal.data.serializers.MeasurementSerializer
+com.aerobal.data.serializers.RunSerializer
+com.aerobal.data.serializers.RunSerializer$$anonfun$serialize$1:
+    public static final long serialVersionUID
 com.google.api.client.extensions.android.AndroidUtils
 com.google.api.client.extensions.android.http.AndroidHttp
 com.google.api.client.extensions.android.http.package-info
@@ -1689,7 +1780,8 @@ com.google.api.client.util.store.FileDataStoreFactory$FileDataStore
 com.google.api.client.util.store.MemoryDataStoreFactory
 com.google.api.client.util.store.MemoryDataStoreFactory$InstanceHolder
 com.google.api.client.util.store.MemoryDataStoreFactory$MemoryDataStore
-com.google.gson.DefaultDateTypeAdapter
+com.google.gson.DefaultDateTypeAdapter:
+====    53:54:DefaultDateTypeAdapter(int)
 com.google.gson.FieldAttributes:
 ====    53:53:public java.lang.Class getDeclaringClass()
 ====    60:60:public java.lang.String getName()
@@ -1703,18 +1795,35 @@ com.google.gson.FieldAttributes:
 com.google.gson.Gson:
     static final boolean DEFAULT_JSON_NON_EXECUTABLE
     private static final java.lang.String JSON_NON_EXECUTABLE_PREFIX
-====    462:465:public com.google.gson.JsonElement toJsonTree(java.lang.Object)
-====    485:487:public com.google.gson.JsonElement toJsonTree(java.lang.Object,java.lang.reflect.Type)
 ====    546:551:public void toJson(java.lang.Object,java.lang.Appendable)
 ====    740:743:public java.lang.Object fromJson(java.io.Reader,java.lang.Class)
-====    841:842:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.Class)
-====    865:868:public java.lang.Object fromJson(com.google.gson.JsonElement,java.lang.reflect.Type)
 com.google.gson.Gson$1:
 ====    126:126:public java.lang.Object deserialize(com.google.gson.JsonElement,java.lang.reflect.Type)
 com.google.gson.Gson$2:
 ====    132:132:public com.google.gson.JsonElement serialize(java.lang.Object)
 ====    135:135:public com.google.gson.JsonElement serialize(java.lang.Object,java.lang.reflect.Type)
-com.google.gson.GsonBuilder
+com.google.gson.GsonBuilder:
+====    104:105:public com.google.gson.GsonBuilder setVersion(double)
+====    120:121:public varargs com.google.gson.GsonBuilder excludeFieldsWithModifiers(int[])
+====    134:135:public com.google.gson.GsonBuilder generateNonExecutableJson()
+====    145:146:public com.google.gson.GsonBuilder excludeFieldsWithoutExposeAnnotation()
+====    157:158:public com.google.gson.GsonBuilder serializeNulls()
+====    238:239:public com.google.gson.GsonBuilder enableComplexMapKeySerialization()
+====    249:250:public com.google.gson.GsonBuilder disableInnerClassSerialization()
+====    262:263:public com.google.gson.GsonBuilder setLongSerializationPolicy(com.google.gson.LongSerializationPolicy)
+====    275:276:public com.google.gson.GsonBuilder setFieldNamingPolicy(com.google.gson.FieldNamingPolicy)
+====    288:289:public com.google.gson.GsonBuilder setFieldNamingStrategy(com.google.gson.FieldNamingStrategy)
+====    303:306:public varargs com.google.gson.GsonBuilder setExclusionStrategies(com.google.gson.ExclusionStrategy[])
+====    322:323:public com.google.gson.GsonBuilder addSerializationExclusionStrategy(com.google.gson.ExclusionStrategy)
+====    339:340:public com.google.gson.GsonBuilder addDeserializationExclusionStrategy(com.google.gson.ExclusionStrategy)
+====    350:351:public com.google.gson.GsonBuilder setPrettyPrinting()
+====    362:363:public com.google.gson.GsonBuilder disableHtmlEscaping()
+====    384:385:public com.google.gson.GsonBuilder setDateFormat(java.lang.String)
+====    403:405:public com.google.gson.GsonBuilder setDateFormat(int)
+====    424:427:public com.google.gson.GsonBuilder setDateFormat(int,int)
+====    474:475:public com.google.gson.GsonBuilder registerTypeAdapterFactory(com.google.gson.TypeAdapterFactory)
+====    494:504:public com.google.gson.GsonBuilder registerTypeHierarchyAdapter(java.lang.Class,java.lang.Object)
+====    528:529:public com.google.gson.GsonBuilder serializeSpecialFloatingPointValues()
 com.google.gson.JsonArray:
 ====    45:49:com.google.gson.JsonArray deepCopy()
 ====    70:71:public void addAll(com.google.gson.JsonArray)
@@ -1729,7 +1838,6 @@ com.google.gson.JsonArray:
 ====    33:33:bridge synthetic com.google.gson.JsonElement deepCopy()
 com.google.gson.JsonDeserializationContext:
 ====    public abstract java.lang.Object deserialize(com.google.gson.JsonElement,java.lang.reflect.Type)
-com.google.gson.JsonDeserializer
 com.google.gson.JsonElement:
 ====    abstract com.google.gson.JsonElement deepCopy()
 ====    136:139:public com.google.gson.JsonNull getAsJsonNull()
@@ -1755,8 +1863,6 @@ com.google.gson.JsonObject:
 ====    122:122:private com.google.gson.JsonElement createJsonElement(java.lang.Object)
 ====    142:142:public boolean has(java.lang.String)
 ====    152:152:public com.google.gson.JsonElement get(java.lang.String)
-====    162:162:public com.google.gson.JsonPrimitive getAsJsonPrimitive(java.lang.String)
-====    172:172:public com.google.gson.JsonArray getAsJsonArray(java.lang.String)
 ====    182:182:public com.google.gson.JsonObject getAsJsonObject(java.lang.String)
 ====    32:32:bridge synthetic com.google.gson.JsonElement deepCopy()
 com.google.gson.JsonParseException:
@@ -1776,7 +1882,6 @@ com.google.gson.JsonPrimitive:
 com.google.gson.JsonSerializationContext:
 ====    public abstract com.google.gson.JsonElement serialize(java.lang.Object)
 ====    public abstract com.google.gson.JsonElement serialize(java.lang.Object,java.lang.reflect.Type)
-com.google.gson.JsonSerializer
 com.google.gson.JsonStreamParser
 com.google.gson.JsonSyntaxException:
     private static final long serialVersionUID
@@ -1786,9 +1891,8 @@ com.google.gson.LongSerializationPolicy$1:
 ====    36:36:public com.google.gson.JsonElement serialize(java.lang.Long)
 com.google.gson.LongSerializationPolicy$2:
 ====    47:47:public com.google.gson.JsonElement serialize(java.lang.Long)
-com.google.gson.TreeTypeAdapter
-com.google.gson.TreeTypeAdapter$1
-com.google.gson.TreeTypeAdapter$SingleTypeFactory
+com.google.gson.TreeTypeAdapter:
+====    105:105:public static com.google.gson.TypeAdapterFactory newTypeHierarchyFactory(java.lang.Class,java.lang.Object)
 com.google.gson.TypeAdapter:
 ====    141:143:public final void toJson(java.io.Writer,java.lang.Object)
 ====    186:186:public final com.google.gson.TypeAdapter nullSafe()
@@ -1824,14 +1928,10 @@ com.google.gson.internal.Primitives:
 ====    113:115:public static java.lang.Class unwrap(java.lang.Class)
 com.google.gson.internal.Streams:
 ====    35:79:public Streams()
-====    40:60:public static com.google.gson.JsonElement parse(com.google.gson.stream.JsonReader)
-com.google.gson.internal.bind.JsonTreeReader:
-====    50:55:public JsonTreeReader(com.google.gson.JsonElement)
 com.google.gson.internal.bind.JsonTreeWriter:
 ====    163:167:public com.google.gson.stream.JsonWriter value(double)
 com.google.gson.internal.bind.TypeAdapters:
 ====    58:58:private TypeAdapters()
-====    769:769:public static com.google.gson.TypeAdapterFactory newFactory(com.google.gson.reflect.TypeToken,com.google.gson.TypeAdapter)
 com.google.gson.internal.bind.TypeAdapters$23:
     private static final java.lang.String YEAR
     private static final java.lang.String MONTH
@@ -1839,7 +1939,6 @@ com.google.gson.internal.bind.TypeAdapters$23:
     private static final java.lang.String HOUR_OF_DAY
     private static final java.lang.String MINUTE
     private static final java.lang.String SECOND
-com.google.gson.internal.bind.TypeAdapters$27
 com.google.gson.reflect.TypeToken:
 ====    112:112:public boolean isAssignableFrom(java.lang.Class)
 ====    123:140:public boolean isAssignableFrom(java.lang.reflect.Type)
@@ -3655,7 +3754,6 @@ scala.Predef$:
 ====    232:233:public final void require(boolean,scala.Function0)
 ====    247:247:public java.lang.Object any2Ensuring(java.lang.Object)
 ====    252:252:public scala.runtime.Nothing$ $qmark$qmark$qmark()
-====    281:281:public java.lang.Object any2ArrowAssoc(java.lang.Object)
 ====    285:285:public void print(java.lang.Object)
 ====    286:286:public void println()
 ====    288:288:public void printf(java.lang.String,scala.collection.Seq)
@@ -3710,10 +3808,7 @@ scala.Predef$:
 ====    367:367:public java.lang.Byte byte2Byte(byte)
 ====    368:368:public java.lang.Short short2Short(short)
 ====    369:369:public java.lang.Character char2Character(char)
-====    370:370:public java.lang.Integer int2Integer(int)
-====    371:371:public java.lang.Long long2Long(long)
 ====    372:372:public java.lang.Float float2Float(float)
-====    373:373:public java.lang.Double double2Double(double)
 ====    374:374:public java.lang.Boolean boolean2Boolean(boolean)
 ====    380:380:public java.lang.Object byte2ByteConflict(byte)
 ====    381:381:public java.lang.Object short2ShortConflict(short)
@@ -3888,7 +3983,11 @@ scala.Predef$$less$colon$less:
 ====    433:433:public scala.Function1 andThen$mcJJ$sp(scala.Function1)
 ====    433:433:public scala.Function1 andThen$mcVJ$sp(scala.Function1)
 scala.Predef$ArrowAssoc
-scala.Predef$ArrowAssoc$
+scala.Predef$ArrowAssoc$:
+====    public final java.lang.Object x$extension(java.lang.Object)
+====    public final scala.Tuple2 $u2192$extension(java.lang.Object,java.lang.Object)
+====    268:268:public final int hashCode$extension(java.lang.Object)
+====    236:268:public final boolean equals$extension(java.lang.Object,java.lang.Object)
 scala.Predef$DummyImplicit
 scala.Predef$DummyImplicit$
 scala.Predef$Ensuring
@@ -8097,8 +8196,6 @@ scala.collection.mutable.AbstractBuffer:
 ====    48:48:public void remove(int,int)
 ====    48:48:public scala.collection.mutable.Buffer $minus$eq(java.lang.Object)
 ====    48:48:public scala.collection.mutable.Buffer $plus$plus$eq$colon(scala.collection.TraversableOnce)
-====    48:48:public void append(scala.collection.Seq)
-====    48:48:public void appendAll(scala.collection.TraversableOnce)
 ====    48:48:public void prepend(scala.collection.Seq)
 ====    48:48:public void prependAll(scala.collection.TraversableOnce)
 ====    48:48:public void insert(int,scala.collection.Seq)
@@ -8615,7 +8712,6 @@ scala.collection.mutable.BufferLike:
 ====    public abstract scala.collection.mutable.Buffer $minus$eq(java.lang.Object)
 ====    public abstract scala.collection.mutable.Buffer $plus$plus$eq$colon(scala.collection.TraversableOnce)
 ====    public abstract void append(scala.collection.Seq)
-====    public abstract void appendAll(scala.collection.TraversableOnce)
 ====    public abstract void prepend(scala.collection.Seq)
 ====    public abstract void prependAll(scala.collection.TraversableOnce)
 ====    public abstract void insert(int,scala.collection.Seq)
@@ -8635,8 +8731,6 @@ scala.collection.mutable.BufferLike$class:
 ====    116:116:public static void remove(scala.collection.mutable.Buffer,int,int)
 ====    126:128:public static scala.collection.mutable.Buffer $minus$eq(scala.collection.mutable.Buffer,java.lang.Object)
 ====    136:136:public static scala.collection.mutable.Buffer $plus$plus$eq$colon(scala.collection.mutable.Buffer,scala.collection.TraversableOnce)
-====    142:142:public static void append(scala.collection.mutable.Buffer,scala.collection.Seq)
-====    147:147:public static void appendAll(scala.collection.mutable.Buffer,scala.collection.TraversableOnce)
 ====    152:152:public static void prepend(scala.collection.mutable.Buffer,scala.collection.Seq)
 ====    157:157:public static void prependAll(scala.collection.mutable.Buffer,scala.collection.TraversableOnce)
 ====    166:166:public static void insert(scala.collection.mutable.Buffer,int,scala.collection.Seq)

@@ -5,21 +5,35 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.aerobal.data.dto.ExperimentDto;
 import com.aerobal.data.objects.Experiment;
+import com.aerobal.data.serializers.GlobalGson;
+import com.google.gson.Gson;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
-import icom5047.aerobal.controllers.UnitController;
+import icom5047.aerobal.controllers.UserController;
 import icom5047.aerobal.dialog.OpenDialog;
 import icom5047.aerobal.fragments.OpenLocalFragment;
 import icom5047.aerobal.fragments.OpenOnlineSessionsFragment;
+import icom5047.aerobal.http.HttpRequest;
+import icom5047.aerobal.http.Server;
 import icom5047.aerobal.resources.Keys;
 
 
@@ -27,7 +41,7 @@ public class OpenActivity extends Activity {
 
     private Stack<Fragment> fragmentStack;
     private String type;
-    private UnitController unitController;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +93,9 @@ public class OpenActivity extends Activity {
             fragmentManager.beginTransaction().replace(R.id.main_container, fragmentStack.peek()).commit();
         }
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getResources().getString(R.string.progress_load_experiment));
+
 
 
 
@@ -126,8 +143,58 @@ public class OpenActivity extends Activity {
         setResult(RESULT_OK, intent);
         finish();
     }
-    public void setActivityResultDTO(com.aerobal.data.dto.Experiment experiment){
+    public void setActivityResultDTO(com.aerobal.data.dto.ExperimentDto experiment){
 
+        progressDialog.show();
+        doHttpFullExperiment(experiment);
+
+
+    }
+
+    private void doHttpFullExperiment(final ExperimentDto experimentDto) {
+
+        //URL
+        Uri.Builder urlB = Uri.parse(Server.Experiments.GET_EXPERIMENT_COMPLETE).buildUpon();
+        urlB.appendQueryParameter(Server.Params.ID, experimentDto.id()+"");
+        Log.v("id",experimentDto.id()+"");
+
+        //Params
+        final Bundle params = new Bundle();
+        params.putString("method", "GET");
+        params.putString("url", urlB.toString().trim());
+
+        //Headers
+        Map<String, String> headers = new HashMap<String, String>();
+        UserController userController = new UserController(this);
+        headers.put(Server.Headers.TOKEN, userController.getToken());
+
+        HttpRequest request = new HttpRequest(params, headers, new HttpRequest.HttpCallback() {
+            @Override
+            public void onSucess(JSONObject json) {
+
+                progressDialog.dismiss();
+                SharedPreferences.Editor editor = getSharedPreferences(Keys.SharedPref.UserSharedPreferences, Context.MODE_PRIVATE).edit();
+                editor.putLong(Keys.SharedPref.ExperimentId, experimentDto.id());
+                editor.putLong(Keys.SharedPref.SessionId, experimentDto.sessionId());
+                editor.commit();
+                Gson gson = GlobalGson.gson();
+                Experiment experiment = gson.fromJson(json.toString(), Experiment.class);
+                setActivityResult(experiment);
+            }
+
+            @Override
+            public void onFailed(JSONObject jsonObject) {
+                Log.e("Error", jsonObject.toString());
+                Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+            @Override
+            public void onDone() {
+                progressDialog.dismiss();
+            }
+        });
+        request.execute();
     }
 
     public void loadFragmentIntoActivity(Fragment fragment){

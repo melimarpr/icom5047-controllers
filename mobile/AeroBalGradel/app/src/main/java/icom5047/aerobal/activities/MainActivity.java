@@ -23,24 +23,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aerobal.data.objects.Experiment;
-import com.aerobal.data.objects.Session;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import icom5047.aerobal.adapters.DrawerAdapter;
@@ -53,7 +47,6 @@ import icom5047.aerobal.dialog.OpenDialog;
 import icom5047.aerobal.fragments.EmptyFragment;
 import icom5047.aerobal.fragments.ExperimentFragment;
 import icom5047.aerobal.interfaces.AeroCallback;
-import icom5047.aerobal.mockers.Mocker;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
 
@@ -257,25 +250,29 @@ public class MainActivity extends FragmentActivity {
 
         switch (id) {
             case R.id.ab_btn_start_run:
-
                 experimentController.generateExperimentRun(btController, this);
-
-
                 break;
             case R.id.ab_btn_show_data:
                 //Start New Activity
                 Intent intent = new Intent(this, DataDetailActivity.class);
-
                 //Send Extra
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(Keys.BundleKeys.ExperimentController, experimentController);
                 bundle.putSerializable(Keys.BundleKeys.UnitController, unitController);
                 intent.putExtras(bundle);
                 this.startActivity(intent);
-
                 break;
             case R.id.ab_btn_save_online:
-                saveExperimentOnlineDialog();
+                if(userController.isUserLogIn()){
+                    Intent saveIntent = new Intent(this, SaveActivity.class);
+                    Bundle saveBnd = new Bundle();
+                    saveBnd.putSerializable(Keys.BundleKeys.ExperimentController, experimentController);
+                    saveIntent.putExtras(saveBnd);
+                    startActivity(saveIntent);
+                } else{
+                    Toast.makeText(this, R.string.toast_invalid_open_user_not_login, Toast.LENGTH_SHORT).show();
+                }
+
                 break;
 
             case R.id.ab_btn_export:
@@ -284,12 +281,12 @@ public class MainActivity extends FragmentActivity {
             case R.id.ab_btn_close:
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                // ft.remove(fm.findFragmentByTag(Keys.FragmentTag.ExperimentTag));
                 ft.replace(R.id.content_frame, new EmptyFragment(), Keys.FragmentTag.EmptyTag);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 setExperimentMenuVisibility(false);
                 invalidateOptionsMenu();
                 ft.commit();
+                experimentController.closeExperiment();
                 break;
         }
 
@@ -477,69 +474,8 @@ public class MainActivity extends FragmentActivity {
     }
 
 
-    private void saveExperimentOnlineDialog() {
-
-        //TODO: Get Session From Jesus
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.title_dialog_save_online);
-
-        View view = this.getLayoutInflater().inflate(R.layout.dialog_save_experiment, null);
 
 
-
-        builder.setView(view);
-
-        doHttpLoadSessions(view);
-
-
-        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //NoOp;
-            }
-        });
-
-        builder.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-
-        Dialog dialog = builder.create();
-
-
-        dialog.show();
-
-
-    }
-
-
-    private void doHttpLoadSessions(View view){
-
-        //Get Vars
-        TextView textView = (TextView) view.findViewById(R.id.dialogSaveExpOnlineNoSession);
-        ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.dialogSaveExpOnlineProgressBar);
-        Spinner spinner = (Spinner) view.findViewById(R.id.dialogSaveExpOnlineSpinner);
-
-        List<Session> sessions = Mocker.generateFakeSessions(10);
-
-        //TODO: Changed Mocker
-
-        progressBar.setVisibility(View.GONE);
-
-        if(sessions.size() == 0){
-            textView.setVisibility(View.VISIBLE);
-        }
-        else{
-            spinner.setAdapter(new ArrayAdapter<Session>(this, android.R.layout.simple_dropdown_item_1line, sessions));
-            spinner.setVisibility(View.VISIBLE);
-        }
-
-
-
-
-    }
 
     private void closeDrawer() {
         mDrawerLayout.closeDrawers();

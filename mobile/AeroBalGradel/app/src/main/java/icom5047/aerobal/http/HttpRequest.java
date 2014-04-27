@@ -43,6 +43,7 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
 
     public static final String CONTENT_TYPE_JSON = "application/json";
     public static final String CONTENT_TYPE_X_FORM_URL_ENCODED = "application/x-www-form-urlencoded";
+    public static final String CONTENT_TYPE_TEXT = "application/text";
     public static final String ERROR_RESPONSE = "response";
 	
 	private boolean success;
@@ -272,6 +273,11 @@ public class HttpRequest extends AsyncTask<Void, Void, JSONObject> {
                 String temp = (String) params;
                 return temp;
             }
+            else if(contentType.equals(CONTENT_TYPE_TEXT)){
+                String temp = (String) params;
+                return temp;
+            }
+
             return "";
         }
 

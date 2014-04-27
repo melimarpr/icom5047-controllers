@@ -7,6 +7,8 @@ public class Keys {
 
         public static String UserSharedPreferences = "userSharedPref";
         public static String LoginStatus = "loginStatus";
+        public static String SessionId = "sessionId";
+        public static String ExperimentId = "experimentId";
 
 
     }

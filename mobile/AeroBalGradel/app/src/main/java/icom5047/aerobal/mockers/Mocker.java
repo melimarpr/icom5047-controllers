@@ -29,7 +29,7 @@ public class Mocker {
 
         for(int i=0; i<n; i++){
 
-            ret.add(new Session(null, "Test"+i, "Description", true));
+            ret.add(new Session( "Test"+i, "Description", true));
 
 
         }

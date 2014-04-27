@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:inputType="text"
+        android:maxLines="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/dialog_new_session_title"
+        android:id="@+id/dialogNesSessionTitle"
+        android:layout_gravity="center_horizontal" />
+
+    <EditText
+        android:hint="@string/dialog_new_session_desc"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="14"
+        android:minLines="5"
+        android:id="@+id/dialogNewSessionDesc"
+        android:layout_gravity="center_horizontal" />
+
+    <RadioGroup
+        android:layout_marginTop="10dp"
+        android:id="@+id/dialogNewSessionRadioPublic"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:checkedButton="@+id/dialogNewSessionPublicOpt"
+        android:orientation="horizontal">
+        <RadioButton
+
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/public_str"
+            android:id="@+id/dialogNewSessionPublicOpt" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/private_str"
+            android:id="@+id/dialogNewSessionPrivateOpt" />
+    </RadioGroup>
+</LinearLayout><!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_new_session.xml -->

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="icom5047.aerobal.activities.SaveActivity" >
+    
+    <item android:id="@+id/ab_btn_new_session"
+        android:title="@string/ab_btn_new_session"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_new"
+        android:showAsAction="always|withText" />
+</menu>
+<!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/menu/save.xml -->

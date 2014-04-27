@@ -32,8 +32,6 @@ public class ExperimentController extends TimerTask implements Serializable, Aer
 
     private long dataSamplesCounter;
 
-
-
     private SpinnerContainer activeRun;
 
 
@@ -42,46 +40,22 @@ public class ExperimentController extends TimerTask implements Serializable, Aer
         this.activeRun = new SpinnerContainer(0, ALL_RUNS, ALL_RUNS_STRING);
     }
 
-
-
+    /*============= Setter, Getter, Haser ======*/
 
     public void setExperiment(Experiment experiment) {
         this.experiment = experiment;
+    }
+
+    public Experiment getExperiment() {
+        return experiment;
     }
 
     public boolean isExperimentSet() {
         return experiment != null;
     }
 
-
-    public Experiment getExperiment() {
-        return experiment;
-    }
-
-    public List<SpinnerContainer> getRunsListSpinner(){
-        LinkedList<SpinnerContainer> list = new LinkedList<SpinnerContainer>();
-
-        //Add All Value
-        list.add(0, new SpinnerContainer(0, ALL_RUNS, ALL_RUNS_STRING ));
-
-        //Add Other Values
-        for(int i=0; i< getExperiment().runs().size(); i++){
-
-            list.add(i+1, new SpinnerContainer(i+1, i, "Runs"+(i+1)));
-
-        }
-        return list;
-    }
-
-
-    //Getter & Setter for Active Values
-    public SpinnerContainer getActiveRun(){
-        return this.activeRun;
-    }
-
-
-    public void setActiveRun(SpinnerContainer activeRun) {
-        this.activeRun = activeRun;
+    public void closeExperiment(){
+        this.experiment = null;
     }
 
 
@@ -93,8 +67,12 @@ public class ExperimentController extends TimerTask implements Serializable, Aer
         if(ioBtManager == null){
             return;
         }
+        //Set Sample Counter
+        dataSamplesCounter = 0;
+
         //Set Callback When Data Received
         ioBtManager.setCallback(this);
+
         //Start Listening
         ioBtManager.execute();
 
@@ -111,12 +89,16 @@ public class ExperimentController extends TimerTask implements Serializable, Aer
         //Reset if Run Multiple Times
         if (dataSamplesCounter == experiment.amountOfValues()){
             timer.reset();
+            return;
         }
 
+        Log.v("Test", "Test");
         //Sent Data
         ioBtManager.send("bt:ack", true);
 
-        //Add to Counter
+
+
+        //Add Process Send Counter
         dataSamplesCounter++;
     }
 
@@ -125,8 +107,36 @@ public class ExperimentController extends TimerTask implements Serializable, Aer
     public void callback(Map<String, Object> objectMap) {
 
         Log.v("BTRun", "Called");
+
+
         //Status Check
 
+    }
 
+
+     /*Data Controller */
+
+    public List<SpinnerContainer> getRunsListSpinner(){
+        LinkedList<SpinnerContainer> list = new LinkedList<SpinnerContainer>();
+
+        //Add All Value
+        list.add(0, new SpinnerContainer(0, ALL_RUNS, ALL_RUNS_STRING ));
+
+        //Add Other Values
+        for(int i=0; i< getExperiment().runs().size(); i++){
+
+            list.add(i+1, new SpinnerContainer(i+1, i, "Runs"+(i+1)));
+
+        }
+        return list;
+    }
+
+    //Getter & Setter for Active Values
+    public SpinnerContainer getActiveRun(){
+        return this.activeRun;
+    }
+
+    public void setActiveRun(SpinnerContainer activeRun) {
+        this.activeRun = activeRun;
     }
 }

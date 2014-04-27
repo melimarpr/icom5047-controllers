@@ -27,6 +27,7 @@ import java.io.InputStream;
 import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.StreamCorruptedException;
+import java.util.Arrays;
 
 import icom5047.aerobal.activities.OpenActivity;
 import icom5047.aerobal.activities.R;
@@ -74,6 +75,7 @@ public class OpenLocalFragment extends Fragment implements AdapterView.OnItemCli
             }
         };
         File[] listFile = baseRoot.listFiles(aeroDirectoryFilter);
+        Arrays.sort(listFile);
         if(listFile.length != 0){
             //Filter .aero and folders
             listView.setAdapter(new ArrayAdapter<File>(this.getActivity(), android.R.layout.simple_list_item_1, listFile){

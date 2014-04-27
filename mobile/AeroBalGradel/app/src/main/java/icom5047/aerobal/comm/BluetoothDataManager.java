@@ -2,7 +2,6 @@ package icom5047.aerobal.comm;
 
 import android.bluetooth.BluetoothSocket;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -90,10 +89,8 @@ public class BluetoothDataManager extends AsyncTask<Void, String, String> {
 
         // Keep listening to the InputStream until an exception occurs
         while (true) {
-            Log.v("Loop", "looping");
             try {
                 String line = br.readLine();
-                Log.v("Line Loop", line);
                 publishProgress(line);
             } catch (IOException e) {
                 //If Error

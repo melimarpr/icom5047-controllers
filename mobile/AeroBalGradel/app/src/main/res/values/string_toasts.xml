@@ -33,6 +33,10 @@
     <string name="toast_error_json">Bad JSON Parsing</string>
     <string name="toast_error_bad_username">Invalid Email Address</string>
     <string name="toast_error_bad_password">Incorrect Password</string>
+    <string name="toast_error_new_session_params">Empty Parameters</string>
+    <string name="toast_success_new_session_create">New Session Created</string>
+    <string name="toast_success_save_experiment">Experiment Saved</string>
+    <string name="toast_error_unable_to_save">Unable to Save Experiment Online</string>
 
 
 
@@ -41,6 +45,8 @@
     <string name="progress_login">Login-In&#8230;</string>
     <string name="progress_running">Running Experiment&#8230;</string>
     <string name="progress_finish">Finishing&#8230;</string>
+    <string name="progress_load_experiment">Loading Experiment&#8230;</string>
+    <string name="progress_save_experiment">Saving Experiments&#8230;</string>
 
 
 

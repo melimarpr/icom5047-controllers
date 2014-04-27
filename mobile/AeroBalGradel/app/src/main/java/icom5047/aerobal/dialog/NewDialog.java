@@ -15,9 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aerobal.data.objects.Experiment;
-import com.aerobal.data.objects.OptionWrapper;
 
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -110,14 +108,12 @@ public class NewDialog extends DialogFragment {
                 if (validateName(etName) && validateWindSpeed(etSpeed) && validateTimeInterval(etInterval) && validateSample(etSample)) {
                     //Get Data send Info
 
-                    //TODO: Change to new Constructor
                     Experiment exp = new Experiment(
                             etName.getText().toString(),
                             //TODO: CHange to Default Unit
                             Integer.parseInt(etSample.getText().toString()),
                             Integer.parseInt(etInterval.getText().toString()),
-                            Double.parseDouble(etSpeed.getText().toString()),
-                            OptionWrapper.none(new Timestamp(0))
+                            Double.parseDouble(etSpeed.getText().toString())
                             );
                     Map<String, Object> map = new HashMap<String, Object>();
                     map.put(Keys.CallbackMap.NewExperimentDialog, nd);

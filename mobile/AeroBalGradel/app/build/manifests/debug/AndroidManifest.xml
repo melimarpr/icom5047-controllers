@@ -20,7 +20,9 @@
         </activity>
         <activity android:label="@string/title_activity_open" android:name="icom5047.aerobal.activities.OpenActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:label="@string/title_activity_graph" android:name="icom5047.aerobal.activities.GraphActivity">
+        <activity android:label="@string/title_activity_graph" android:name="icom5047.aerobal.activities.GraphActivity" android:screenOrientation="portrait">
+        </activity>
+        <activity android:label="@string/title_activity_save" android:name="icom5047.aerobal.activities.SaveActivity" android:screenOrientation="portrait">
         </activity>
     </application>
 

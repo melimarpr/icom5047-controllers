@@ -17,7 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aerobal.data.dto.Experiment;
+import com.aerobal.data.dto.ExperimentDto;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -105,10 +105,10 @@ public class OpenOnlineExperimentsFragment extends Fragment{
                 if(json.has("payload")) {
                     try {
                         JSONArray array = json.getJSONArray("payload");
-                        final Experiment[] experiments = new Experiment[array.length()];
+                        final ExperimentDto[] experiments = new ExperimentDto[array.length()];
                         for (int i = 0; i < array.length(); i++) {
                             Gson gson = new Gson();
-                            experiments[i] = gson.fromJson(array.getJSONObject(i).toString(), com.aerobal.data.dto.Experiment.class);
+                            experiments[i] = gson.fromJson(array.getJSONObject(i).toString(), ExperimentDto.class);
                         }
 
                         if (experiments.length == 0) {
@@ -116,10 +116,10 @@ public class OpenOnlineExperimentsFragment extends Fragment{
                             emptySession.setVisibility(View.VISIBLE);
                         } else {
                             progressBar.setVisibility(View.GONE);
-                            listView.setAdapter(new ArrayAdapter<Experiment>(getActivity(), android.R.layout.simple_list_item_1, experiments){
+                            listView.setAdapter(new ArrayAdapter<ExperimentDto>(getActivity(), android.R.layout.simple_list_item_1, experiments){
                                 @Override
                                 public View getView(int position, View convertView, ViewGroup parent) {
-                                    final Experiment experiment = this.getItem(position);
+                                    final ExperimentDto experiment = this.getItem(position);
                                     LayoutInflater inflater = ((Activity) this.getContext()).getLayoutInflater();
                                     View rowLayout = inflater.inflate(R.layout.row_open_experiment, parent, false);
 
@@ -142,7 +142,7 @@ public class OpenOnlineExperimentsFragment extends Fragment{
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                    Experiment experiment = (Experiment) parent.getItemAtPosition(position);
+                                    ExperimentDto experiment = (ExperimentDto) parent.getItemAtPosition(position);
                                     openActivity.setActivityResultDTO(experiment);
 
                                 }
@@ -166,7 +166,7 @@ public class OpenOnlineExperimentsFragment extends Fragment{
         request.execute();
     }
 
-    public void createInfoDialog(Experiment experiment){
+    public void createInfoDialog(ExperimentDto experiment){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -190,7 +190,7 @@ public class OpenOnlineExperimentsFragment extends Fragment{
         nf.setMinimumFractionDigits(GlobalConstants.DecimalPrecision);
 
         samples.setText(""+experiment.amountOfValues());
-        timeInterval.setText(""+experiment.frquency());
+        timeInterval.setText(""+experiment.frequency());
         //TODO: Format when value set
         windSpeed.setText(""+nf.format(experiment.windSpeed()));
         windSpeedUnit.setText(unitController.getCurrentSpeedUnit());

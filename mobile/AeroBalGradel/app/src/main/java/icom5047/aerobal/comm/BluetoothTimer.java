@@ -10,18 +10,18 @@ public class BluetoothTimer {
 
 
     private Timer timer;
-    private static final String TIMER_NAME = "btTimer";
     private static final long START_DELAY = 2000;
+
     public BluetoothTimer() {
         //Create Timer with Daemon
-        timer = new Timer(TIMER_NAME, true);
+        timer = new Timer(true);
     }
 
     public void reset(){
         //Cancel Old
         timer.cancel();
         //Create new
-        timer = new Timer(TIMER_NAME, true);
+        timer = new Timer(true);
     }
 
     public void runTask(TimerTask task, long period){

@@ -354,6 +354,8 @@
                 </string>
                 <string name="placeholder_title" >Lorem Ipsum
                 </string>
+                <string name="placeholder_empty_desc" >Image
+                </string>
                 <string name="placeholder_mac" >01:23:45:67:89:ab
                 </string>
             </file>
@@ -385,6 +387,8 @@
                 <string name="title_fragment_data_graph" >Graph
                 </string>
                 <string name="title_dialog_forgot_password" >Forgot Password?
+                </string>
+                <string name="title_dialog_new_session" >New Session?
                 </string>
                 <string name="title_dialog_confirm_run" >Object Added?
                 </string>
@@ -436,6 +440,12 @@
                 </string>
                 <string name="toast_error_bad_password" >Incorrect Password
                 </string>
+                <string name="progress_save_experiment" >Saving Experiments…
+                </string>
+                <string name="progress_load_experiment" >Loading Experiment…
+                </string>
+                <string name="toast_success_new_session_create" >New Session Created
+                </string>
                 <string name="toast_error_json" >Bad JSON Parsing
                 </string>
                 <string name="toast_invalid_exp_wind_speed_max" >Wind Speed Value Above Maximum of:
@@ -456,6 +466,10 @@
                 </string>
                 <string name="toast_invalid_open_user_not_login" >User Not Log-In
                 </string>
+                <string name="toast_error_new_session_params" >Empty Parameters
+                </string>
+                <string name="toast_error_unable_to_save" >Unable to Save Experiment Online
+                </string>
                 <string name="toast_no_bt_found" >No Bluetooth Module found in Device.
                 </string>
                 <string name="progress_running" >Running Experiment…
@@ -465,6 +479,8 @@
                 <string name="toast_file_not_create" >File Not Successfully Created
                 </string>
                 <string name="toast_invalid_exp_samples_empty" >Samples Value Missing
+                </string>
+                <string name="toast_success_save_experiment" >Experiment Saved
                 </string>
                 <string name="progress_login" >Login-In…
                 </string>
@@ -490,8 +506,6 @@
                 </string>
                 <string name="ab_btn_bluetooth" >Bluetooth
                 </string>
-                <string name="units_seconds" >sec
-                </string>
                 <string name="dialog_new_exp_wind_speeds" >Wind Speed:
                 </string>
                 <string name="dialog_export_radio_aerobal" >AeroBal
@@ -499,6 +513,8 @@
                 <string name="dialog_new_exp_samples_hint" >0
                 </string>
                 <string name="activity_error_no_session_found" >No Sessions Found
+                </string>
+                <string name="private_str" >Private 
                 </string>
                 <string name="ab_btn_export" >Export
                 </string>
@@ -509,6 +525,8 @@
                 <string name="title_activity_graph" >GraphActivity
                 </string>
                 <string name="local" >Local
+                </string>
+                <string name="ab_btn_new_session" >New Session
                 </string>
                 <string name="ab_btn_show_data" >Show Data
                 </string>
@@ -526,11 +544,11 @@
                 </string>
                 <string name="save" >Save
                 </string>
-                <string name="dialog_export_et_hint" >File Name
-                </string>
                 <string name="title_activity_data_detail" >DataDetailActivity
                 </string>
                 <string name="ab_btn_close" >Close
+                </string>
+                <string name="dialog_export_et_hint" >File Name
                 </string>
                 <string name="ab_btn_units" >Units
                 </string>
@@ -540,11 +558,17 @@
                 </string>
                 <string name="send" >Send
                 </string>
+                <string name="public_str" >Public 
+                </string>
                 <string name="action_settings" >Settings
+                </string>
+                <string name="hello_blank_fragment" >Hello blank fragment
                 </string>
                 <string name="dialog_units_directions" >Direction:
                 </string>
                 <string name="dialog_new_exp_interval_hint" >0
+                </string>
+                <string name="fragment_loading" >Loading…
                 </string>
                 <string name="website_register" >http://www.google.com
                 </string>
@@ -578,17 +602,23 @@
                 </string>
                 <string name="ab_btn_stop" >Stop
                 </string>
+                <string name="units_mili_seconds" >msec
+                </string>
                 <string name="dialog_units_temperature" >Temperature:
                 </string>
                 <string name="frag_exp_sum_summary" >Summary:
                 </string>
                 <string name="activity_error_no_file_folder_found" >No File or Folder Found
                 </string>
+                <string name="title_activity_save" >Save Expereriment
+                </string>
                 <string name="dialog_graph_yaxis" >Y Axis:
                 </string>
                 <string name="create" >Create
                 </string>
                 <string name="email" >Email
+                </string>
+                <string name="dialog_new_session_title" >Title
                 </string>
                 <string name="back" >Back
                 </string>
@@ -603,6 +633,8 @@
                 <string name="ab_btn_start_run" >Start Run
                 </string>
                 <string name="frag_exp_sum_parameters" >Parameters:
+                </string>
+                <string name="dialog_new_session_desc" >Description
                 </string>
                 <string name="app_name" >AeroBal
                 </string>
@@ -861,6 +893,46 @@
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_info.png"
                 qualifiers="xhdpi"
                 type="drawable" />
+            <file
+                name="save"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/menu/save.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="activity_save"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/activity_save.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="ic_new"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_new.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_new"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_new.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_new"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_new.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_new"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_new.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="dialog_new_session"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_new_session.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="fragment_loading"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/fragment_loading.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/rs/debug" />
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/generated/debug" />

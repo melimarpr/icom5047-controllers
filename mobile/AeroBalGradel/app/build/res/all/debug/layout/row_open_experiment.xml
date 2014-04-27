@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
+        android:contentDescription="@string/placeholder_empty_desc"
         android:src="@drawable/ic_file"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -25,6 +26,7 @@
         android:gravity="left|center_vertical"
         android:id="@+id/rowOpenExperimentTitle" />
     <ImageView
+        android:contentDescription="@string/placeholder_empty_desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"

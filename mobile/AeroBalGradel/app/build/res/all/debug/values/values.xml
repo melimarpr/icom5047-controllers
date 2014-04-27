@@ -19,6 +19,7 @@
     <string name="ab_btn_bluetooth">Bluetooth</string>
     <string name="ab_btn_close">Close</string>
     <string name="ab_btn_export">Export</string>
+    <string name="ab_btn_new_session">New Session</string>
     <string name="ab_btn_save_online">Save Online</string>
     <string name="ab_btn_show_data">Show Data</string>
     <string name="ab_btn_start_run">Start Run</string>
@@ -54,6 +55,8 @@
     <string name="dialog_new_exp_samples_hint">0</string>
     <string name="dialog_new_exp_wind_speeds">Wind Speed:</string>
     <string name="dialog_new_exp_wind_speeds_hint">0.00</string>
+    <string name="dialog_new_session_desc">Description</string>
+    <string name="dialog_new_session_title">Title</string>
     <string name="dialog_no_session">No Session Found</string>
     <string name="dialog_units_default">Default</string>
     <string name="dialog_units_directions">Direction:</string>
@@ -84,8 +87,10 @@
     <eat-comment />
 
     <string name="fragment_folder_no_found">Folder is Empty</string>
+    <string name="fragment_loading">Loading…</string>
     <string name="fragment_open_online_no_exp_in_session">No Experiment in Session</string>
     <string name="fragment_open_online_no_session">No Session Found</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
     <string name="local">Local</string>
     <string name="login">Log-In</string>
@@ -95,22 +100,30 @@
     <eat-comment />
 
     <string name="placeholder_double_value">0.000</string>
+    <string name="placeholder_empty_desc">Image</string>
     <string name="placeholder_integer_value">000</string>
     <string name="placeholder_mac">01:23:45:67:89:ab</string>
     <string name="placeholder_menu_option">Lorem</string>
     <string name="placeholder_paragraph">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.</string>
     <string name="placeholder_title">Lorem Ipsum</string>
     <string name="placeholder_units">***</string>
+    <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="private_str">Private </string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml -->
     <eat-comment />
 
     <string name="progress_finish">Finishing…</string>
+    <string name="progress_load_experiment">Loading Experiment…</string>
     <string name="progress_login">Login-In…</string>
     <string name="progress_running">Running Experiment…</string>
+    <string name="progress_save_experiment">Saving Experiments…</string>
     <string name="progress_token_verification">Verifying User…</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="public_str">Public </string>
     <string name="save">Save</string>
     <string name="send">Send</string>
     <string name="title_activity_data_detail">DataDetailActivity</string>
@@ -122,6 +135,13 @@
 
     <string name="title_activity_open_local">Local</string>
     <string name="title_activity_open_online">Online</string>
+    <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="title_activity_save">Save Expereriment</string>
+    <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_titles.xml -->
+    <eat-comment />
+
     <string name="title_actvity_main_menu">Main Menu</string>
     <string name="title_dialog_bt_disconenct">Disconnect?</string>
     <string name="title_dialog_bt_selector">Select AeroBal Controller</string>
@@ -131,6 +151,7 @@
     <string name="title_dialog_forgot_password">Forgot Password?</string>
     <string name="title_dialog_gen_graph">Generate Graph?</string>
     <string name="title_dialog_new_experiment">New Experiment</string>
+    <string name="title_dialog_new_session">New Session?</string>
     <string name="title_dialog_open_experiment">Open Experiment?</string>
     <string name="title_dialog_override">Replace Current Experiment?</string>
     <string name="title_dialog_save_exp_name">Experiment Name?</string>
@@ -150,6 +171,8 @@
     <string name="toast_error_bad_password">Incorrect Password</string>
     <string name="toast_error_bad_username">Invalid Email Address</string>
     <string name="toast_error_json">Bad JSON Parsing</string>
+    <string name="toast_error_new_session_params">Empty Parameters</string>
+    <string name="toast_error_unable_to_save">Unable to Save Experiment Online</string>
     <string name="toast_file_create">File Successfully Created</string>
     <string name="toast_file_mount_error">Unable to Access External Storage</string>
     <string name="toast_file_not_create">File Not Successfully Created</string>
@@ -175,11 +198,13 @@
     <string name="toast_net_forgot_success">Email Sent</string>
     <string name="toast_net_login_fail">Unable to Log In</string>
     <string name="toast_no_bt_found">No Bluetooth Module found in Device.</string>
+    <string name="toast_success_new_session_create">New Session Created</string>
+    <string name="toast_success_save_experiment">Experiment Saved</string>
     <string name="toast_user_logout">Log Out Successful</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
-    <string name="units_seconds">sec</string>
+    <string name="units_mili_seconds">msec</string>
     <string name="website_register">http://www.google.com</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/styles.xml -->
     <eat-comment />

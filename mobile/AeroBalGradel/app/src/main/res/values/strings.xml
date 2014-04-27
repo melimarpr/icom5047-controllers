@@ -18,9 +18,11 @@
     <string name="send">Send</string>
     <string name="email">Email</string>
     <string name="back">Back</string>
+    <string name="public_str">Public </string>
+    <string name="private_str">Private </string>
 
     <!-- Units -->
-    <string name="units_seconds">sec</string>
+    <string name="units_mili_seconds">msec</string>
 
     <!-- Action Button -->
     <string name="ab_btn_stop">Stop</string>
@@ -31,6 +33,7 @@
     <string name="ab_btn_save_online">Save Online</string>
     <string name="ab_btn_export">Export</string>
     <string name="ab_btn_close">Close</string>
+    <string name="ab_btn_new_session">New Session</string>
     <string name="title_activity_login">LoginActivity</string>
 
     <!-- BT Dialog -->
@@ -68,7 +71,6 @@
     <string name="fragment_open_online_no_session">No Session Found</string>
     <string name="fragment_open_online_no_exp_in_session">No Experiment in Session</string>
 
-
     <!-- Experiment Fragment -->
     <string name="frag_exp_sum_parameters">Parameters:</string>
     <string name="frag_exp_sum_summary">Summary:</string>
@@ -91,16 +93,20 @@
 
     <!-- Save Online Dialog -->
     <string name="dialog_no_session">No Session Found</string>
+    <string name="fragment_loading">Loading&#8230;</string>
     <string name="title_activity_graph">GraphActivity</string>
+    <string name="dialog_new_session_title">Title</string>
+    <string name="dialog_new_session_desc">Description</string>
 
     <!-- Graph Dialog -->
     <string name="dialog_graph_xaxis">X Axis:</string>
     <string name="dialog_graph_yaxis">Y Axis:</string>
 
-    <!--Export Dialog-->
+    <!-- Export Dialog -->
     <string name="dialog_export_et_hint">File Name</string>
     <string name="dialog_export_radio_csv">CSV</string>
     <string name="dialog_export_radio_aerobal">AeroBal</string>
-
+    <string name="title_activity_save">Save Expereriment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

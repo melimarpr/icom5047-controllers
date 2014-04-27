@@ -19,3 +19,6 @@
 # view AndroidManifest.xml #generated:21
 -keep class icom5047.aerobal.activities.OpenActivity { <init>(...); }
 
+# view AndroidManifest.xml #generated:25
+-keep class icom5047.aerobal.activities.SaveActivity { <init>(...); }
+

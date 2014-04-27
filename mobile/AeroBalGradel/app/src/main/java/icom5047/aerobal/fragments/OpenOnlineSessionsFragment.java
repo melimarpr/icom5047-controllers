@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aerobal.data.dto.Session;
+import com.aerobal.data.dto.SessionDto;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -98,10 +98,10 @@ public class OpenOnlineSessionsFragment extends Fragment  {
                 if(json.has("payload")) {
                     try {
                         JSONArray array = json.getJSONArray("payload");
-                        Session[] sessions = new Session[array.length()];
+                        SessionDto[] sessions = new SessionDto[array.length()];
                         for (int i = 0; i < array.length(); i++) {
                             Gson gson = new Gson();
-                            sessions[i] = gson.fromJson(array.getJSONObject(i).toString(), Session.class);
+                            sessions[i] = gson.fromJson(array.getJSONObject(i).toString(), SessionDto.class);
                         }
 
                         if (sessions.length == 0) {
@@ -109,10 +109,10 @@ public class OpenOnlineSessionsFragment extends Fragment  {
                             emptySession.setVisibility(View.VISIBLE);
                         } else {
                             progressBar.setVisibility(View.GONE);
-                            listView.setAdapter(new ArrayAdapter<Session>(getActivity(), android.R.layout.simple_list_item_1, sessions){
+                            listView.setAdapter(new ArrayAdapter<SessionDto>(getActivity(), android.R.layout.simple_list_item_1, sessions){
                                 @Override
                                 public View getView(int position, View convertView, ViewGroup parent) {
-                                    Session session = this.getItem(position);
+                                    SessionDto session = this.getItem(position);
                                     LayoutInflater inflater = ((Activity) this.getContext()).getLayoutInflater();
                                     View rowLayout = inflater.inflate(R.layout.row_open_session, parent, false);
 
@@ -128,7 +128,7 @@ public class OpenOnlineSessionsFragment extends Fragment  {
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                    Session session = (Session) parent.getItemAtPosition(position);
+                                    SessionDto session = (SessionDto) parent.getItemAtPosition(position);
 
                                     OpenOnlineExperimentsFragment openOnlineExperimentsFragment = new OpenOnlineExperimentsFragment();
                                     Bundle bundle = new Bundle();

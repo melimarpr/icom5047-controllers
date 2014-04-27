@@ -31,6 +31,7 @@ public class BluetoothController {
     private BluetoothAdapter mBluetoothAdapter;
     private volatile BluetoothSocket mBtSocket;
 
+
     public BluetoothController(Context context) {
         //Set Context
         this.context = context;
@@ -102,6 +103,7 @@ public class BluetoothController {
 
                 }
                 changeMenuIcon(item, isAerobalConnected);
+                ((Activity) context).invalidateOptionsMenu();
                 ((BluetoothDialog) payload.get(Keys.CallbackMap.BluetoothDialog)).dismiss();
 
             }

@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="icom5047.aerobal.activities.SaveActivity" >
+    
+    <item android:id="@+id/ab_btn_new_session"
+        android:title="@string/ab_btn_new_session"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_new"
+        android:showAsAction="always|withText" />
+</menu>

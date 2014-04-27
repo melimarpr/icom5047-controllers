@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/units_seconds"
+        android:text="@string/units_mili_seconds"
         android:id="@+id/rowRawDataTimeUnit" />
     <View
         android:layout_width="2dp"
