@@ -7,6 +7,7 @@ import java.util.Map;
 import icom5047.aerobal.dialog.UnitsDialog;
 import icom5047.aerobal.exceptions.InvalidUnitException;
 import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
 
@@ -138,6 +139,35 @@ public class UnitController implements Serializable{
                 refreshCallback.callback(null);
             }
         });
+    }
+
+
+    public double convertFromDefaultToCurrent( int type ,double value){
+
+        switch (type){
+            case GlobalConstants.Measurements.PressureKey:
+                return UnitFactory.Pressure.convert(value, UnitFactory.Pressure.DEFAULT, getCurrentType(UnitFactory.Type.PRESSURE));
+            case GlobalConstants.Measurements.WindSpeedKey:
+                return UnitFactory.Speed.convert(value, UnitFactory.Speed.DEFAULT, getCurrentType(UnitFactory.Type.SPEED));
+            case GlobalConstants.Measurements.WindDirectionKey:
+                return value;
+            case GlobalConstants.Measurements.HumidityKey:
+                return value;
+            case GlobalConstants.Measurements.TemperatureKey:
+                return  UnitFactory.Temperature.convert(value, UnitFactory.Temperature.DEFAULT, getCurrentType(UnitFactory.Type.TEMPERATURE));
+            case GlobalConstants.Measurements.TiltKey:
+                return UnitFactory.Force.convert(value, UnitFactory.Force.DEFAULT, getCurrentType(UnitFactory.Type.FORCE));
+            case GlobalConstants.Measurements.DragKey:
+                return UnitFactory.Force.convert(value, UnitFactory.Force.DEFAULT, getCurrentType(UnitFactory.Type.FORCE));
+            case GlobalConstants.Measurements.LiftKey:
+                return UnitFactory.Force.convert(value, UnitFactory.Force.DEFAULT, getCurrentType(UnitFactory.Type.FORCE));
+
+        }
+
+
+
+        return value;
+
     }
 
 

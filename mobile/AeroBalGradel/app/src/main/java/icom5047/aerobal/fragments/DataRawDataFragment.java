@@ -3,6 +3,7 @@ package icom5047.aerobal.fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -15,14 +16,21 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.aerobal.data.objects.Measurement;
+import com.aerobal.data.objects.Run;
+import com.aerobal.data.objects.Stats;
+
+import java.util.LinkedList;
+import java.util.List;
+
 import icom5047.aerobal.activities.R;
 import icom5047.aerobal.containers.RawContainer;
 import icom5047.aerobal.containers.SpinnerContainer;
-import icom5047.aerobal.containers.SummaryContainer;
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.controllers.UnitController;
-import icom5047.aerobal.mockers.Mocker;
 import icom5047.aerobal.resources.GlobalConstants;
+import icom5047.aerobal.resources.TimeUtils;
+import scala.collection.JavaConversions;
 
 /**
  * Created by enrique on 3/26/14.
@@ -32,6 +40,7 @@ public class DataRawDataFragment extends Fragment {
     private volatile ExperimentController experimentController;
     private volatile UnitController unitController;
     private SpinnerContainer currContainer;
+    private TextView noDataText;
 
     private ListView listView;
 
@@ -55,12 +64,12 @@ public class DataRawDataFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_data_summary, container, false);
+        View view = inflater.inflate(R.layout.fragment_data_raw, container, false);
 
         currContainer = new SpinnerContainer(0, GlobalConstants.Measurements.PressureKey, GlobalConstants.Measurements.PressureString);
 
         //Measurement Spinner
-        Spinner typeSpinner = (Spinner) view.findViewById(R.id.fragDataSumSpinner);
+        Spinner typeSpinner = (Spinner) view.findViewById(R.id.fragDataRawSpinner);
         typeSpinner.setAdapter(new ArrayAdapter<SpinnerContainer>(this.getActivity(), android.R.layout.simple_dropdown_item_1line, GlobalConstants.Measurements.getMeasurementListSpinner()));
         typeSpinner.setSelection(currContainer.spinnerIndex);
 
@@ -68,9 +77,8 @@ public class DataRawDataFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 SpinnerContainer container = (SpinnerContainer) adapterView.getItemAtPosition(i);
-
-                refresh(container);
-
+                currContainer = container;
+                refresh();
             }
 
             @Override
@@ -79,35 +87,57 @@ public class DataRawDataFragment extends Fragment {
             }
         });
 
-
-         listView = (ListView) view.findViewById(R.id.fragDataSumList);
-
-        listView.setAdapter(new RawDataAdapter(this.getActivity(), Mocker.generateRawContainer(10)));
-
-
-
-
-
-
-
-
-
+        listView = (ListView) view.findViewById(R.id.fragDataRawList);
+        noDataText = (TextView) view.findViewById(R.id.fragDataRawNoData);
+        //Change Typeface
+        Typeface face = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Thin.ttf");
+        noDataText.setTypeface(face);
 
         return view;
     }
 
-    public void refresh(SpinnerContainer container){
+    @Override
+    public void onResume() {
+        super.onResume();
+        //Set List On Resume
 
-        Log.v("Refresh", "Refresh");
-        currContainer = container;
-        listView.invalidateViews();
+        //Error Message for Experiment
+        if (experimentController.getActiveRun().index == ExperimentController.ALL_RUNS ){
+            listView.setVisibility(View.GONE);
+            noDataText.setText(R.string.frag_data_raw_full_exp_no_display);
+            noDataText.setVisibility(View.VISIBLE);
+            return;
+        }
 
+        //Set For Run
+        List<RawContainer> data = getRawData();
+        if(data.size() == 0){
+            listView.setVisibility(View.GONE);
+            noDataText.setVisibility(View.VISIBLE);
+        }
+        else{
+            listView.setAdapter(new RawDataAdapter(this.getActivity(), getRawData()));
+        }
     }
+
+    public void fullRefresh(SpinnerContainer run){
+        Log.v("Refresh", "Changes Run");
+        experimentController.setActiveRun(run);
+        onResume();
+        refresh();
+    }
+
+    public void refresh(){
+        Log.v("Refresh", "Change Var");
+
+        listView.invalidateViews();
+    }
+
 
     public class RawDataAdapter extends ArrayAdapter<RawContainer>{
 
 
-        public RawDataAdapter(Context context, RawContainer[] e){
+        public RawDataAdapter(Context context, List<RawContainer> e){
             super(context, android.R.layout.simple_list_item_1, e);
         }
 
@@ -125,18 +155,13 @@ public class DataRawDataFragment extends Fragment {
             TextView messValue = (TextView) view.findViewById(R.id.rowRawDataMessValue);
             TextView messUnit = (TextView) view.findViewById(R.id.rowRawDataMessUnit);
 
-
             int unit_type = GlobalConstants.Measurements.measurementToUnitMapping().get(currContainer.index);
 
             messUnit.setText(unitController.getCurrentUnitForType(unit_type));
 
             //Values
-            timeValue.setText(pair.seconds+"");
-            messValue.setText(pair.value+"");
-
-
-
-
+            timeValue.setText(TimeUtils.fromNanoToMilis(pair.nanoseconds) +"");
+            messValue.setText(unitController.convertFromDefaultToCurrent( currContainer.index ,pair.value)+"");
 
 
             return view;
@@ -148,6 +173,42 @@ public class DataRawDataFragment extends Fragment {
 
         }
 
+    }
+
+    private List<RawContainer> getRawData(){
+
+        //Object Stats Contain Values Need
+        Stats stats;
+        List<Run> runsList = JavaConversions.asJavaList(experimentController.getExperiment().runs());
+        if(experimentController.getActiveRun().index == ExperimentController.ALL_RUNS){
+            stats = new Stats(GlobalConstants.Measurements.getMessurmentTypeForSpinner(currContainer), experimentController.getExperiment());
+        }else{
+            stats = new Stats(GlobalConstants.Measurements.getMessurmentTypeForSpinner(currContainer), runsList.get(experimentController.getActiveRun().index));
+        }
+
+        List<Object> values = JavaConversions.asJavaList(stats.values());
+
+        List<RawContainer> ret = new LinkedList<RawContainer>();
+
+        //Return Empty
+        if(values.size() == 0){
+            return ret;
+        }
+
+        //Run Case Case
+        Measurement firstMeasure = (Measurement) values.get(0);
+        long zero = firstMeasure.getTimestamp().getNanos();
+
+        //Add To
+        ret.add(new RawContainer(0, firstMeasure.value()));
+
+        for(int i=1; i<values.size(); i++){
+            Measurement tmpMeasure = (Measurement)values.get(i);
+            long relativeTime = tmpMeasure.getTimestamp().getNanos() - zero;
+            ret.add(new RawContainer( relativeTime ,tmpMeasure.getValue()));
+        }
+
+        return ret;
     }
 
 

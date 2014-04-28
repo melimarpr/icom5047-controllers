@@ -28,8 +28,10 @@ public class UnitFactory {
     }
 
     public static class Pressure {
+
         public static final int UNIT_PASCAL = 6;
         public static final int UNIT_PSI = 7;
+        public static final int DEFAULT = UNIT_PASCAL;
 
         public static String getUnitString(int unit) throws InvalidUnitException {
             switch (unit) {
@@ -64,6 +66,7 @@ public class UnitFactory {
 
     public static class Humidity {
         public static final int UNIT_PERCENTAGE = 8;
+        public static final int DEFAULT = UNIT_PERCENTAGE;
 
         public static String getUnitString(int unit) throws InvalidUnitException {
             switch (unit) {
@@ -92,6 +95,8 @@ public class UnitFactory {
         public static final int UNIT_CELSIUS = 9;
         public static final int UNIT_KELVIN = 10;
         public static final int UNIT_FAHRENHEIT = 11;
+
+        public static final int DEFAULT = UNIT_CELSIUS;
 
         public static String getUnitString(int unit) throws InvalidUnitException {
             switch (unit) {
@@ -162,6 +167,8 @@ public class UnitFactory {
         public static final int UNIT_MPH = 13;
         public static final int UNIT_MS = 14;
 
+        public static final int DEFAULT = UNIT_KMPH;
+
         public static String getUnitString(int unit) throws InvalidUnitException {
             switch (unit) {
                 case UNIT_KMPH:
@@ -197,6 +204,7 @@ public class UnitFactory {
 
     public static class Direction {
         public static final int UNIT_DEGREES = 15;
+        public static final int DEFAULT = UNIT_DEGREES;
 
         public static String getUnitString(int unit) throws InvalidUnitException {
             switch (unit) {
@@ -224,6 +232,8 @@ public class UnitFactory {
     public static class Force {
         public static final int UNIT_POUNDS = 16;
         public static final int UNIT_NEWTON = 17;
+
+        public static final int DEFAULT = UNIT_POUNDS;
 
         public static String getUnitString(int unit) throws InvalidUnitException {
             switch (unit) {

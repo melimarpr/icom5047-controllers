@@ -83,6 +83,10 @@
     <string name="title_activity_data_detail">DataDetailActivity</string>
     <string name="title_activity_open">OpenActivity</string>
 
+    <!-- Data Raw Fragment -->
+    <string name="frag_data_raw_no_data">No Data Recollected</string>
+    <string name="frag_data_raw_full_exp_no_display">Data Showed Only By Runs</string>
+
     <!-- LogIn Screen -->
     <string name="logo_img_desc">Logo</string>
     <string name="activity_login_hint_username">Email</string>

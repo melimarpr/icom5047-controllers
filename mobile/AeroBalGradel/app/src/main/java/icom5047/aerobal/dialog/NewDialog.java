@@ -110,10 +110,11 @@ public class NewDialog extends DialogFragment {
 
                     Experiment exp = new Experiment(
                             etName.getText().toString(),
-                            //TODO: CHange to Default Unit
                             Integer.parseInt(etSample.getText().toString()),
                             Integer.parseInt(etInterval.getText().toString()),
-                            Double.parseDouble(etSpeed.getText().toString())
+                            UnitFactory.Speed.convert(Double.parseDouble(etSpeed.getText().toString()),
+                                    unitController.getCurrentType(UnitFactory.Type.SPEED),
+                                    UnitFactory.Speed.DEFAULT)
                             );
                     Map<String, Object> map = new HashMap<String, Object>();
                     map.put(Keys.CallbackMap.NewExperimentDialog, nd);

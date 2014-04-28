@@ -16,13 +16,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aerobal.data.objects.Stats;
+
 import java.text.NumberFormat;
+import java.util.Map;
 
 import icom5047.aerobal.activities.MainActivity;
 import icom5047.aerobal.activities.R;
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.controllers.UnitController;
 import icom5047.aerobal.resources.GlobalConstants;
+import icom5047.aerobal.resources.UnitFactory;
 
 /**
  * Created by enrique on 3/24/14.
@@ -82,7 +86,6 @@ public class ExperimentFragment extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         if(validateName(et)){
-                            //TODO: Change to Setter
                             String newName = et.getText().toString();
                             experimentController.getExperiment().setName(newName);
                             tvTitle.invalidate();
@@ -107,7 +110,6 @@ public class ExperimentFragment extends Fragment {
         tvSummary.setTypeface(tf);
 
         //Set Units
-        //TODO Fix when default unit specified
         TextView tvWindSpeedUnits = (TextView) view.findViewById(R.id.fragExpSumWindSpeedUnits);
         tvWindSpeedUnits.setText(unitController.getCurrentSpeedUnit());
 
@@ -118,25 +120,50 @@ public class ExperimentFragment extends Fragment {
        TextView tvSampleValue = (TextView) view.findViewById(R.id.fragExpSumSampleValue);
        tvSampleValue.setText(""+experimentController.getExperiment().amountOfValues());
        TextView tvWindSpeedValue = (TextView) view.findViewById(R.id.fragExpSumWindSpeedValue);
-       tvWindSpeedValue.setText(""+nf.format(experimentController.getExperiment().windSpeed()));
+        double newVal = UnitFactory.Speed.convert(experimentController.getExperiment().windSpeed(), UnitFactory.Speed.DEFAULT, unitController.getCurrentType(UnitFactory.Type.SPEED));
+       tvWindSpeedValue.setText(""+nf.format(newVal));
        TextView tvTimeIntervalValue = (TextView) view.findViewById(R.id.fragExpSumTimeIntervalValue);
        tvTimeIntervalValue.setText(""+experimentController.getExperiment().frequency());
 
         ListView summaryLv = (ListView) view.findViewById(R.id.fragExpSumListView);
 
-        //TODO: Fill With Jesus Data
+        Map<Integer, Stats> statsMap = ExperimentController.getStatsForExperiment(experimentController.getExperiment());
+
+
+
+
+
+
+
+
         AverageContainer[] averageContainers = new AverageContainer[]{
             new AverageContainer("Number of Runs", experimentController.getExperiment().runs().size() , true, false, ""),
 
             //TODO: Fix when implemented
-            new AverageContainer("Average Wind Speed", 0.0, false, true, unitController.getCurrentSpeedUnit()),
-            new AverageContainer("Average Wind Direction", 0.0, false, true, unitController.getCurrentDirectionUnit()),
-            new AverageContainer("Average Temperature", 0.0, false, true, unitController.getCurrentTemperatureUnit()),
-            new AverageContainer("Average Humidity", 0.0, false, true, unitController.getCurrentHumidityUnit()),
-            new AverageContainer("Average Pressure", 0.0, false, true, unitController.getCurrentPressureUnit()),
-            new AverageContainer("Average Tilt", 0.0, false, true, unitController.getCurrentForceUnit()),
-            new AverageContainer("Average Drag", 0.0, false, true, unitController.getCurrentForceUnit()),
-            new AverageContainer("Average Lift", 0.0, false, true, unitController.getCurrentForceUnit())
+            new AverageContainer("Average Wind Speed",
+                    unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.WindSpeedKey ,statsMap.get(GlobalConstants.Measurements.WindSpeedKey).getMean()),
+                    false, true, unitController.getCurrentSpeedUnit()),
+            new AverageContainer("Average Wind Direction",
+                    unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.WindDirectionKey ,statsMap.get(GlobalConstants.Measurements.WindDirectionKey).getMean()),
+                    false, true, unitController.getCurrentDirectionUnit()),
+            new AverageContainer("Average Temperature",
+                    unitController.convertFromDefaultToCurrent(GlobalConstants.Measurements.TemperatureKey, statsMap.get(GlobalConstants.Measurements.TemperatureKey).getMean()),
+                    false, true, unitController.getCurrentTemperatureUnit()),
+            new AverageContainer("Average Humidity",
+                    unitController.convertFromDefaultToCurrent(GlobalConstants.Measurements.HumidityKey, statsMap.get(GlobalConstants.Measurements.HumidityKey).getMean()),
+                    false, true, unitController.getCurrentHumidityUnit()),
+            new AverageContainer("Average Pressure",
+                    unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.PressureKey, statsMap.get(GlobalConstants.Measurements.PressureKey).getMean()),
+                    false, true, unitController.getCurrentPressureUnit()),
+            new AverageContainer("Average Tilt",
+                    unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.TiltKey, statsMap.get(GlobalConstants.Measurements.TiltKey).getMean()),
+                    false, true, unitController.getCurrentForceUnit()),
+            new AverageContainer("Average Drag",
+                    unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.DragKey, statsMap.get(GlobalConstants.Measurements.DragKey).getMean()),
+                    false, true, unitController.getCurrentForceUnit()),
+            new AverageContainer("Average Lift",
+                    unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.LiftKey, statsMap.get(GlobalConstants.Measurements.LiftKey).getMean()),
+                    false, true, unitController.getCurrentForceUnit())
         };
 
         summaryLv.setAdapter(new AverageAdapter(this.getActivity(), averageContainers));

@@ -1,5 +1,16 @@
 package icom5047.aerobal.resources;
 
+import com.aerobal.data.objects.measurementTypes.Drag;
+import com.aerobal.data.objects.measurementTypes.Humidity;
+import com.aerobal.data.objects.measurementTypes.Lift;
+import com.aerobal.data.objects.measurementTypes.MeasurementType;
+import com.aerobal.data.objects.measurementTypes.MeasurementTypes;
+import com.aerobal.data.objects.measurementTypes.Pressure;
+import com.aerobal.data.objects.measurementTypes.Temperature;
+import com.aerobal.data.objects.measurementTypes.Tilt;
+import com.aerobal.data.objects.measurementTypes.WindDirection;
+import com.aerobal.data.objects.measurementTypes.WindSpeed;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,14 +42,15 @@ public class GlobalConstants {
     public static class Measurements{
 
 
-        public static int WindSpeedKey = 0;
-        public static int TemperatureKey = 1;
-        public static int HumidityKey = 2;
-        public static int WindDirectionKey = 3;
-        public static int PressureKey = 4;
-        public static int TiltKey = 5;
-        public static int DragKey = 6;
-        public static int LiftKey = 7;
+        public static final int WindSpeedKey = 0;
+        public static final int TemperatureKey = 1;
+        public static final int HumidityKey = 2;
+        public static final int WindDirectionKey = 3;
+        public static final int PressureKey = 4;
+        public static final int TiltKey = 5;
+        public static final int DragKey = 6;
+        public static final int LiftKey = 7;
+        public static final int TimeKey = 8;
 
 
 
@@ -51,6 +63,7 @@ public class GlobalConstants {
         public static String TiltString = "Tilt";
         public static String DragString = "Drag";
         public static String LiftString = "Lift";
+        public static String TimeString = "Time";
 
 
 
@@ -92,13 +105,47 @@ public class GlobalConstants {
             list.add(1, new SpinnerContainer(1, WindSpeedKey, WindSpeedString));
             list.add(2, new SpinnerContainer(2, WindDirectionKey, WindDirectionString));
             list.add(3, new SpinnerContainer(3, HumidityKey, HumidityString));
-            list.add(4, new SpinnerContainer(4, WindDirectionKey, WindDirectionString));
-            list.add(5, new SpinnerContainer(5, TemperatureKey, TemperatureString));
-            list.add(6, new SpinnerContainer(6, TiltKey, TiltString));
-            list.add(7, new SpinnerContainer(7, DragKey, DragString));
-            list.add(8, new SpinnerContainer(8, LiftKey, LiftString));
+            list.add(4, new SpinnerContainer(4, TemperatureKey, TemperatureString));
+            list.add(5, new SpinnerContainer(5, TiltKey, TiltString));
+            list.add(6, new SpinnerContainer(6, DragKey, DragString));
+            list.add(7, new SpinnerContainer(7, LiftKey, LiftString));
 
             return list;
+        }
+
+        public static List<SpinnerContainer> getGraphListSpinner(){
+            List<SpinnerContainer> ret = getMeasurementListSpinner();
+            ret.add(8, new SpinnerContainer(8, TimeKey, TimeString));
+            return ret;
+        }
+
+
+        public static MeasurementType getMessurmentTypeForSpinner(SpinnerContainer container){
+
+
+            switch (container.index){
+                case PressureKey:
+                    return MeasurementTypes.getType(Pressure.toString());
+                case WindSpeedKey:
+                    return MeasurementTypes.getType(WindSpeed.toString());
+                case WindDirectionKey:
+                    return MeasurementTypes.getType(WindDirection.toString());
+                case HumidityKey:
+                    return MeasurementTypes.getType(Humidity.toString());
+                case TemperatureKey:
+                    return  MeasurementTypes.getType(Temperature.toString());
+                case TiltKey:
+                    return MeasurementTypes.getType(Tilt.toString());
+                case DragKey:
+                    return MeasurementTypes.getType(Drag.toString());
+                case LiftKey:
+                    return MeasurementTypes.getType(Lift.toString());
+
+            }
+
+
+            return null;
+
         }
 
 

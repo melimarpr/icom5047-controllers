@@ -5,12 +5,12 @@ package icom5047.aerobal.containers;
  */
 public class RawContainer {
 
-    public long seconds;
+    public long nanoseconds;
     public double value;
 
     public RawContainer(long seconds, double value){
 
-        this.seconds = seconds;
+        this.nanoseconds = seconds;
         this.value = value;
 
     }

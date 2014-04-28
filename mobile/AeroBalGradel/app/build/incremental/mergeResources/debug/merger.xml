@@ -69,6 +69,11 @@
                 qualifiers="hdpi"
                 type="drawable" />
             <file
+                name="ic_back"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_back.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
                 name="ic_caret"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_caret.png"
                 qualifiers="hdpi"
@@ -84,13 +89,38 @@
                 qualifiers="hdpi"
                 type="drawable" />
             <file
+                name="ic_file"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_file.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_folder"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_folder.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_info"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_info.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
                 name="ic_launcher"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_launcher.png"
                 qualifiers="hdpi"
                 type="drawable" />
             <file
+                name="ic_new"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_new.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
                 name="ic_action_overflow"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_action_overflow.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_back"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_back.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
@@ -109,13 +139,38 @@
                 qualifiers="mdpi"
                 type="drawable" />
             <file
+                name="ic_file"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_file.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_folder"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_folder.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_info"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_info.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
                 name="ic_launcher"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_launcher.png"
                 qualifiers="mdpi"
                 type="drawable" />
             <file
+                name="ic_new"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_new.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
                 name="ic_action_overflow"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_action_overflow.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_back"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_back.png"
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
@@ -134,9 +189,34 @@
                 qualifiers="xhdpi"
                 type="drawable" />
             <file
+                name="ic_file"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_file.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_folder"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_folder.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_info"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_info.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
                 name="ic_launcher"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_launcher.png"
                 qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_new"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_new.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_back"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_back.png"
+                qualifiers="xxhdpi"
                 type="drawable" />
             <file
                 name="ic_caret"
@@ -154,8 +234,28 @@
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
+                name="ic_file"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_file.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_folder"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_folder.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_info"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_info.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
                 name="ic_launcher"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="ic_new"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_new.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
@@ -184,6 +284,11 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="activity_save"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/activity_save.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="dialog_bluetooth_list"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_bluetooth_list.xml"
                 qualifiers=""
@@ -191,6 +296,11 @@
             <file
                 name="dialog_edit_text"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_edit_text.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="dialog_experiment_information"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_experiment_information.xml"
                 qualifiers=""
                 type="layout" />
             <file
@@ -206,6 +316,11 @@
             <file
                 name="dialog_new_experiment"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_new_experiment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="dialog_new_session"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_new_session.xml"
                 qualifiers=""
                 type="layout" />
             <file
@@ -249,6 +364,11 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="fragment_loading"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/fragment_loading.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="fragment_open_local"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/fragment_open_local.xml"
                 qualifiers=""
@@ -271,6 +391,21 @@
             <file
                 name="row_drawer_lv"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_drawer_lv.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="row_file_dir"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_file_dir.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="row_open_experiment"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_open_experiment.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="row_open_session"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_open_session.xml"
                 qualifiers=""
                 type="layout" />
             <file
@@ -311,6 +446,11 @@
             <file
                 name="open"
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/menu/open.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="save"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/menu/save.xml"
                 qualifiers=""
                 type="menu" />
             <file
@@ -390,9 +530,9 @@
                 </string>
                 <string name="title_dialog_new_session" >New Session?
                 </string>
-                <string name="title_dialog_confirm_run" >Object Added?
-                </string>
                 <string name="title_dialog_bt_disconenct" >Disconnect?
+                </string>
+                <string name="title_dialog_confirm_run" >Object Added?
                 </string>
                 <string name="title_dialog_gen_graph" >Generate Graph?
                 </string>
@@ -408,29 +548,29 @@
             <file
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml"
                 qualifiers="" >
-                <string name="toast_invalid_exp_wind_speed_empty" >Wind Speed Value Missing
-                </string>
                 <string name="toast_bt_unable_to_connect" >Unable to Connect
+                </string>
+                <string name="toast_invalid_exp_wind_speed_empty" >Wind Speed Value Missing
                 </string>
                 <string name="toast_net_error" >Unable to Connect to Server
                 </string>
                 <string name="toast_invalid_exp_interval_empty" >Time Interval Value Missing
                 </string>
-                <string name="toast_invalid_exp_name_empty" >Experiment Name Missing
-                </string>
                 <string name="toast_invalid_email" >Invalid Email
+                </string>
+                <string name="toast_invalid_exp_name_empty" >Experiment Name Missing
                 </string>
                 <string name="toast_error_bad_username" >Invalid Email Address
                 </string>
                 <string name="toast_net_forgot_success" >Email Sent
                 </string>
-                <string name="toast_invalid_exp_interval_max" >Time Interval Value Above Maximum of:
-                </string>
                 <string name="toast_bt_enable" >Bluetooth Enable. Try Again.
                 </string>
-                <string name="progress_finish" >Finishing…
+                <string name="toast_invalid_exp_interval_max" >Time Interval Value Above Maximum of:
                 </string>
                 <string name="toast_file_create" >File Successfully Created
+                </string>
+                <string name="progress_finish" >Finishing…
                 </string>
                 <string name="toast_invalid_exp_samples_min" >Samples Value Below Minimum of:
                 </string>
@@ -468,9 +608,9 @@
                 </string>
                 <string name="toast_error_new_session_params" >Empty Parameters
                 </string>
-                <string name="toast_error_unable_to_save" >Unable to Save Experiment Online
-                </string>
                 <string name="toast_no_bt_found" >No Bluetooth Module found in Device.
+                </string>
+                <string name="toast_error_unable_to_save" >Unable to Save Experiment Online
                 </string>
                 <string name="progress_running" >Running Experiment…
                 </string>
@@ -488,9 +628,9 @@
                 </string>
                 <string name="toast_net_login_fail" >Unable to Log In
                 </string>
-                <string name="toast_invalid_access" >Invalid Access without Log-in
-                </string>
                 <string name="toast_file_parent_error" >Unable to Go Back
+                </string>
+                <string name="toast_invalid_access" >Invalid Access without Log-in
                 </string>
                 <string name="toast_file_updated" >File Successfully Updated
                 </string>
@@ -514,19 +654,21 @@
                 </string>
                 <string name="activity_error_no_session_found" >No Sessions Found
                 </string>
-                <string name="private_str" >Private 
+                <string name="frag_data_raw_no_data" >No Data Recollected
                 </string>
                 <string name="ab_btn_export" >Export
+                </string>
+                <string name="private_str" >Private 
                 </string>
                 <string name="dialog_units_humidity" >Humidity:
                 </string>
                 <string name="dialog_bt_empty_list" >No Bluetooth Device Paired
                 </string>
-                <string name="title_activity_graph" >GraphActivity
+                <string name="ab_btn_new_session" >New Session
                 </string>
                 <string name="local" >Local
                 </string>
-                <string name="ab_btn_new_session" >New Session
+                <string name="title_activity_graph" >GraphActivity
                 </string>
                 <string name="ab_btn_show_data" >Show Data
                 </string>
@@ -534,9 +676,9 @@
                 </string>
                 <string name="dialog_new_exp_wind_speeds_hint" >0.00
                 </string>
-                <string name="logo_img_desc" >Logo
-                </string>
                 <string name="dialog_bt_disconnect" >Disconnect from AeroBal?
+                </string>
+                <string name="logo_img_desc" >Logo
                 </string>
                 <string name="activity_login_hint_username" >Email
                 </string>
@@ -544,11 +686,11 @@
                 </string>
                 <string name="save" >Save
                 </string>
+                <string name="dialog_export_et_hint" >File Name
+                </string>
                 <string name="title_activity_data_detail" >DataDetailActivity
                 </string>
                 <string name="ab_btn_close" >Close
-                </string>
-                <string name="dialog_export_et_hint" >File Name
                 </string>
                 <string name="ab_btn_units" >Units
                 </string>
@@ -576,9 +718,9 @@
                 </string>
                 <string name="activity_login_button_forgot" >Forgot Credentials
                 </string>
-                <string name="cancel" >Cancel
-                </string>
                 <string name="frag_exp_sum_samples" >Samples:
+                </string>
+                <string name="cancel" >Cancel
                 </string>
                 <string name="dialog_no_session" >No Session Found
                 </string>
@@ -586,9 +728,9 @@
                 </string>
                 <string name="activity_login_button_register" >Register
                 </string>
-                <string name="dialog_units_default" >Default
-                </string>
                 <string name="frag_exp_sum_wind_speeds" >Expected Wind Speed:
+                </string>
+                <string name="dialog_units_default" >Default
                 </string>
                 <string name="dialog_bt_yes" >Yes
                 </string>
@@ -602,9 +744,9 @@
                 </string>
                 <string name="ab_btn_stop" >Stop
                 </string>
-                <string name="units_mili_seconds" >msec
-                </string>
                 <string name="dialog_units_temperature" >Temperature:
+                </string>
+                <string name="units_mili_seconds" >msec
                 </string>
                 <string name="frag_exp_sum_summary" >Summary:
                 </string>
@@ -614,21 +756,23 @@
                 </string>
                 <string name="dialog_graph_yaxis" >Y Axis:
                 </string>
-                <string name="create" >Create
-                </string>
                 <string name="email" >Email
+                </string>
+                <string name="create" >Create
                 </string>
                 <string name="dialog_new_session_title" >Title
                 </string>
                 <string name="back" >Back
                 </string>
-                <string name="online" >Online
-                </string>
                 <string name="fragment_folder_no_found" >Folder is Empty
+                </string>
+                <string name="online" >Online
                 </string>
                 <string name="dialog_bt_no" >No
                 </string>
                 <string name="dialog_new_exp_interval" >Time Interval:
+                </string>
+                <string name="frag_data_raw_full_exp_no_display" >Data Showed Only By Runs
                 </string>
                 <string name="ab_btn_start_run" >Start Run
                 </string>
@@ -642,9 +786,9 @@
                 </string>
                 <string name="dialog_new_exp_samples" >Samples:
                 </string>
-                <string name="dialog_units_pressure" >Pressure:
-                </string>
                 <string name="dialog_new_exp_name" >Name:
+                </string>
+                <string name="dialog_units_pressure" >Pressure:
                 </string>
                 <string name="dialog_units_force" >Force:
                 </string>
@@ -676,21 +820,21 @@
                 </style>
 
                 <style
-                    name="MyActionBar"
-                    parent="android:Widget.Holo.Light.ActionBar.Solid" >
->
-                    <item name="android:background">
-@drawable/ic_actionbar
-                    </item>
-                </style>
-
-                <style
                     name="AppTheme"
                     parent="AppBaseTheme" >
 
                     <!-- All customizations that are NOT specific to a particular API-level can go here. -->
                     <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
 
+                </style>
+
+                <style
+                    name="MyActionBar"
+                    parent="android:Widget.Holo.Light.ActionBar.Solid" >
+>
+                    <item name="android:background">
+@drawable/ic_actionbar
+                    </item>
                 </style>
             </file>
             <file
@@ -793,146 +937,6 @@
                 <dimen name="activity_horizontal_margin" >64dp
                 </dimen>
             </file>
-            <file
-                name="ic_back"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_back.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="ic_back"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_back.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="ic_back"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_back.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="ic_back"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_back.png"
-                qualifiers="xxhdpi"
-                type="drawable" />
-            <file
-                name="ic_file"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_file.png"
-                qualifiers="xxhdpi"
-                type="drawable" />
-            <file
-                name="ic_file"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_file.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="ic_file"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_file.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="ic_folder"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_folder.png"
-                qualifiers="xxhdpi"
-                type="drawable" />
-            <file
-                name="ic_folder"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_folder.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="ic_folder"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_folder.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="ic_folder"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_folder.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="ic_file"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_file.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="row_file_dir"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_file_dir.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="row_open_session"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_open_session.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="row_open_experiment"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_open_experiment.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="dialog_experiment_information"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_experiment_information.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="ic_info"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_info.png"
-                qualifiers="xxhdpi"
-                type="drawable" />
-            <file
-                name="ic_info"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_info.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="ic_info"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_info.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="ic_info"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_info.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="save"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/menu/save.xml"
-                qualifiers=""
-                type="menu" />
-            <file
-                name="activity_save"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/activity_save.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="ic_new"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-mdpi/ic_new.png"
-                qualifiers="mdpi"
-                type="drawable" />
-            <file
-                name="ic_new"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_new.png"
-                qualifiers="xxhdpi"
-                type="drawable" />
-            <file
-                name="ic_new"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xhdpi/ic_new.png"
-                qualifiers="xhdpi"
-                type="drawable" />
-            <file
-                name="ic_new"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-hdpi/ic_new.png"
-                qualifiers="hdpi"
-                type="drawable" />
-            <file
-                name="dialog_new_session"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/dialog_new_session.xml"
-                qualifiers=""
-                type="layout" />
-            <file
-                name="fragment_loading"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/fragment_loading.xml"
-                qualifiers=""
-                type="layout" />
         </source>
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/rs/debug" />
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/generated/debug" />

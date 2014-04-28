@@ -85,7 +85,7 @@ public class MainActivity extends FragmentActivity {
         values.put(UnitFactory.Type.FORCE, UnitFactory.Force.UNIT_NEWTON);
         values.put(UnitFactory.Type.HUMIDITY, UnitFactory.Humidity.UNIT_PERCENTAGE);
         values.put(UnitFactory.Type.TEMPERATURE, UnitFactory.Temperature.UNIT_CELSIUS);
-        values.put(UnitFactory.Type.SPEED, UnitFactory.Speed.UNIT_MS);
+        values.put(UnitFactory.Type.SPEED, UnitFactory.Speed.UNIT_KMPH);
         values.put(UnitFactory.Type.DIRECTION, UnitFactory.Direction.UNIT_DEGREES);
 
         unitController = new UnitController(values);

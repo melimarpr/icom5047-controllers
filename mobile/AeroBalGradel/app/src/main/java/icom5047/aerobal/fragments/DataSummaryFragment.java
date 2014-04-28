@@ -15,7 +15,11 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.aerobal.data.objects.Run;
+import com.aerobal.data.objects.Stats;
+
+import java.text.NumberFormat;
+import java.util.LinkedList;
 import java.util.List;
 
 import icom5047.aerobal.activities.R;
@@ -24,6 +28,7 @@ import icom5047.aerobal.containers.SummaryContainer;
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.controllers.UnitController;
 import icom5047.aerobal.resources.GlobalConstants;
+import scala.collection.JavaConversions;
 
 /**
  * Created by enrique on 3/26/14.
@@ -69,7 +74,8 @@ public class DataSummaryFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 SpinnerContainer container = (SpinnerContainer) adapterView.getItemAtPosition(i);
-                refresh(container);
+                currContainer = container;
+                refresh();
 
             }
 
@@ -79,21 +85,26 @@ public class DataSummaryFragment extends Fragment {
             }
         });
 
-
         listView = (ListView) view.findViewById(R.id.fragDataSumList);
-        listView.setAdapter(new SummaryAdapter(this.getActivity(), getSummaryDetails()));
-
-
-
         return view;
     }
 
-    public void refresh(SpinnerContainer container){
 
-        Log.v("Refresh", "Refresh");
-        currContainer = container;
+    @Override
+    public void onResume() {
+        super.onResume();
+        listView.setAdapter(new SummaryAdapter(this.getActivity(), getSummaryDetails()));
+    }
+
+    public void fullRefresh(SpinnerContainer run){
+        Log.v("Refresh", "Changes Run");
+        experimentController.setActiveRun(run);
+        refresh();
+    }
+
+    public void refresh(){
+        Log.v("Refresh", "Change Var");
         listView.invalidateViews();
-
     }
 
     public class SummaryAdapter extends ArrayAdapter<SummaryContainer>{
@@ -105,21 +116,21 @@ public class DataSummaryFragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-
             SummaryContainer summaryContainer = this.getItem(position);
             View view = ((Activity) this.getContext()).getLayoutInflater().inflate(R.layout.row_average_3_unit_lv, parent, false);
-
 
             TextView title = (TextView) view.findViewById(R.id.rowAveUnitTitle);
             TextView value = (TextView) view.findViewById(R.id.rowAveUnitValue);
             TextView unit = (TextView) view.findViewById(R.id.rowAve3UnitUnit);
 
+            NumberFormat nf = NumberFormat.getInstance();
+            nf.setMinimumFractionDigits(GlobalConstants.DecimalPrecision);
+            nf.setMaximumFractionDigits(GlobalConstants.DecimalPrecision);
 
 
 
             title.setText(summaryContainer.type);
-            value.setText(summaryContainer.value+"");
-
+            value.setText(nf.format(summaryContainer.value));
 
             int unit_type = GlobalConstants.Measurements.measurementToUnitMapping().get(currContainer.index);
 
@@ -135,17 +146,35 @@ public class DataSummaryFragment extends Fragment {
     }
 
 
-    public static List<SummaryContainer> getSummaryDetails(){
+    public List<SummaryContainer> getSummaryDetails() {
 
-        ArrayList<SummaryContainer> list = new ArrayList<SummaryContainer>();
 
-        for(String e : GlobalConstants.allMeasurementType){
-            list.add(new SummaryContainer(e, 0.0));
+        Stats stats;
+        List<Run> runsList = JavaConversions.asJavaList(experimentController.getExperiment().runs());
+        if(experimentController.getActiveRun().index == ExperimentController.ALL_RUNS){
+            stats = new Stats(GlobalConstants.Measurements.getMessurmentTypeForSpinner(currContainer), experimentController.getExperiment());
+        }else{
+            stats = new Stats(GlobalConstants.Measurements.getMessurmentTypeForSpinner(currContainer), runsList.get(experimentController.getActiveRun().index));
         }
 
-        return list;
 
+        List<SummaryContainer> list = new LinkedList<SummaryContainer>();
+        String[] summary = GlobalConstants.allMeasurementType;
+        list.add(0, new SummaryContainer(summary[0],
+                unitController.convertFromDefaultToCurrent( currContainer.index ,stats.getMean() ))); //Ave
+        list.add(1, new SummaryContainer(summary[1],
+                unitController.convertFromDefaultToCurrent( currContainer.index ,stats.getMax() ))); //Max
+        list.add(2, new SummaryContainer(summary[2],
+                unitController.convertFromDefaultToCurrent( currContainer.index, stats.getMin()))); //Min
+        list.add(3, new SummaryContainer(summary[3],
+                unitController.convertFromDefaultToCurrent( currContainer.index, stats.getStandardDeviation()))); //Standard Deviation
+        list.add(4, new SummaryContainer(summary[4],
+                unitController.convertFromDefaultToCurrent( currContainer.index, stats.getMedian()))); //Median
+        return list;
     }
+
+
+
 
 
 

@@ -1440,7 +1440,6 @@ com.aerobal.data.objects.Measurement:
 ====    11:11:public void setId(long)
 ====    12:12:public void setTimestamp(java.sql.Timestamp)
 ====    9:9:public com.aerobal.data.objects.measurementTypes.MeasurementType getTypeOf()
-====    10:10:public double getValue()
 ====    11:11:public long getId()
 ====    12:12:public java.sql.Timestamp getTimestamp()
 ====    9:10:public com.aerobal.data.objects.Measurement copy(com.aerobal.data.objects.measurementTypes.MeasurementType,double)
@@ -1485,44 +1484,123 @@ com.aerobal.data.objects.Session:
 ====    10:10:public boolean copy$default$3()
 ====    15:17:public Session(com.aerobal.data.dto.SessionDto)
 com.aerobal.data.objects.Session$
-com.aerobal.data.objects.Stats
+com.aerobal.data.objects.Stats:
+====    public static scala.Function1 andThen(scala.Function1)
+====    public static scala.Function1 compose(scala.Function1)
+====    11:11:public double max()
+====    11:11:public void setMax(double)
+====    12:12:public double min()
+====    12:12:public void setMin(double)
+====    13:13:public void setMean(double)
+====    14:14:public double median()
+====    14:14:public void setMedian(double)
+====    15:15:public double standardDeviation()
+====    15:15:public void setStandardDeviation(double)
+====    11:11:public double getMax()
+====    12:12:public double getMin()
+====    14:14:public double getMedian()
+====    15:15:public double getStandardDeviation()
+====    10:10:public com.aerobal.data.objects.Stats copy(com.aerobal.data.objects.measurementTypes.MeasurementType)
+====    10:10:public com.aerobal.data.objects.measurementTypes.MeasurementType copy$default$1()
 com.aerobal.data.objects.Stats$
-com.aerobal.data.objects.Stats$$anonfun$1
-com.aerobal.data.objects.Stats$$anonfun$1$$anonfun$apply$1
-com.aerobal.data.objects.Stats$$anonfun$1$$anonfun$apply$2
-com.aerobal.data.objects.Stats$$anonfun$2
-com.aerobal.data.objects.Stats$$anonfun$calculateStats$1
+com.aerobal.data.objects.Stats$$anonfun$1:
+    public static final long serialVersionUID
+com.aerobal.data.objects.Stats$$anonfun$1$$anonfun$apply$1:
+    public static final long serialVersionUID
+com.aerobal.data.objects.Stats$$anonfun$1$$anonfun$apply$2:
+    public static final long serialVersionUID
+com.aerobal.data.objects.Stats$$anonfun$2:
+    public static final long serialVersionUID
+com.aerobal.data.objects.Stats$$anonfun$calculateStats$1:
+    public static final long serialVersionUID
 com.aerobal.data.objects.User
 com.aerobal.data.objects.User$
-com.aerobal.data.objects.measurementTypes.Drag
+com.aerobal.data.objects.measurementTypes.Drag:
+====    public static int hashCode()
+====    public static boolean canEqual(java.lang.Object)
+====    public static scala.collection.Iterator productIterator()
+====    public static java.lang.Object productElement(int)
+====    public static int productArity()
+====    public static java.lang.String productPrefix()
+====    public static int id()
 com.aerobal.data.objects.measurementTypes.Drag$:
 ====    3:3:private java.lang.Object readResolve()
-com.aerobal.data.objects.measurementTypes.Humidity
+com.aerobal.data.objects.measurementTypes.Humidity:
+====    public static int hashCode()
+====    public static boolean canEqual(java.lang.Object)
+====    public static scala.collection.Iterator productIterator()
+====    public static java.lang.Object productElement(int)
+====    public static int productArity()
+====    public static java.lang.String productPrefix()
+====    public static int id()
 com.aerobal.data.objects.measurementTypes.Humidity$:
 ====    3:3:private java.lang.Object readResolve()
-com.aerobal.data.objects.measurementTypes.Lift
+com.aerobal.data.objects.measurementTypes.Lift:
+====    public static int hashCode()
+====    public static boolean canEqual(java.lang.Object)
+====    public static scala.collection.Iterator productIterator()
+====    public static java.lang.Object productElement(int)
+====    public static int productArity()
+====    public static java.lang.String productPrefix()
+====    public static int id()
 com.aerobal.data.objects.measurementTypes.Lift$:
 ====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.MeasurementType:
 ====    public abstract int id()
 ====    public abstract java.lang.String toString()
-com.aerobal.data.objects.measurementTypes.MeasurementTypes
+com.aerobal.data.objects.measurementTypes.MeasurementTypes:
+====    public static com.aerobal.data.objects.measurementTypes.MeasurementType getType(int)
 com.aerobal.data.objects.measurementTypes.MeasurementTypes$:
 ====    27:27:private scala.collection.immutable.HashMap idMap()
 ====    39:39:public com.aerobal.data.objects.measurementTypes.MeasurementType getType(int)
-com.aerobal.data.objects.measurementTypes.Pressure
+com.aerobal.data.objects.measurementTypes.Pressure:
+====    public static int hashCode()
+====    public static boolean canEqual(java.lang.Object)
+====    public static scala.collection.Iterator productIterator()
+====    public static java.lang.Object productElement(int)
+====    public static int productArity()
+====    public static java.lang.String productPrefix()
+====    public static int id()
 com.aerobal.data.objects.measurementTypes.Pressure$:
 ====    3:3:private java.lang.Object readResolve()
-com.aerobal.data.objects.measurementTypes.Temperature
+com.aerobal.data.objects.measurementTypes.Temperature:
+====    public static int hashCode()
+====    public static boolean canEqual(java.lang.Object)
+====    public static scala.collection.Iterator productIterator()
+====    public static java.lang.Object productElement(int)
+====    public static int productArity()
+====    public static java.lang.String productPrefix()
+====    public static int id()
 com.aerobal.data.objects.measurementTypes.Temperature$:
 ====    3:3:private java.lang.Object readResolve()
-com.aerobal.data.objects.measurementTypes.Tilt
+com.aerobal.data.objects.measurementTypes.Tilt:
+====    public static int hashCode()
+====    public static boolean canEqual(java.lang.Object)
+====    public static scala.collection.Iterator productIterator()
+====    public static java.lang.Object productElement(int)
+====    public static int productArity()
+====    public static java.lang.String productPrefix()
+====    public static int id()
 com.aerobal.data.objects.measurementTypes.Tilt$:
 ====    3:3:private java.lang.Object readResolve()
-com.aerobal.data.objects.measurementTypes.WindDirection
+com.aerobal.data.objects.measurementTypes.WindDirection:
+====    public static int hashCode()
+====    public static boolean canEqual(java.lang.Object)
+====    public static scala.collection.Iterator productIterator()
+====    public static java.lang.Object productElement(int)
+====    public static int productArity()
+====    public static java.lang.String productPrefix()
+====    public static int id()
 com.aerobal.data.objects.measurementTypes.WindDirection$:
 ====    3:3:private java.lang.Object readResolve()
-com.aerobal.data.objects.measurementTypes.WindSpeed
+com.aerobal.data.objects.measurementTypes.WindSpeed:
+====    public static int hashCode()
+====    public static boolean canEqual(java.lang.Object)
+====    public static scala.collection.Iterator productIterator()
+====    public static java.lang.Object productElement(int)
+====    public static int productArity()
+====    public static java.lang.String productPrefix()
+====    public static int id()
 com.aerobal.data.objects.measurementTypes.WindSpeed$:
 ====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.statTypes.Max
@@ -1537,8 +1615,12 @@ com.aerobal.data.objects.statTypes.StandardDeviation
 com.aerobal.data.objects.statTypes.StandardDeviation$
 com.aerobal.data.objects.statTypes.StatType
 com.aerobal.data.processing.DataProcessing
-com.aerobal.data.processing.DataProcessing$
-com.aerobal.data.processing.DataProcessing$$anonfun$standardDeviation$1
+com.aerobal.data.processing.DataProcessing$:
+====    50:53:public double sum(scala.collection.immutable.List)
+====    59:62:public scala.collection.immutable.List sort(scala.collection.immutable.List)
+====    79:80:private void emptyListCheck(scala.collection.immutable.List)
+com.aerobal.data.processing.DataProcessing$$anonfun$standardDeviation$1:
+    public static final long serialVersionUID
 com.aerobal.data.processing.Main
 com.aerobal.data.processing.Main$
 com.aerobal.data.processing.exceptions.EmptyListException
@@ -2637,8 +2719,6 @@ scala.Enumeration$Value:
 ====    191:191:public synthetic scala.Enumeration scala$Enumeration$Value$$$outer()
 scala.Enumeration$ValueOrdering$:
 ====    241:241:public scala.Some tryCompare(java.lang.Object,java.lang.Object)
-====    241:241:public boolean lteq(java.lang.Object,java.lang.Object)
-====    241:241:public boolean gteq(java.lang.Object,java.lang.Object)
 ====    241:241:public boolean lt(java.lang.Object,java.lang.Object)
 ====    241:241:public boolean gt(java.lang.Object,java.lang.Object)
 ====    241:241:public boolean equiv(java.lang.Object,java.lang.Object)
@@ -2841,7 +2921,6 @@ scala.Function1$class:
 ====    39:39:public static float apply$mcFD$sp(scala.Function1,double)
 ====    39:39:public static int apply$mcID$sp(scala.Function1,double)
 ====    39:39:public static long apply$mcJD$sp(scala.Function1,double)
-====    39:39:public static void apply$mcVD$sp(scala.Function1,double)
 ====    39:39:public static boolean apply$mcZF$sp(scala.Function1,float)
 ====    39:39:public static double apply$mcDF$sp(scala.Function1,float)
 ====    39:39:public static float apply$mcFF$sp(scala.Function1,float)
@@ -2934,8 +3013,8 @@ scala.Function1$mcJI$sp
 scala.Function1$mcJI$sp$class
 scala.Function1$mcJJ$sp
 scala.Function1$mcJJ$sp$class
-scala.Function1$mcVD$sp
-scala.Function1$mcVD$sp$class
+scala.Function1$mcVD$sp:
+====    public abstract void apply(double)
 scala.Function1$mcVF$sp
 scala.Function1$mcVF$sp$class
 scala.Function1$mcVI$sp:
@@ -3518,7 +3597,6 @@ scala.LowPriorityImplicits:
 ====    60:60:public double Double2doubleNullConflict(scala.runtime.Null$)
 ====    61:61:public boolean Boolean2booleanNullConflict(scala.runtime.Null$)
 ====    76:76:public scala.collection.mutable.WrappedArray wrapIntArray(int[])
-====    77:77:public scala.collection.mutable.WrappedArray wrapDoubleArray(double[])
 ====    78:78:public scala.collection.mutable.WrappedArray wrapLongArray(long[])
 ====    79:79:public scala.collection.mutable.WrappedArray wrapFloatArray(float[])
 ====    80:80:public scala.collection.mutable.WrappedArray wrapCharArray(char[])
@@ -4407,7 +4485,6 @@ scala.collection.AbstractIterator:
 ====    1157:1157:public scala.Option collectFirst(scala.PartialFunction)
 ====    1157:1157:public java.lang.Object $colon$bslash(java.lang.Object,scala.Function2)
 ====    1157:1157:public java.lang.Object foldRight(java.lang.Object,scala.Function2)
-====    1157:1157:public java.lang.Object reduceLeft(scala.Function2)
 ====    1157:1157:public java.lang.Object reduceRight(scala.Function2)
 ====    1157:1157:public scala.Option reduceLeftOption(scala.Function2)
 ====    1157:1157:public scala.Option reduceRightOption(scala.Function2)
@@ -4415,10 +4492,7 @@ scala.collection.AbstractIterator:
 ====    1157:1157:public scala.Option reduceOption(scala.Function2)
 ====    1157:1157:public java.lang.Object fold(java.lang.Object,scala.Function2)
 ====    1157:1157:public java.lang.Object aggregate(java.lang.Object,scala.Function2,scala.Function2)
-====    1157:1157:public java.lang.Object sum(scala.math.Numeric)
 ====    1157:1157:public java.lang.Object product(scala.math.Numeric)
-====    1157:1157:public java.lang.Object min(scala.math.Ordering)
-====    1157:1157:public java.lang.Object max(scala.math.Ordering)
 ====    1157:1157:public java.lang.Object maxBy(scala.Function1,scala.math.Ordering)
 ====    1157:1157:public java.lang.Object minBy(scala.Function1,scala.math.Ordering)
 ====    1157:1157:public void copyToArray(java.lang.Object)
@@ -4568,7 +4642,6 @@ scala.collection.AbstractSeq:
 ====    40:40:public java.lang.Object padTo(int,java.lang.Object,scala.collection.generic.CanBuildFrom)
 ====    40:40:public java.lang.Object sortWith(scala.Function2)
 ====    40:40:public java.lang.Object sortBy(scala.Function1,scala.math.Ordering)
-====    40:40:public java.lang.Object sorted(scala.math.Ordering)
 ====    40:40:public scala.collection.Seq toSeq()
 ====    40:40:public scala.collection.immutable.Range indices()
 ====    40:40:public scala.collection.SeqView view()
@@ -4801,7 +4874,6 @@ scala.collection.AbstractTraversable:
 ====    105:105:public scala.Option collectFirst(scala.PartialFunction)
 ====    105:105:public java.lang.Object $colon$bslash(java.lang.Object,scala.Function2)
 ====    105:105:public java.lang.Object foldRight(java.lang.Object,scala.Function2)
-====    105:105:public java.lang.Object reduceLeft(scala.Function2)
 ====    105:105:public java.lang.Object reduceRight(scala.Function2)
 ====    105:105:public scala.Option reduceLeftOption(scala.Function2)
 ====    105:105:public scala.Option reduceRightOption(scala.Function2)
@@ -4809,10 +4881,7 @@ scala.collection.AbstractTraversable:
 ====    105:105:public scala.Option reduceOption(scala.Function2)
 ====    105:105:public java.lang.Object fold(java.lang.Object,scala.Function2)
 ====    105:105:public java.lang.Object aggregate(java.lang.Object,scala.Function2,scala.Function2)
-====    105:105:public java.lang.Object sum(scala.math.Numeric)
 ====    105:105:public java.lang.Object product(scala.math.Numeric)
-====    105:105:public java.lang.Object min(scala.math.Ordering)
-====    105:105:public java.lang.Object max(scala.math.Ordering)
 ====    105:105:public java.lang.Object maxBy(scala.Function1,scala.math.Ordering)
 ====    105:105:public java.lang.Object minBy(scala.Function1,scala.math.Ordering)
 ====    105:105:public void copyToArray(java.lang.Object)
@@ -5176,7 +5245,6 @@ scala.collection.IndexedSeqLike$Elements:
 ====    56:56:private int initialSize()
 ====    72:75:public java.lang.Object head()
 scala.collection.IndexedSeqOptimized:
-====    public abstract java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceLeft(scala.Function2)
 ====    public abstract java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceRight(scala.Function2)
 ====    public abstract java.lang.Object scala$collection$IndexedSeqOptimized$$super$zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    public abstract java.lang.Object scala$collection$IndexedSeqOptimized$$super$init()
@@ -5223,7 +5291,6 @@ scala.collection.IndexedSeqOptimized$class:
 ====    43:45:public static scala.Option find(scala.collection.IndexedSeqOptimized,scala.Function1)
 ====    54:56:private static java.lang.Object foldr(scala.collection.IndexedSeqOptimized,int,int,java.lang.Object,scala.Function2)
 ====    64:64:public static java.lang.Object foldRight(scala.collection.IndexedSeqOptimized,java.lang.Object,scala.Function2)
-====    68:68:public static java.lang.Object reduceLeft(scala.collection.IndexedSeqOptimized,scala.Function2)
 ====    72:72:public static java.lang.Object reduceRight(scala.collection.IndexedSeqOptimized,scala.Function2)
 ====    75:87:public static java.lang.Object zip(scala.collection.IndexedSeqOptimized,scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    92:100:public static java.lang.Object zipWithIndex(scala.collection.IndexedSeqOptimized,scala.collection.generic.CanBuildFrom)
@@ -5505,7 +5572,6 @@ scala.collection.LinearSeqOptimized:
 ====    public abstract boolean exists(scala.Function1)
 ====    public abstract boolean contains(java.lang.Object)
 ====    public abstract scala.Option find(scala.Function1)
-====    public abstract java.lang.Object foldLeft(java.lang.Object,scala.Function2)
 ====    public abstract java.lang.Object foldRight(java.lang.Object,scala.Function2)
 ====    public abstract java.lang.Object reduceLeft(scala.Function2)
 ====    public abstract java.lang.Object reduceRight(scala.Function2)
@@ -5526,7 +5592,6 @@ scala.collection.LinearSeqOptimized$class:
 ====    88:93:public static boolean contains(scala.collection.LinearSeqOptimized,java.lang.Object)
 ====    98:103:public static scala.Option find(scala.collection.LinearSeqOptimized,scala.Function1)
 ====    119:120:public static java.lang.Object foldRight(scala.collection.LinearSeqOptimized,java.lang.Object,scala.Function2)
-====    124:125:public static java.lang.Object reduceLeft(scala.collection.LinearSeqOptimized,scala.Function2)
 ====    129:131:public static java.lang.Object reduceRight(scala.collection.LinearSeqOptimized,scala.Function2)
 ====    147:155:public static scala.collection.LinearSeqOptimized take(scala.collection.LinearSeqOptimized,int)
 ====    160:177:public static scala.collection.LinearSeqOptimized drop(scala.collection.LinearSeqOptimized,int)
@@ -5661,8 +5726,10 @@ scala.collection.SeqLike$$anonfun$occCounts$1
 scala.collection.SeqLike$$anonfun$reverse$1:
     public static final long serialVersionUID
 scala.collection.SeqLike$$anonfun$reverseMap$1
-scala.collection.SeqLike$$anonfun$sorted$1
-scala.collection.SeqLike$$anonfun$sorted$2
+scala.collection.SeqLike$$anonfun$sorted$1:
+    public static final long serialVersionUID
+scala.collection.SeqLike$$anonfun$sorted$2:
+    public static final long serialVersionUID
 scala.collection.SeqLike$CombinationsItr
 scala.collection.SeqLike$CombinationsItr$$anonfun$1
 scala.collection.SeqLike$CombinationsItr$$anonfun$4
@@ -5705,7 +5772,6 @@ scala.collection.SeqLike$class:
 ====    535:543:public static java.lang.Object padTo(scala.collection.SeqLike,int,java.lang.Object,scala.collection.generic.CanBuildFrom)
 ====    572:572:public static java.lang.Object sortWith(scala.collection.SeqLike,scala.Function2)
 ====    594:594:public static java.lang.Object sortBy(scala.collection.SeqLike,scala.Function1,scala.math.Ordering)
-====    608:619:public static java.lang.Object sorted(scala.collection.SeqLike,scala.math.Ordering)
 ====    627:627:public static scala.collection.Seq toSeq(scala.collection.SeqLike)
 ====    633:633:public static scala.collection.immutable.Range indices(scala.collection.SeqLike)
 ====    635:635:public static scala.collection.SeqView view(scala.collection.SeqLike)
@@ -5965,7 +6031,6 @@ scala.collection.TraversableOnce:
 ====    public abstract scala.Option collectFirst(scala.PartialFunction)
 ====    public abstract java.lang.Object $colon$bslash(java.lang.Object,scala.Function2)
 ====    public abstract java.lang.Object foldRight(java.lang.Object,scala.Function2)
-====    public abstract java.lang.Object reduceLeft(scala.Function2)
 ====    public abstract java.lang.Object reduceRight(scala.Function2)
 ====    public abstract scala.Option reduceLeftOption(scala.Function2)
 ====    public abstract scala.Option reduceRightOption(scala.Function2)
@@ -5973,10 +6038,7 @@ scala.collection.TraversableOnce:
 ====    public abstract scala.Option reduceOption(scala.Function2)
 ====    public abstract java.lang.Object fold(java.lang.Object,scala.Function2)
 ====    public abstract java.lang.Object aggregate(java.lang.Object,scala.Function2,scala.Function2)
-====    public abstract java.lang.Object sum(scala.math.Numeric)
 ====    public abstract java.lang.Object product(scala.math.Numeric)
-====    public abstract java.lang.Object min(scala.math.Ordering)
-====    public abstract java.lang.Object max(scala.math.Ordering)
 ====    public abstract java.lang.Object maxBy(scala.Function1,scala.math.Ordering)
 ====    public abstract java.lang.Object minBy(scala.Function1,scala.math.Ordering)
 ====    public abstract void copyToArray(java.lang.Object)
@@ -5995,17 +6057,21 @@ scala.collection.TraversableOnce$$anonfun$count$1
 scala.collection.TraversableOnce$$anonfun$foldLeft$1:
     public static final long serialVersionUID
 scala.collection.TraversableOnce$$anonfun$foldRight$1
-scala.collection.TraversableOnce$$anonfun$max$1
+scala.collection.TraversableOnce$$anonfun$max$1:
+    public static final long serialVersionUID
 scala.collection.TraversableOnce$$anonfun$maxBy$1
-scala.collection.TraversableOnce$$anonfun$min$1
+scala.collection.TraversableOnce$$anonfun$min$1:
+    public static final long serialVersionUID
 scala.collection.TraversableOnce$$anonfun$minBy$1
 scala.collection.TraversableOnce$$anonfun$product$1
-scala.collection.TraversableOnce$$anonfun$reduceLeft$1
+scala.collection.TraversableOnce$$anonfun$reduceLeft$1:
+    public static final long serialVersionUID
 scala.collection.TraversableOnce$$anonfun$reduceRight$1
 scala.collection.TraversableOnce$$anonfun$reversed$1
 scala.collection.TraversableOnce$$anonfun$size$1:
     public static final long serialVersionUID
-scala.collection.TraversableOnce$$anonfun$sum$1
+scala.collection.TraversableOnce$$anonfun$sum$1:
+    public static final long serialVersionUID
 scala.collection.TraversableOnce$$anonfun$toMap$1:
     public static final long serialVersionUID
 scala.collection.TraversableOnce$BufferedCanBuildFrom
@@ -6022,7 +6088,6 @@ scala.collection.TraversableOnce$class:
 ====    130:135:public static scala.Option collectFirst(scala.collection.TraversableOnce,scala.PartialFunction)
 ====    140:140:public static java.lang.Object $colon$bslash(scala.collection.TraversableOnce,java.lang.Object,scala.Function2)
 ====    149:149:public static java.lang.Object foldRight(scala.collection.TraversableOnce,java.lang.Object,scala.Function2)
-====    166:179:public static java.lang.Object reduceLeft(scala.collection.TraversableOnce,scala.Function2)
 ====    183:186:public static java.lang.Object reduceRight(scala.collection.TraversableOnce,scala.Function2)
 ====    190:190:public static scala.Option reduceLeftOption(scala.collection.TraversableOnce,scala.Function2)
 ====    193:193:public static scala.Option reduceRightOption(scala.collection.TraversableOnce,scala.Function2)
@@ -6030,10 +6095,7 @@ scala.collection.TraversableOnce$class:
 ====    197:197:public static scala.Option reduceOption(scala.collection.TraversableOnce,scala.Function2)
 ====    199:199:public static java.lang.Object fold(scala.collection.TraversableOnce,java.lang.Object,scala.Function2)
 ====    201:201:public static java.lang.Object aggregate(scala.collection.TraversableOnce,java.lang.Object,scala.Function2,scala.Function2)
-====    203:203:public static java.lang.Object sum(scala.collection.TraversableOnce,scala.math.Numeric)
 ====    205:205:public static java.lang.Object product(scala.collection.TraversableOnce,scala.math.Numeric)
-====    208:211:public static java.lang.Object min(scala.collection.TraversableOnce,scala.math.Ordering)
-====    215:218:public static java.lang.Object max(scala.collection.TraversableOnce,scala.math.Ordering)
 ====    222:225:public static java.lang.Object maxBy(scala.collection.TraversableOnce,scala.Function1,scala.math.Ordering)
 ====    228:231:public static java.lang.Object minBy(scala.collection.TraversableOnce,scala.Function1,scala.math.Ordering)
 ====    244:244:public static void copyToArray(scala.collection.TraversableOnce,java.lang.Object)
@@ -6665,7 +6727,6 @@ scala.collection.generic.Subtractable$class:
 scala.collection.generic.TaggedDelegatedContext
 scala.collection.generic.TraversableFactory
 scala.collection.generic.TraversableForwarder:
-====    public abstract void foreach(scala.Function1)
 ====    public abstract boolean isEmpty()
 ====    public abstract boolean nonEmpty()
 ====    public abstract int size()
@@ -6716,14 +6777,10 @@ scala.collection.generic.TraversableForwarder$class:
 ====    40:40:public static scala.Option find(scala.collection.generic.TraversableForwarder,scala.Function1)
 ====    43:43:public static java.lang.Object foldRight(scala.collection.generic.TraversableForwarder,java.lang.Object,scala.Function2)
 ====    44:44:public static java.lang.Object $colon$bslash(scala.collection.generic.TraversableForwarder,java.lang.Object,scala.Function2)
-====    45:45:public static java.lang.Object reduceLeft(scala.collection.generic.TraversableForwarder,scala.Function2)
 ====    46:46:public static scala.Option reduceLeftOption(scala.collection.generic.TraversableForwarder,scala.Function2)
 ====    47:47:public static java.lang.Object reduceRight(scala.collection.generic.TraversableForwarder,scala.Function2)
 ====    48:48:public static scala.Option reduceRightOption(scala.collection.generic.TraversableForwarder,scala.Function2)
-====    49:49:public static java.lang.Object sum(scala.collection.generic.TraversableForwarder,scala.math.Numeric)
 ====    50:50:public static java.lang.Object product(scala.collection.generic.TraversableForwarder,scala.math.Numeric)
-====    51:51:public static java.lang.Object min(scala.collection.generic.TraversableForwarder,scala.math.Ordering)
-====    52:52:public static java.lang.Object max(scala.collection.generic.TraversableForwarder,scala.math.Ordering)
 ====    54:54:public static scala.Option headOption(scala.collection.generic.TraversableForwarder)
 ====    56:56:public static scala.Option lastOption(scala.collection.generic.TraversableForwarder)
 ====    60:60:public static void copyToArray(scala.collection.generic.TraversableForwarder,java.lang.Object)
@@ -7047,7 +7104,6 @@ scala.collection.immutable.List:
 ====    public static scala.collection.GenTraversable empty()
 ====    84:84:public boolean contains(java.lang.Object)
 ====    84:84:public scala.Option find(scala.Function1)
-====    84:84:public java.lang.Object reduceLeft(scala.Function2)
 ====    84:84:public java.lang.Object reduceRight(scala.Function2)
 ====    84:84:public scala.collection.LinearSeqOptimized dropRight(int)
 ====    84:84:public boolean isDefinedAt(int)
@@ -7320,8 +7376,6 @@ scala.collection.immutable.Range:
 ====    44:44:public scala.collection.parallel.Combiner parCombiner()
 ====    44:44:public scala.collection.immutable.IndexedSeq toIndexedSeq()
 ====    50:50:public scala.collection.parallel.immutable.ParRange par()
-====    82:85:public int min(scala.math.Ordering)
-====    88:91:public int max(scala.math.Ordering)
 ====    100:100:public scala.collection.immutable.Range by(int)
 ====    180:183:public final scala.collection.immutable.Range init()
 ====    201:208:private int skipCount(scala.Function1)
@@ -7334,7 +7388,6 @@ scala.collection.immutable.Range:
 ====    247:247:public final scala.collection.immutable.Range dropRight(int)
 ====    260:261:public scala.collection.immutable.Range inclusive()
 ====    263:263:public final boolean contains(int)
-====    266:268:public final int sum(scala.math.Numeric)
 ====    271:271:public scala.collection.immutable.Range toIterable()
 ====    273:273:public scala.collection.immutable.Range toSeq()
 ====    136:142:public final void foreach$mVc$sp(scala.Function1)
@@ -7355,14 +7408,11 @@ scala.collection.immutable.Range:
 ====    44:44:public bridge synthetic scala.collection.immutable.Seq toSeq()
 ====    44:44:public bridge synthetic scala.collection.GenIterable toIterable()
 ====    44:44:public bridge synthetic scala.collection.Iterable toIterable()
-====    44:44:public final bridge synthetic java.lang.Object sum(scala.math.Numeric)
 ====    44:44:public final bridge synthetic java.lang.Object dropRight(int)
 ====    44:44:public final bridge synthetic java.lang.Object takeRight(int)
 ====    44:44:public final bridge synthetic java.lang.Object dropWhile(scala.Function1)
 ====    44:44:public final bridge synthetic java.lang.Object takeWhile(scala.Function1)
 ====    44:44:public final bridge synthetic java.lang.Object init()
-====    44:44:public bridge synthetic java.lang.Object max(scala.math.Ordering)
-====    44:44:public bridge synthetic java.lang.Object min(scala.math.Ordering)
 ====    44:44:public bridge synthetic scala.collection.Parallel par()
 scala.collection.immutable.Range$:
 ====    304:324:public int count(int,int,int,boolean)
@@ -7588,7 +7638,6 @@ scala.collection.immutable.Stream:
 ====    382:393:public final java.lang.Object collect(scala.PartialFunction,scala.collection.generic.CanBuildFrom)
 ====    437:453:public final java.lang.Object flatMap(scala.Function1,scala.collection.generic.CanBuildFrom)
 ====    478:478:public final scala.collection.immutable.Stream$StreamWithFilter withFilter(scala.Function1)
-====    574:582:public final java.lang.Object reduceLeft(scala.Function2)
 ====    603:603:public scala.Tuple2 partition(scala.Function1)
 ====    639:643:public final java.lang.Object zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    668:668:public java.lang.Object zipWithIndex(scala.collection.generic.CanBuildFrom)
@@ -7846,14 +7895,12 @@ scala.collection.immutable.StringOps:
 ====    31:31:public boolean $greater(java.lang.Object)
 ====    31:31:public boolean $less$eq(java.lang.Object)
 ====    31:31:public boolean $greater$eq(java.lang.Object)
-====    31:31:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceLeft(scala.Function2)
 ====    31:31:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceRight(scala.Function2)
 ====    31:31:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    31:31:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$init()
 ====    31:31:public boolean scala$collection$IndexedSeqOptimized$$super$endsWith(scala.collection.GenSeq)
 ====    31:31:public scala.Option find(scala.Function1)
 ====    31:31:public java.lang.Object foldRight(java.lang.Object,scala.Function2)
-====    31:31:public java.lang.Object reduceLeft(scala.Function2)
 ====    31:31:public java.lang.Object reduceRight(scala.Function2)
 ====    31:31:public java.lang.Object zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    31:31:public java.lang.Object zipWithIndex(scala.collection.generic.CanBuildFrom)
@@ -7937,10 +7984,7 @@ scala.collection.immutable.StringOps:
 ====    31:31:public scala.Option reduceOption(scala.Function2)
 ====    31:31:public java.lang.Object fold(java.lang.Object,scala.Function2)
 ====    31:31:public java.lang.Object aggregate(java.lang.Object,scala.Function2,scala.Function2)
-====    31:31:public java.lang.Object sum(scala.math.Numeric)
 ====    31:31:public java.lang.Object product(scala.math.Numeric)
-====    31:31:public java.lang.Object min(scala.math.Ordering)
-====    31:31:public java.lang.Object max(scala.math.Ordering)
 ====    31:31:public java.lang.Object maxBy(scala.Function1,scala.math.Ordering)
 ====    31:31:public java.lang.Object minBy(scala.Function1,scala.math.Ordering)
 ====    31:31:public void copyToArray(java.lang.Object)
@@ -8140,14 +8184,12 @@ scala.collection.immutable.WrappedString:
 ====    31:31:public boolean $greater(java.lang.Object)
 ====    31:31:public boolean $less$eq(java.lang.Object)
 ====    31:31:public boolean $greater$eq(java.lang.Object)
-====    31:31:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceLeft(scala.Function2)
 ====    31:31:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceRight(scala.Function2)
 ====    31:31:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    31:31:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$init()
 ====    31:31:public boolean scala$collection$IndexedSeqOptimized$$super$endsWith(scala.collection.GenSeq)
 ====    31:31:public scala.Option find(scala.Function1)
 ====    31:31:public java.lang.Object foldRight(java.lang.Object,scala.Function2)
-====    31:31:public java.lang.Object reduceLeft(scala.Function2)
 ====    31:31:public java.lang.Object reduceRight(scala.Function2)
 ====    31:31:public java.lang.Object zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    31:31:public java.lang.Object zipWithIndex(scala.collection.generic.CanBuildFrom)
@@ -8433,15 +8475,12 @@ scala.collection.mutable.ArrayBuffer:
 ====    47:47:public void reduceToSize(int)
 ====    47:47:public void swap(int,int)
 ====    47:47:public void copy(int,int,int)
-====    47:47:public scala.collection.mutable.Builder mapResult(scala.Function1)
-====    47:47:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceLeft(scala.Function2)
 ====    47:47:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceRight(scala.Function2)
 ====    47:47:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    47:47:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$init()
 ====    47:47:public boolean scala$collection$IndexedSeqOptimized$$super$endsWith(scala.collection.GenSeq)
 ====    47:47:public scala.Option find(scala.Function1)
 ====    47:47:public java.lang.Object foldRight(java.lang.Object,scala.Function2)
-====    47:47:public java.lang.Object reduceLeft(scala.Function2)
 ====    47:47:public java.lang.Object reduceRight(scala.Function2)
 ====    47:47:public java.lang.Object zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    47:47:public java.lang.Object zipWithIndex(scala.collection.generic.CanBuildFrom)
@@ -8553,14 +8592,12 @@ scala.collection.mutable.ArrayOps$ofRef:
 ====    108:108:public java.lang.Object[] transpose(scala.Function1)
 ====    108:108:public scala.collection.parallel.Combiner parCombiner()
 ====    108:108:public scala.collection.IndexedSeq deep()
-====    108:108:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceLeft(scala.Function2)
 ====    108:108:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceRight(scala.Function2)
 ====    108:108:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    108:108:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$init()
 ====    108:108:public boolean scala$collection$IndexedSeqOptimized$$super$endsWith(scala.collection.GenSeq)
 ====    108:108:public scala.Option find(scala.Function1)
 ====    108:108:public java.lang.Object foldRight(java.lang.Object,scala.Function2)
-====    108:108:public java.lang.Object reduceLeft(scala.Function2)
 ====    108:108:public java.lang.Object reduceRight(scala.Function2)
 ====    108:108:public java.lang.Object zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    108:108:public java.lang.Object zipWithIndex(scala.collection.generic.CanBuildFrom)
@@ -8642,10 +8679,7 @@ scala.collection.mutable.ArrayOps$ofRef:
 ====    108:108:public scala.Option reduceOption(scala.Function2)
 ====    108:108:public java.lang.Object fold(java.lang.Object,scala.Function2)
 ====    108:108:public java.lang.Object aggregate(java.lang.Object,scala.Function2,scala.Function2)
-====    108:108:public java.lang.Object sum(scala.math.Numeric)
 ====    108:108:public java.lang.Object product(scala.math.Numeric)
-====    108:108:public java.lang.Object min(scala.math.Ordering)
-====    108:108:public java.lang.Object max(scala.math.Ordering)
 ====    108:108:public java.lang.Object maxBy(scala.Function1,scala.math.Ordering)
 ====    108:108:public java.lang.Object minBy(scala.Function1,scala.math.Ordering)
 ====    108:108:public void copyToArray(java.lang.Object)
@@ -8684,10 +8718,73 @@ scala.collection.mutable.ArrayOps$ofShort
 scala.collection.mutable.ArrayOps$ofShort$
 scala.collection.mutable.ArrayOps$ofUnit
 scala.collection.mutable.ArrayOps$ofUnit$
-scala.collection.mutable.ArraySeq
-scala.collection.mutable.ArraySeq$
-scala.collection.mutable.ArraySeq$$anon$1
-scala.collection.mutable.ArraySeq$$anonfun$newBuilder$1
+scala.collection.mutable.ArraySeq:
+    public static final long serialVersionUID
+====    public static scala.collection.generic.CanBuildFrom canBuildFrom()
+====    public static scala.Some unapplySeq(scala.collection.Seq)
+====    public static scala.collection.GenTraversable iterate(java.lang.Object,int,scala.Function1)
+====    public static scala.collection.GenTraversable range(java.lang.Object,java.lang.Object,java.lang.Object,scala.math.Integral)
+====    public static scala.collection.GenTraversable range(java.lang.Object,java.lang.Object,scala.math.Integral)
+====    public static scala.collection.GenTraversable tabulate(int,int,int,int,int,scala.Function5)
+====    public static scala.collection.GenTraversable tabulate(int,int,int,int,scala.Function4)
+====    public static scala.collection.GenTraversable tabulate(int,int,int,scala.Function3)
+====    public static scala.collection.GenTraversable tabulate(int,int,scala.Function2)
+====    public static scala.collection.GenTraversable tabulate(int,scala.Function1)
+====    public static scala.collection.GenTraversable fill(int,int,int,int,int,scala.Function0)
+====    public static scala.collection.GenTraversable fill(int,int,int,int,scala.Function0)
+====    public static scala.collection.GenTraversable fill(int,int,int,scala.Function0)
+====    public static scala.collection.GenTraversable fill(int,int,scala.Function0)
+====    public static scala.collection.GenTraversable fill(int,scala.Function0)
+====    public static scala.collection.GenTraversable concat(scala.collection.Seq)
+====    public static scala.collection.generic.GenTraversableFactory$GenericCanBuildFrom ReusableCBF()
+====    public static scala.collection.GenTraversable empty()
+====    45:45:public scala.collection.parallel.Combiner parCombiner()
+====    45:45:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceRight(scala.Function2)
+====    45:45:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
+====    45:45:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$init()
+====    45:45:public boolean scala$collection$IndexedSeqOptimized$$super$endsWith(scala.collection.GenSeq)
+====    45:45:public scala.Option find(scala.Function1)
+====    45:45:public java.lang.Object foldRight(java.lang.Object,scala.Function2)
+====    45:45:public java.lang.Object reduceRight(scala.Function2)
+====    45:45:public java.lang.Object zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
+====    45:45:public java.lang.Object zipWithIndex(scala.collection.generic.CanBuildFrom)
+====    45:45:public java.lang.Object init()
+====    45:45:public java.lang.Object takeRight(int)
+====    45:45:public java.lang.Object dropRight(int)
+====    45:45:public scala.Tuple2 splitAt(int)
+====    45:45:public java.lang.Object takeWhile(scala.Function1)
+====    45:45:public java.lang.Object dropWhile(scala.Function1)
+====    45:45:public scala.Tuple2 span(scala.Function1)
+====    45:45:public int indexWhere(scala.Function1,int)
+====    45:45:public int lastIndexWhere(scala.Function1,int)
+====    45:45:public boolean startsWith(scala.collection.GenSeq,int)
+====    45:45:public boolean endsWith(scala.collection.GenSeq)
+====    45:45:public scala.collection.mutable.IndexedSeqView view()
+====    45:45:public scala.collection.mutable.IndexedSeqView view(int,int)
+====    58:58:public scala.collection.parallel.mutable.ParArray par()
+====    45:45:public bridge synthetic scala.collection.GenTraversable toTraversable()
+====    45:45:public bridge synthetic scala.collection.GenMap groupBy(scala.Function1)
+====    45:45:public bridge synthetic scala.collection.GenIterable toIterable()
+====    45:45:public bridge synthetic boolean isDefinedAt(java.lang.Object)
+====    45:45:public bridge synthetic scala.collection.GenSeq toSeq()
+====    45:45:public bridge synthetic scala.collection.TraversableView view(int,int)
+====    45:45:public bridge synthetic scala.collection.IterableView view(int,int)
+====    45:45:public bridge synthetic scala.collection.SeqView view(int,int)
+====    45:45:public bridge synthetic scala.collection.TraversableView view()
+====    45:45:public bridge synthetic scala.collection.IterableView view()
+====    45:45:public bridge synthetic scala.collection.SeqView view()
+====    45:45:public bridge synthetic scala.collection.Traversable toCollection(java.lang.Object)
+====    45:45:public bridge synthetic scala.collection.Iterable toCollection(java.lang.Object)
+====    45:45:public bridge synthetic scala.collection.IndexedSeq toCollection(java.lang.Object)
+====    45:45:public bridge synthetic scala.collection.IndexedSeq thisCollection()
+====    45:45:public bridge synthetic scala.collection.mutable.Traversable seq()
+====    45:45:public bridge synthetic scala.collection.mutable.Iterable seq()
+====    45:45:public bridge synthetic scala.collection.Parallel par()
+scala.collection.mutable.ArraySeq$:
+====    107:107:public scala.collection.generic.CanBuildFrom canBuildFrom()
+====    105:105:private java.lang.Object readResolve()
+scala.collection.mutable.ArraySeq$$anonfun$newBuilder$1:
+    public static final long serialVersionUID
 scala.collection.mutable.ArrayStack
 scala.collection.mutable.ArrayStack$
 scala.collection.mutable.ArrayStack$$anon$1
@@ -9075,14 +9172,10 @@ scala.collection.mutable.ListBuffer:
 ====    45:45:public scala.Option find(scala.Function1)
 ====    45:45:public java.lang.Object foldRight(java.lang.Object,scala.Function2)
 ====    45:45:public java.lang.Object $colon$bslash(java.lang.Object,scala.Function2)
-====    45:45:public java.lang.Object reduceLeft(scala.Function2)
 ====    45:45:public scala.Option reduceLeftOption(scala.Function2)
 ====    45:45:public java.lang.Object reduceRight(scala.Function2)
 ====    45:45:public scala.Option reduceRightOption(scala.Function2)
-====    45:45:public java.lang.Object sum(scala.math.Numeric)
 ====    45:45:public java.lang.Object product(scala.math.Numeric)
-====    45:45:public java.lang.Object min(scala.math.Ordering)
-====    45:45:public java.lang.Object max(scala.math.Ordering)
 ====    45:45:public scala.Option headOption()
 ====    45:45:public scala.Option lastOption()
 ====    45:45:public void copyToArray(java.lang.Object)
@@ -9356,14 +9449,12 @@ scala.collection.mutable.StringBuilder:
 ====    28:28:public boolean $greater(java.lang.Object)
 ====    28:28:public boolean $less$eq(java.lang.Object)
 ====    28:28:public boolean $greater$eq(java.lang.Object)
-====    28:28:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceLeft(scala.Function2)
 ====    28:28:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceRight(scala.Function2)
 ====    28:28:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    28:28:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$init()
 ====    28:28:public boolean scala$collection$IndexedSeqOptimized$$super$endsWith(scala.collection.GenSeq)
 ====    28:28:public scala.Option find(scala.Function1)
 ====    28:28:public java.lang.Object foldRight(java.lang.Object,scala.Function2)
-====    28:28:public java.lang.Object reduceLeft(scala.Function2)
 ====    28:28:public java.lang.Object reduceRight(scala.Function2)
 ====    28:28:public java.lang.Object zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    28:28:public java.lang.Object zipWithIndex(scala.collection.generic.CanBuildFrom)
@@ -9483,14 +9574,12 @@ scala.collection.mutable.WrappedArray:
 ====    public static scala.collection.mutable.WrappedArray empty()
 ====    34:34:public scala.collection.parallel.Combiner parCombiner()
 ====    34:34:public scala.collection.IndexedSeq deep()
-====    34:34:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceLeft(scala.Function2)
 ====    34:34:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceRight(scala.Function2)
 ====    34:34:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    34:34:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$init()
 ====    34:34:public boolean scala$collection$IndexedSeqOptimized$$super$endsWith(scala.collection.GenSeq)
 ====    34:34:public scala.Option find(scala.Function1)
 ====    34:34:public java.lang.Object foldRight(java.lang.Object,scala.Function2)
-====    34:34:public java.lang.Object reduceLeft(scala.Function2)
 ====    34:34:public java.lang.Object reduceRight(scala.Function2)
 ====    34:34:public java.lang.Object zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    34:34:public java.lang.Object zipWithIndex(scala.collection.generic.CanBuildFrom)
@@ -10695,13 +10784,16 @@ scala.math.Equiv$$anon$2
 scala.math.Equiv$$anon$3
 scala.math.Equiv$$anon$4
 scala.math.Equiv$$anonfun$by$1
-scala.math.Fractional
+scala.math.Fractional:
+====    public abstract java.lang.Object div(java.lang.Object,java.lang.Object)
+====    public abstract scala.math.Fractional$FractionalOps mkNumericOps(java.lang.Object)
 scala.math.Fractional$
 scala.math.Fractional$ExtraImplicits
 scala.math.Fractional$ExtraImplicits$class
 scala.math.Fractional$FractionalOps
 scala.math.Fractional$Implicits$
-scala.math.Fractional$class
+scala.math.Fractional$class:
+====    23:23:public static scala.math.Fractional$FractionalOps mkNumericOps(scala.math.Fractional,java.lang.Object)
 scala.math.Integral
 scala.math.Integral$
 scala.math.Integral$ExtraImplicits
@@ -10720,7 +10812,18 @@ scala.math.LowPriorityOrderingImplicits$$anon$7
 scala.math.LowPriorityOrderingImplicits$class:
 ====    149:149:public static scala.math.Ordering ordered(scala.math.LowPriorityOrderingImplicits,scala.Function1)
 ====    152:152:public static scala.math.Ordering comparatorToOrdering(scala.math.LowPriorityOrderingImplicits,java.util.Comparator)
-scala.math.Numeric
+scala.math.Numeric:
+====    public abstract java.lang.Object minus(java.lang.Object,java.lang.Object)
+====    public abstract java.lang.Object times(java.lang.Object,java.lang.Object)
+====    public abstract java.lang.Object negate(java.lang.Object)
+====    public abstract int toInt(java.lang.Object)
+====    public abstract long toLong(java.lang.Object)
+====    public abstract float toFloat(java.lang.Object)
+====    public abstract double toDouble(java.lang.Object)
+====    public abstract java.lang.Object one()
+====    public abstract java.lang.Object abs(java.lang.Object)
+====    public abstract int signum(java.lang.Object)
+====    public abstract scala.math.Numeric$Ops mkNumericOps(java.lang.Object)
 scala.math.Numeric$:
 ====    16:16:private java.lang.Object readResolve()
 scala.math.Numeric$BigDecimalAsIfIntegral
@@ -10743,11 +10846,67 @@ scala.math.Numeric$CharIsIntegral$class
 scala.math.Numeric$DoubleAsIfIntegral
 scala.math.Numeric$DoubleAsIfIntegral$
 scala.math.Numeric$DoubleAsIfIntegral$class
-scala.math.Numeric$DoubleIsConflicted
-scala.math.Numeric$DoubleIsConflicted$class
-scala.math.Numeric$DoubleIsFractional
-scala.math.Numeric$DoubleIsFractional$
-scala.math.Numeric$DoubleIsFractional$class
+scala.math.Numeric$DoubleIsConflicted:
+====    public abstract double plus(double,double)
+====    public abstract double minus(double,double)
+====    public abstract double times(double,double)
+====    public abstract double negate(double)
+====    public abstract double fromInt(int)
+====    public abstract int toInt(double)
+====    public abstract long toLong(double)
+====    public abstract float toFloat(double)
+====    public abstract double toDouble(double)
+scala.math.Numeric$DoubleIsConflicted$class:
+====    143:143:public static double minus(scala.math.Numeric$DoubleIsConflicted,double,double)
+====    144:144:public static double times(scala.math.Numeric$DoubleIsConflicted,double,double)
+====    145:145:public static double negate(scala.math.Numeric$DoubleIsConflicted,double)
+====    147:147:public static int toInt(scala.math.Numeric$DoubleIsConflicted,double)
+====    148:148:public static long toLong(scala.math.Numeric$DoubleIsConflicted,double)
+====    149:149:public static float toFloat(scala.math.Numeric$DoubleIsConflicted,double)
+====    150:150:public static double toDouble(scala.math.Numeric$DoubleIsConflicted,double)
+scala.math.Numeric$DoubleIsFractional:
+====    public abstract double div(double,double)
+scala.math.Numeric$DoubleIsFractional$:
+====    185:185:public boolean lt(double,double)
+====    185:185:public boolean gt(double,double)
+====    185:185:public boolean equiv(double,double)
+====    185:185:public double max(double,double)
+====    185:185:public double min(double,double)
+====    185:185:public scala.math.Ordering reverse()
+====    185:185:public double div(double,double)
+====    185:185:public scala.math.Fractional$FractionalOps mkNumericOps(java.lang.Object)
+====    185:185:public double minus(double,double)
+====    185:185:public double times(double,double)
+====    185:185:public double negate(double)
+====    185:185:public int toInt(double)
+====    185:185:public long toLong(double)
+====    185:185:public float toFloat(double)
+====    185:185:public double toDouble(double)
+====    185:185:public java.lang.Object one()
+====    185:185:public java.lang.Object abs(java.lang.Object)
+====    185:185:public int signum(java.lang.Object)
+====    185:185:public scala.Some tryCompare(java.lang.Object,java.lang.Object)
+====    185:185:public scala.math.Ordering on(scala.Function1)
+====    185:185:public scala.math.Ordering$Ops mkOrderingOps(java.lang.Object)
+====    185:185:private java.lang.Object readResolve()
+====    185:185:public bridge synthetic scala.Option tryCompare(java.lang.Object,java.lang.Object)
+====    185:185:public bridge synthetic double toDouble(java.lang.Object)
+====    185:185:public bridge synthetic float toFloat(java.lang.Object)
+====    185:185:public bridge synthetic long toLong(java.lang.Object)
+====    185:185:public bridge synthetic int toInt(java.lang.Object)
+====    185:185:public bridge synthetic java.lang.Object negate(java.lang.Object)
+====    185:185:public bridge synthetic java.lang.Object times(java.lang.Object,java.lang.Object)
+====    185:185:public bridge synthetic java.lang.Object minus(java.lang.Object,java.lang.Object)
+====    185:185:public bridge synthetic scala.math.Numeric$Ops mkNumericOps(java.lang.Object)
+====    185:185:public bridge synthetic java.lang.Object div(java.lang.Object,java.lang.Object)
+====    185:185:public bridge synthetic scala.math.PartialOrdering reverse()
+====    185:185:public bridge synthetic java.lang.Object min(java.lang.Object,java.lang.Object)
+====    185:185:public bridge synthetic java.lang.Object max(java.lang.Object,java.lang.Object)
+====    185:185:public bridge synthetic boolean equiv(java.lang.Object,java.lang.Object)
+====    185:185:public bridge synthetic boolean gt(java.lang.Object,java.lang.Object)
+====    185:185:public bridge synthetic boolean lt(java.lang.Object,java.lang.Object)
+scala.math.Numeric$DoubleIsFractional$class:
+====    153:153:public static double div(scala.math.Numeric$DoubleIsFractional,double,double)
 scala.math.Numeric$ExtraImplicits
 scala.math.Numeric$ExtraImplicits$class
 scala.math.Numeric$FloatAsIfIntegral
@@ -10769,7 +10928,11 @@ scala.math.Numeric$Ops
 scala.math.Numeric$ShortIsIntegral
 scala.math.Numeric$ShortIsIntegral$
 scala.math.Numeric$ShortIsIntegral$class
-scala.math.Numeric$class
+scala.math.Numeric$class:
+====    201:201:public static java.lang.Object one(scala.math.Numeric)
+====    203:203:public static java.lang.Object abs(scala.math.Numeric,java.lang.Object)
+====    205:207:public static int signum(scala.math.Numeric,java.lang.Object)
+====    221:221:public static scala.math.Numeric$Ops mkNumericOps(scala.math.Numeric,java.lang.Object)
 scala.math.Ordered:
 ====    public abstract boolean $less(java.lang.Object)
 ====    public abstract boolean $greater(java.lang.Object)
@@ -10786,8 +10949,6 @@ scala.math.Ordered$class:
 ====    87:87:public static boolean $greater$eq(scala.math.Ordered,java.lang.Object)
 scala.math.Ordering:
 ====    public abstract scala.Some tryCompare(java.lang.Object,java.lang.Object)
-====    public abstract boolean lteq(java.lang.Object,java.lang.Object)
-====    public abstract boolean gteq(java.lang.Object,java.lang.Object)
 ====    public abstract boolean lt(java.lang.Object,java.lang.Object)
 ====    public abstract boolean gt(java.lang.Object,java.lang.Object)
 ====    public abstract boolean equiv(java.lang.Object,java.lang.Object)
@@ -10842,10 +11003,42 @@ scala.math.Ordering$ByteOrdering$class
 scala.math.Ordering$Char$
 scala.math.Ordering$CharOrdering
 scala.math.Ordering$CharOrdering$class
-scala.math.Ordering$Double$
-scala.math.Ordering$DoubleOrdering
+scala.math.Ordering$Double$:
+====    314:314:public boolean lt(double,double)
+====    314:314:public boolean gt(double,double)
+====    314:314:public boolean equiv(double,double)
+====    314:314:public double max(double,double)
+====    314:314:public double min(double,double)
+====    314:314:public scala.math.Ordering reverse()
+====    314:314:public scala.Some tryCompare(java.lang.Object,java.lang.Object)
+====    314:314:public scala.math.Ordering on(scala.Function1)
+====    314:314:public scala.math.Ordering$Ops mkOrderingOps(java.lang.Object)
+====    314:314:private java.lang.Object readResolve()
+====    314:314:public bridge synthetic scala.Option tryCompare(java.lang.Object,java.lang.Object)
+====    314:314:public bridge synthetic scala.math.PartialOrdering reverse()
+====    314:314:public bridge synthetic java.lang.Object min(java.lang.Object,java.lang.Object)
+====    314:314:public bridge synthetic java.lang.Object max(java.lang.Object,java.lang.Object)
+====    314:314:public bridge synthetic boolean equiv(java.lang.Object,java.lang.Object)
+====    314:314:public bridge synthetic boolean gt(java.lang.Object,java.lang.Object)
+====    314:314:public bridge synthetic boolean lt(java.lang.Object,java.lang.Object)
+scala.math.Ordering$DoubleOrdering:
+====    public abstract int compare(double,double)
+====    public abstract boolean lteq(double,double)
+====    public abstract boolean gteq(double,double)
+====    public abstract boolean lt(double,double)
+====    public abstract boolean gt(double,double)
+====    public abstract boolean equiv(double,double)
+====    public abstract double max(double,double)
+====    public abstract double min(double,double)
+====    public abstract scala.math.Ordering reverse()
 scala.math.Ordering$DoubleOrdering$$anon$2
-scala.math.Ordering$DoubleOrdering$class
+scala.math.Ordering$DoubleOrdering$class:
+====    298:298:public static boolean lt(scala.math.Ordering$DoubleOrdering,double,double)
+====    299:299:public static boolean gt(scala.math.Ordering$DoubleOrdering,double,double)
+====    300:300:public static boolean equiv(scala.math.Ordering$DoubleOrdering,double,double)
+====    301:301:public static double max(scala.math.Ordering$DoubleOrdering,double,double)
+====    302:302:public static double min(scala.math.Ordering$DoubleOrdering,double,double)
+====    304:304:public static scala.math.Ordering reverse(scala.math.Ordering$DoubleOrdering)
 scala.math.Ordering$ExtraImplicits
 scala.math.Ordering$ExtraImplicits$$anon$8
 scala.math.Ordering$ExtraImplicits$class
@@ -10856,8 +11049,6 @@ scala.math.Ordering$FloatOrdering$class
 scala.math.Ordering$Implicits$
 scala.math.Ordering$Int$:
 ====    256:256:public scala.Some tryCompare(java.lang.Object,java.lang.Object)
-====    256:256:public boolean lteq(java.lang.Object,java.lang.Object)
-====    256:256:public boolean gteq(java.lang.Object,java.lang.Object)
 ====    256:256:public boolean lt(java.lang.Object,java.lang.Object)
 ====    256:256:public boolean gt(java.lang.Object,java.lang.Object)
 ====    256:256:public boolean equiv(java.lang.Object,java.lang.Object)
@@ -10888,8 +11079,6 @@ scala.math.Ordering$UnitOrdering
 scala.math.Ordering$UnitOrdering$class
 scala.math.Ordering$class:
 ====    75:75:public static scala.Some tryCompare(scala.math.Ordering,java.lang.Object,java.lang.Object)
-====    88:88:public static boolean lteq(scala.math.Ordering,java.lang.Object,java.lang.Object)
-====    91:91:public static boolean gteq(scala.math.Ordering,java.lang.Object,java.lang.Object)
 ====    94:94:public static boolean lt(scala.math.Ordering,java.lang.Object,java.lang.Object)
 ====    97:97:public static boolean gt(scala.math.Ordering,java.lang.Object,java.lang.Object)
 ====    100:100:public static boolean equiv(scala.math.Ordering,java.lang.Object,java.lang.Object)
@@ -11371,7 +11560,6 @@ scala.runtime.AbstractFunction1:
 ====    12:12:public float apply$mcFD$sp(double)
 ====    12:12:public int apply$mcID$sp(double)
 ====    12:12:public long apply$mcJD$sp(double)
-====    12:12:public void apply$mcVD$sp(double)
 ====    12:12:public boolean apply$mcZF$sp(float)
 ====    12:12:public double apply$mcDF$sp(float)
 ====    12:12:public float apply$mcFF$sp(float)
@@ -11455,7 +11643,6 @@ scala.runtime.AbstractFunction1$mcJD$sp
 scala.runtime.AbstractFunction1$mcJF$sp
 scala.runtime.AbstractFunction1$mcJI$sp
 scala.runtime.AbstractFunction1$mcJJ$sp
-scala.runtime.AbstractFunction1$mcVD$sp
 scala.runtime.AbstractFunction1$mcVF$sp
 scala.runtime.AbstractFunction1$mcVJ$sp
 scala.runtime.AbstractFunction1$mcZD$sp
@@ -11797,7 +11984,8 @@ scala.runtime.BoxesRunTime:
 ====    821:828:public static java.lang.Double toDouble(java.lang.Object)
 scala.runtime.ByteRef
 scala.runtime.CharRef
-scala.runtime.DoubleRef
+scala.runtime.DoubleRef:
+    private static final long serialVersionUID
 scala.runtime.EmptyMethodCache
 scala.runtime.FloatRef
 scala.runtime.FractionalProxy

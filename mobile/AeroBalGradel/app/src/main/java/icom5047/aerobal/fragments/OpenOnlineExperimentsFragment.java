@@ -36,6 +36,7 @@ import icom5047.aerobal.http.HttpRequest;
 import icom5047.aerobal.http.Server;
 import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
+import icom5047.aerobal.resources.UnitFactory;
 
 /**
  * Created by enrique on 4/26/14.
@@ -191,8 +192,11 @@ public class OpenOnlineExperimentsFragment extends Fragment{
 
         samples.setText(""+experiment.amountOfValues());
         timeInterval.setText(""+experiment.frequency());
-        //TODO: Format when value set
-        windSpeed.setText(""+nf.format(experiment.windSpeed()));
+
+
+        double newVal = UnitFactory.Speed.convert(experiment.windSpeed(), UnitFactory.Speed.DEFAULT, unitController.getCurrentType(UnitFactory.Type.SPEED));
+
+        windSpeed.setText(""+nf.format(newVal));
         windSpeedUnit.setText(unitController.getCurrentSpeedUnit());
 
 

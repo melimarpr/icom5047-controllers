@@ -74,6 +74,8 @@
     <eat-comment />
 
     <string name="email">Email</string>
+    <string name="frag_data_raw_full_exp_no_display">Data Showed Only By Runs</string>
+    <string name="frag_data_raw_no_data">No Data Recollected</string>
     <string name="frag_exp_sum_interval">Time Interval:</string>
     <string name="frag_exp_sum_parameters">Parameters:</string>
     <string name="frag_exp_sum_samples">Samples:</string>

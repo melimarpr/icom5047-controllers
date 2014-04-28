@@ -35,6 +35,18 @@
             android:layout_gravity="center" />
 
 
+
     </LinearLayout>
+
+    <TextView
+        android:visibility="gone"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/frag_data_raw_no_data"
+        android:id="@+id/fragDataRawNoData"
+        android:layout_gravity="center_horizontal" />
+
 
 </LinearLayout>

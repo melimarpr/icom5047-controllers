@@ -51,6 +51,10 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
     private volatile ExperimentController experimentController;
     private volatile UnitController unitController;
 
+    //Fragment References
+    private DataRawDataFragment dataRawDataFragment;
+    private DataSummaryFragment dataSummaryFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +122,9 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                adapterView.getItemAtPosition(i);
+                SpinnerContainer spinnerContainer = (SpinnerContainer) adapterView.getItemAtPosition(i);
+                experimentController.setActiveRun(spinnerContainer);
+                refresh();
             }
 
             @Override
@@ -134,11 +140,6 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
 
 
     }
-
-    private int generatePositionForSpinner(int activeRun){
-        return 0;
-    }
-
 
 
 
@@ -201,10 +202,15 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            Fragment returnFrag = DataSummaryFragment.getInstance(experimentController, unitController);
+
+            dataSummaryFragment = DataSummaryFragment.getInstance(experimentController, unitController);
+            dataRawDataFragment = DataRawDataFragment.getInstance(experimentController, unitController);
+
+            Fragment returnFrag = dataSummaryFragment;
             switch (position){
                 case 1:
-                    returnFrag = DataRawDataFragment.getInstance(experimentController, unitController);
+
+                    returnFrag = dataRawDataFragment;
                     break;
             }
 
@@ -228,6 +234,13 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
             }
             return null;
         }
+    }
+
+    public void refresh(){
+
+        dataRawDataFragment.fullRefresh(experimentController.getActiveRun());
+        dataSummaryFragment.fullRefresh(experimentController.getActiveRun());
+
     }
 
     @Override
@@ -285,7 +298,6 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
 
 
         builder.create().show();
-
 
     }
 
