@@ -435,6 +435,8 @@ icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.controllers.Uni
 icom5047.aerobal.activities.DataDetailActivity: void refresh()
 icom5047.aerobal.activities.DataDetailActivity: boolean onCreateOptionsMenu(android.view.Menu)
 icom5047.aerobal.activities.DataDetailActivity: void showGraphDialog()
+icom5047.aerobal.activities.DataDetailActivity: double[] getGraphValues(icom5047.aerobal.containers.SpinnerContainer)
+icom5047.aerobal.activities.DataDetailActivity: double[] getTimeValues(icom5047.aerobal.containers.SpinnerContainer)
 icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.controllers.ExperimentController access$000(icom5047.aerobal.activities.DataDetailActivity)
 icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.fragments.DataSummaryFragment access$102(icom5047.aerobal.activities.DataDetailActivity,icom5047.aerobal.fragments.DataSummaryFragment)
 icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.controllers.UnitController access$200(icom5047.aerobal.activities.DataDetailActivity)
@@ -745,6 +747,7 @@ icom5047.aerobal.activities.R$id: int drawer_layout
 icom5047.aerobal.activities.R$id: int drawer_list
 icom5047.aerobal.activities.R$id: int fragDataRawContainer
 icom5047.aerobal.activities.R$id: int fragDataRawList
+icom5047.aerobal.activities.R$id: int fragDataRawNoData
 icom5047.aerobal.activities.R$id: int fragDataRawSpinner
 icom5047.aerobal.activities.R$id: int fragDataSumContainer
 icom5047.aerobal.activities.R$id: int fragDataSumList
@@ -888,6 +891,8 @@ icom5047.aerobal.activities.R$string: int dialog_units_temperature
 icom5047.aerobal.activities.R$string: int drawer_close
 icom5047.aerobal.activities.R$string: int drawer_open
 icom5047.aerobal.activities.R$string: int email
+icom5047.aerobal.activities.R$string: int frag_data_raw_full_exp_no_display
+icom5047.aerobal.activities.R$string: int frag_data_raw_no_data
 icom5047.aerobal.activities.R$string: int frag_exp_sum_interval
 icom5047.aerobal.activities.R$string: int frag_exp_sum_parameters
 icom5047.aerobal.activities.R$string: int frag_exp_sum_samples
@@ -1058,7 +1063,7 @@ icom5047.aerobal.comm.BluetoothTimer: BluetoothTimer()
 icom5047.aerobal.comm.BluetoothTimer: void reset()
 icom5047.aerobal.comm.BluetoothTimer: void runTask(java.util.TimerTask,long)
 icom5047.aerobal.containers.RawContainer
-icom5047.aerobal.containers.RawContainer: long seconds
+icom5047.aerobal.containers.RawContainer: long nanoseconds
 icom5047.aerobal.containers.RawContainer: double value
 icom5047.aerobal.containers.RawContainer: RawContainer(long,double)
 icom5047.aerobal.containers.SpinnerContainer
@@ -1139,6 +1144,7 @@ icom5047.aerobal.controllers.UnitController: void setCurrentType(int,int)
 icom5047.aerobal.controllers.UnitController: java.lang.Integer getCurrentType(int)
 icom5047.aerobal.controllers.UnitController: java.lang.String getCurrentUnitForType(int)
 icom5047.aerobal.controllers.UnitController: icom5047.aerobal.dialog.UnitsDialog getDialog(icom5047.aerobal.interfaces.AeroCallback)
+icom5047.aerobal.controllers.UnitController: double convertFromDefaultToCurrent(int,double)
 icom5047.aerobal.controllers.UnitController$1
 icom5047.aerobal.controllers.UnitController$1: icom5047.aerobal.interfaces.AeroCallback val$refreshCallback
 icom5047.aerobal.controllers.UnitController$1: icom5047.aerobal.controllers.UnitController this$0
@@ -1275,16 +1281,22 @@ icom5047.aerobal.fragments.DataRawDataFragment
 icom5047.aerobal.fragments.DataRawDataFragment: icom5047.aerobal.controllers.ExperimentController experimentController
 icom5047.aerobal.fragments.DataRawDataFragment: icom5047.aerobal.controllers.UnitController unitController
 icom5047.aerobal.fragments.DataRawDataFragment: icom5047.aerobal.containers.SpinnerContainer currContainer
+icom5047.aerobal.fragments.DataRawDataFragment: android.widget.LinearLayout linearLayout
+icom5047.aerobal.fragments.DataRawDataFragment: android.widget.TextView noDataText
 icom5047.aerobal.fragments.DataRawDataFragment: android.widget.ListView listView
 icom5047.aerobal.fragments.DataRawDataFragment: DataRawDataFragment()
 icom5047.aerobal.fragments.DataRawDataFragment: icom5047.aerobal.fragments.DataRawDataFragment getInstance(icom5047.aerobal.controllers.ExperimentController,icom5047.aerobal.controllers.UnitController)
 icom5047.aerobal.fragments.DataRawDataFragment: void setExperimentController(icom5047.aerobal.controllers.ExperimentController)
 icom5047.aerobal.fragments.DataRawDataFragment: void setUnitController(icom5047.aerobal.controllers.UnitController)
 icom5047.aerobal.fragments.DataRawDataFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
+icom5047.aerobal.fragments.DataRawDataFragment: void onResume()
 icom5047.aerobal.fragments.DataRawDataFragment: void fullRefresh(icom5047.aerobal.containers.SpinnerContainer)
-icom5047.aerobal.fragments.DataRawDataFragment: void refresh(icom5047.aerobal.containers.SpinnerContainer)
+icom5047.aerobal.fragments.DataRawDataFragment: void refresh()
+icom5047.aerobal.fragments.DataRawDataFragment: java.util.List getRawData()
+icom5047.aerobal.fragments.DataRawDataFragment: icom5047.aerobal.containers.SpinnerContainer access$002(icom5047.aerobal.fragments.DataRawDataFragment,icom5047.aerobal.containers.SpinnerContainer)
+icom5047.aerobal.fragments.DataRawDataFragment: android.widget.ListView access$100(icom5047.aerobal.fragments.DataRawDataFragment)
 icom5047.aerobal.fragments.DataRawDataFragment: icom5047.aerobal.containers.SpinnerContainer access$000(icom5047.aerobal.fragments.DataRawDataFragment)
-icom5047.aerobal.fragments.DataRawDataFragment: icom5047.aerobal.controllers.UnitController access$100(icom5047.aerobal.fragments.DataRawDataFragment)
+icom5047.aerobal.fragments.DataRawDataFragment: icom5047.aerobal.controllers.UnitController access$200(icom5047.aerobal.fragments.DataRawDataFragment)
 icom5047.aerobal.fragments.DataRawDataFragment$1
 icom5047.aerobal.fragments.DataRawDataFragment$1: icom5047.aerobal.fragments.DataRawDataFragment this$0
 icom5047.aerobal.fragments.DataRawDataFragment$1: DataRawDataFragment$1(icom5047.aerobal.fragments.DataRawDataFragment)
@@ -1292,7 +1304,7 @@ icom5047.aerobal.fragments.DataRawDataFragment$1: void onItemSelected(android.wi
 icom5047.aerobal.fragments.DataRawDataFragment$1: void onNothingSelected(android.widget.AdapterView)
 icom5047.aerobal.fragments.DataRawDataFragment$RawDataAdapter
 icom5047.aerobal.fragments.DataRawDataFragment$RawDataAdapter: icom5047.aerobal.fragments.DataRawDataFragment this$0
-icom5047.aerobal.fragments.DataRawDataFragment$RawDataAdapter: DataRawDataFragment$RawDataAdapter(icom5047.aerobal.fragments.DataRawDataFragment,android.content.Context,icom5047.aerobal.containers.RawContainer[])
+icom5047.aerobal.fragments.DataRawDataFragment$RawDataAdapter: DataRawDataFragment$RawDataAdapter(icom5047.aerobal.fragments.DataRawDataFragment,android.content.Context,java.util.List)
 icom5047.aerobal.fragments.DataRawDataFragment$RawDataAdapter: android.view.View getView(int,android.view.View,android.view.ViewGroup)
 icom5047.aerobal.fragments.DataRawDataFragment$RawDataAdapter: boolean isEnabled(int)
 icom5047.aerobal.fragments.DataSummaryFragment
@@ -1305,11 +1317,14 @@ icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.fragments.DataS
 icom5047.aerobal.fragments.DataSummaryFragment: void setUnitController(icom5047.aerobal.controllers.UnitController)
 icom5047.aerobal.fragments.DataSummaryFragment: void setExperimentController(icom5047.aerobal.controllers.ExperimentController)
 icom5047.aerobal.fragments.DataSummaryFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
+icom5047.aerobal.fragments.DataSummaryFragment: void onResume()
 icom5047.aerobal.fragments.DataSummaryFragment: void fullRefresh(icom5047.aerobal.containers.SpinnerContainer)
-icom5047.aerobal.fragments.DataSummaryFragment: void refresh(icom5047.aerobal.containers.SpinnerContainer)
+icom5047.aerobal.fragments.DataSummaryFragment: void refresh()
 icom5047.aerobal.fragments.DataSummaryFragment: java.util.List getSummaryDetails()
+icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.containers.SpinnerContainer access$002(icom5047.aerobal.fragments.DataSummaryFragment,icom5047.aerobal.containers.SpinnerContainer)
+icom5047.aerobal.fragments.DataSummaryFragment: android.widget.ListView access$100(icom5047.aerobal.fragments.DataSummaryFragment)
 icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.containers.SpinnerContainer access$000(icom5047.aerobal.fragments.DataSummaryFragment)
-icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.controllers.UnitController access$100(icom5047.aerobal.fragments.DataSummaryFragment)
+icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.controllers.UnitController access$200(icom5047.aerobal.fragments.DataSummaryFragment)
 icom5047.aerobal.fragments.DataSummaryFragment$1
 icom5047.aerobal.fragments.DataSummaryFragment$1: icom5047.aerobal.fragments.DataSummaryFragment this$0
 icom5047.aerobal.fragments.DataSummaryFragment$1: DataSummaryFragment$1(icom5047.aerobal.fragments.DataSummaryFragment)
@@ -1547,11 +1562,6 @@ icom5047.aerobal.http.Server$User: Server$User()
 icom5047.aerobal.http.Server$User: void <clinit>()
 icom5047.aerobal.interfaces.AeroCallback
 icom5047.aerobal.interfaces.AeroCallback: void callback(java.util.Map)
-icom5047.aerobal.mockers.Mocker
-icom5047.aerobal.mockers.Mocker: Mocker()
-icom5047.aerobal.mockers.Mocker: icom5047.aerobal.containers.RawContainer[] generateRawContainer(int)
-icom5047.aerobal.mockers.Mocker: java.util.List generateFakeSessions(int)
-icom5047.aerobal.mockers.Mocker: double[] generateLinearDoubleArray(int)
 icom5047.aerobal.resources.GlobalConstants
 icom5047.aerobal.resources.GlobalConstants: int CharacterLimit
 icom5047.aerobal.resources.GlobalConstants: double WindSpeedMinimumKMPH
@@ -1592,6 +1602,7 @@ icom5047.aerobal.resources.GlobalConstants$Measurements: java.util.Map measureme
 icom5047.aerobal.resources.GlobalConstants$Measurements: java.util.Map measurementToStringMapping()
 icom5047.aerobal.resources.GlobalConstants$Measurements: java.util.List getMeasurementListSpinner()
 icom5047.aerobal.resources.GlobalConstants$Measurements: java.util.List getGraphListSpinner()
+icom5047.aerobal.resources.GlobalConstants$Measurements: com.aerobal.data.objects.measurementTypes.MeasurementType getMessurmentTypeForSpinner(icom5047.aerobal.containers.SpinnerContainer)
 icom5047.aerobal.resources.GlobalConstants$Measurements: void <clinit>()
 icom5047.aerobal.resources.Keys
 icom5047.aerobal.resources.Keys: Keys()
@@ -1649,6 +1660,9 @@ icom5047.aerobal.resources.Keys$SharedPref: java.lang.String SessionId
 icom5047.aerobal.resources.Keys$SharedPref: java.lang.String ExperimentId
 icom5047.aerobal.resources.Keys$SharedPref: Keys$SharedPref()
 icom5047.aerobal.resources.Keys$SharedPref: void <clinit>()
+icom5047.aerobal.resources.TimeUtils
+icom5047.aerobal.resources.TimeUtils: TimeUtils()
+icom5047.aerobal.resources.TimeUtils: double fromNanoToMilis(long)
 icom5047.aerobal.resources.UnitFactory
 icom5047.aerobal.resources.UnitFactory: UnitFactory()
 icom5047.aerobal.resources.UnitFactory: java.util.Map getAllUnits()

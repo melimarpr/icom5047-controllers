@@ -46,6 +46,7 @@ import icom5047.aerobal.dialog.NewDialog;
 import icom5047.aerobal.dialog.OpenDialog;
 import icom5047.aerobal.fragments.EmptyFragment;
 import icom5047.aerobal.fragments.ExperimentFragment;
+import icom5047.aerobal.fragments.LoadingFragment;
 import icom5047.aerobal.interfaces.AeroCallback;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
@@ -151,6 +152,9 @@ public class MainActivity extends FragmentActivity {
         mDrawerAdapter.clear();
         mDrawerAdapter.addAll(userController.getDrawerList());
         mDrawerAdapter.notifyDataSetChanged();
+        if(experimentController.isRunning()){
+            setWaitingFragment();
+        }
 
     }
 
@@ -185,6 +189,10 @@ public class MainActivity extends FragmentActivity {
         menu.findItem(R.id.ab_btn_units).setVisible(!drawerOpen);
         if(btController.isAeroBalConnected()){
 
+        }
+
+        if(experimentController.isRunning()){
+            getActionBar().setHomeButtonEnabled(false);
         }
 
         if (expMenuBoolean) {
@@ -661,6 +669,29 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
+    public void setResetExperiment(){
+
+
+        setExperimentMenuVisibility(true);
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.content_frame, ExperimentFragment.getExperimentFragment(experimentController, unitController), Keys.FragmentTag.ExperimentTag);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.commit();
+        invalidateOptionsMenu();
+    }
+
+    private void setWaitingFragment(){
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.content_frame, LoadingFragment.newInstance("Running Experiment..."), Keys.FragmentTag.ExperimentTag);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.commit();
+        setExperimentMenuVisibility(false);
+        invalidateOptionsMenu();
+
+    }
 
 
 }

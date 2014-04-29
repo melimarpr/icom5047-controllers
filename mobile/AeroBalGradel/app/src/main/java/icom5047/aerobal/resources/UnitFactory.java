@@ -59,6 +59,22 @@ public class UnitFactory {
         }
 
         public static double convert(double value, int from, int to) {
+            switch (from){
+
+                case UNIT_PASCAL:
+                    switch (to){
+                        case UNIT_PSI:
+                            return  value/6894.75729;
+                    }
+                break;
+                case UNIT_PSI:
+                    switch (to){
+                        case UNIT_PASCAL:
+                            return value*6894.75729;
+                    }
+
+                break;
+            }
             return value;
         }
 
@@ -198,6 +214,38 @@ public class UnitFactory {
         }
 
         public static double convert(double value, int from, int to) {
+            switch (from) {
+                case UNIT_KMPH:
+                    switch (to) {
+                        case UNIT_MS:
+                            return (value*1000)/3600;
+                        case UNIT_MPH:
+                            return value * 0.621371;
+                    }
+                    break;
+                case UNIT_MS:
+                    switch (to) {
+                        case UNIT_MPH:
+                            return value * 2.23694;
+                        case UNIT_KMPH:
+                            return (value*3600)/1000;
+
+                    }
+                    break;
+
+                case UNIT_MPH:
+                    switch (to) {
+                        case UNIT_MS:
+                            return value * 0.44704;
+                        case UNIT_KMPH:
+                            return value *1.60934;
+
+                    }
+                    break;
+
+            }
+
+
             return value;
         }
     }
@@ -261,6 +309,22 @@ public class UnitFactory {
         }
 
         public static double convert(double value, int from, int to) {
+            switch (from){
+
+                case UNIT_POUNDS:
+                    switch (to){
+                        case UNIT_NEWTON:
+                            return value*4.44822162825;
+                    }
+                    break;
+                case UNIT_NEWTON:
+                    switch (to){
+                        case UNIT_POUNDS:
+                            return value/4.44822162825;
+                    }
+
+                    break;
+            }
             return value;
         }
 

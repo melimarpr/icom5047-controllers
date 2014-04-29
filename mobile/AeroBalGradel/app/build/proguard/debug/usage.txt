@@ -1441,7 +1441,6 @@ com.aerobal.data.objects.Measurement:
 ====    12:12:public void setTimestamp(java.sql.Timestamp)
 ====    9:9:public com.aerobal.data.objects.measurementTypes.MeasurementType getTypeOf()
 ====    11:11:public long getId()
-====    12:12:public java.sql.Timestamp getTimestamp()
 ====    9:10:public com.aerobal.data.objects.Measurement copy(com.aerobal.data.objects.measurementTypes.MeasurementType,double)
 ====    9:9:public com.aerobal.data.objects.measurementTypes.MeasurementType copy$default$1()
 ====    10:10:public double copy$default$2()
@@ -1457,49 +1456,16 @@ com.aerobal.data.objects.Run:
 ====    9:9:public com.aerobal.data.objects.Run copy()
 ====    14:16:public Run(com.aerobal.data.dto.RunDto)
 com.aerobal.data.objects.Run$
-com.aerobal.data.objects.Session:
-    private long id
-====    public static scala.Function1 tupled()
-====    public static scala.Function1 curried()
-====    8:8:public void name_$eq(java.lang.String)
-====    8:8:public void setName(java.lang.String)
-====    9:9:public void description_$eq(java.lang.String)
-====    9:9:public void setDescription(java.lang.String)
-====    10:10:public void isPublic_$eq(boolean)
-====    10:10:public void setIsPublic(boolean)
-====    11:11:public long id()
-====    11:11:public void id_$eq(long)
-====    11:11:public void setId(long)
-====    12:12:public java.sql.Timestamp timestamp()
-====    12:12:public void timestamp_$eq(java.sql.Timestamp)
-====    12:12:public void setTimestamp(java.sql.Timestamp)
-====    8:8:public java.lang.String getName()
-====    9:9:public java.lang.String getDescription()
-====    10:10:public boolean getIsPublic()
-====    11:11:public long getId()
-====    12:12:public java.sql.Timestamp getTimestamp()
-====    8:10:public com.aerobal.data.objects.Session copy(java.lang.String,java.lang.String,boolean)
-====    8:8:public java.lang.String copy$default$1()
-====    9:9:public java.lang.String copy$default$2()
-====    10:10:public boolean copy$default$3()
-====    15:17:public Session(com.aerobal.data.dto.SessionDto)
+com.aerobal.data.objects.Session
 com.aerobal.data.objects.Session$
 com.aerobal.data.objects.Stats:
 ====    public static scala.Function1 andThen(scala.Function1)
 ====    public static scala.Function1 compose(scala.Function1)
-====    11:11:public double max()
 ====    11:11:public void setMax(double)
-====    12:12:public double min()
 ====    12:12:public void setMin(double)
 ====    13:13:public void setMean(double)
-====    14:14:public double median()
 ====    14:14:public void setMedian(double)
-====    15:15:public double standardDeviation()
 ====    15:15:public void setStandardDeviation(double)
-====    11:11:public double getMax()
-====    12:12:public double getMin()
-====    14:14:public double getMedian()
-====    15:15:public double getStandardDeviation()
 ====    10:10:public com.aerobal.data.objects.Stats copy(com.aerobal.data.objects.measurementTypes.MeasurementType)
 ====    10:10:public com.aerobal.data.objects.measurementTypes.MeasurementType copy$default$1()
 com.aerobal.data.objects.Stats$
@@ -3828,7 +3794,6 @@ scala.Predef$:
 ====    178:179:public final void assert(boolean,scala.Function0)
 ====    193:194:public void assume(boolean)
 ====    209:210:public final void assume(boolean,scala.Function0)
-====    220:221:public void require(boolean)
 ====    232:233:public final void require(boolean,scala.Function0)
 ====    247:247:public java.lang.Object any2Ensuring(java.lang.Object)
 ====    252:252:public scala.runtime.Nothing$ $qmark$qmark$qmark()
@@ -5511,8 +5476,112 @@ scala.collection.Iterator$class:
 ====    1132:1137:public static boolean sameElements(scala.collection.Iterator,scala.collection.Iterator)
 ====    1140:1140:public static scala.collection.Traversable toTraversable(scala.collection.Iterator)
 ====    1141:1141:public static scala.collection.Iterator toIterator(scala.collection.Iterator)
-scala.collection.JavaConversions
-scala.collection.JavaConversions$
+scala.collection.JavaConversions:
+====    public static scala.collection.mutable.ConcurrentMap mapAsScalaDeprecatedConcurrentMap(java.util.concurrent.ConcurrentMap)
+====    public static scala.collection.mutable.Map propertiesAsScalaMap(java.util.Properties)
+====    public static scala.collection.mutable.Map dictionaryAsScalaMap(java.util.Dictionary)
+====    public static scala.collection.concurrent.Map mapAsScalaConcurrentMap(java.util.concurrent.ConcurrentMap)
+====    public static scala.collection.mutable.ConcurrentMap asScalaConcurrentMap(java.util.concurrent.ConcurrentMap)
+====    public static scala.collection.mutable.Map mapAsScalaMap(java.util.Map)
+====    public static scala.collection.mutable.Set asScalaSet(java.util.Set)
+====    public static scala.collection.mutable.Buffer asScalaBuffer(java.util.List)
+====    public static scala.collection.Iterable collectionAsScalaIterable(java.util.Collection)
+====    public static scala.collection.Iterable iterableAsScalaIterable(java.lang.Iterable)
+====    public static scala.collection.Iterator enumerationAsScalaIterator(java.util.Enumeration)
+====    public static scala.collection.Iterator asScalaIterator(java.util.Iterator)
+====    public static java.util.concurrent.ConcurrentMap mapAsJavaConcurrentMap(scala.collection.concurrent.Map)
+====    public static java.util.concurrent.ConcurrentMap asJavaConcurrentMap(scala.collection.mutable.ConcurrentMap)
+====    public static java.util.Map mapAsJavaMap(scala.collection.Map)
+====    public static java.util.Dictionary asJavaDictionary(scala.collection.mutable.Map)
+====    public static java.util.Map mutableMapAsJavaMap(scala.collection.mutable.Map)
+====    public static java.util.Set setAsJavaSet(scala.collection.Set)
+====    public static java.util.Set mutableSetAsJavaSet(scala.collection.mutable.Set)
+====    public static java.util.List seqAsJavaList(scala.collection.Seq)
+====    public static java.util.List mutableSeqAsJavaList(scala.collection.mutable.Seq)
+====    public static java.util.List bufferAsJavaList(scala.collection.mutable.Buffer)
+====    public static java.util.Collection asJavaCollection(scala.collection.Iterable)
+====    public static java.lang.Iterable asJavaIterable(scala.collection.Iterable)
+====    public static java.util.Enumeration asJavaEnumeration(scala.collection.Iterator)
+====    public static java.util.Iterator asJavaIterator(scala.collection.Iterator)
+====    public static scala.collection.mutable.Map asScalaMap(java.util.Properties)
+====    public static scala.collection.mutable.Map asScalaMap(java.util.Map)
+====    public static scala.collection.Iterable asScalaIterable(java.util.Collection)
+====    public static scala.collection.Iterable asScalaIterable(java.lang.Iterable)
+====    public static java.util.Map asJavaMap(scala.collection.Map)
+====    public static java.util.Map asJavaMap(scala.collection.mutable.Map)
+====    public static java.util.Set asJavaSet(scala.collection.Set)
+====    public static java.util.Set asJavaSet(scala.collection.mutable.Set)
+====    public static java.util.List asJavaList(scala.collection.mutable.Seq)
+====    public static scala.collection.convert.Wrappers$SeqWrapper$ SeqWrapper()
+====    public static scala.collection.convert.Wrappers$MutableSetWrapper$ MutableSetWrapper()
+====    public static scala.collection.convert.Wrappers$MutableSeqWrapper$ MutableSeqWrapper()
+====    public static scala.collection.convert.Wrappers$MutableMapWrapper$ MutableMapWrapper()
+====    public static scala.collection.convert.Wrappers$MutableBufferWrapper$ MutableBufferWrapper()
+====    public static scala.collection.convert.Wrappers$JSetWrapper$ JSetWrapper()
+====    public static scala.collection.convert.Wrappers$JPropertiesWrapper$ JPropertiesWrapper()
+====    public static scala.collection.convert.Wrappers$JMapWrapper$ JMapWrapper()
+====    public static scala.collection.convert.Wrappers$JListWrapper$ JListWrapper()
+====    public static scala.collection.convert.Wrappers$JIteratorWrapper$ JIteratorWrapper()
+====    public static scala.collection.convert.Wrappers$JIterableWrapper$ JIterableWrapper()
+====    public static scala.collection.convert.Wrappers$JEnumerationWrapper$ JEnumerationWrapper()
+====    public static scala.collection.convert.Wrappers$JDictionaryWrapper$ JDictionaryWrapper()
+====    public static scala.collection.convert.Wrappers$JConcurrentMapWrapper$ JConcurrentMapWrapper()
+====    public static scala.collection.convert.Wrappers$JCollectionWrapper$ JCollectionWrapper()
+====    public static scala.collection.convert.Wrappers$IteratorWrapper$ IteratorWrapper()
+====    public static scala.collection.convert.Wrappers$IterableWrapper$ IterableWrapper()
+====    public static scala.collection.convert.Wrappers$DictionaryWrapper$ DictionaryWrapper()
+scala.collection.JavaConversions$:
+====    53:53:public java.util.Iterator asJavaIterator(scala.collection.Iterator)
+====    53:53:public java.util.Enumeration asJavaEnumeration(scala.collection.Iterator)
+====    53:53:public java.lang.Iterable asJavaIterable(scala.collection.Iterable)
+====    53:53:public java.util.Collection asJavaCollection(scala.collection.Iterable)
+====    53:53:public java.util.List mutableSeqAsJavaList(scala.collection.mutable.Seq)
+====    53:53:public java.util.Set mutableSetAsJavaSet(scala.collection.mutable.Set)
+====    53:53:public java.util.Set setAsJavaSet(scala.collection.Set)
+====    53:53:public java.util.Map mutableMapAsJavaMap(scala.collection.mutable.Map)
+====    53:53:public java.util.Dictionary asJavaDictionary(scala.collection.mutable.Map)
+====    53:53:public java.util.Map mapAsJavaMap(scala.collection.Map)
+====    53:53:public java.util.concurrent.ConcurrentMap asJavaConcurrentMap(scala.collection.mutable.ConcurrentMap)
+====    53:53:public java.util.concurrent.ConcurrentMap mapAsJavaConcurrentMap(scala.collection.concurrent.Map)
+====    53:53:public scala.collection.Iterator asScalaIterator(java.util.Iterator)
+====    53:53:public scala.collection.Iterator enumerationAsScalaIterator(java.util.Enumeration)
+====    53:53:public scala.collection.Iterable iterableAsScalaIterable(java.lang.Iterable)
+====    53:53:public scala.collection.Iterable collectionAsScalaIterable(java.util.Collection)
+====    53:53:public scala.collection.mutable.Buffer asScalaBuffer(java.util.List)
+====    53:53:public scala.collection.mutable.Set asScalaSet(java.util.Set)
+====    53:53:public scala.collection.mutable.Map mapAsScalaMap(java.util.Map)
+====    53:53:public scala.collection.mutable.ConcurrentMap asScalaConcurrentMap(java.util.concurrent.ConcurrentMap)
+====    53:53:public scala.collection.concurrent.Map mapAsScalaConcurrentMap(java.util.concurrent.ConcurrentMap)
+====    53:53:public scala.collection.mutable.Map dictionaryAsScalaMap(java.util.Dictionary)
+====    53:53:public scala.collection.mutable.Map propertiesAsScalaMap(java.util.Properties)
+====    53:53:public scala.collection.mutable.ConcurrentMap mapAsScalaDeprecatedConcurrentMap(java.util.concurrent.ConcurrentMap)
+====    76:76:public scala.collection.convert.Wrappers$DictionaryWrapper$ DictionaryWrapper()
+====    77:77:public scala.collection.convert.Wrappers$IterableWrapper$ IterableWrapper()
+====    78:78:public scala.collection.convert.Wrappers$IteratorWrapper$ IteratorWrapper()
+====    79:79:public scala.collection.convert.Wrappers$JCollectionWrapper$ JCollectionWrapper()
+====    80:80:public scala.collection.convert.Wrappers$JConcurrentMapWrapper$ JConcurrentMapWrapper()
+====    81:81:public scala.collection.convert.Wrappers$JDictionaryWrapper$ JDictionaryWrapper()
+====    82:82:public scala.collection.convert.Wrappers$JEnumerationWrapper$ JEnumerationWrapper()
+====    83:83:public scala.collection.convert.Wrappers$JIterableWrapper$ JIterableWrapper()
+====    84:84:public scala.collection.convert.Wrappers$JIteratorWrapper$ JIteratorWrapper()
+====    85:85:public scala.collection.convert.Wrappers$JListWrapper$ JListWrapper()
+====    86:86:public scala.collection.convert.Wrappers$JMapWrapper$ JMapWrapper()
+====    87:87:public scala.collection.convert.Wrappers$JPropertiesWrapper$ JPropertiesWrapper()
+====    88:88:public scala.collection.convert.Wrappers$JSetWrapper$ JSetWrapper()
+====    89:89:public scala.collection.convert.Wrappers$MutableBufferWrapper$ MutableBufferWrapper()
+====    90:90:public scala.collection.convert.Wrappers$MutableMapWrapper$ MutableMapWrapper()
+====    91:91:public scala.collection.convert.Wrappers$MutableSeqWrapper$ MutableSeqWrapper()
+====    92:92:public scala.collection.convert.Wrappers$MutableSetWrapper$ MutableSetWrapper()
+====    93:93:public scala.collection.convert.Wrappers$SeqWrapper$ SeqWrapper()
+====    102:102:public java.util.List asJavaList(scala.collection.mutable.Seq)
+====    108:108:public java.util.Set asJavaSet(scala.collection.mutable.Set)
+====    111:111:public java.util.Set asJavaSet(scala.collection.Set)
+====    114:114:public java.util.Map asJavaMap(scala.collection.mutable.Map)
+====    117:117:public java.util.Map asJavaMap(scala.collection.Map)
+====    120:120:public scala.collection.Iterable asScalaIterable(java.lang.Iterable)
+====    123:123:public scala.collection.Iterable asScalaIterable(java.util.Collection)
+====    126:126:public scala.collection.mutable.Map asScalaMap(java.util.Map)
+====    129:129:public scala.collection.mutable.Map asScalaMap(java.util.Properties)
 scala.collection.JavaConverters
 scala.collection.JavaConverters$:
 ====    59:59:public scala.collection.convert.Decorators$AsScala asScalaIteratorConverter(java.util.Iterator)
@@ -6267,9 +6336,35 @@ scala.collection.convert.Decorators$AsScala:
 scala.collection.convert.LowPriorityWrapAsScala
 scala.collection.convert.LowPriorityWrapAsScala$class:
 ====    35:35:public static scala.collection.mutable.ConcurrentMap mapAsScalaDeprecatedConcurrentMap(scala.collection.convert.WrapAsScala,java.util.concurrent.ConcurrentMap)
-scala.collection.convert.WrapAsJava
+scala.collection.convert.WrapAsJava:
+====    public abstract java.util.Iterator asJavaIterator(scala.collection.Iterator)
+====    public abstract java.util.Enumeration asJavaEnumeration(scala.collection.Iterator)
+====    public abstract java.lang.Iterable asJavaIterable(scala.collection.Iterable)
+====    public abstract java.util.Collection asJavaCollection(scala.collection.Iterable)
+====    public abstract java.util.List bufferAsJavaList(scala.collection.mutable.Buffer)
+====    public abstract java.util.List mutableSeqAsJavaList(scala.collection.mutable.Seq)
+====    public abstract java.util.List seqAsJavaList(scala.collection.Seq)
+====    public abstract java.util.Set mutableSetAsJavaSet(scala.collection.mutable.Set)
+====    public abstract java.util.Set setAsJavaSet(scala.collection.Set)
+====    public abstract java.util.Map mutableMapAsJavaMap(scala.collection.mutable.Map)
+====    public abstract java.util.Dictionary asJavaDictionary(scala.collection.mutable.Map)
+====    public abstract java.util.Map mapAsJavaMap(scala.collection.Map)
+====    public abstract java.util.concurrent.ConcurrentMap asJavaConcurrentMap(scala.collection.mutable.ConcurrentMap)
+====    public abstract java.util.concurrent.ConcurrentMap mapAsJavaConcurrentMap(scala.collection.concurrent.Map)
 scala.collection.convert.WrapAsJava$
-scala.collection.convert.WrapAsJava$class
+scala.collection.convert.WrapAsJava$class:
+====    31:33:public static java.util.Iterator asJavaIterator(scala.collection.convert.WrapAsJava,scala.collection.Iterator)
+====    49:51:public static java.util.Enumeration asJavaEnumeration(scala.collection.convert.WrapAsJava,scala.collection.Iterator)
+====    67:69:public static java.lang.Iterable asJavaIterable(scala.collection.convert.WrapAsJava,scala.collection.Iterable)
+====    83:85:public static java.util.Collection asJavaCollection(scala.collection.convert.WrapAsJava,scala.collection.Iterable)
+====    119:121:public static java.util.List mutableSeqAsJavaList(scala.collection.convert.WrapAsJava,scala.collection.mutable.Seq)
+====    155:157:public static java.util.Set mutableSetAsJavaSet(scala.collection.convert.WrapAsJava,scala.collection.mutable.Set)
+====    173:175:public static java.util.Set setAsJavaSet(scala.collection.convert.WrapAsJava,scala.collection.Set)
+====    191:194:public static java.util.Map mutableMapAsJavaMap(scala.collection.convert.WrapAsJava,scala.collection.mutable.Map)
+====    211:214:public static java.util.Dictionary asJavaDictionary(scala.collection.convert.WrapAsJava,scala.collection.mutable.Map)
+====    231:234:public static java.util.Map mapAsJavaMap(scala.collection.convert.WrapAsJava,scala.collection.Map)
+====    253:255:public static java.util.concurrent.ConcurrentMap asJavaConcurrentMap(scala.collection.convert.WrapAsJava,scala.collection.mutable.ConcurrentMap)
+====    273:275:public static java.util.concurrent.ConcurrentMap mapAsJavaConcurrentMap(scala.collection.convert.WrapAsJava,scala.collection.concurrent.Map)
 scala.collection.convert.WrapAsScala:
 ====    public abstract scala.collection.Iterator asScalaIterator(java.util.Iterator)
 ====    public abstract scala.collection.Iterator enumerationAsScalaIterator(java.util.Enumeration)
@@ -6283,7 +6378,6 @@ scala.collection.convert.WrapAsScala:
 ====    public abstract scala.collection.mutable.Map dictionaryAsScalaMap(java.util.Dictionary)
 ====    public abstract scala.collection.mutable.Map propertiesAsScalaMap(java.util.Properties)
 scala.collection.convert.WrapAsScala$:
-====    236:236:public scala.collection.Iterator asScalaIterator(java.util.Iterator)
 ====    236:236:public scala.collection.Iterator enumerationAsScalaIterator(java.util.Enumeration)
 ====    236:236:public scala.collection.Iterable iterableAsScalaIterable(java.lang.Iterable)
 ====    236:236:public scala.collection.Iterable collectionAsScalaIterable(java.util.Collection)
@@ -6295,7 +6389,6 @@ scala.collection.convert.WrapAsScala$:
 ====    236:236:public scala.collection.mutable.Map dictionaryAsScalaMap(java.util.Dictionary)
 ====    236:236:public scala.collection.mutable.ConcurrentMap mapAsScalaDeprecatedConcurrentMap(java.util.concurrent.ConcurrentMap)
 scala.collection.convert.WrapAsScala$class:
-====    54:56:public static scala.collection.Iterator asScalaIterator(scala.collection.convert.WrapAsScala,java.util.Iterator)
 ====    72:74:public static scala.collection.Iterator enumerationAsScalaIterator(scala.collection.convert.WrapAsScala,java.util.Enumeration)
 ====    91:93:public static scala.collection.Iterable iterableAsScalaIterable(scala.collection.convert.WrapAsScala,java.lang.Iterable)
 ====    106:108:public static scala.collection.Iterable collectionAsScalaIterable(scala.collection.convert.WrapAsScala,java.util.Collection)
@@ -6327,94 +6420,87 @@ scala.collection.convert.Wrappers:
 ====    public abstract scala.collection.convert.Wrappers$JPropertiesWrapper$ JPropertiesWrapper()
 scala.collection.convert.Wrappers$:
     public static final long serialVersionUID
-    private volatile scala.collection.convert.Wrappers$IteratorWrapper$ IteratorWrapper$module
-    private volatile scala.collection.convert.Wrappers$JIteratorWrapper$ JIteratorWrapper$module
-    private volatile scala.collection.convert.Wrappers$JEnumerationWrapper$ JEnumerationWrapper$module
-    private volatile scala.collection.convert.Wrappers$IterableWrapper$ IterableWrapper$module
-    private volatile scala.collection.convert.Wrappers$JIterableWrapper$ JIterableWrapper$module
-    private volatile scala.collection.convert.Wrappers$JCollectionWrapper$ JCollectionWrapper$module
-    private volatile scala.collection.convert.Wrappers$SeqWrapper$ SeqWrapper$module
-    private volatile scala.collection.convert.Wrappers$MutableSeqWrapper$ MutableSeqWrapper$module
-    private volatile scala.collection.convert.Wrappers$MutableBufferWrapper$ MutableBufferWrapper$module
-    private volatile scala.collection.convert.Wrappers$JListWrapper$ JListWrapper$module
-    private volatile scala.collection.convert.Wrappers$MutableSetWrapper$ MutableSetWrapper$module
-    private volatile scala.collection.convert.Wrappers$JSetWrapper$ JSetWrapper$module
-    private volatile scala.collection.convert.Wrappers$MutableMapWrapper$ MutableMapWrapper$module
-    private volatile scala.collection.convert.Wrappers$JMapWrapper$ JMapWrapper$module
     private volatile scala.collection.convert.Wrappers$JConcurrentMapDeprecatedWrapper$ JConcurrentMapDeprecatedWrapper$module
-    private volatile scala.collection.convert.Wrappers$JConcurrentMapWrapper$ JConcurrentMapWrapper$module
-    private volatile scala.collection.convert.Wrappers$DictionaryWrapper$ DictionaryWrapper$module
-    private volatile scala.collection.convert.Wrappers$JDictionaryWrapper$ JDictionaryWrapper$module
-    private volatile scala.collection.convert.Wrappers$JPropertiesWrapper$ JPropertiesWrapper$module
-====    478:478:private scala.collection.convert.Wrappers$IteratorWrapper$ IteratorWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$IteratorWrapper$ IteratorWrapper()
-====    478:478:private scala.collection.convert.Wrappers$JIteratorWrapper$ JIteratorWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$JIteratorWrapper$ JIteratorWrapper()
-====    478:478:private scala.collection.convert.Wrappers$JEnumerationWrapper$ JEnumerationWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$JEnumerationWrapper$ JEnumerationWrapper()
-====    478:478:private scala.collection.convert.Wrappers$IterableWrapper$ IterableWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$IterableWrapper$ IterableWrapper()
-====    478:478:private scala.collection.convert.Wrappers$JIterableWrapper$ JIterableWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$JIterableWrapper$ JIterableWrapper()
-====    478:478:private scala.collection.convert.Wrappers$JCollectionWrapper$ JCollectionWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$JCollectionWrapper$ JCollectionWrapper()
-====    478:478:private scala.collection.convert.Wrappers$SeqWrapper$ SeqWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$SeqWrapper$ SeqWrapper()
-====    478:478:private scala.collection.convert.Wrappers$MutableSeqWrapper$ MutableSeqWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$MutableSeqWrapper$ MutableSeqWrapper()
-====    478:478:private scala.collection.convert.Wrappers$MutableBufferWrapper$ MutableBufferWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$MutableBufferWrapper$ MutableBufferWrapper()
-====    478:478:private scala.collection.convert.Wrappers$JListWrapper$ JListWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$JListWrapper$ JListWrapper()
-====    478:478:private scala.collection.convert.Wrappers$MutableSetWrapper$ MutableSetWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$MutableSetWrapper$ MutableSetWrapper()
-====    478:478:private scala.collection.convert.Wrappers$JSetWrapper$ JSetWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$JSetWrapper$ JSetWrapper()
-====    478:478:private scala.collection.convert.Wrappers$MutableMapWrapper$ MutableMapWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$MutableMapWrapper$ MutableMapWrapper()
-====    478:478:private scala.collection.convert.Wrappers$JMapWrapper$ JMapWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$JMapWrapper$ JMapWrapper()
 ====    478:478:private scala.collection.convert.Wrappers$JConcurrentMapDeprecatedWrapper$ JConcurrentMapDeprecatedWrapper$lzycompute()
 ====    478:478:public scala.collection.convert.Wrappers$JConcurrentMapDeprecatedWrapper$ JConcurrentMapDeprecatedWrapper()
-====    478:478:private scala.collection.convert.Wrappers$JConcurrentMapWrapper$ JConcurrentMapWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$JConcurrentMapWrapper$ JConcurrentMapWrapper()
-====    478:478:private scala.collection.convert.Wrappers$DictionaryWrapper$ DictionaryWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$DictionaryWrapper$ DictionaryWrapper()
-====    478:478:private scala.collection.convert.Wrappers$JDictionaryWrapper$ JDictionaryWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$JDictionaryWrapper$ JDictionaryWrapper()
-====    478:478:private scala.collection.convert.Wrappers$JPropertiesWrapper$ JPropertiesWrapper$lzycompute()
-====    478:478:public scala.collection.convert.Wrappers$JPropertiesWrapper$ JPropertiesWrapper()
 ====    478:478:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$ConcurrentMapDeprecatedWrapper
 scala.collection.convert.Wrappers$ConcurrentMapWrapper
 scala.collection.convert.Wrappers$DictionaryWrapper
-scala.collection.convert.Wrappers$DictionaryWrapper$
+scala.collection.convert.Wrappers$DictionaryWrapper$:
+====    373:373:public scala.collection.convert.Wrappers$DictionaryWrapper apply(scala.collection.mutable.Map)
+====    373:373:public scala.Option unapply(scala.collection.convert.Wrappers$DictionaryWrapper)
+====    373:373:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$IterableWrapper
-scala.collection.convert.Wrappers$IterableWrapper$
-scala.collection.convert.Wrappers$IterableWrapperTrait
-scala.collection.convert.Wrappers$IterableWrapperTrait$class
-scala.collection.convert.Wrappers$IteratorWrapper
-scala.collection.convert.Wrappers$IteratorWrapper$
+scala.collection.convert.Wrappers$IterableWrapper$:
+====    50:50:public scala.collection.convert.Wrappers$IterableWrapper apply(scala.collection.Iterable)
+====    50:50:public scala.Option unapply(scala.collection.convert.Wrappers$IterableWrapper)
+====    50:50:private java.lang.Object readResolve()
+scala.collection.convert.Wrappers$IterableWrapperTrait:
+====    public abstract int size()
+====    public abstract scala.collection.convert.Wrappers$IteratorWrapper iterator()
+====    public abstract boolean isEmpty()
+scala.collection.convert.Wrappers$IteratorWrapper:
+====    28:28:public scala.collection.convert.Wrappers$IteratorWrapper copy(scala.collection.Iterator)
+====    28:28:public scala.collection.Iterator copy$default$1()
+scala.collection.convert.Wrappers$IteratorWrapper$:
+====    28:28:public scala.collection.convert.Wrappers$IteratorWrapper apply(scala.collection.Iterator)
+====    28:28:public scala.Option unapply(scala.collection.convert.Wrappers$IteratorWrapper)
+====    28:28:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$JCollectionWrapper
-scala.collection.convert.Wrappers$JCollectionWrapper$
+scala.collection.convert.Wrappers$JCollectionWrapper$:
+====    57:57:public scala.collection.convert.Wrappers$JCollectionWrapper apply(java.util.Collection)
+====    57:57:public scala.Option unapply(scala.collection.convert.Wrappers$JCollectionWrapper)
+====    57:57:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$JConcurrentMapDeprecatedWrapper
 scala.collection.convert.Wrappers$JConcurrentMapDeprecatedWrapper$
 scala.collection.convert.Wrappers$JConcurrentMapWrapper
-scala.collection.convert.Wrappers$JConcurrentMapWrapper$
+scala.collection.convert.Wrappers$JConcurrentMapWrapper$:
+====    348:348:public scala.collection.convert.Wrappers$JConcurrentMapWrapper apply(java.util.concurrent.ConcurrentMap)
+====    348:348:public scala.Option unapply(scala.collection.convert.Wrappers$JConcurrentMapWrapper)
+====    348:348:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$JDictionaryWrapper
-scala.collection.convert.Wrappers$JDictionaryWrapper$
+scala.collection.convert.Wrappers$JDictionaryWrapper$:
+====    400:400:public scala.collection.convert.Wrappers$JDictionaryWrapper apply(java.util.Dictionary)
+====    400:400:public scala.Option unapply(scala.collection.convert.Wrappers$JDictionaryWrapper)
+====    400:400:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$JDictionaryWrapper$$anonfun$iterator$1
 scala.collection.convert.Wrappers$JEnumerationWrapper
-scala.collection.convert.Wrappers$JEnumerationWrapper$
+scala.collection.convert.Wrappers$JEnumerationWrapper$:
+====    45:45:public scala.collection.convert.Wrappers$JEnumerationWrapper apply(java.util.Enumeration)
+====    45:45:public scala.Option unapply(scala.collection.convert.Wrappers$JEnumerationWrapper)
+====    45:45:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$JIterableWrapper
-scala.collection.convert.Wrappers$JIterableWrapper$
-scala.collection.convert.Wrappers$JIteratorWrapper
-scala.collection.convert.Wrappers$JIteratorWrapper$
-scala.collection.convert.Wrappers$JListWrapper
-scala.collection.convert.Wrappers$JListWrapper$
+scala.collection.convert.Wrappers$JIterableWrapper$:
+====    52:52:public scala.collection.convert.Wrappers$JIterableWrapper apply(java.lang.Iterable)
+====    52:52:public scala.Option unapply(scala.collection.convert.Wrappers$JIterableWrapper)
+====    52:52:private java.lang.Object readResolve()
+scala.collection.convert.Wrappers$JIteratorWrapper:
+====    40:40:public scala.collection.convert.Wrappers$JIteratorWrapper copy(java.util.Iterator)
+====    40:40:public java.util.Iterator copy$default$1()
+scala.collection.convert.Wrappers$JIteratorWrapper$:
+====    40:40:public scala.collection.convert.Wrappers$JIteratorWrapper apply(java.util.Iterator)
+====    40:40:public scala.Option unapply(scala.collection.convert.Wrappers$JIteratorWrapper)
+====    40:40:private java.lang.Object readResolve()
+scala.collection.convert.Wrappers$JListWrapper:
+====    90:90:public scala.collection.convert.Wrappers$JListWrapper $plus$eq$colon(java.lang.Object)
+====    93:94:public void insertAll(int,scala.collection.Traversable)
+====    97:97:public void clear()
+====    98:98:public scala.collection.convert.Wrappers$JListWrapper result()
+====    84:84:public scala.collection.convert.Wrappers$JListWrapper copy(java.util.List)
+====    84:84:public java.util.List copy$default$1()
+====    84:84:public bridge synthetic scala.collection.mutable.Buffer $plus$eq(java.lang.Object)
+====    84:84:public bridge synthetic scala.collection.mutable.Buffer $plus$eq$colon(java.lang.Object)
+scala.collection.convert.Wrappers$JListWrapper$:
+====    84:84:public scala.collection.convert.Wrappers$JListWrapper apply(java.util.List)
+====    84:84:public scala.Option unapply(scala.collection.convert.Wrappers$JListWrapper)
+====    84:84:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$JListWrapper$$anonfun$insertAll$1
 scala.collection.convert.Wrappers$JMapWrapper
-scala.collection.convert.Wrappers$JMapWrapper$
+scala.collection.convert.Wrappers$JMapWrapper$:
+====    275:275:public scala.collection.convert.Wrappers$JMapWrapper apply(java.util.Map)
+====    275:275:public scala.Option unapply(scala.collection.convert.Wrappers$JMapWrapper)
+====    275:275:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$JMapWrapperLike
 scala.collection.convert.Wrappers$JMapWrapperLike$$anon$2
 scala.collection.convert.Wrappers$JMapWrapperLike$class
@@ -6450,23 +6536,47 @@ scala.collection.convert.Wrappers$JPropertiesWrapper:
 ====    428:428:public bridge synthetic scala.collection.Map updated(java.lang.Object,java.lang.Object)
 ====    428:428:public bridge synthetic scala.Option remove(java.lang.Object)
 ====    428:428:public bridge synthetic scala.collection.generic.Shrinkable $minus$eq(java.lang.Object)
-scala.collection.convert.Wrappers$JPropertiesWrapper$
+scala.collection.convert.Wrappers$JPropertiesWrapper$:
+====    428:428:public scala.Option unapply(scala.collection.convert.Wrappers$JPropertiesWrapper)
+====    428:428:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$JSetWrapper
-scala.collection.convert.Wrappers$JSetWrapper$
+scala.collection.convert.Wrappers$JSetWrapper$:
+====    139:139:public scala.collection.convert.Wrappers$JSetWrapper apply(java.util.Set)
+====    139:139:public scala.Option unapply(scala.collection.convert.Wrappers$JSetWrapper)
+====    139:139:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$MapWrapper
 scala.collection.convert.Wrappers$MapWrapper$$anon$1
 scala.collection.convert.Wrappers$MapWrapper$$anon$1$$anon$5
 scala.collection.convert.Wrappers$MapWrapper$$anon$1$$anon$5$$anon$6
-scala.collection.convert.Wrappers$MutableBufferWrapper
-scala.collection.convert.Wrappers$MutableBufferWrapper$
+scala.collection.convert.Wrappers$MutableBufferWrapper:
+====    77:77:public scala.collection.convert.Wrappers$MutableBufferWrapper copy(scala.collection.mutable.Buffer)
+====    77:77:public scala.collection.mutable.Buffer copy$default$1()
+scala.collection.convert.Wrappers$MutableBufferWrapper$:
+====    77:77:public scala.collection.convert.Wrappers$MutableBufferWrapper apply(scala.collection.mutable.Buffer)
+====    77:77:public scala.Option unapply(scala.collection.convert.Wrappers$MutableBufferWrapper)
+====    77:77:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$MutableMapWrapper
-scala.collection.convert.Wrappers$MutableMapWrapper$
+scala.collection.convert.Wrappers$MutableMapWrapper$:
+====    216:216:public scala.collection.convert.Wrappers$MutableMapWrapper apply(scala.collection.mutable.Map)
+====    216:216:public scala.Option unapply(scala.collection.convert.Wrappers$MutableMapWrapper)
+====    216:216:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$MutableSeqWrapper
-scala.collection.convert.Wrappers$MutableSeqWrapper$
+scala.collection.convert.Wrappers$MutableSeqWrapper$:
+====    68:68:public scala.collection.convert.Wrappers$MutableSeqWrapper apply(scala.collection.mutable.Seq)
+====    68:68:public scala.Option unapply(scala.collection.convert.Wrappers$MutableSeqWrapper)
+====    68:68:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$MutableSetWrapper
-scala.collection.convert.Wrappers$MutableSetWrapper$
-scala.collection.convert.Wrappers$SeqWrapper
-scala.collection.convert.Wrappers$SeqWrapper$
+scala.collection.convert.Wrappers$MutableSetWrapper$:
+====    127:127:public scala.collection.convert.Wrappers$MutableSetWrapper apply(scala.collection.mutable.Set)
+====    127:127:public scala.Option unapply(scala.collection.convert.Wrappers$MutableSetWrapper)
+====    127:127:private java.lang.Object readResolve()
+scala.collection.convert.Wrappers$SeqWrapper:
+====    64:64:public scala.collection.convert.Wrappers$SeqWrapper copy(scala.collection.Seq)
+====    64:64:public scala.collection.Seq copy$default$1()
+scala.collection.convert.Wrappers$SeqWrapper$:
+====    64:64:public scala.collection.convert.Wrappers$SeqWrapper apply(scala.collection.Seq)
+====    64:64:public scala.Option unapply(scala.collection.convert.Wrappers$SeqWrapper)
+====    64:64:private java.lang.Object readResolve()
 scala.collection.convert.Wrappers$SetWrapper
 scala.collection.convert.Wrappers$SetWrapper$$anon$4
 scala.collection.convert.Wrappers$ToIteratorWrapper
@@ -8235,7 +8345,6 @@ scala.collection.mutable.AVLIterator
 scala.collection.mutable.AVLTree
 scala.collection.mutable.AVLTree$class
 scala.collection.mutable.AbstractBuffer:
-====    48:48:public void remove(int,int)
 ====    48:48:public scala.collection.mutable.Buffer $minus$eq(java.lang.Object)
 ====    48:48:public scala.collection.mutable.Buffer $plus$plus$eq$colon(scala.collection.TraversableOnce)
 ====    48:48:public void prepend(scala.collection.Seq)
@@ -8471,10 +8580,7 @@ scala.collection.mutable.ArrayBuffer:
 ====    public static scala.collection.generic.GenTraversableFactory$GenericCanBuildFrom ReusableCBF()
 ====    public static scala.collection.GenTraversable empty()
 ====    47:47:public scala.collection.parallel.Combiner parCombiner()
-====    47:47:public void update(int,java.lang.Object)
-====    47:47:public void reduceToSize(int)
 ====    47:47:public void swap(int,int)
-====    47:47:public void copy(int,int,int)
 ====    47:47:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$reduceRight(scala.Function2)
 ====    47:47:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$zip(scala.collection.GenIterable,scala.collection.generic.CanBuildFrom)
 ====    47:47:public java.lang.Object scala$collection$IndexedSeqOptimized$$super$init()
@@ -8502,8 +8608,6 @@ scala.collection.mutable.ArrayBuffer:
 ====    114:118:public scala.collection.mutable.ArrayBuffer $plus$eq$colon(java.lang.Object)
 ====    127:127:public scala.collection.mutable.ArrayBuffer $plus$plus$eq$colon(scala.collection.TraversableOnce)
 ====    138:144:public void insertAll(int,scala.collection.Traversable)
-====    155:158:public void remove(int,int)
-====    167:169:public java.lang.Object remove(int)
 ====    47:47:public bridge synthetic scala.collection.GenTraversable toTraversable()
 ====    47:47:public bridge synthetic scala.collection.GenMap groupBy(scala.Function1)
 ====    47:47:public bridge synthetic scala.collection.generic.Subtractable repr()
@@ -8804,11 +8908,9 @@ scala.collection.mutable.BufferLike:
 ====    public abstract void clear()
 ====    public abstract scala.collection.mutable.Buffer $plus$eq$colon(java.lang.Object)
 ====    public abstract void insertAll(int,scala.collection.Traversable)
-====    public abstract java.lang.Object remove(int)
 ====    public abstract void remove(int,int)
 ====    public abstract scala.collection.mutable.Buffer $minus$eq(java.lang.Object)
 ====    public abstract scala.collection.mutable.Buffer $plus$plus$eq$colon(scala.collection.TraversableOnce)
-====    public abstract void append(scala.collection.Seq)
 ====    public abstract void prepend(scala.collection.Seq)
 ====    public abstract void prependAll(scala.collection.TraversableOnce)
 ====    public abstract void insert(int,scala.collection.Seq)
@@ -8823,9 +8925,9 @@ scala.collection.mutable.BufferLike:
 ====    public abstract scala.collection.mutable.Buffer $minus$minus(scala.collection.GenTraversableOnce)
 ====    public abstract scala.collection.mutable.Buffer clone()
 scala.collection.mutable.BufferLike$$anonfun$$less$less$1
-scala.collection.mutable.BufferLike$$anonfun$remove$1
+scala.collection.mutable.BufferLike$$anonfun$remove$1:
+    public static final long serialVersionUID
 scala.collection.mutable.BufferLike$class:
-====    116:116:public static void remove(scala.collection.mutable.Buffer,int,int)
 ====    126:128:public static scala.collection.mutable.Buffer $minus$eq(scala.collection.mutable.Buffer,java.lang.Object)
 ====    136:136:public static scala.collection.mutable.Buffer $plus$plus$eq$colon(scala.collection.mutable.Buffer,scala.collection.TraversableOnce)
 ====    152:152:public static void prepend(scala.collection.mutable.Buffer,scala.collection.Seq)
@@ -9187,12 +9289,9 @@ scala.collection.mutable.ListBuffer:
 ====    45:45:public scala.collection.mutable.Builder mapResult(scala.Function1)
 ====    68:78:private void writeObject(java.io.ObjectOutputStream)
 ====    83:105:private void readObject(java.io.ObjectInputStream)
-====    131:152:public void update(int,java.lang.Object)
 ====    178:179:public scala.collection.mutable.ListBuffer $plus$plus$eq$colon(scala.collection.TraversableOnce)
 ====    196:201:public scala.collection.mutable.ListBuffer $plus$eq$colon(java.lang.Object)
 ====    212:236:public void insertAll(int,scala.collection.Traversable)
-====    249:277:public void remove(int,int)
-====    318:335:public java.lang.Object remove(int)
 ====    345:363:public scala.collection.mutable.ListBuffer $minus$eq(java.lang.Object)
 ====    45:45:public bridge synthetic scala.collection.GenTraversable toTraversable()
 ====    45:45:public bridge synthetic scala.collection.GenMap groupBy(scala.Function1)
@@ -9349,10 +9448,7 @@ scala.collection.mutable.ResizableArray$
 scala.collection.mutable.ResizableArray$class:
 ====    29:29:public static scala.collection.generic.GenericCompanion companion(scala.collection.mutable.ResizableArray)
 ====    31:31:public static int initialSize(scala.collection.mutable.ResizableArray)
-====    48:49:public static void update(scala.collection.mutable.ResizableArray,int,java.lang.Object)
-====    84:88:public static void reduceToSize(scala.collection.mutable.ResizableArray,int)
 ====    108:110:public static void swap(scala.collection.mutable.ResizableArray,int,int)
-====    116:116:public static void copy(scala.collection.mutable.ResizableArray,int,int,int)
 scala.collection.mutable.RevertibleHistory
 scala.collection.mutable.Seq:
 ====    public abstract scala.collection.generic.GenericCompanion companion()
@@ -9361,7 +9457,6 @@ scala.collection.mutable.Seq$:
 ====    42:42:public scala.collection.generic.CanBuildFrom canBuildFrom()
 scala.collection.mutable.SeqLike:
 ====    public abstract scala.collection.parallel.Combiner parCombiner()
-====    public abstract void update(int,java.lang.Object)
 ====    public abstract scala.collection.mutable.SeqLike transform(scala.Function1)
 scala.collection.mutable.SeqLike$$anonfun$transform$1
 scala.collection.mutable.SeqLike$class:
@@ -9479,8 +9574,6 @@ scala.collection.mutable.StringBuilder:
 ====    93:93:public int capacity()
 ====    102:102:public void ensureCapacity(int)
 ====    124:125:public scala.collection.mutable.StringBuilder deleteCharAt(int)
-====    134:134:public void setCharAt(int,char)
-====    138:138:public void update(int,char)
 ====    149:149:public java.lang.String substring(int)
 ====    177:178:public scala.collection.mutable.StringBuilder $plus$plus$eq(java.lang.String)
 ====    182:183:public scala.collection.mutable.StringBuilder appendAll(java.lang.String)
@@ -9528,7 +9621,6 @@ scala.collection.mutable.StringBuilder:
 ====    28:28:public bridge synthetic scala.collection.SeqView view()
 ====    28:28:public bridge synthetic scala.collection.mutable.Traversable seq()
 ====    28:28:public bridge synthetic scala.collection.mutable.Iterable seq()
-====    28:28:public bridge synthetic void update(int,java.lang.Object)
 ====    28:28:public bridge synthetic scala.collection.Traversable toCollection(java.lang.Object)
 ====    28:28:public bridge synthetic scala.collection.Iterable toCollection(java.lang.Object)
 ====    28:28:public bridge synthetic scala.collection.IndexedSeq toCollection(java.lang.Object)

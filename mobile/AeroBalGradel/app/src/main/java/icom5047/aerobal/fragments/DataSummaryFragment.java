@@ -75,8 +75,10 @@ public class DataSummaryFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 SpinnerContainer container = (SpinnerContainer) adapterView.getItemAtPosition(i);
                 currContainer = container;
-                refresh();
 
+                if(listView != null){
+                    refresh();
+                }
             }
 
             @Override
@@ -104,7 +106,10 @@ public class DataSummaryFragment extends Fragment {
 
     public void refresh(){
         Log.v("Refresh", "Change Var");
-        listView.invalidateViews();
+        if(listView != null){
+            listView.invalidateViews();
+        }
+
     }
 
     public class SummaryAdapter extends ArrayAdapter<SummaryContainer>{

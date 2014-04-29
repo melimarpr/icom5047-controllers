@@ -18,18 +18,26 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.aerobal.data.objects.Measurement;
+import com.aerobal.data.objects.Run;
+import com.aerobal.data.objects.Stats;
+
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import icom5047.aerobal.containers.SpinnerContainer;
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.controllers.UnitController;
 import icom5047.aerobal.fragments.DataRawDataFragment;
 import icom5047.aerobal.fragments.DataSummaryFragment;
-import icom5047.aerobal.mockers.Mocker;
 import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
+import icom5047.aerobal.resources.TimeUtils;
 import icom5047.aerobal.resources.ViewGroupUtils;
+import scala.collection.JavaConversions;
 
 public class DataDetailActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -152,7 +160,12 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
             case android.R.id.home:
                 finish();
             case R.id.ab_btn_graph:
-                showGraphDialog();
+                if(experimentController.getActiveRun().index != ExperimentController.ALL_RUNS){
+                    showGraphDialog();
+                } else{
+                    Toast.makeText(this, R.string.frag_data_raw_full_exp_no_display, Toast.LENGTH_SHORT).show();
+                }
+
                 break;
 
         }
@@ -260,7 +273,7 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
         final Spinner xSpinner = (Spinner) view.findViewById(R.id.dialogGraphXAxisSpinner);
 
         //Measurement Spinner
-        xSpinner.setAdapter(new ArrayAdapter<SpinnerContainer>(this, android.R.layout.simple_dropdown_item_1line, GlobalConstants.Measurements.getMeasurementListSpinner()));
+        xSpinner.setAdapter(new ArrayAdapter<SpinnerContainer>(this, android.R.layout.simple_dropdown_item_1line, GlobalConstants.Measurements.getGraphListSpinner()));
         xSpinner.setSelection(0);
 
 
@@ -284,14 +297,22 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
 
                 Intent intent = new Intent(getBaseContext(), GraphActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString(Keys.BundleKeys.XAxisTitle, ((SpinnerContainer)xSpinner.getSelectedItem()).name);
-                bundle.putString(Keys.BundleKeys.YAxisTitle, ((SpinnerContainer)ySpinner.getSelectedItem()).name);
-                bundle.putDoubleArray(Keys.BundleKeys.XAxis, Mocker.generateLinearDoubleArray(10));
-                bundle.putDoubleArray(Keys.BundleKeys.YAxis, Mocker.generateLinearDoubleArray(10));
+                SpinnerContainer spinnerContainerX = (SpinnerContainer) xSpinner.getSelectedItem();
+                SpinnerContainer spinnerContainerY = (SpinnerContainer) ySpinner.getSelectedItem();
+                bundle.putString(Keys.BundleKeys.XAxisTitle, spinnerContainerX.name);
+                bundle.putString(Keys.BundleKeys.YAxisTitle, spinnerContainerY.name);
+                double[] xValues;
+                if(spinnerContainerX.index == GlobalConstants.Measurements.TimeKey){
+                    xValues = getTimeValues(spinnerContainerY);
+                }
+                else{
+                    xValues = getGraphValues(spinnerContainerX);
+                }
+
+                bundle.putDoubleArray(Keys.BundleKeys.XAxis, xValues);
+                bundle.putDoubleArray(Keys.BundleKeys.YAxis, getGraphValues(spinnerContainerY));
                 intent.putExtras(bundle);
                 startActivity(intent);
-
-
             }
         });
 
@@ -299,6 +320,49 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
 
         builder.create().show();
 
+    }
+
+    public double[] getGraphValues(SpinnerContainer container){
+
+        //Get Runs
+        List<Run> runs= JavaConversions.asJavaList(experimentController.getExperiment().runs());
+        Map<Integer, Stats> map = ExperimentController.getStatsForRuns(runs.get(experimentController.getActiveRun().index));
+        Stats stat = map.get(container.index);
+
+        List<Object> measurements = JavaConversions.asJavaList(stat.values());
+
+        double[] val_measurements = new double[measurements.size()];
+
+        for(int i=0; i<measurements.size(); i++){
+            Measurement tmpMeasure = (Measurement)measurements.get(i);
+            val_measurements[i] = tmpMeasure.getValue();
+        }
+
+        return val_measurements;
+    }
+
+
+    public double[] getTimeValues(SpinnerContainer container){
+        //Get Runs
+        List<Run> runs= JavaConversions.asJavaList(experimentController.getExperiment().runs());
+        Map<Integer, Stats> map = ExperimentController.getStatsForRuns(runs.get(experimentController.getActiveRun().index));
+        Stats stat = map.get(container.index);
+
+        List<Object> measurements = JavaConversions.asJavaList(stat.values());
+
+        double[] time_measurements = new double[measurements.size()];
+
+        Measurement firstMeasure = (Measurement) measurements.get(0);
+        long zero = firstMeasure.getTimestamp().getNanos();
+
+        //Add To
+        time_measurements[0] = 0.0;
+
+        for(int i=1; i<measurements.size(); i++){
+            Measurement tmpMeasure = (Measurement)measurements.get(i);
+            time_measurements[i] = TimeUtils.fromNanoToMilis(tmpMeasure.getTimestamp().getNanos() - zero);
+        }
+        return time_measurements;
     }
 
 

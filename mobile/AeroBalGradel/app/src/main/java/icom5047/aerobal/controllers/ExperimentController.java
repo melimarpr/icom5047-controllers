@@ -127,8 +127,9 @@ public class ExperimentController extends TimerTask implements Serializable, Aer
     @Override
     public void callback(Map<String, Object> objectMap) {
 
-
+        
         Log.v("BTRun", "Called");
+
 
 
         //Status Check

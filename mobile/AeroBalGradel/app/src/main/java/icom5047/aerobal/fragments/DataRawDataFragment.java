@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -40,6 +41,7 @@ public class DataRawDataFragment extends Fragment {
     private volatile ExperimentController experimentController;
     private volatile UnitController unitController;
     private SpinnerContainer currContainer;
+    private LinearLayout linearLayout;
     private TextView noDataText;
 
     private ListView listView;
@@ -78,7 +80,9 @@ public class DataRawDataFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 SpinnerContainer container = (SpinnerContainer) adapterView.getItemAtPosition(i);
                 currContainer = container;
-                refresh();
+                if(listView != null){
+                    refresh();
+                }
             }
 
             @Override
@@ -88,6 +92,7 @@ public class DataRawDataFragment extends Fragment {
         });
 
         listView = (ListView) view.findViewById(R.id.fragDataRawList);
+        linearLayout = (LinearLayout) view.findViewById(R.id.fragDataRawContainer);
         noDataText = (TextView) view.findViewById(R.id.fragDataRawNoData);
         //Change Typeface
         Typeface face = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Thin.ttf");
@@ -103,7 +108,7 @@ public class DataRawDataFragment extends Fragment {
 
         //Error Message for Experiment
         if (experimentController.getActiveRun().index == ExperimentController.ALL_RUNS ){
-            listView.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.GONE);
             noDataText.setText(R.string.frag_data_raw_full_exp_no_display);
             noDataText.setVisibility(View.VISIBLE);
             return;
@@ -112,10 +117,13 @@ public class DataRawDataFragment extends Fragment {
         //Set For Run
         List<RawContainer> data = getRawData();
         if(data.size() == 0){
-            listView.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.GONE);
+            noDataText.setText(R.string.frag_data_raw_no_data);
             noDataText.setVisibility(View.VISIBLE);
         }
         else{
+            noDataText.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.VISIBLE);
             listView.setAdapter(new RawDataAdapter(this.getActivity(), getRawData()));
         }
     }
@@ -123,14 +131,19 @@ public class DataRawDataFragment extends Fragment {
     public void fullRefresh(SpinnerContainer run){
         Log.v("Refresh", "Changes Run");
         experimentController.setActiveRun(run);
-        onResume();
-        refresh();
+        if(listView != null){
+            onResume();
+            refresh();
+        }
+
     }
 
     public void refresh(){
         Log.v("Refresh", "Change Var");
 
-        listView.invalidateViews();
+        if(listView != null){
+            listView.invalidateViews();
+        }
     }
 
 
