@@ -1,6 +1,8 @@
 package icom5047.aerobal.controllers;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.widget.Toast;
 
@@ -9,6 +11,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import icom5047.aerobal.activities.LoginActivity;
 import icom5047.aerobal.activities.R;
 import icom5047.aerobal.resources.Keys;
 
@@ -60,7 +63,10 @@ public class UserController implements Serializable{
         return returnList;
     }
 
-
+    public void login() {
+        Intent intent = new Intent(this.context, LoginActivity.class);
+        ((Activity)this.context).startActivityForResult(intent, UserController.REQUEST_LOGIN);
+    }
 
 
     public void logout() {

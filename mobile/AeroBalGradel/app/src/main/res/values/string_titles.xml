@@ -21,5 +21,6 @@
     <string name="title_intent_email">Send Email&#8230;</string>
     <string name="title_dialog_experiment_info">Experiment Information</string>
     <string name="title_dialog_new_session">New Session?</string>
+    <string name="title_dialog_empty_tunnel">Is Tunnel Empty, Open and Secure?</string>
 
 </resources>

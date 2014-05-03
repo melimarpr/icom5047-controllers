@@ -18,13 +18,19 @@ import android.widget.Toast;
 
 import com.aerobal.data.objects.Stats;
 
+import org.json.JSONObject;
+
 import java.text.NumberFormat;
+import java.util.HashMap;
 import java.util.Map;
 
 import icom5047.aerobal.activities.MainActivity;
 import icom5047.aerobal.activities.R;
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.controllers.UnitController;
+import icom5047.aerobal.controllers.UserController;
+import icom5047.aerobal.http.HttpRequest;
+import icom5047.aerobal.http.Server;
 import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.UnitFactory;
 
@@ -34,7 +40,6 @@ import icom5047.aerobal.resources.UnitFactory;
 public class ExperimentFragment extends Fragment {
 
     private ExperimentController experimentController;
-    private MainActivity mainActivity;
     private UnitController unitController;
 
     public static ExperimentFragment getExperimentFragment(ExperimentController experimentController, UnitController unitController) {
@@ -55,11 +60,13 @@ public class ExperimentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_experiment_summary, container, false);
-        mainActivity = (MainActivity) this.getActivity();
+
+        //Creates A New Menu
+        MainActivity mainActivity = (MainActivity) this.getActivity();
         mainActivity.setExperimentMenuVisibility(true);
         mainActivity.invalidateOptionsMenu();
 
-        //Typeface
+        //Get Typeface
         Typeface tf = Typeface.createFromAsset(this.getActivity().getAssets(), "fonts/Roboto-Thin.ttf");
 
         //Get Textview and set
@@ -70,7 +77,6 @@ public class ExperimentFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
                 LayoutInflater inflater = getActivity().getLayoutInflater();
                 View layout = inflater.inflate(R.layout.dialog_edit_text, null);
 
@@ -85,15 +91,7 @@ public class ExperimentFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        if(validateName(et)){
-                            String newName = et.getText().toString();
-                            experimentController.getExperiment().setName(newName);
-                            tvTitle.invalidate();
-                            tvTitle.setText(newName);
-                            tvTitle.invalidate();
-
-                        }
-
+                        updateExperimentName(et, tvTitle);
                     }
                 });
                 builder.create().show();
@@ -103,6 +101,7 @@ public class ExperimentFragment extends Fragment {
 
 
 
+        //Set Summary Stats
         TextView tvParameter = (TextView) view.findViewById(R.id.fragExpSumParams);
         tvParameter.setTypeface(tf);
 
@@ -120,48 +119,39 @@ public class ExperimentFragment extends Fragment {
        TextView tvSampleValue = (TextView) view.findViewById(R.id.fragExpSumSampleValue);
        tvSampleValue.setText(""+experimentController.getExperiment().amountOfValues());
        TextView tvWindSpeedValue = (TextView) view.findViewById(R.id.fragExpSumWindSpeedValue);
-        double newVal = UnitFactory.Speed.convert(experimentController.getExperiment().windSpeed(), UnitFactory.Speed.DEFAULT, unitController.getCurrentType(UnitFactory.Type.SPEED));
+       double newVal = UnitFactory.Speed.convert(experimentController.getExperiment().windSpeed(), UnitFactory.Speed.DEFAULT, unitController.getCurrentType(UnitFactory.Type.SPEED));
        tvWindSpeedValue.setText(""+nf.format(newVal));
        TextView tvTimeIntervalValue = (TextView) view.findViewById(R.id.fragExpSumTimeIntervalValue);
        tvTimeIntervalValue.setText(""+experimentController.getExperiment().frequency());
 
         ListView summaryLv = (ListView) view.findViewById(R.id.fragExpSumListView);
 
+        //Set Stats Summary
         Map<Integer, Stats> statsMap = ExperimentController.getStatsForExperiment(experimentController.getExperiment());
-
-
-
-
-
-
-
-
         AverageContainer[] averageContainers = new AverageContainer[]{
-            new AverageContainer("Number of Runs", experimentController.getExperiment().runs().size() , true, false, ""),
-
-            //TODO: Fix when implemented
-            new AverageContainer("Average Wind Speed",
+            new AverageContainer(getString(R.string.frag_exp_sum_num_of_runs), experimentController.getExperiment().runs().size() , true, false, ""),
+            new AverageContainer(getString(R.string.ave_wind_speed),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.WindSpeedKey ,statsMap.get(GlobalConstants.Measurements.WindSpeedKey).getMean()),
                     false, true, unitController.getCurrentSpeedUnit()),
-            new AverageContainer("Average Wind Direction",
+            new AverageContainer(getString(R.string.ave_wind_direction),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.WindDirectionKey ,statsMap.get(GlobalConstants.Measurements.WindDirectionKey).getMean()),
                     false, true, unitController.getCurrentDirectionUnit()),
-            new AverageContainer("Average Temperature",
+            new AverageContainer(getString(R.string.ave_temperature),
                     unitController.convertFromDefaultToCurrent(GlobalConstants.Measurements.TemperatureKey, statsMap.get(GlobalConstants.Measurements.TemperatureKey).getMean()),
                     false, true, unitController.getCurrentTemperatureUnit()),
-            new AverageContainer("Average Humidity",
+            new AverageContainer(getString(R.string.ave_humidity),
                     unitController.convertFromDefaultToCurrent(GlobalConstants.Measurements.HumidityKey, statsMap.get(GlobalConstants.Measurements.HumidityKey).getMean()),
                     false, true, unitController.getCurrentHumidityUnit()),
-            new AverageContainer("Average Pressure",
+            new AverageContainer(getString(R.string.ave_pressure),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.PressureKey, statsMap.get(GlobalConstants.Measurements.PressureKey).getMean()),
                     false, true, unitController.getCurrentPressureUnit()),
-            new AverageContainer("Average Tilt",
-                    unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.TiltKey, statsMap.get(GlobalConstants.Measurements.TiltKey).getMean()),
+            new AverageContainer(getString(R.string.ave_side),
+                    unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.SideKey, statsMap.get(GlobalConstants.Measurements.SideKey).getMean()),
                     false, true, unitController.getCurrentForceUnit()),
-            new AverageContainer("Average Drag",
+            new AverageContainer(getString(R.string.ave_drag),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.DragKey, statsMap.get(GlobalConstants.Measurements.DragKey).getMean()),
                     false, true, unitController.getCurrentForceUnit()),
-            new AverageContainer("Average Lift",
+            new AverageContainer(getString(R.string.ave_lift),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.LiftKey, statsMap.get(GlobalConstants.Measurements.LiftKey).getMean()),
                     false, true, unitController.getCurrentForceUnit())
         };
@@ -174,9 +164,30 @@ public class ExperimentFragment extends Fragment {
        return view;
     }
 
+    private void updateExperimentName(EditText et, TextView tvTitle) {
+        if(validateName(et)){
+            String newName = et.getText().toString();
+
+            //Update Online
+            if(experimentController.getExperiment().id() > 0){
+                doHttpExperimentName(newName);
+            }
+            experimentController.getExperiment().setName(newName);
+            tvTitle.invalidate();
+            tvTitle.setText(newName);
+            tvTitle.invalidate();
+
+        }
+    }
+
     private boolean validateName(EditText name) {
 
         String strName = name.getText().toString();
+
+        if(strName == null){
+            Toast.makeText(getActivity(), R.string.toast_invalid_exp_name_empty, Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
         if (strName.isEmpty()) {
             Toast.makeText(getActivity(), R.string.toast_invalid_exp_name_empty, Toast.LENGTH_SHORT).show();
@@ -190,6 +201,34 @@ public class ExperimentFragment extends Fragment {
 
         return true;
     }
+
+    private void doHttpExperimentName(String newName){
+
+        Bundle params = new Bundle();
+        params.putString("method", "PUT");
+        params.putString("url", Server.Experiments.PUT_UPDATE_EXPERIMENT_NAME);
+
+        String payload = "name="+newName.trim()+"&"+"id="+experimentController.getExperiment().id();
+
+        UserController userController = new UserController(this.getActivity());
+        Map<String, String> headers = new HashMap<String, String>();
+        headers.put(Server.Headers.TOKEN, userController.getToken());
+
+        HttpRequest request = new HttpRequest(params, payload, headers, HttpRequest.CONTENT_TYPE_X_FORM_URL_ENCODED, new HttpRequest.HttpCallback() {
+            @Override
+            public void onSucess(JSONObject json) {
+                //Context for Updating Doesn't Matter
+                Toast.makeText(getActivity(), R.string.toast_success_name_update, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailed(JSONObject json) {
+                Toast.makeText(getActivity(), R.string.toast_success_name_update, Toast.LENGTH_SHORT).show();
+            }
+        });
+        request.execute();
+    }
+
 
     public class AverageAdapter extends ArrayAdapter<AverageContainer>{
 

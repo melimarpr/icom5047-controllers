@@ -11,8 +11,19 @@
         <activity android:label="@string/app_name" android:name="icom5047.aerobal.activities.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="*" android:mimeType="application/octet-stream" android:pathPattern=".*\\.aero" android:scheme="file"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.EDIT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="*" android:mimeType="application/aero" android:pathPattern=".*\\.aero" android:scheme="file"/>
             </intent-filter>
         </activity>
         <activity android:label="@string/title_activity_login" android:name="icom5047.aerobal.activities.LoginActivity" android:screenOrientation="portrait"/>

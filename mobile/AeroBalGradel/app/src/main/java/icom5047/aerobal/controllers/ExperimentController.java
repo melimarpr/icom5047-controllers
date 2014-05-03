@@ -1,8 +1,5 @@
 package icom5047.aerobal.controllers;
 
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
-
 import com.aerobal.data.objects.Experiment;
 import com.aerobal.data.objects.Run;
 import com.aerobal.data.objects.Stats;
@@ -21,122 +18,62 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.TimerTask;
 
-import icom5047.aerobal.comm.BluetoothDataManager;
-import icom5047.aerobal.comm.BluetoothTimer;
 import icom5047.aerobal.containers.SpinnerContainer;
-import icom5047.aerobal.interfaces.AeroCallback;
 import icom5047.aerobal.resources.GlobalConstants;
 
 /**
  * Created by enrique on 3/20/14.
  */
-public class ExperimentController extends TimerTask implements Serializable, AeroCallback {
+public class ExperimentController implements Serializable{
 
 
     //Constants
     public static int ALL_RUNS = -1;
     public static String ALL_RUNS_STRING = "All";
 
-    private volatile Experiment runs;
-    private BluetoothDataManager ioBtManager;
-    private BluetoothTimer timer;
+    //
+    private volatile Experiment experimentObj;
 
+    //Running SubRouting Boolean
     private volatile boolean running;
-
-    private long dataSamplesCounter;
 
     private SpinnerContainer activeRun;
 
 
     public ExperimentController() {
-        runs = null;
+        experimentObj = null;
         this.activeRun = new SpinnerContainer(0, ALL_RUNS, ALL_RUNS_STRING);
         this.running = false;
     }
 
-    /*============= Setter, Getter, Haser ======*/
+    /*============= Setter, Getter, Hazer=====*/
 
     public void setExperiment(Experiment experiment) {
-        this.runs = experiment;
+        this.experimentObj = experiment;
     }
 
     public Experiment getExperiment() {
-        return runs;
+        return experimentObj;
     }
 
     public boolean isExperimentSet() {
-        return runs != null;
+        return experimentObj != null;
     }
 
-    public void closeExperiment(){
-        this.runs = null;
-    }
+    public void setRunning(boolean running){ this.running = running; };
 
     public boolean isRunning(){
         return running;
     }
 
-
-    //Run a Run
-    public void generateExperimentRun(BluetoothController btController, FragmentActivity context){
-
-
-        ioBtManager = btController.getIOManager();
-        if(ioBtManager == null){
-            return;
-        }
-        //Set Sample Counter
-        dataSamplesCounter = 0;
-
-        //Set Callback When Data Received
-        ioBtManager.setCallback(this);
-
-        //Start Listening
-        ioBtManager.execute();
-
-
-        //Run Schedule Task
-        this.timer = new BluetoothTimer();
-        this.timer.runTask(this, runs.frequency());
-
-
-    }
-
-    @Override
-    public void run() {
-        running = true;
-        //Reset if Run Multiple Times
-        if (dataSamplesCounter == runs.amountOfValues()){
-            timer.reset();
-            return;
-        }
-
-        Log.v("Test", "Test");
-        //Sent Data
-        ioBtManager.send("bt:ack", true);
-
-
-
-        //Add Process Send Counter
-        dataSamplesCounter++;
+    public void closeExperiment(){
+        this.experimentObj = null;
     }
 
 
-    @Override
-    public void callback(Map<String, Object> objectMap) {
 
-        
-        Log.v("BTRun", "Called");
-
-
-
-        //Status Check
-
-    }
-
-    /* Data Stats */
+/* ========================== Stats Maps ==================== */
 
     public static Map<Integer,Stats> getStatsForExperiment(Experiment experiment){
 
@@ -156,7 +93,7 @@ public class ExperimentController extends TimerTask implements Serializable, Aer
         map.put(GlobalConstants.Measurements.PressureKey, preasure);
         map.put(GlobalConstants.Measurements.TemperatureKey, temp);
         map.put(GlobalConstants.Measurements.HumidityKey, humidity);
-        map.put(GlobalConstants.Measurements.TiltKey, tilt);
+        map.put(GlobalConstants.Measurements.SideKey, tilt);
         map.put(GlobalConstants.Measurements.DragKey, drag);
         map.put(GlobalConstants.Measurements.LiftKey, lift);
 
@@ -181,7 +118,7 @@ public class ExperimentController extends TimerTask implements Serializable, Aer
         map.put(GlobalConstants.Measurements.PressureKey, preasure);
         map.put(GlobalConstants.Measurements.TemperatureKey, temp);
         map.put(GlobalConstants.Measurements.HumidityKey, humidity);
-        map.put(GlobalConstants.Measurements.TiltKey, tilt);
+        map.put(GlobalConstants.Measurements.SideKey, tilt);
         map.put(GlobalConstants.Measurements.DragKey, drag);
         map.put(GlobalConstants.Measurements.LiftKey, lift);
 
@@ -189,12 +126,12 @@ public class ExperimentController extends TimerTask implements Serializable, Aer
     }
 
 
-     /*Data Controller */
+/*=========Data Activity Data Managment =============== */
 
     public List<SpinnerContainer> getRunsListSpinner(){
         LinkedList<SpinnerContainer> list = new LinkedList<SpinnerContainer>();
 
-        //Add All Value
+        //Add All Valzue
         list.add(0, new SpinnerContainer(0, ALL_RUNS, ALL_RUNS_STRING ));
 
         //Add Other Values

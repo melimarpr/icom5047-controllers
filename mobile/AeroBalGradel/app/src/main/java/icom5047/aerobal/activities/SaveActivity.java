@@ -6,11 +6,10 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,8 +50,6 @@ public class SaveActivity extends Activity {
         ab.setHomeButtonEnabled(true);
 
         //Instance Field
-
-
         Bundle bnd = getIntent().getExtras();
         experimentController = (ExperimentController) bnd.getSerializable(Keys.BundleKeys.ExperimentController);
         FragmentManager fragmentManager = getFragmentManager();
@@ -60,6 +57,13 @@ public class SaveActivity extends Activity {
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getResources().getString(R.string.progress_load_experiment));
+        progressDialog.setCancelable(false);
+        progressDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                return keyCode != KeyEvent.KEYCODE_BACK;
+            }
+        });
 
         userController = new UserController(this);
 
@@ -120,8 +124,8 @@ public class SaveActivity extends Activity {
                         case R.id.dialogNewSessionPrivateOpt:
                             publicSession = false;
                             break;
-
                     }
+                    dialog.dismiss();
                     doHttpNewSession(title.getText().toString(), desc.getText().toString(), publicSession);
                 }
                 else{
@@ -139,6 +143,7 @@ public class SaveActivity extends Activity {
     }
 
     public void doHttpNewSession(String title, String desc, boolean publicSession) {
+        progressDialog.show();
         Bundle params = new Bundle();
         params.putString("method", "POST");
         params.putString("url", Server.Session.POST_NEW_SESSION);
@@ -154,6 +159,10 @@ public class SaveActivity extends Activity {
             @Override
             public void onSucess(JSONObject json) {
                 //Works
+                if(progressDialog == null){
+                    return;
+                }
+
                 Toast.makeText(getBaseContext(), R.string.toast_success_new_session_create, Toast.LENGTH_SHORT).show();
             }
 
@@ -164,40 +173,23 @@ public class SaveActivity extends Activity {
 
             @Override
             public void onDone() {
-
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.main_container, new SaveOnlineFragment()).commit();
+                progressDialog.dismiss();
             }
         });
         request.execute();
     }
 
     public void saveExperiment(long sessionId){
-        SharedPreferences pref = getSharedPreferences(Keys.SharedPref.UserSharedPreferences, Context.MODE_PRIVATE);
-        long experimentId = pref.getLong(Keys.SharedPref.ExperimentId, -1);
-        long sessionIdStored = pref.getLong(Keys.SharedPref.SessionId, -1);
 
-        if(experimentId == -1){
-            //New Experiment
-            doHttpAppendExperiment(sessionId);
-        }
-        else if (sessionId != sessionIdStored){
-            doHttpAppendExperiment(sessionId);
-        }
-        else{
-            doHttpUpdateExperiment(sessionId, experimentId);
-        }
+        doHttpUpdateExperiment(sessionId);
 
     }
 
-    private void doHttpUpdateExperiment(long sessionId, long experimentId) {
-        Log.v("update", "update");
-    }
+    private void doHttpUpdateExperiment(long sessionId) {
 
-    private void doHttpAppendExperiment(long sessionId) {
-
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.main_container, LoadingFragment.newInstance("Loading...")).commit();
+        progressDialog.show();
         Bundle params = new Bundle();
         params.putString("method", "POST");
         params.putString("url", Server.Experiments.POST_COMPLETE_EXPERIMENT);
@@ -222,6 +214,9 @@ public class SaveActivity extends Activity {
             @Override
             public void onSucess(JSONObject json) {
                 Toast.makeText(getBaseContext(), R.string.toast_success_save_experiment, Toast.LENGTH_SHORT).show();
+                if(progressDialog != null){
+                    progressDialog.dismiss();
+                }
                 finish();
             }
 
@@ -231,7 +226,7 @@ public class SaveActivity extends Activity {
                 Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.main_container, new SaveOnlineFragment()).commit();
-
+                progressDialog.dismiss();
             }
 
 

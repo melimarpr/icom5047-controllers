@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -47,6 +48,13 @@ public class LoginActivity extends FragmentActivity {
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.progress_login));
+        progressDialog.setCancelable(false);
+        progressDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                return keyCode != KeyEvent.KEYCODE_BACK;
+            }
+        });
 
         //Get EditText Variables
         username = (EditText) findViewById(R.id.loginUsername);
@@ -154,6 +162,10 @@ public class LoginActivity extends FragmentActivity {
             public void onSucess(JSONObject json) {
 
                 Log.d("JSON:", json.toString());
+                if(myself == null){
+                    Toast.makeText(getBaseContext(), R.string.toast_error_invalid_state, Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(!json.has("error")){
 
                     try{
@@ -229,7 +241,7 @@ public class LoginActivity extends FragmentActivity {
 
             @Override
             public void onFailed(JSONObject json) {
-                    Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), R.string.toast_net_error, Toast.LENGTH_SHORT).show();
             }
 
             @Override

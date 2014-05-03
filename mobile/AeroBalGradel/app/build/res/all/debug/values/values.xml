@@ -33,6 +33,14 @@
     <string name="activity_login_hint_password">Password</string>
     <string name="activity_login_hint_username">Email</string>
     <string name="app_name">AeroBal</string>
+    <string name="ave_drag">Average Drag Force</string>
+    <string name="ave_humidity">Average Humidity</string>
+    <string name="ave_lift">Average Lift Force</string>
+    <string name="ave_pressure">Average Pressure</string>
+    <string name="ave_side">Average Side Force</string>
+    <string name="ave_temperature">Average Temperature</string>
+    <string name="ave_wind_direction">Average Wind Direction</string>
+    <string name="ave_wind_speed">Average Wind Speed</string>
     <string name="back">Back</string>
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
@@ -74,9 +82,11 @@
     <eat-comment />
 
     <string name="email">Email</string>
+    <string name="email_subject">AeroBal Experiment</string>
     <string name="frag_data_raw_full_exp_no_display">Data Showed Only By Runs</string>
     <string name="frag_data_raw_no_data">No Data Recollected</string>
     <string name="frag_exp_sum_interval">Time Interval:</string>
+    <string name="frag_exp_sum_num_of_runs">Number of Runs</string>
     <string name="frag_exp_sum_parameters">Parameters:</string>
     <string name="frag_exp_sum_samples">Samples:</string>
     <string name="frag_exp_sum_summary">Summary:</string>
@@ -94,6 +104,7 @@
     <string name="fragment_open_online_no_session">No Session Found</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
+    <string name="loading">Loading…</string>
     <string name="local">Local</string>
     <string name="login">Log-In</string>
     <string name="logo_img_desc">Logo</string>
@@ -148,6 +159,7 @@
     <string name="title_dialog_bt_disconenct">Disconnect?</string>
     <string name="title_dialog_bt_selector">Select AeroBal Controller</string>
     <string name="title_dialog_confirm_run">Object Added?</string>
+    <string name="title_dialog_empty_tunnel">Is Tunnel Empty, Open and Secure?</string>
     <string name="title_dialog_experiment_info">Experiment Information</string>
     <string name="title_dialog_export">Export Experiment?</string>
     <string name="title_dialog_forgot_password">Forgot Password?</string>
@@ -170,10 +182,15 @@
     <string name="toast_bt_enable">Bluetooth Enable. Try Again.</string>
     <string name="toast_bt_not_connected">Bluetooth Not Connected</string>
     <string name="toast_bt_unable_to_connect">Unable to Connect</string>
+    <string name="toast_error_bad_data">Invalid Data</string>
     <string name="toast_error_bad_password">Incorrect Password</string>
     <string name="toast_error_bad_username">Invalid Email Address</string>
+    <string name="toast_error_invalid_state">Invalid View State</string>
     <string name="toast_error_json">Bad JSON Parsing</string>
+    <string name="toast_error_name_update">Unable to Update Experiment Name</string>
     <string name="toast_error_new_session_params">Empty Parameters</string>
+    <string name="toast_error_no_runs">No Runs Available for Export</string>
+    <string name="toast_error_unable_to_bt">Unable to Connect to Bluetooth</string>
     <string name="toast_error_unable_to_save">Unable to Save Experiment Online</string>
     <string name="toast_file_create">File Successfully Created</string>
     <string name="toast_file_mount_error">Unable to Access External Storage</string>
@@ -200,6 +217,7 @@
     <string name="toast_net_forgot_success">Email Sent</string>
     <string name="toast_net_login_fail">Unable to Log In</string>
     <string name="toast_no_bt_found">No Bluetooth Module found in Device.</string>
+    <string name="toast_success_name_update">Experiment Name Updated</string>
     <string name="toast_success_new_session_create">New Session Created</string>
     <string name="toast_success_save_experiment">Experiment Saved</string>
     <string name="toast_user_logout">Log Out Successful</string>

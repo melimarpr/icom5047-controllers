@@ -11,7 +11,7 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.callback.AeroCallback;
 
 /**
  * Created by enrique on 4/3/14.
@@ -57,8 +57,14 @@ public class BluetoothDataManager extends AsyncTask<Void, String, String> {
         try{
             mOutputStream.write(command.getBytes());
             mOutputStream.flush();
+
             //Flush
         }catch (IOException e){};
+        try{
+            Thread.sleep(300);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 

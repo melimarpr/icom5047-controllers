@@ -6,7 +6,7 @@ import java.util.Map;
 
 import icom5047.aerobal.dialog.UnitsDialog;
 import icom5047.aerobal.exceptions.InvalidUnitException;
-import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.callback.AeroCallback;
 import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
@@ -155,7 +155,7 @@ public class UnitController implements Serializable{
                 return value;
             case GlobalConstants.Measurements.TemperatureKey:
                 return  UnitFactory.Temperature.convert(value, UnitFactory.Temperature.DEFAULT, getCurrentType(UnitFactory.Type.TEMPERATURE));
-            case GlobalConstants.Measurements.TiltKey:
+            case GlobalConstants.Measurements.SideKey:
                 return UnitFactory.Force.convert(value, UnitFactory.Force.DEFAULT, getCurrentType(UnitFactory.Type.FORCE));
             case GlobalConstants.Measurements.DragKey:
                 return UnitFactory.Force.convert(value, UnitFactory.Force.DEFAULT, getCurrentType(UnitFactory.Type.FORCE));

@@ -1449,13 +1449,19 @@ com.aerobal.data.objects.Measurement$
 com.aerobal.data.objects.OptionWrapper
 com.aerobal.data.objects.OptionWrapper$
 com.aerobal.data.objects.Run:
-====    10:10:public void setId(long)
-====    11:11:public void setTimestamp(java.sql.Timestamp)
-====    10:10:public long getId()
-====    11:11:public java.sql.Timestamp getTimestamp()
-====    9:9:public com.aerobal.data.objects.Run copy()
-====    14:16:public Run(com.aerobal.data.dto.RunDto)
+====    11:11:public void setId(long)
+====    12:12:public void setTimestamp(java.sql.Timestamp)
+====    11:11:public long getId()
+====    12:12:public java.sql.Timestamp getTimestamp()
+====    10:10:public com.aerobal.data.objects.Run copy()
+====    15:17:public Run(com.aerobal.data.dto.RunDto)
 com.aerobal.data.objects.Run$
+com.aerobal.data.objects.Run$$anonfun$toCSV$1:
+    public static final long serialVersionUID
+com.aerobal.data.objects.Run$$anonfun$toCSV$1$$anonfun$1:
+    public static final long serialVersionUID
+com.aerobal.data.objects.Run$$anonfun$toCSV$1$$anonfun$apply$1:
+    public static final long serialVersionUID
 com.aerobal.data.objects.Session
 com.aerobal.data.objects.Session$
 com.aerobal.data.objects.Stats:
@@ -9575,7 +9581,6 @@ scala.collection.mutable.StringBuilder:
 ====    102:102:public void ensureCapacity(int)
 ====    124:125:public scala.collection.mutable.StringBuilder deleteCharAt(int)
 ====    149:149:public java.lang.String substring(int)
-====    177:178:public scala.collection.mutable.StringBuilder $plus$plus$eq(java.lang.String)
 ====    182:183:public scala.collection.mutable.StringBuilder appendAll(java.lang.String)
 ====    188:188:public scala.collection.mutable.StringBuilder $plus(char)
 ====    217:218:public scala.collection.mutable.StringBuilder append(scala.collection.mutable.StringBuilder)

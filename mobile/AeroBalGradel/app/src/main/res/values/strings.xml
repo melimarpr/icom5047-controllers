@@ -77,6 +77,17 @@
     <string name="frag_exp_sum_wind_speeds">Expected Wind Speed:</string>
     <string name="frag_exp_sum_samples">Samples:</string>
     <string name="frag_exp_sum_interval">Time Interval:</string>
+    <string name="frag_exp_sum_num_of_runs">Number of Runs</string>
+    <string name="ave_wind_speed">Average Wind Speed</string>
+    <string name="ave_wind_direction">Average Wind Direction</string>
+    <string name="ave_temperature">Average Temperature</string>
+    <string name="ave_pressure">Average Pressure</string>
+    <string name="ave_humidity">Average Humidity</string>
+    <string name="ave_drag">Average Drag Force</string>
+    <string name="ave_lift">Average Lift Force</string>
+    <string name="ave_side">Average Side Force</string>
+
+
 
     <!-- Data Detail Activity -->
 
@@ -102,6 +113,9 @@
     <string name="dialog_new_session_title">Title</string>
     <string name="dialog_new_session_desc">Description</string>
 
+    <!-- Loading Fragments -->
+    <string name="loading">Loading&#8230;</string>
+
     <!-- Graph Dialog -->
     <string name="dialog_graph_xaxis">X Axis:</string>
     <string name="dialog_graph_yaxis">Y Axis:</string>
@@ -112,5 +126,7 @@
     <string name="dialog_export_radio_aerobal">AeroBal</string>
     <string name="title_activity_save">Save Expereriment</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="email_subject">AeroBal Experiment</string>
 
 </resources>

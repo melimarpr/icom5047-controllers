@@ -7,12 +7,14 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -39,6 +41,7 @@ import icom5047.aerobal.resources.Keys;
 
 public class OpenActivity extends Activity {
 
+    //Vars
     private Stack<Fragment> fragmentStack;
     private String type;
     private ProgressDialog progressDialog;
@@ -58,7 +61,7 @@ public class OpenActivity extends Activity {
 
 
         Bundle bnd = getIntent().getExtras();
-
+        //Get Type
         if(bnd != null){
             type = bnd.getString(Keys.BundleKeys.OpenType);
         }
@@ -93,18 +96,20 @@ public class OpenActivity extends Activity {
             fragmentManager.beginTransaction().replace(R.id.main_container, fragmentStack.peek()).commit();
         }
 
+        //Set Progress Dialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getResources().getString(R.string.progress_load_experiment));
-
-
-
-
-
-
+        progressDialog.setCancelable(false);
+        progressDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                return keyCode != KeyEvent.KEYCODE_BACK;
+            }
+        });
 
     }
 
-
+    //Inner Back Button
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -115,14 +120,14 @@ public class OpenActivity extends Activity {
                 finish();
                 break;
             case R.id.ab_btn_back:
-                folderBack();
+                onFolderBack();
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void folderBack(){
+    private void onFolderBack(){
         if(this.fragmentStack.size() <= 1){
             Toast.makeText(this, R.string.toast_file_parent_error, Toast.LENGTH_SHORT).show();
         }
@@ -135,6 +140,7 @@ public class OpenActivity extends Activity {
         }
     }
 
+    //Set Experiment as Result
     public void setActivityResult(Experiment experiment){
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
@@ -143,12 +149,11 @@ public class OpenActivity extends Activity {
         setResult(RESULT_OK, intent);
         finish();
     }
-    public void setActivityResultDTO(com.aerobal.data.dto.ExperimentDto experiment){
 
+
+    public void setActivityResultDTO(com.aerobal.data.dto.ExperimentDto experiment){
         progressDialog.show();
         doHttpFullExperiment(experiment);
-
-
     }
 
     private void doHttpFullExperiment(final ExperimentDto experimentDto) {
@@ -171,6 +176,11 @@ public class OpenActivity extends Activity {
         HttpRequest request = new HttpRequest(params, headers, new HttpRequest.HttpCallback() {
             @Override
             public void onSucess(JSONObject json) {
+
+                if(fragmentStack == null){
+                    Toast.makeText(getBaseContext(), R.string.toast_error_invalid_state, Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 progressDialog.dismiss();
                 SharedPreferences.Editor editor = getSharedPreferences(Keys.SharedPref.UserSharedPreferences, Context.MODE_PRIVATE).edit();

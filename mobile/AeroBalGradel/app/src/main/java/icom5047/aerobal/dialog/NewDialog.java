@@ -16,12 +16,13 @@ import android.widget.Toast;
 
 import com.aerobal.data.objects.Experiment;
 
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
 
 import icom5047.aerobal.activities.R;
 import icom5047.aerobal.controllers.UnitController;
-import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.callback.AeroCallback;
 import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
@@ -81,12 +82,19 @@ public class NewDialog extends DialogFragment {
         final EditText etSample = (EditText) view.findViewById(R.id.dialogNewExpEtSample);
         final EditText etSpeed = (EditText) view.findViewById(R.id.dialogNewExpEtWindSpeed);
 
+
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMaximumFractionDigits(GlobalConstants.DecimalPrecision);
+        nf.setMinimumFractionDigits(GlobalConstants.DecimalPrecision);
+
+        String speedHint = "[ " + nf.format(UnitFactory.Speed.convert(GlobalConstants.WindSpeedMinimum, UnitFactory.Speed.DEFAULT, unitController.getCurrentType(UnitFactory.Type.SPEED)))
+                + " , " +
+               nf.format(UnitFactory.Speed.convert(GlobalConstants.WindSpeedMaximum, UnitFactory.Speed.DEFAULT, unitController.getCurrentType(UnitFactory.Type.SPEED)))
+                + " ]";
+
         etInterval.setHint("[ " + GlobalConstants.TimeIntervalMinimum + " , " + GlobalConstants.TimeIntervalMaximum + " ]");
         etSample.setHint("[ " + GlobalConstants.SamplesMinimum + " , " + GlobalConstants.SampleMaximum + " ]");
-        etSpeed.setHint("[ " + UnitFactory.Speed.convert(GlobalConstants.WindSpeedMinimumKMPH, UnitFactory.Speed.UNIT_KMPH, unitController.getCurrentType(UnitFactory.Type.SPEED))
-                + " , " +
-                UnitFactory.Speed.convert(GlobalConstants.WindSpeedMaximumKMPH, UnitFactory.Speed.UNIT_KMPH, unitController.getCurrentType(UnitFactory.Type.SPEED))
-                + " ]");
+        etSpeed.setHint(speedHint);
 
 
         etInterval.setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -185,13 +193,13 @@ public class NewDialog extends DialogFragment {
 
         double numericValue = Double.parseDouble(strSpeed);
 
-        if (UnitFactory.Speed.convert(numericValue, unitController.getCurrentType(UnitFactory.Type.SPEED), UnitFactory.Speed.UNIT_KMPH) < GlobalConstants.WindSpeedMinimumKMPH) {
+        if (UnitFactory.Speed.convert(numericValue, unitController.getCurrentType(UnitFactory.Type.SPEED), UnitFactory.Speed.DEFAULT) < GlobalConstants.WindSpeedMinimum) {
 
             Toast.makeText(getActivity(), getString(R.string.toast_invalid_exp_wind_speed_min) + " " + numericValue + " " + unitController.getCurrentSpeedUnit(), Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (UnitFactory.Speed.convert(numericValue, unitController.getCurrentType(UnitFactory.Type.SPEED), UnitFactory.Speed.UNIT_KMPH) > GlobalConstants.WindSpeedMaximumKMPH) {
+        if (UnitFactory.Speed.convert(numericValue, unitController.getCurrentType(UnitFactory.Type.SPEED), UnitFactory.Speed.DEFAULT) > GlobalConstants.WindSpeedMaximum) {
 
             Toast.makeText(getActivity(), getString(R.string.toast_invalid_exp_wind_speed_max) + " " + numericValue + " " + unitController.getCurrentSpeedUnit(), Toast.LENGTH_SHORT).show();
             return false;

@@ -23,7 +23,7 @@ import java.util.Set;
 
 import icom5047.aerobal.activities.R;
 import icom5047.aerobal.controllers.BluetoothController;
-import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.callback.AeroCallback;
 import icom5047.aerobal.resources.Keys;
 
 

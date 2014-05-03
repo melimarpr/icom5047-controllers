@@ -37,6 +37,12 @@
     <string name="toast_success_new_session_create">New Session Created</string>
     <string name="toast_success_save_experiment">Experiment Saved</string>
     <string name="toast_error_unable_to_save">Unable to Save Experiment Online</string>
+    <string name="toast_error_unable_to_bt">Unable to Connect to Bluetooth</string>
+    <string name="toast_success_name_update">Experiment Name Updated</string>
+    <string name="toast_error_name_update">Unable to Update Experiment Name</string>
+    <string name="toast_error_invalid_state">Invalid View State</string>
+    <string name="toast_error_no_runs">No Runs Available for Export</string>
+    <string name="toast_error_bad_data">Invalid Data</string>
 
 
 

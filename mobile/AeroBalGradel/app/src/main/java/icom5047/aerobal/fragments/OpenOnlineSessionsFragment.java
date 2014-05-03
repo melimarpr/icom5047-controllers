@@ -95,6 +95,10 @@ public class OpenOnlineSessionsFragment extends Fragment  {
             @Override
             public void onSucess(JSONObject json) {
 
+                if(listView == null){
+                    return;
+                }
+
                 if(json.has("payload")) {
                     try {
                         JSONArray array = json.getJSONArray("payload");

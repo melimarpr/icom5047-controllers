@@ -19,7 +19,7 @@ import java.util.UUID;
 import icom5047.aerobal.activities.R;
 import icom5047.aerobal.comm.BluetoothDataManager;
 import icom5047.aerobal.dialog.BluetoothDialog;
-import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.callback.AeroCallback;
 import icom5047.aerobal.resources.Keys;
 
 public class BluetoothController {

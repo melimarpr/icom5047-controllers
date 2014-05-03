@@ -4,21 +4,21 @@
 # view res/layout/activity_main.xml #generated:2
 -keep class android.support.v4.widget.DrawerLayout { <init>(...); }
 
-# view AndroidManifest.xml #generated:19
+# view AndroidManifest.xml #generated:30
 -keep class icom5047.aerobal.activities.DataDetailActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:23
+# view AndroidManifest.xml #generated:34
 -keep class icom5047.aerobal.activities.GraphActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:18
+# view AndroidManifest.xml #generated:29
 -keep class icom5047.aerobal.activities.LoginActivity { <init>(...); }
 
 # view AndroidManifest.xml #generated:11
 -keep class icom5047.aerobal.activities.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:21
+# view AndroidManifest.xml #generated:32
 -keep class icom5047.aerobal.activities.OpenActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:25
+# view AndroidManifest.xml #generated:36
 -keep class icom5047.aerobal.activities.SaveActivity { <init>(...); }
 

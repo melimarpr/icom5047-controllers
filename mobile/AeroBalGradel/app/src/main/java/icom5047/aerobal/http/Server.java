@@ -11,7 +11,7 @@ public class Server {
     public static class User{
         public static final String POST_LOGIN = url+"auth";
         public static final String POST_VALIDATE_USER = url+"user";
-        public static final String GET_FORGOT_PASSWORD = url+"forgot";
+        public static final String GET_FORGOT_PASSWORD = url+"forgot_password";
     }
 
     public static class Session{
@@ -23,6 +23,7 @@ public class Server {
         public static final String GET_EXPERIMENTS_FOR_SESSION = url+"experiments";
         public static final String GET_EXPERIMENT_COMPLETE = url+"full_experiment";
         public static final String POST_COMPLETE_EXPERIMENT = url+"submit_experiment";
+        public static final String PUT_UPDATE_EXPERIMENT_NAME = url+"update_experiment";
 
         public static class Parmas{
             public static final String SESSION_ID = "sessionId";

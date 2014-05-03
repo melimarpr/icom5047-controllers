@@ -12,7 +12,7 @@ import java.util.Map;
 
 import icom5047.aerobal.activities.R;
 import icom5047.aerobal.controllers.UserController;
-import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.callback.AeroCallback;
 import icom5047.aerobal.resources.Keys;
 
 public class OpenDialog extends DialogFragment {

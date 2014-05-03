@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -29,15 +30,23 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.aerobal.data.objects.Experiment;
+import com.aerobal.data.objects.Run;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import icom5047.aerobal.adapters.DrawerAdapter;
+import icom5047.aerobal.callback.AeroCallback;
 import icom5047.aerobal.controllers.BluetoothController;
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.controllers.UnitController;
@@ -46,17 +55,22 @@ import icom5047.aerobal.dialog.NewDialog;
 import icom5047.aerobal.dialog.OpenDialog;
 import icom5047.aerobal.fragments.EmptyFragment;
 import icom5047.aerobal.fragments.ExperimentFragment;
-import icom5047.aerobal.fragments.LoadingFragment;
-import icom5047.aerobal.interfaces.AeroCallback;
+import icom5047.aerobal.fragments.LoadingSupportFragment;
+import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
+import scala.collection.JavaConversions;
 
 public class MainActivity extends FragmentActivity {
 
+
+    //Drawer Vars
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerAdapter mDrawerAdapter;
+
+    //Menu Items
     private Menu abMenu;
     private boolean expMenuBoolean;
 
@@ -86,7 +100,7 @@ public class MainActivity extends FragmentActivity {
         values.put(UnitFactory.Type.FORCE, UnitFactory.Force.UNIT_NEWTON);
         values.put(UnitFactory.Type.HUMIDITY, UnitFactory.Humidity.UNIT_PERCENTAGE);
         values.put(UnitFactory.Type.TEMPERATURE, UnitFactory.Temperature.UNIT_CELSIUS);
-        values.put(UnitFactory.Type.SPEED, UnitFactory.Speed.UNIT_KMPH);
+        values.put(UnitFactory.Type.SPEED, UnitFactory.Speed.UNIT_MPH);
         values.put(UnitFactory.Type.DIRECTION, UnitFactory.Direction.UNIT_DEGREES);
 
         unitController = new UnitController(values);
@@ -138,9 +152,6 @@ public class MainActivity extends FragmentActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        //Set Default Fragment
-        FragmentManager fm = this.getSupportFragmentManager();
-        fm.beginTransaction().replace(R.id.content_frame, new EmptyFragment(), Keys.FragmentTag.EmptyTag).commit();
 
 
     }
@@ -148,15 +159,69 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //Refresh Data After Log-In
+
+        //Refresh Drawer
         mDrawerAdapter.clear();
         mDrawerAdapter.addAll(userController.getDrawerList());
         mDrawerAdapter.notifyDataSetChanged();
-        if(experimentController.isRunning()){
-            setWaitingFragment();
+
+        //Check Data
+        //Check if Opened
+        Uri data = getIntent().getData();
+        if(data != null) {
+            getIntent().setData(null);
+            try {
+                importFileData(data);
+            } catch (Exception e) {
+                // warn user about bad data here
+                finish();
+                Toast.makeText(this, R.string.toast_error_bad_data, Toast.LENGTH_SHORT).show();
+            }
         }
 
+        //Set experiment
+        if(experimentController.isRunning()){
+            setWaitingFragment();
+            return;
+        }
+        else if(experimentController.isExperimentSet()){
+            resetExperimentFragment();
+            return;
+        }
+
+        //Set Default Fragment
+        FragmentManager fm = this.getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.content_frame, new EmptyFragment(), Keys.FragmentTag.EmptyTag).commit();
+
     }
+
+    private void importFileData(Uri data) {
+
+        final String scheme = data.getScheme();
+        Log.v("Data", "importFileData");
+        if(ContentResolver.SCHEME_FILE.equals(scheme)) {
+            ContentResolver cr = getContentResolver();
+            InputStream is = null;
+            try {
+                is = cr.openInputStream(data);
+            } catch (FileNotFoundException e) {
+                Toast.makeText(this, R.string.toast_error_bad_data, Toast.LENGTH_SHORT).show();
+            }
+            if(is == null) return;
+
+            try {
+                ObjectInputStream input = new ObjectInputStream(is);
+                Experiment experiment = (Experiment) input.readObject();
+                experimentController.setExperiment(experiment);
+                is.close();
+                input.close();
+            } catch (IOException e) {
+                Toast.makeText(this, R.string.toast_error_bad_data, Toast.LENGTH_SHORT).show();
+            } catch (ClassNotFoundException e) {
+                Toast.makeText(this, R.string.toast_error_bad_data, Toast.LENGTH_SHORT).show();
+            }
+        }
+     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -172,8 +237,41 @@ public class MainActivity extends FragmentActivity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
+    /**
+     * Activity Result for Open
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case Keys.ActivityOnResult.OpenKey:
 
-    //Action Bar Menu
+                if(resultCode == RESULT_OK){
+                    Experiment experiment = (Experiment) data.getExtras().getSerializable(Keys.BundleKeys.Experiment);
+                    newExperimentFragmentLoader(experiment);
+
+                }
+                break;
+
+            case BluetoothController.REQUEST_ENABLE_BT:
+                if (resultCode == RESULT_CANCELED) {
+                    Toast.makeText(this, R.string.toast_bt_activation_cancel, Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(this, R.string.toast_bt_enable, Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case UserController.REQUEST_LOGIN:
+                if(resultCode == RESULT_OK ){
+                    String token = data.getExtras().getString(Keys.BundleKeys.UserToken);
+                    userController.setToken(token);
+                    onResume();
+                }
+                break;
+        }
+    }
+
+    /*======================== Action Bar Methods ========================*/
 
     /* Called whenever we call invalidateOptionsMenu() */
     @Override
@@ -185,11 +283,6 @@ public class MainActivity extends FragmentActivity {
             menu.findItem(R.id.ab_btn_bluetooth).setIcon(R.drawable.ic_bluetooth);
         }
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        menu.findItem(R.id.ab_btn_bluetooth).setVisible(!drawerOpen);
-        menu.findItem(R.id.ab_btn_units).setVisible(!drawerOpen);
-        if(btController.isAeroBalConnected()){
-
-        }
 
         if(experimentController.isRunning()){
             getActionBar().setHomeButtonEnabled(false);
@@ -210,7 +303,7 @@ public class MainActivity extends FragmentActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        this.abMenu = menu;
+        this.abMenu = menu; //Get Action Bar Menu
         return true;
     }
 
@@ -246,6 +339,7 @@ public class MainActivity extends FragmentActivity {
                 }).show(getSupportFragmentManager(), "Units Dialog");
                 break;
             default:
+                //If More Check Other Item Selected
                 onExperimentLoadedItemSelected(item.getItemId());
                 break;
         }
@@ -258,7 +352,7 @@ public class MainActivity extends FragmentActivity {
 
         switch (id) {
             case R.id.ab_btn_start_run:
-                experimentController.generateExperimentRun(btController, this);
+                onStartRunListener();
                 break;
             case R.id.ab_btn_show_data:
                 //Start New Activity
@@ -300,38 +394,37 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+    /*========================= File Related onClicks =========================*/
     private void exportExperimentDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
         builder.setTitle(R.string.title_dialog_export);
         builder.setIcon(R.drawable.ic_export);
 
+        //Get Views
         View view = this.getLayoutInflater().inflate(R.layout.dialog_export, null, false);
         final EditText et = (EditText) view.findViewById(R.id.dialogExportEt);
         final RadioGroup radioGroup = (RadioGroup) view.findViewById(R.id.dialogExportRadioFormat);
 
 
         builder.setView(view);
-
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //NoOp
             }
         });
-
         builder.setNeutralButton(R.string.local, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-
-                File path = new File(Environment.getExternalStorageDirectory(),"AeroBal");
+                File path = new File(Environment.getExternalStorageDirectory(),GlobalConstants.File.pathName);
                 if (!path.mkdirs()) {
-                    Log.e("DIR_TAG", "Directory not created");
+                    Log.v("DIR_TAG", "Directory not created");
                 }
 
-                String fileName = "experiment";
+                //Get Variables
+                String fileName;
                 if(validFileName(et.getText().toString().trim())){
                     fileName = et.getText().toString().trim();
                 }
@@ -339,46 +432,62 @@ public class MainActivity extends FragmentActivity {
                     Toast.makeText(getBaseContext(), R.string.toast_invalid_filename, Toast.LENGTH_SHORT).show();
                     return;
                 }
-                String suffix = ".csv";
                 int id = radioGroup.getCheckedRadioButtonId();
                 switch(id){
                     case R.id.dialogExportRadioCSV:
-                        suffix = ".csv";
+
+                        List<Run> runs = JavaConversions.asJavaList(experimentController.getExperiment().runs());
+                        if(runs.size() == 0){
+                            Toast.makeText(getBaseContext(), R.string.toast_error_no_runs, Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        for(int i=0; i<runs.size(); i++){
+                            File file = new File(path, fileName+"Run"+i+GlobalConstants.File.csvExt);
+                            if(file.exists()){
+                                dialog.dismiss();
+                                overrideFile(file, GlobalConstants.File.csvExt, runs.get(i));
+                                return;
+                            }
+                            boolean success = false;
+                            try {
+                                success = file.createNewFile();
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                            if(success) {
+                                createCSVFiles(file, runs.get(i));
+                                Toast.makeText(getBaseContext(), R.string.toast_file_create, Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
                         break;
                     case R.id.dialogExportRadioAerobal:
-                        suffix = ".aero";
+                        //Check File Exits
+                        File file = new File(path, fileName+GlobalConstants.File.aeroExt);
+                        if(file.exists()){
+                            dialog.dismiss();
+                            overrideFile(file, GlobalConstants.File.aeroExt, null);
+                            return;
+                        }
+
+                        boolean success = false;
+                        try {
+                            success = file.createNewFile();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                        if(success) {
+                            createAeroFiles(file);
+                            Toast.makeText(getBaseContext(), R.string.toast_file_create, Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
+                        }
                         break;
                 }
-
-                File file = new File(path, fileName+suffix);
-
-                //Check File Exits
-                if(file.exists()){
-                    dialog.dismiss();
-                    overrideFile(file);
-                    return;
-                }
-
-
-                try {
-                   boolean success =  file.createNewFile();
-
-                   if(success){
-                       FileOutputStream fout = new FileOutputStream(file);
-                       ObjectOutputStream oos = new ObjectOutputStream(fout);
-                       oos.writeObject(experimentController.getExperiment());
-                       oos.close();
-                       Toast.makeText(getBaseContext(), R.string.toast_file_create, Toast.LENGTH_SHORT).show();
-                   }
-                   else {
-                       Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
-                   }
-                } catch (IOException e) {
-                    Log.e("File", "Error");
-                    file.delete();
-                    Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
-                }
-
 
             }
         });
@@ -388,11 +497,9 @@ public class MainActivity extends FragmentActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "AeroBal Experiment");
+                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
 
-                File tmpFile = null;
-
-                String fileName = "experiment";
+                String fileName;
                 if(validFileName(et.getText().toString().trim())){
                     fileName = et.getText().toString().trim();
                 }
@@ -401,34 +508,22 @@ public class MainActivity extends FragmentActivity {
                     return;
                 }
 
-
-
-                String suffix = ".csv";
+                File[] files= {};
                 int id = radioGroup.getCheckedRadioButtonId();
                 switch(id){
                     case R.id.dialogExportRadioCSV:
-                        suffix = ".csv";
+                        files = createEmailCSVFiles(fileName);
                         break;
                     case R.id.dialogExportRadioAerobal:
-                        suffix = ".aero";
+                        files = createEmailAeroFiles(fileName);
                         break;
                 }
 
-                try {
-                    tmpFile = File.createTempFile(fileName, suffix, getBaseContext().getCacheDir());
-                    FileOutputStream fout = new FileOutputStream(tmpFile);
-                    ObjectOutputStream oos = new ObjectOutputStream(fout);
-                    oos.writeObject(experimentController.getExperiment());
-                    oos.close();
-                }catch (IOException e) {
-                    Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
-                    // Error while creating file
+                for(File e: files){
+                    intent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://" + e.getAbsolutePath()));
                 }
 
-                File file = tmpFile;
 
-                Uri uri = Uri.parse("file://" + file);
-                intent.putExtra(Intent.EXTRA_STREAM, uri);
                 startActivity(Intent.createChooser(intent, getResources().getString(R.string.title_intent_email)));
             }
         });
@@ -438,7 +533,78 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-    private void overrideFile(final File file){
+    private void createAeroFiles(File file){
+
+        try {
+                FileOutputStream fout = new FileOutputStream(file);
+                ObjectOutputStream oos = new ObjectOutputStream(fout);
+                oos.writeObject(experimentController.getExperiment());
+                oos.close();
+
+        } catch (IOException e) {
+            Log.e("File", "Error");
+            file.delete();
+            Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void createCSVFiles(File file, Run run){
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(run.toCSV());
+            writer.close();
+
+
+        }catch (IOException e) {
+            Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
+            // Error while creating file
+        }
+
+    }
+
+    private File[] createEmailAeroFiles(String fileName){
+
+        File tmpFile = null;
+        try {
+            tmpFile = File.createTempFile(fileName, GlobalConstants.File.aeroExt, getBaseContext().getCacheDir());
+            FileOutputStream fout = new FileOutputStream(tmpFile);
+            ObjectOutputStream oos = new ObjectOutputStream(fout);
+            oos.writeObject(experimentController.getExperiment());
+            oos.close();
+        }catch (IOException e) {
+            Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
+            // Error while creating file
+        }
+
+        return new File[]{tmpFile};
+
+    }
+
+    private File[] createEmailCSVFiles(String fileName){
+
+        List<Run> runs = JavaConversions.asJavaList(experimentController.getExperiment().runs());
+        File[] ret = new File[runs.size()];
+        for(int i=0; i<runs.size(); i++){
+            File tmpFile = null;
+            try {
+                tmpFile = File.createTempFile(fileName+i, GlobalConstants.File.csvExt, getBaseContext().getCacheDir());
+                BufferedWriter writer = new BufferedWriter(new FileWriter(tmpFile));
+                writer.write(runs.get(i).toCSV());
+                writer.close();
+            }catch (IOException e) {
+                Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
+                // Error while creating file
+            }
+            ret[i] = tmpFile;
+        }
+        return ret;
+
+    }
+
+
+    private void overrideFile(final File file, final String suffix, final Run run){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setIcon(R.drawable.ic_file);
@@ -447,24 +613,17 @@ public class MainActivity extends FragmentActivity {
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                try {
-
-                        FileOutputStream fout = new FileOutputStream(file);
-                        ObjectOutputStream oos = new ObjectOutputStream(fout);
-                        oos.flush();
-                        oos.writeObject(experimentController.getExperiment());
-                        oos.close();
-                        Toast.makeText(getBaseContext(), R.string.toast_file_updated, Toast.LENGTH_SHORT).show();
-
-                } catch (IOException e) {
-                    Log.e("File", "Error");
-                    Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();
+                if(suffix.equals(GlobalConstants.File.aeroExt)){
+                    createAeroFiles(file);
+                }
+                else if (suffix.equals(GlobalConstants.File.csvExt)){
+                    createCSVFiles(file, run);
                 }
 
             }
         });
 
-        builder.setNeutralButton(R.string.cancel, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //No-Op
@@ -474,7 +633,6 @@ public class MainActivity extends FragmentActivity {
         Dialog dialog = builder.create();
         dialog.show();
 
-
     }
 
     private boolean validFileName(String str){
@@ -483,53 +641,25 @@ public class MainActivity extends FragmentActivity {
 
 
 
+    //Set Experiment Vars
+    private void onStartRunListener(){
+        experimentController.setRunning(true);
+        setExperimentMenuVisibility(false);
 
-
-    private void closeDrawer() {
-        mDrawerLayout.closeDrawers();
+        //TODO: Start Service
+        invalidateOptionsMenu();
+        onResume();
     }
+
+
 
 
     public void setExperimentMenuVisibility(boolean bool) {
-
         this.expMenuBoolean = bool;
-
     }
 
-    /**
-     * Activity Result for Open
-     */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
-            case Keys.ActivityOnResult.OpenKey:
 
-                    if(resultCode == RESULT_OK){
-                        Experiment experiment = (Experiment) data.getExtras().getSerializable(Keys.BundleKeys.Experiment);
-                        newExperiment(experiment);
-
-                    }
-             break;
-
-            case BluetoothController.REQUEST_ENABLE_BT:
-                if (resultCode == RESULT_CANCELED) {
-                    Toast.makeText(this, R.string.toast_bt_activation_cancel, Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(this, R.string.toast_bt_enable, Toast.LENGTH_SHORT).show();
-                }
-            break;
-            case UserController.REQUEST_LOGIN:
-                if(resultCode == RESULT_OK ){
-                    String token = data.getExtras().getString(Keys.BundleKeys.UserToken);
-                    userController.setToken(token);
-                    onResume();
-                }
-            break;
-        }
-    }
-
+    /*======================== Drawer OnClick Listeners ========================*/
     public class DrawerOnClickListener implements OnItemClickListener {
 
         @Override
@@ -550,7 +680,7 @@ public class MainActivity extends FragmentActivity {
                                final Experiment experiment = (Experiment) objectMap.get(Keys.CallbackMap.NewExperimentObject);
                                 ((NewDialog) objectMap.get(Keys.CallbackMap.NewExperimentDialog)).dismiss();
                                 closeDrawer();
-                                newExperiment(experiment);
+                                newExperimentFragmentLoader(experiment);
 
 
                             }
@@ -601,7 +731,7 @@ public class MainActivity extends FragmentActivity {
                         userController.logout();
                         onResume();
                     } else {
-                        login();
+                        userController.login();
                     }
                     break;
             }
@@ -610,12 +740,15 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-    public void login() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivityForResult(intent, UserController.REQUEST_LOGIN);
+    private void closeDrawer() {
+        mDrawerLayout.closeDrawers();
     }
 
-    private void newExperiment(final Experiment experiment){
+
+
+    /*======================== Fragment Loaders Methods ====================*/
+
+    private void newExperimentFragmentLoader(final Experiment experiment){
 
         if(!experimentController.isExperimentSet()) {
 
@@ -669,9 +802,7 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
-    public void setResetExperiment(){
-
-
+    public void resetExperimentFragment(){
         setExperimentMenuVisibility(true);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
@@ -682,16 +813,22 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void setWaitingFragment(){
-
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.content_frame, LoadingFragment.newInstance("Running Experiment..."), Keys.FragmentTag.ExperimentTag);
+        ft.replace(R.id.content_frame, LoadingSupportFragment.newInstance("Running Experiment..."), Keys.FragmentTag.ExperimentTag);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();
-        setExperimentMenuVisibility(false);
         invalidateOptionsMenu();
-
     }
+
+
+
+
+
+
+
+
+
 
 
 }

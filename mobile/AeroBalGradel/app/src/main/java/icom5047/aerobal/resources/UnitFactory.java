@@ -183,7 +183,7 @@ public class UnitFactory {
         public static final int UNIT_MPH = 13;
         public static final int UNIT_MS = 14;
 
-        public static final int DEFAULT = UNIT_KMPH;
+        public static final int DEFAULT = UNIT_MPH;
 
         public static String getUnitString(int unit) throws InvalidUnitException {
             switch (unit) {

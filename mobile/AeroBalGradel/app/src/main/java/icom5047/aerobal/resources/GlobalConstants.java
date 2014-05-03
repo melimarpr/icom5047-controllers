@@ -22,8 +22,9 @@ public class GlobalConstants {
 
     public static final int CharacterLimit = 100;
 
-    public static final double WindSpeedMinimumKMPH = 25.0;
-    public static final double WindSpeedMaximumKMPH = 75.0;
+    //Wind Speed: Implied from Default
+    public static final double WindSpeedMinimum = 1;
+    public static final double WindSpeedMaximum = 50;
     public static final int TimeIntervalMinimum = 100;
     public static final int TimeIntervalMaximum = 10000;
     public static final int SamplesMinimum = 1;
@@ -35,7 +36,10 @@ public class GlobalConstants {
     public static final String[] allMeasurementType = new String[]{ "Average", "Max", "Min", "Standard Deviation", "Median" };
 
     public static class File{
-        public static String folderName = "Aerobal";
+        public static String folderName = "AeroBal";
+        public static String csvExt = ".csv";
+        public static String aeroExt = ".aero";
+        public static String pathName = "AeroBal";
 
     }
 
@@ -47,7 +51,7 @@ public class GlobalConstants {
         public static final int HumidityKey = 2;
         public static final int WindDirectionKey = 3;
         public static final int PressureKey = 4;
-        public static final int TiltKey = 5;
+        public static final int SideKey = 5;
         public static final int DragKey = 6;
         public static final int LiftKey = 7;
         public static final int TimeKey = 8;
@@ -60,7 +64,7 @@ public class GlobalConstants {
         public static String TemperatureString = "Temperature";
         public static String WindDirectionString = "Wind Direction";
         public static String PressureString = "Pressure";
-        public static String TiltString = "Tilt";
+        public static String SideString = "Side";
         public static String DragString = "Drag";
         public static String LiftString = "Lift";
         public static String TimeString = "Time";
@@ -75,7 +79,7 @@ public class GlobalConstants {
             map.put(HumidityKey, UnitFactory.Type.HUMIDITY);
             map.put(WindDirectionKey, UnitFactory.Type.DIRECTION);
             map.put(PressureKey, UnitFactory.Type.PRESSURE);
-            map.put(TiltKey, UnitFactory.Type.FORCE);
+            map.put(SideKey, UnitFactory.Type.FORCE);
             map.put(DragKey, UnitFactory.Type.FORCE);
             map.put(LiftKey, UnitFactory.Type.FORCE);
 
@@ -90,7 +94,7 @@ public class GlobalConstants {
             map.put(HumidityKey, HumidityString);
             map.put(WindDirectionKey, WindDirectionString);
             map.put(PressureKey, PressureString);
-            map.put(TiltKey, TiltString);
+            map.put(SideKey, SideString);
             map.put(DragKey, DragString);
             map.put(LiftKey, LiftString);
 
@@ -106,7 +110,7 @@ public class GlobalConstants {
             list.add(2, new SpinnerContainer(2, WindDirectionKey, WindDirectionString));
             list.add(3, new SpinnerContainer(3, HumidityKey, HumidityString));
             list.add(4, new SpinnerContainer(4, TemperatureKey, TemperatureString));
-            list.add(5, new SpinnerContainer(5, TiltKey, TiltString));
+            list.add(5, new SpinnerContainer(5, SideKey, SideString));
             list.add(6, new SpinnerContainer(6, DragKey, DragString));
             list.add(7, new SpinnerContainer(7, LiftKey, LiftString));
 
@@ -134,7 +138,7 @@ public class GlobalConstants {
                     return MeasurementTypes.getType(Humidity.toString());
                 case TemperatureKey:
                     return  MeasurementTypes.getType(Temperature.toString());
-                case TiltKey:
+                case SideKey:
                     return MeasurementTypes.getType(Tilt.toString());
                 case DragKey:
                     return MeasurementTypes.getType(Drag.toString());

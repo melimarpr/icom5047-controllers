@@ -103,6 +103,11 @@ public class OpenOnlineExperimentsFragment extends Fragment{
             @Override
             public void onSucess(JSONObject json) {
 
+
+                if(listView == null){
+                    //Not Active
+                    return;
+                }
                 if(json.has("payload")) {
                     try {
                         JSONArray array = json.getJSONArray("payload");
