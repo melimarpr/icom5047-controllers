@@ -1303,9 +1303,21 @@ android.support.v4.widget.ViewDragHelper:
 ====    1331:1337:public boolean isEdgeTouched(int)
 ====    1351:1351:public boolean isEdgeTouched(int,int)
 com.aerobal.comms.bluetooth.LoadCells
-com.aerobal.comms.bluetooth.LoadCells$
-com.aerobal.comms.bluetooth.SerialStrings
-com.aerobal.comms.bluetooth.SerialStrings$
+com.aerobal.comms.bluetooth.LoadCells$:
+====    3:3:private java.lang.Object readResolve()
+com.aerobal.comms.bluetooth.SerialStrings:
+====    public static java.lang.String makeSetWindSpeedString(double)
+====    public static java.lang.String makeLineWriteString(int,java.lang.String)
+====    public static java.lang.String makeBluetoothString(java.lang.String,java.lang.String)
+====    public static java.lang.String writeText(int,java.lang.String)
+====    public static java.lang.String initiateProcessorProcedure()
+com.aerobal.comms.bluetooth.SerialStrings$:
+====    11:11:private java.lang.String PROCESSOR_PROCEDURE_KEY()
+====    13:13:private java.lang.String LINE_NUMBER_KEY()
+====    50:50:public java.lang.String initiateProcessorProcedure()
+====    59:59:public java.lang.String writeText(int,java.lang.String)
+====    88:88:public java.lang.String makeProcessorProcedureString()
+====    95:99:public java.lang.String makeLineWriteString(int,java.lang.String)
 com.aerobal.comms.server.Constants
 com.aerobal.comms.server.Constants$
 com.aerobal.comms.server.Deletes
@@ -1418,9 +1430,6 @@ com.aerobal.data.objects.Experiment:
 ====    15:15:public void setId(long)
 ====    16:16:public void setTimestamp(java.sql.Timestamp)
 ====    11:11:public java.lang.String getName()
-====    12:12:public int getAmountOfValues()
-====    13:13:public int getFrequency()
-====    14:14:public double getWindSpeed()
 ====    15:15:public long getId()
 ====    16:16:public java.sql.Timestamp getTimestamp()
 ====    11:14:public com.aerobal.data.objects.Experiment copy(java.lang.String,int,int,double)
@@ -1494,7 +1503,7 @@ com.aerobal.data.objects.measurementTypes.Drag:
 ====    public static java.lang.Object productElement(int)
 ====    public static int productArity()
 ====    public static java.lang.String productPrefix()
-====    public static int id()
+====    public static java.lang.String toString()
 com.aerobal.data.objects.measurementTypes.Drag$:
 ====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.Humidity:
@@ -1504,7 +1513,7 @@ com.aerobal.data.objects.measurementTypes.Humidity:
 ====    public static java.lang.Object productElement(int)
 ====    public static int productArity()
 ====    public static java.lang.String productPrefix()
-====    public static int id()
+====    public static java.lang.String toString()
 com.aerobal.data.objects.measurementTypes.Humidity$:
 ====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.Lift:
@@ -1514,17 +1523,14 @@ com.aerobal.data.objects.measurementTypes.Lift:
 ====    public static java.lang.Object productElement(int)
 ====    public static int productArity()
 ====    public static java.lang.String productPrefix()
-====    public static int id()
+====    public static java.lang.String toString()
 com.aerobal.data.objects.measurementTypes.Lift$:
 ====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.MeasurementType:
 ====    public abstract int id()
 ====    public abstract java.lang.String toString()
 com.aerobal.data.objects.measurementTypes.MeasurementTypes:
-====    public static com.aerobal.data.objects.measurementTypes.MeasurementType getType(int)
-com.aerobal.data.objects.measurementTypes.MeasurementTypes$:
-====    27:27:private scala.collection.immutable.HashMap idMap()
-====    39:39:public com.aerobal.data.objects.measurementTypes.MeasurementType getType(int)
+====    public static com.aerobal.data.objects.measurementTypes.MeasurementType getType(java.lang.String)
 com.aerobal.data.objects.measurementTypes.Pressure:
 ====    public static int hashCode()
 ====    public static boolean canEqual(java.lang.Object)
@@ -1532,7 +1538,7 @@ com.aerobal.data.objects.measurementTypes.Pressure:
 ====    public static java.lang.Object productElement(int)
 ====    public static int productArity()
 ====    public static java.lang.String productPrefix()
-====    public static int id()
+====    public static java.lang.String toString()
 com.aerobal.data.objects.measurementTypes.Pressure$:
 ====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.Temperature:
@@ -1542,7 +1548,7 @@ com.aerobal.data.objects.measurementTypes.Temperature:
 ====    public static java.lang.Object productElement(int)
 ====    public static int productArity()
 ====    public static java.lang.String productPrefix()
-====    public static int id()
+====    public static java.lang.String toString()
 com.aerobal.data.objects.measurementTypes.Temperature$:
 ====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.Tilt:
@@ -1552,7 +1558,7 @@ com.aerobal.data.objects.measurementTypes.Tilt:
 ====    public static java.lang.Object productElement(int)
 ====    public static int productArity()
 ====    public static java.lang.String productPrefix()
-====    public static int id()
+====    public static java.lang.String toString()
 com.aerobal.data.objects.measurementTypes.Tilt$:
 ====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.WindDirection:
@@ -1562,7 +1568,7 @@ com.aerobal.data.objects.measurementTypes.WindDirection:
 ====    public static java.lang.Object productElement(int)
 ====    public static int productArity()
 ====    public static java.lang.String productPrefix()
-====    public static int id()
+====    public static java.lang.String toString()
 com.aerobal.data.objects.measurementTypes.WindDirection$:
 ====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.measurementTypes.WindSpeed:
@@ -1572,7 +1578,7 @@ com.aerobal.data.objects.measurementTypes.WindSpeed:
 ====    public static java.lang.Object productElement(int)
 ====    public static int productArity()
 ====    public static java.lang.String productPrefix()
-====    public static int id()
+====    public static java.lang.String toString()
 com.aerobal.data.objects.measurementTypes.WindSpeed$:
 ====    3:3:private java.lang.Object readResolve()
 com.aerobal.data.objects.statTypes.Max

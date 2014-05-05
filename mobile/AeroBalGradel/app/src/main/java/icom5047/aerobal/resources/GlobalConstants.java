@@ -25,8 +25,8 @@ public class GlobalConstants {
     //Wind Speed: Implied from Default
     public static final double WindSpeedMinimum = 1;
     public static final double WindSpeedMaximum = 50;
-    public static final int TimeIntervalMinimum = 100;
-    public static final int TimeIntervalMaximum = 10000;
+    public static final int TimeIntervalMinimum = 500;
+    public static final int TimeIntervalMaximum = 60000;
     public static final int SamplesMinimum = 1;
     public static final int SampleMaximum = 10000;
     public static final int DecimalPrecision = 3;
@@ -55,6 +55,12 @@ public class GlobalConstants {
         public static final int DragKey = 6;
         public static final int LiftKey = 7;
         public static final int TimeKey = 8;
+        public static final int LeftKey = 9;
+        public static final int RightKey = 10;
+        public static final int FrontKey = 11;
+        public static final int BackKey = 12;
+        public static final int UpKey = 13;
+        public static final int DownKey = 14;
 
 
 
@@ -129,21 +135,21 @@ public class GlobalConstants {
 
             switch (container.index){
                 case PressureKey:
-                    return MeasurementTypes.getType(Pressure.toString());
+                    return MeasurementTypes.getType(Pressure.id());
                 case WindSpeedKey:
-                    return MeasurementTypes.getType(WindSpeed.toString());
+                    return MeasurementTypes.getType(WindSpeed.id());
                 case WindDirectionKey:
-                    return MeasurementTypes.getType(WindDirection.toString());
+                    return MeasurementTypes.getType(WindDirection.id());
                 case HumidityKey:
-                    return MeasurementTypes.getType(Humidity.toString());
+                    return MeasurementTypes.getType(Humidity.id());
                 case TemperatureKey:
-                    return  MeasurementTypes.getType(Temperature.toString());
+                    return  MeasurementTypes.getType(Temperature.id());
                 case SideKey:
-                    return MeasurementTypes.getType(Tilt.toString());
+                    return MeasurementTypes.getType(Tilt.id());
                 case DragKey:
-                    return MeasurementTypes.getType(Drag.toString());
+                    return MeasurementTypes.getType(Drag.id());
                 case LiftKey:
-                    return MeasurementTypes.getType(Lift.toString());
+                    return MeasurementTypes.getType(Lift.id());
 
             }
 

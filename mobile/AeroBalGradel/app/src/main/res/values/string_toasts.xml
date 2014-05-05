@@ -43,6 +43,9 @@
     <string name="toast_error_invalid_state">Invalid View State</string>
     <string name="toast_error_no_runs">No Runs Available for Export</string>
     <string name="toast_error_bad_data">Invalid Data</string>
+    <string name="toast_error_run_fail">Unable to Obtain Run Data</string>
+    <string name="toast_error_invalid_service_access">Invalid Service Access</string>
+    <string name="toast_error_emergency_or_invalid">Emergency Stop</string>
 
 
 

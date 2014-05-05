@@ -12,6 +12,7 @@ import com.aerobal.data.objects.measurementTypes.Temperature;
 import com.aerobal.data.objects.measurementTypes.Tilt;
 import com.aerobal.data.objects.measurementTypes.WindDirection;
 import com.aerobal.data.objects.measurementTypes.WindSpeed;
+import com.aerobal.data.serializers.GlobalGson;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -57,6 +58,10 @@ public class ExperimentController implements Serializable{
         return experimentObj;
     }
 
+    public Experiment getCloneExperiment(){ return GlobalGson.gson().fromJson(experimentObj.toString(), Experiment.class);}
+
+    public static Run getCloneRun(Run run){return GlobalGson.gson().fromJson(run.toString(), Run.class);}
+
     public boolean isExperimentSet() {
         return experimentObj != null;
     }
@@ -79,14 +84,14 @@ public class ExperimentController implements Serializable{
 
         Map<Integer,Stats> map = new HashMap<Integer, Stats>();
 
-        Stats preasure = new Stats(MeasurementTypes.getType(Pressure.toString()), experiment);
-        Stats windSpeed = new Stats(MeasurementTypes.getType(WindSpeed.toString()), experiment);
-        Stats windDir = new Stats(MeasurementTypes.getType(WindDirection.toString()), experiment);
-        Stats temp = new Stats(MeasurementTypes.getType(Temperature.toString()), experiment);
-        Stats humidity = new Stats(MeasurementTypes.getType(Humidity.toString()), experiment);
-        Stats tilt = new Stats(MeasurementTypes.getType(Tilt.toString()), experiment);
-        Stats drag = new Stats(MeasurementTypes.getType(Drag.toString()), experiment);
-        Stats lift = new Stats(MeasurementTypes.getType(Lift.toString()), experiment);
+        Stats preasure = new Stats(MeasurementTypes.getType(Pressure.id()), experiment);
+        Stats windSpeed = new Stats(MeasurementTypes.getType(WindSpeed.id()), experiment);
+        Stats windDir = new Stats(MeasurementTypes.getType(WindDirection.id()), experiment);
+        Stats temp = new Stats(MeasurementTypes.getType(Temperature.id()), experiment);
+        Stats humidity = new Stats(MeasurementTypes.getType(Humidity.id()), experiment);
+        Stats tilt = new Stats(MeasurementTypes.getType(Tilt.id()), experiment);
+        Stats drag = new Stats(MeasurementTypes.getType(Drag.id()), experiment);
+        Stats lift = new Stats(MeasurementTypes.getType(Lift.id()), experiment);
 
         map.put(GlobalConstants.Measurements.WindSpeedKey, windSpeed);
         map.put(GlobalConstants.Measurements.WindDirectionKey, windDir);
@@ -104,14 +109,14 @@ public class ExperimentController implements Serializable{
 
         Map<Integer,Stats> map = new HashMap<Integer, Stats>();
 
-        Stats preasure = new Stats(MeasurementTypes.getType(Pressure.toString()), runs);
-        Stats windSpeed = new Stats(MeasurementTypes.getType(WindSpeed.toString()), runs);
-        Stats windDir = new Stats(MeasurementTypes.getType(WindDirection.toString()), runs);
-        Stats temp = new Stats(MeasurementTypes.getType(Temperature.toString()), runs);
-        Stats humidity = new Stats(MeasurementTypes.getType(Humidity.toString()),runs);
-        Stats tilt = new Stats(MeasurementTypes.getType(Tilt.toString()), runs);
-        Stats drag = new Stats(MeasurementTypes.getType(Drag.toString()), runs);
-        Stats lift = new Stats(MeasurementTypes.getType(Lift.toString()), runs);
+        Stats preasure = new Stats(MeasurementTypes.getType(Pressure.id()), runs);
+        Stats windSpeed = new Stats(MeasurementTypes.getType(WindSpeed.id()), runs);
+        Stats windDir = new Stats(MeasurementTypes.getType(WindDirection.id()), runs);
+        Stats temp = new Stats(MeasurementTypes.getType(Temperature.id()), runs);
+        Stats humidity = new Stats(MeasurementTypes.getType(Humidity.id()),runs);
+        Stats tilt = new Stats(MeasurementTypes.getType(Tilt.id()), runs);
+        Stats drag = new Stats(MeasurementTypes.getType(Drag.id()), runs);
+        Stats lift = new Stats(MeasurementTypes.getType(Lift.id()), runs);
 
         map.put(GlobalConstants.Measurements.WindSpeedKey, windSpeed);
         map.put(GlobalConstants.Measurements.WindDirectionKey, windDir);

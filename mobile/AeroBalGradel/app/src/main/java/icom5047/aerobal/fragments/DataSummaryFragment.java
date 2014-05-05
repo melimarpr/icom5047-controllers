@@ -40,6 +40,9 @@ public class DataSummaryFragment extends Fragment {
     private ListView listView;
     private SpinnerContainer currContainer;
     private volatile UnitController unitController;
+    private SummaryAdapter summarAdapter;
+
+    private List<SummaryContainer> summary;
 
     public static DataSummaryFragment getInstance(ExperimentController experimentController, UnitController unitController){
 
@@ -95,7 +98,9 @@ public class DataSummaryFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        listView.setAdapter(new SummaryAdapter(this.getActivity(), getSummaryDetails()));
+        summary = getSummaryDetails();
+        summarAdapter = new SummaryAdapter(this.getActivity(), summary);
+        listView.setAdapter(summarAdapter);
     }
 
     public void fullRefresh(SpinnerContainer run){
@@ -106,8 +111,11 @@ public class DataSummaryFragment extends Fragment {
 
     public void refresh(){
         Log.v("Refresh", "Change Var");
-        if(listView != null){
+        if(listView != null && summarAdapter != null){
+            summary = getSummaryDetails();
+            summarAdapter.notifyDataSetChanged();
             listView.invalidateViews();
+            onResume();
         }
 
     }
@@ -155,11 +163,11 @@ public class DataSummaryFragment extends Fragment {
 
 
         Stats stats;
-        List<Run> runsList = JavaConversions.asJavaList(experimentController.getExperiment().runs());
+        List<Run> runsList = JavaConversions.asJavaList(experimentController.getCloneExperiment().runs());
         if(experimentController.getActiveRun().index == ExperimentController.ALL_RUNS){
-            stats = new Stats(GlobalConstants.Measurements.getMessurmentTypeForSpinner(currContainer), experimentController.getExperiment());
+            stats = new Stats(GlobalConstants.Measurements.getMessurmentTypeForSpinner(currContainer), experimentController.getCloneExperiment());
         }else{
-            stats = new Stats(GlobalConstants.Measurements.getMessurmentTypeForSpinner(currContainer), runsList.get(experimentController.getActiveRun().index));
+            stats = new Stats(GlobalConstants.Measurements.getMessurmentTypeForSpinner(currContainer), ExperimentController.getCloneRun(runsList.get(experimentController.getActiveRun().index)));
         }
 
 
@@ -177,10 +185,6 @@ public class DataSummaryFragment extends Fragment {
                 unitController.convertFromDefaultToCurrent( currContainer.index, stats.getMedian()))); //Median
         return list;
     }
-
-
-
-
 
 
 

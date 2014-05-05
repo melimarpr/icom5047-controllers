@@ -15,6 +15,11 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <service android:name="icom5047.aerobal.services.BluetoothService"
+                 android:label="@string/bt_service_name"
+                 android:icon="@drawable/ic_launcher">
+        </service>
+
         <activity
             android:name="icom5047.aerobal.activities.MainActivity"
             android:label="@string/app_name"

@@ -1,4 +1,4 @@
-package icom5047.aerobal.callback;
+package icom5047.aerobal.callbacks;
 
 import java.util.Map;
 

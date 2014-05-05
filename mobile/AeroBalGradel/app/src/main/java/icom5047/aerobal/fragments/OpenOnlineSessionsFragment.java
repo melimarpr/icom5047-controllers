@@ -95,7 +95,7 @@ public class OpenOnlineSessionsFragment extends Fragment  {
             @Override
             public void onSucess(JSONObject json) {
 
-                if(listView == null){
+                if(openActivity == null){
                     return;
                 }
 

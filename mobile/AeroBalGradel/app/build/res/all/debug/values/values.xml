@@ -42,6 +42,7 @@
     <string name="ave_wind_direction">Average Wind Direction</string>
     <string name="ave_wind_speed">Average Wind Speed</string>
     <string name="back">Back</string>
+    <string name="bt_service_name">Bluetooth Service</string>
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
     <string name="dialog_bt_disconnect">Disconnect from AeroBal?</string>
@@ -103,11 +104,22 @@
     <string name="fragment_open_online_no_exp_in_session">No Experiment in Session</string>
     <string name="fragment_open_online_no_session">No Session Found</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="hello_world">Hello world!</string>
     <string name="loading">Loading…</string>
     <string name="local">Local</string>
     <string name="login">Log-In</string>
     <string name="logo_img_desc">Logo</string>
+    <string name="notification_emergency_stop">Emergency Stop!</string>
+    <string name="notification_empty_tunnel_desc">AeroBal Wind Tunnel</string>
+    <string name="notification_empty_tunnel_title">Is Tunnel Empty?</string>
+    <string name="notification_error_desc">AeroBal Wind Tunnel Error</string>
+    <string name="notification_filled_tunnel_desc">AeroBal Wind Tunnel</string>
+    <string name="notification_filled_tunnel_title">Is Object Placed?</string>
+    <string name="notification_inactive_bluetooth">Bluetooth Not Responding</string>
+    <string name="notification_max_amount_retry">Bluetooth Invalid Response</string>
+    <string name="notification_running_desc">AeroBal is Conducting Experiment</string>
+    <string name="notification_running_title">Running…</string>
+    <string name="notification_success_desc">AeroBal Wind Tunnel</string>
+    <string name="notification_success_title">Run Successful</string>
     <string name="online">Online</string>
     <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_placeholders.xml -->
     <eat-comment />
@@ -185,11 +197,14 @@
     <string name="toast_error_bad_data">Invalid Data</string>
     <string name="toast_error_bad_password">Incorrect Password</string>
     <string name="toast_error_bad_username">Invalid Email Address</string>
+    <string name="toast_error_emergency_or_invalid">Emergency Stop</string>
+    <string name="toast_error_invalid_service_access">Invalid Service Access</string>
     <string name="toast_error_invalid_state">Invalid View State</string>
     <string name="toast_error_json">Bad JSON Parsing</string>
     <string name="toast_error_name_update">Unable to Update Experiment Name</string>
     <string name="toast_error_new_session_params">Empty Parameters</string>
     <string name="toast_error_no_runs">No Runs Available for Export</string>
+    <string name="toast_error_run_fail">Unable to Obtain Run Data</string>
     <string name="toast_error_unable_to_bt">Unable to Connect to Bluetooth</string>
     <string name="toast_error_unable_to_save">Unable to Save Experiment Online</string>
     <string name="toast_file_create">File Successfully Created</string>

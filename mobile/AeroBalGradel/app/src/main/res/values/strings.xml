@@ -3,7 +3,7 @@
 
     <string name="app_name">AeroBal</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="bt_service_name">Bluetooth Service</string>
 
     <!-- HTTP -->
     <string name="website_register">http://www.google.com</string>
@@ -128,5 +128,20 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="email_subject">AeroBal Experiment</string>
+    <!-- Notification Text -->
+    <string name="notification_running_title">Running&#8230;</string>
+    <string name="notification_running_desc">AeroBal is Conducting Experiment</string>
+    <string name="notification_emergency_stop">Emergency Stop!</string>
+    <string name="notification_empty_tunnel_title">Is Tunnel Empty?</string>
+    <string name="notification_empty_tunnel_desc">AeroBal Wind Tunnel</string>
+    <string name="notification_error_desc">AeroBal Wind Tunnel Error</string>
+    <string name="notification_filled_tunnel_title">Is Object Placed?</string>
+    <string name="notification_filled_tunnel_desc">AeroBal Wind Tunnel</string>
+    <string name="notification_inactive_bluetooth">Bluetooth Not Responding</string>
+    <string name="notification_max_amount_retry">Bluetooth Invalid Response</string>
+    <string name="notification_success_title">Run Successful</string>
+    <string name="notification_success_desc">AeroBal Wind Tunnel</string>
+
+
 
 </resources>

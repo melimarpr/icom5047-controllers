@@ -4,10 +4,17 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -46,7 +53,7 @@ import java.util.List;
 import java.util.Map;
 
 import icom5047.aerobal.adapters.DrawerAdapter;
-import icom5047.aerobal.callback.AeroCallback;
+import icom5047.aerobal.callbacks.AeroCallback;
 import icom5047.aerobal.controllers.BluetoothController;
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.controllers.UnitController;
@@ -59,6 +66,7 @@ import icom5047.aerobal.fragments.LoadingSupportFragment;
 import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
+import icom5047.aerobal.services.BluetoothService;
 import scala.collection.JavaConversions;
 
 public class MainActivity extends FragmentActivity {
@@ -80,6 +88,82 @@ public class MainActivity extends FragmentActivity {
     private volatile BluetoothController btController;
     private volatile UnitController unitController;
     private volatile ExperimentController experimentController;
+
+    //Notification KEYS
+    private static final int ERROR_NOTIFICATION = 5;
+    private static final int SUCCESS_NOTIFICATION = 6;
+
+
+    //Broadcast Reciever
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            //Get Bundle
+            Bundle bundle = intent.getExtras();
+
+            if(bundle != null){
+                //Edit Values
+                if(bundle.getBoolean(BluetoothService.Keys.ERROR, false)){
+                    String error = bundle.getString(BluetoothService.Keys.ERROR_STRING);
+                    experimentController.setRunning(false);
+                    btController.reset();
+                    expMenuBoolean = true;
+                    //Notification
+                    Notification.Builder builder = new Notification.Builder(MainActivity.this);
+
+                    builder.setSmallIcon(R.drawable.ic_launcher)
+                           .setContentTitle(error)
+                           .setContentText(getString(R.string.notification_error_desc));
+                    Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    builder.setSound(alarmSound);
+                    builder.setLights(Color.RED, 500, 500);
+                    long[] pattern = {500,500,500,500,500,500,500,500,500};
+                    builder.setVibrate(pattern);
+                    Notification errorNot = builder.build();
+                    errorNot.flags |= Notification.FLAG_AUTO_CANCEL;
+                    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    notificationManager.notify(ERROR_NOTIFICATION, errorNot);
+
+                    //Invalidate View
+                    invalidateOptionsMenu();
+                    onResume();
+                }
+                else{
+
+                    Experiment experimentWithRun = (Experiment) bundle.getSerializable(Keys.BundleKeys.Experiment);
+                    experimentController.setExperiment(experimentWithRun);
+                    experimentController.setRunning(false);
+                    btController.reset();
+                    expMenuBoolean = true;
+
+                    Notification.Builder builder = new Notification.Builder(MainActivity.this);
+
+                    builder.setSmallIcon(R.drawable.ic_launcher)
+                            .setContentTitle(getString(R.string.notification_success_title))
+                            .setContentText(getString(R.string.notification_success_desc));
+                    Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    builder.setSound(alarmSound);
+
+                    builder.setLights(Color.WHITE, 500, 500);
+                    long[] pattern = {500,500,500,500,500,500,500,500,500};
+                    builder.setVibrate(pattern);
+
+                    Notification successNot = builder.build();
+                    successNot.flags |= Notification.FLAG_AUTO_CANCEL;
+                    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    notificationManager.notify(SUCCESS_NOTIFICATION, successNot);
+
+                    invalidateOptionsMenu();
+                    onResume();
+
+                }
+            } else{
+                Toast.makeText(MainActivity.this, R.string.toast_error_run_fail, Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
 
 
     @SuppressLint("UseSparseArrays")
@@ -160,6 +244,7 @@ public class MainActivity extends FragmentActivity {
     protected void onResume() {
         super.onResume();
 
+        registerReceiver(receiver, new IntentFilter(BluetoothService.BROADCAST_CODE));
         //Refresh Drawer
         mDrawerAdapter.clear();
         mDrawerAdapter.addAll(userController.getDrawerList());
@@ -193,6 +278,12 @@ public class MainActivity extends FragmentActivity {
         FragmentManager fm = this.getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.content_frame, new EmptyFragment(), Keys.FragmentTag.EmptyTag).commit();
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(receiver);
     }
 
     private void importFileData(Uri data) {
@@ -284,9 +375,9 @@ public class MainActivity extends FragmentActivity {
         }
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
 
-        if(experimentController.isRunning()){
-            getActionBar().setHomeButtonEnabled(false);
-        }
+        getActionBar().setHomeButtonEnabled(!experimentController.isRunning());
+        menu.findItem(R.id.ab_btn_bluetooth).setEnabled(!experimentController.isRunning());
+
 
         if (expMenuBoolean) {
             menu.findItem(R.id.ab_btn_start_run).setVisible(!drawerOpen);
@@ -352,7 +443,10 @@ public class MainActivity extends FragmentActivity {
 
         switch (id) {
             case R.id.ab_btn_start_run:
-                onStartRunListener();
+                if(btController.isAeroBalConnected())
+                    onStartRunListener();
+                else
+                    Toast.makeText(this, R.string.toast_bt_not_connected, Toast.LENGTH_SHORT ).show();
                 break;
             case R.id.ab_btn_show_data:
                 //Start New Activity
@@ -641,19 +735,6 @@ public class MainActivity extends FragmentActivity {
 
 
 
-    //Set Experiment Vars
-    private void onStartRunListener(){
-        experimentController.setRunning(true);
-        setExperimentMenuVisibility(false);
-
-        //TODO: Start Service
-        invalidateOptionsMenu();
-        onResume();
-    }
-
-
-
-
     public void setExperimentMenuVisibility(boolean bool) {
         this.expMenuBoolean = bool;
     }
@@ -820,6 +901,33 @@ public class MainActivity extends FragmentActivity {
         ft.commit();
         invalidateOptionsMenu();
     }
+
+
+    /*========================= Services Related Methods ============================= */
+    //Set Experiment Vars
+    private void onStartRunListener(){
+        experimentController.setRunning(true);
+        setExperimentMenuVisibility(false);
+        btController.disconnectSocket(); //
+
+        Intent btIntent = new Intent(this, BluetoothService.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(BluetoothService.Keys.BLUETOOTH_DEVICE, btController.getAerobalDevice()); //Send Device
+        bundle.putSerializable(Keys.BundleKeys.Experiment, experimentController.getExperiment());
+        btIntent.putExtras(bundle); //Set other Data
+        startService(btIntent);
+
+        //Reset Views
+        invalidateOptionsMenu();
+        onResume();
+    }
+
+
+
+
+
+
+
 
 
 

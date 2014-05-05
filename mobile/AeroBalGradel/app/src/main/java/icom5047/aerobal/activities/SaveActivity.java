@@ -40,8 +40,6 @@ public class SaveActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_save);
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open);
 
         final ActionBar ab = this.getActionBar();

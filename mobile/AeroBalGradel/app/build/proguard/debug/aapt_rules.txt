@@ -4,21 +4,24 @@
 # view res/layout/activity_main.xml #generated:2
 -keep class android.support.v4.widget.DrawerLayout { <init>(...); }
 
-# view AndroidManifest.xml #generated:30
+# view AndroidManifest.xml #generated:33
 -keep class icom5047.aerobal.activities.DataDetailActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:34
+# view AndroidManifest.xml #generated:37
 -keep class icom5047.aerobal.activities.GraphActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:29
+# view AndroidManifest.xml #generated:32
 -keep class icom5047.aerobal.activities.LoginActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:11
+# view AndroidManifest.xml #generated:14
 -keep class icom5047.aerobal.activities.MainActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:32
+# view AndroidManifest.xml #generated:35
 -keep class icom5047.aerobal.activities.OpenActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:36
+# view AndroidManifest.xml #generated:39
 -keep class icom5047.aerobal.activities.SaveActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:11
+-keep class icom5047.aerobal.services.BluetoothService { <init>(...); }
 

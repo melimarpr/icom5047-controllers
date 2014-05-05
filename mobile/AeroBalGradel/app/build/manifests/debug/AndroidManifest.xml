@@ -1,5 +1,5 @@
 <!-- From: file:/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="icom5047.aerobal.activities">
-    <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="19"/>
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="19"/>
 
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/AppTheme">
+        <service android:icon="@drawable/ic_launcher" android:label="@string/bt_service_name" android:name="icom5047.aerobal.services.BluetoothService">
+        </service>
+
         <activity android:label="@string/app_name" android:name="icom5047.aerobal.activities.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

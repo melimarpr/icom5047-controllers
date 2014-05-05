@@ -17,19 +17,19 @@ import java.util.Set;
 import java.util.UUID;
 
 import icom5047.aerobal.activities.R;
-import icom5047.aerobal.comm.BluetoothDataManager;
+import icom5047.aerobal.callbacks.AeroCallback;
 import icom5047.aerobal.dialog.BluetoothDialog;
-import icom5047.aerobal.callback.AeroCallback;
 import icom5047.aerobal.resources.Keys;
 
 public class BluetoothController {
 
     private Context context;
-    private static final UUID AERO_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); //Unique UUID for SSP
+    public static final UUID AERO_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"); //Unique UUID for SSP
     public static final int REQUEST_ENABLE_BT = 12;
     private boolean isAerobalConnected;
     private BluetoothAdapter mBluetoothAdapter;
     private volatile BluetoothSocket mBtSocket;
+    private volatile BluetoothDevice currDevice;
 
 
     public BluetoothController(Context context) {
@@ -129,6 +129,7 @@ public class BluetoothController {
         if (!mBtSocket.isConnected()) {
             try {
                 mBtSocket.connect();
+                currDevice = selectedBtDevices;
             } catch (IOException e) {
                 Log.w("BTError", "Unable to .connect()");
                 Toast.makeText(context, R.string.toast_bt_unable_to_connect, Toast.LENGTH_SHORT).show();
@@ -137,16 +138,26 @@ public class BluetoothController {
         }
     }
 
-
-    public BluetoothDataManager getIOManager(){
-
-        if(isAerobalConnected){
-            return new BluetoothDataManager(mBtSocket);
+    public void disconnectSocket(){
+        mBluetoothAdapter.cancelDiscovery();
+        try {
+            mBtSocket.close();
+        } catch (IOException e) {
+            Log.w("BTError", "Unable to .close()");
         }
-
-        Toast.makeText(context, R.string.toast_bt_not_connected, Toast.LENGTH_SHORT).show();
-        return null;
     }
+
+    public void reset(){
+        this.isAerobalConnected = false;
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        currDevice = null;
+        mBtSocket = null;
+    }
+
+    public BluetoothDevice getAerobalDevice(){
+        return currDevice;
+    }
+
 
 
 

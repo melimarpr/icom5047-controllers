@@ -127,7 +127,10 @@ public class ExperimentFragment extends Fragment {
         ListView summaryLv = (ListView) view.findViewById(R.id.fragExpSumListView);
 
         //Set Stats Summary
-        Map<Integer, Stats> statsMap = ExperimentController.getStatsForExperiment(experimentController.getExperiment());
+
+
+        Map<Integer, Stats> statsMap = ExperimentController.getStatsForExperiment(experimentController.getCloneExperiment());
+
         AverageContainer[] averageContainers = new AverageContainer[]{
             new AverageContainer(getString(R.string.frag_exp_sum_num_of_runs), experimentController.getExperiment().runs().size() , true, false, ""),
             new AverageContainer(getString(R.string.ave_wind_speed),

@@ -6,7 +6,7 @@ import java.util.Map;
 
 import icom5047.aerobal.dialog.UnitsDialog;
 import icom5047.aerobal.exceptions.InvalidUnitException;
-import icom5047.aerobal.callback.AeroCallback;
+import icom5047.aerobal.callbacks.AeroCallback;
 import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
