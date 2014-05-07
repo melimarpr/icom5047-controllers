@@ -438,11 +438,8 @@ icom5047.aerobal.activities.DataDetailActivity: void showGraphDialog()
 icom5047.aerobal.activities.DataDetailActivity: double[] getGraphValues(icom5047.aerobal.containers.SpinnerContainer)
 icom5047.aerobal.activities.DataDetailActivity: double[] getTimeValues(icom5047.aerobal.containers.SpinnerContainer)
 icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.controllers.ExperimentController access$000(icom5047.aerobal.activities.DataDetailActivity)
-icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.fragments.DataSummaryFragment access$102(icom5047.aerobal.activities.DataDetailActivity,icom5047.aerobal.fragments.DataSummaryFragment)
-icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.controllers.UnitController access$200(icom5047.aerobal.activities.DataDetailActivity)
-icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.fragments.DataRawDataFragment access$302(icom5047.aerobal.activities.DataDetailActivity,icom5047.aerobal.fragments.DataRawDataFragment)
 icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.fragments.DataSummaryFragment access$100(icom5047.aerobal.activities.DataDetailActivity)
-icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.fragments.DataRawDataFragment access$300(icom5047.aerobal.activities.DataDetailActivity)
+icom5047.aerobal.activities.DataDetailActivity: icom5047.aerobal.fragments.DataRawDataFragment access$200(icom5047.aerobal.activities.DataDetailActivity)
 icom5047.aerobal.activities.DataDetailActivity$1
 icom5047.aerobal.activities.DataDetailActivity$1: android.app.ActionBar val$actionBar
 icom5047.aerobal.activities.DataDetailActivity$1: icom5047.aerobal.activities.DataDetailActivity this$0
@@ -551,8 +548,6 @@ icom5047.aerobal.activities.MainActivity: icom5047.aerobal.controllers.UserContr
 icom5047.aerobal.activities.MainActivity: icom5047.aerobal.controllers.BluetoothController btController
 icom5047.aerobal.activities.MainActivity: icom5047.aerobal.controllers.UnitController unitController
 icom5047.aerobal.activities.MainActivity: icom5047.aerobal.controllers.ExperimentController experimentController
-icom5047.aerobal.activities.MainActivity: int ERROR_NOTIFICATION
-icom5047.aerobal.activities.MainActivity: int SUCCESS_NOTIFICATION
 icom5047.aerobal.activities.MainActivity: android.content.BroadcastReceiver receiver
 icom5047.aerobal.activities.MainActivity: MainActivity()
 icom5047.aerobal.activities.MainActivity: void onCreate(android.os.Bundle)
@@ -1129,6 +1124,7 @@ icom5047.aerobal.containers.RawContainer
 icom5047.aerobal.containers.RawContainer: long nanoseconds
 icom5047.aerobal.containers.RawContainer: double value
 icom5047.aerobal.containers.RawContainer: RawContainer(long,double)
+icom5047.aerobal.containers.RawContainer: java.lang.String toString()
 icom5047.aerobal.containers.SpinnerContainer
 icom5047.aerobal.containers.SpinnerContainer: int spinnerIndex
 icom5047.aerobal.containers.SpinnerContainer: int index
@@ -1143,6 +1139,7 @@ icom5047.aerobal.containers.SummaryContainer
 icom5047.aerobal.containers.SummaryContainer: java.lang.String type
 icom5047.aerobal.containers.SummaryContainer: double value
 icom5047.aerobal.containers.SummaryContainer: SummaryContainer(java.lang.String,double)
+icom5047.aerobal.containers.SummaryContainer: java.lang.String toString()
 icom5047.aerobal.controllers.BluetoothController
 icom5047.aerobal.controllers.BluetoothController: android.content.Context context
 icom5047.aerobal.controllers.BluetoothController: java.util.UUID AERO_UUID
@@ -1352,6 +1349,7 @@ icom5047.aerobal.fragments.DataRawDataFragment: icom5047.aerobal.containers.Spin
 icom5047.aerobal.fragments.DataRawDataFragment: android.widget.LinearLayout linearLayout
 icom5047.aerobal.fragments.DataRawDataFragment: icom5047.aerobal.fragments.DataRawDataFragment$RawDataAdapter rawDataAdapter
 icom5047.aerobal.fragments.DataRawDataFragment: android.widget.TextView noDataText
+icom5047.aerobal.fragments.DataRawDataFragment: int counter
 icom5047.aerobal.fragments.DataRawDataFragment: android.widget.ListView listView
 icom5047.aerobal.fragments.DataRawDataFragment: java.util.List rawData
 icom5047.aerobal.fragments.DataRawDataFragment: DataRawDataFragment()
@@ -1382,12 +1380,14 @@ icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.controllers.Exp
 icom5047.aerobal.fragments.DataSummaryFragment: android.widget.ListView listView
 icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.containers.SpinnerContainer currContainer
 icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.controllers.UnitController unitController
-icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.fragments.DataSummaryFragment$SummaryAdapter summarAdapter
+icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.fragments.DataSummaryFragment$SummaryAdapter summaryAdapter
+icom5047.aerobal.fragments.DataSummaryFragment: int counter
 icom5047.aerobal.fragments.DataSummaryFragment: java.util.List summary
 icom5047.aerobal.fragments.DataSummaryFragment: DataSummaryFragment()
 icom5047.aerobal.fragments.DataSummaryFragment: icom5047.aerobal.fragments.DataSummaryFragment getInstance(icom5047.aerobal.controllers.ExperimentController,icom5047.aerobal.controllers.UnitController)
 icom5047.aerobal.fragments.DataSummaryFragment: void setUnitController(icom5047.aerobal.controllers.UnitController)
 icom5047.aerobal.fragments.DataSummaryFragment: void setExperimentController(icom5047.aerobal.controllers.ExperimentController)
+icom5047.aerobal.fragments.DataSummaryFragment: void onAttach(android.app.Activity)
 icom5047.aerobal.fragments.DataSummaryFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
 icom5047.aerobal.fragments.DataSummaryFragment: void onResume()
 icom5047.aerobal.fragments.DataSummaryFragment: void fullRefresh(icom5047.aerobal.containers.SpinnerContainer)
@@ -1529,10 +1529,10 @@ icom5047.aerobal.fragments.OpenOnlineSessionsFragment: OpenOnlineSessionsFragmen
 icom5047.aerobal.fragments.OpenOnlineSessionsFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)
 icom5047.aerobal.fragments.OpenOnlineSessionsFragment: void onResume()
 icom5047.aerobal.fragments.OpenOnlineSessionsFragment: void doHttpSessions()
-icom5047.aerobal.fragments.OpenOnlineSessionsFragment: icom5047.aerobal.activities.OpenActivity access$000(icom5047.aerobal.fragments.OpenOnlineSessionsFragment)
-icom5047.aerobal.fragments.OpenOnlineSessionsFragment: android.widget.ProgressBar access$100(icom5047.aerobal.fragments.OpenOnlineSessionsFragment)
+icom5047.aerobal.fragments.OpenOnlineSessionsFragment: android.widget.ProgressBar access$000(icom5047.aerobal.fragments.OpenOnlineSessionsFragment)
+icom5047.aerobal.fragments.OpenOnlineSessionsFragment: android.widget.ListView access$100(icom5047.aerobal.fragments.OpenOnlineSessionsFragment)
 icom5047.aerobal.fragments.OpenOnlineSessionsFragment: android.widget.TextView access$200(icom5047.aerobal.fragments.OpenOnlineSessionsFragment)
-icom5047.aerobal.fragments.OpenOnlineSessionsFragment: android.widget.ListView access$300(icom5047.aerobal.fragments.OpenOnlineSessionsFragment)
+icom5047.aerobal.fragments.OpenOnlineSessionsFragment: icom5047.aerobal.activities.OpenActivity access$300(icom5047.aerobal.fragments.OpenOnlineSessionsFragment)
 icom5047.aerobal.fragments.OpenOnlineSessionsFragment: icom5047.aerobal.controllers.UnitController access$400(icom5047.aerobal.fragments.OpenOnlineSessionsFragment)
 icom5047.aerobal.fragments.OpenOnlineSessionsFragment$1
 icom5047.aerobal.fragments.OpenOnlineSessionsFragment$1: icom5047.aerobal.fragments.OpenOnlineSessionsFragment this$0
@@ -1558,9 +1558,9 @@ icom5047.aerobal.fragments.SaveOnlineFragment: android.view.View onCreateView(an
 icom5047.aerobal.fragments.SaveOnlineFragment: void onResume()
 icom5047.aerobal.fragments.SaveOnlineFragment: void doHttpSessions()
 icom5047.aerobal.fragments.SaveOnlineFragment: android.widget.ProgressBar access$000(icom5047.aerobal.fragments.SaveOnlineFragment)
-icom5047.aerobal.fragments.SaveOnlineFragment: android.widget.TextView access$100(icom5047.aerobal.fragments.SaveOnlineFragment)
-icom5047.aerobal.fragments.SaveOnlineFragment: icom5047.aerobal.activities.SaveActivity access$200(icom5047.aerobal.fragments.SaveOnlineFragment)
-icom5047.aerobal.fragments.SaveOnlineFragment: android.widget.ListView access$300(icom5047.aerobal.fragments.SaveOnlineFragment)
+icom5047.aerobal.fragments.SaveOnlineFragment: android.widget.ListView access$100(icom5047.aerobal.fragments.SaveOnlineFragment)
+icom5047.aerobal.fragments.SaveOnlineFragment: android.widget.TextView access$200(icom5047.aerobal.fragments.SaveOnlineFragment)
+icom5047.aerobal.fragments.SaveOnlineFragment: icom5047.aerobal.activities.SaveActivity access$300(icom5047.aerobal.fragments.SaveOnlineFragment)
 icom5047.aerobal.fragments.SaveOnlineFragment$1
 icom5047.aerobal.fragments.SaveOnlineFragment$1: icom5047.aerobal.fragments.SaveOnlineFragment this$0
 icom5047.aerobal.fragments.SaveOnlineFragment$1: SaveOnlineFragment$1(icom5047.aerobal.fragments.SaveOnlineFragment)
@@ -1856,6 +1856,8 @@ icom5047.aerobal.resources.ViewGroupUtils: void removeView(android.view.View)
 icom5047.aerobal.resources.ViewGroupUtils: void replaceView(android.view.View,android.view.View)
 icom5047.aerobal.services.BluetoothService
 icom5047.aerobal.services.BluetoothService: java.lang.String BROADCAST_CODE
+icom5047.aerobal.services.BluetoothService: int ERROR_NOTIFICATION
+icom5047.aerobal.services.BluetoothService: int SUCCESS_NOTIFICATION
 icom5047.aerobal.services.BluetoothService: icom5047.aerobal.services.BluetoothService$StateMachineThread stateMachineThread
 icom5047.aerobal.services.BluetoothService: com.aerobal.data.objects.Experiment experiment
 icom5047.aerobal.services.BluetoothService: boolean emergency

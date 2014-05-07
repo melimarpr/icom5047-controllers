@@ -95,7 +95,7 @@ public class OpenOnlineSessionsFragment extends Fragment  {
             @Override
             public void onSucess(JSONObject json) {
 
-                if(openActivity == null){
+                if(progressBar == null || listView ==  null){
                     return;
                 }
 
@@ -106,6 +106,10 @@ public class OpenOnlineSessionsFragment extends Fragment  {
                         for (int i = 0; i < array.length(); i++) {
                             Gson gson = new Gson();
                             sessions[i] = gson.fromJson(array.getJSONObject(i).toString(), SessionDto.class);
+                        }
+
+                        if(progressBar == null || listView ==  null){
+                            return;
                         }
 
                         if (sessions.length == 0) {

@@ -142,7 +142,7 @@ public class ExperimentController implements Serializable{
         //Add Other Values
         for(int i=0; i< getExperiment().runs().size(); i++){
 
-            list.add(i+1, new SpinnerContainer(i+1, i, "Runs"+(i+1)));
+            list.add(i+1, new SpinnerContainer(i+1, i, "Run "+(i+1)));
 
         }
         return list;

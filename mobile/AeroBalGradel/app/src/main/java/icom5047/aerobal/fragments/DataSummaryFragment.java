@@ -40,8 +40,8 @@ public class DataSummaryFragment extends Fragment {
     private ListView listView;
     private SpinnerContainer currContainer;
     private volatile UnitController unitController;
-    private SummaryAdapter summarAdapter;
-
+    private SummaryAdapter summaryAdapter;
+    private int counter = 0;
     private List<SummaryContainer> summary;
 
     public static DataSummaryFragment getInstance(ExperimentController experimentController, UnitController unitController){
@@ -62,6 +62,12 @@ public class DataSummaryFragment extends Fragment {
     }
 
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -78,8 +84,8 @@ public class DataSummaryFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 SpinnerContainer container = (SpinnerContainer) adapterView.getItemAtPosition(i);
                 currContainer = container;
-
                 if(listView != null){
+                    Log.v("DataSummary", "onItemSelected Not Null");
                     refresh();
                 }
             }
@@ -89,8 +95,10 @@ public class DataSummaryFragment extends Fragment {
                 //NoOp
             }
         });
-
         listView = (ListView) view.findViewById(R.id.fragDataSumList);
+        summaryAdapter = new SummaryAdapter(this.getActivity(), getSummaryDetails());
+        counter++;
+        Log.v("DataSummary","OnView Called "+counter);
         return view;
     }
 
@@ -98,26 +106,30 @@ public class DataSummaryFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        Log.v("DataSummary", "Called On Resume");
         summary = getSummaryDetails();
-        summarAdapter = new SummaryAdapter(this.getActivity(), summary);
-        listView.setAdapter(summarAdapter);
+        summaryAdapter = new SummaryAdapter(this.getActivity(), summary);
+        Log.v("DataSummary", "Run "+experimentController.getActiveRun());
+        Log.v("DataSummary", "Data "+summary);
+        listView.setAdapter(summaryAdapter);
     }
 
     public void fullRefresh(SpinnerContainer run){
-        Log.v("Refresh", "Changes Run");
+        Log.v("DataSummary", "Full Refresh for"+run);
         experimentController.setActiveRun(run);
+        Log.v("DataSummary", "Set:"+experimentController.getActiveRun());
         refresh();
     }
 
     public void refresh(){
-        Log.v("Refresh", "Change Var");
-        if(listView != null && summarAdapter != null){
-            summary = getSummaryDetails();
-            summarAdapter.notifyDataSetChanged();
-            listView.invalidateViews();
+        Log.v("DataSummary", "Refresh Called Summary Details List Obtain for:" + experimentController.getActiveRun());
+        if(listView != null){
+            Log.v("DataSummary", "refresh Not Null");
             onResume();
+            listView.invalidate();
+            summaryAdapter.notifyDataSetChanged();
         }
-
+        Log.v("DataSummary", "Null");
     }
 
     public class SummaryAdapter extends ArrayAdapter<SummaryContainer>{
@@ -161,9 +173,11 @@ public class DataSummaryFragment extends Fragment {
 
     public List<SummaryContainer> getSummaryDetails() {
 
+        Log.v("DataSummary", "Summary Details List Obtain for:" + experimentController.getActiveRun());
 
         Stats stats;
         List<Run> runsList = JavaConversions.asJavaList(experimentController.getCloneExperiment().runs());
+        Log.v(":", experimentController.getActiveRun().name);
         if(experimentController.getActiveRun().index == ExperimentController.ALL_RUNS){
             stats = new Stats(GlobalConstants.Measurements.getMessurmentTypeForSpinner(currContainer), experimentController.getCloneExperiment());
         }else{

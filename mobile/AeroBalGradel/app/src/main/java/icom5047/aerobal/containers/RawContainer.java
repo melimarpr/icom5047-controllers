@@ -15,5 +15,8 @@ public class RawContainer {
 
     }
 
-
+    @Override
+    public String toString() {
+        return value+"";
+    }
 }

@@ -4,8 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -13,8 +11,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
-import android.graphics.Color;
-import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -89,9 +85,7 @@ public class MainActivity extends FragmentActivity {
     private volatile UnitController unitController;
     private volatile ExperimentController experimentController;
 
-    //Notification KEYS
-    private static final int ERROR_NOTIFICATION = 5;
-    private static final int SUCCESS_NOTIFICATION = 6;
+
 
 
     //Broadcast Reciever
@@ -109,21 +103,6 @@ public class MainActivity extends FragmentActivity {
                     experimentController.setRunning(false);
                     btController.reset();
                     expMenuBoolean = true;
-                    //Notification
-                    Notification.Builder builder = new Notification.Builder(MainActivity.this);
-
-                    builder.setSmallIcon(R.drawable.ic_launcher)
-                           .setContentTitle(error)
-                           .setContentText(getString(R.string.notification_error_desc));
-                    Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                    builder.setSound(alarmSound);
-                    builder.setLights(Color.RED, 500, 500);
-                    long[] pattern = {500,500,500,500,500,500,500,500,500};
-                    builder.setVibrate(pattern);
-                    Notification errorNot = builder.build();
-                    errorNot.flags |= Notification.FLAG_AUTO_CANCEL;
-                    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    notificationManager.notify(ERROR_NOTIFICATION, errorNot);
 
                     //Invalidate View
                     invalidateOptionsMenu();
@@ -136,23 +115,6 @@ public class MainActivity extends FragmentActivity {
                     experimentController.setRunning(false);
                     btController.reset();
                     expMenuBoolean = true;
-
-                    Notification.Builder builder = new Notification.Builder(MainActivity.this);
-
-                    builder.setSmallIcon(R.drawable.ic_launcher)
-                            .setContentTitle(getString(R.string.notification_success_title))
-                            .setContentText(getString(R.string.notification_success_desc));
-                    Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                    builder.setSound(alarmSound);
-
-                    builder.setLights(Color.WHITE, 500, 500);
-                    long[] pattern = {500,500,500,500,500,500,500,500,500};
-                    builder.setVibrate(pattern);
-
-                    Notification successNot = builder.build();
-                    successNot.flags |= Notification.FLAG_AUTO_CANCEL;
-                    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    notificationManager.notify(SUCCESS_NOTIFICATION, successNot);
 
                     invalidateOptionsMenu();
                     onResume();
@@ -245,6 +207,32 @@ public class MainActivity extends FragmentActivity {
         super.onResume();
 
         registerReceiver(receiver, new IntentFilter(BluetoothService.BROADCAST_CODE));
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            //Edit Values
+            if(bundle.getBoolean(BluetoothService.Keys.ERROR, false)){
+                experimentController.setRunning(false);
+                btController.reset();
+                expMenuBoolean = true;
+
+                //Invalidate View
+                invalidateOptionsMenu();
+            }
+            else{
+
+                Experiment experimentWithRun = (Experiment) bundle.getSerializable(Keys.BundleKeys.Experiment);
+                if(experimentWithRun != null) {
+                    experimentController.setExperiment(experimentWithRun);
+                    experimentController.setRunning(false);
+                    btController.reset();
+                    expMenuBoolean = true;
+                }
+
+                invalidateOptionsMenu();
+            }
+        }
+
+
         //Refresh Drawer
         mDrawerAdapter.clear();
         mDrawerAdapter.addAll(userController.getDrawerList());
@@ -633,6 +621,7 @@ public class MainActivity extends FragmentActivity {
                 FileOutputStream fout = new FileOutputStream(file);
                 ObjectOutputStream oos = new ObjectOutputStream(fout);
                 oos.writeObject(experimentController.getExperiment());
+                fout.close();
                 oos.close();
 
         } catch (IOException e) {
@@ -666,6 +655,7 @@ public class MainActivity extends FragmentActivity {
             FileOutputStream fout = new FileOutputStream(tmpFile);
             ObjectOutputStream oos = new ObjectOutputStream(fout);
             oos.writeObject(experimentController.getExperiment());
+            fout.close();
             oos.close();
         }catch (IOException e) {
             Toast.makeText(getBaseContext(), R.string.toast_file_not_create, Toast.LENGTH_SHORT).show();

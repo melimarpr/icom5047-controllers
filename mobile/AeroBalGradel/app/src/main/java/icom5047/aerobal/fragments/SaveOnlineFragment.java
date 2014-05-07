@@ -89,6 +89,10 @@ public class SaveOnlineFragment extends Fragment {
             @Override
             public void onSucess(JSONObject json) {
 
+                if(progressBar == null || listView ==  null){
+                    return;
+                }
+
                 if(json.has("payload")) {
                     try {
                         JSONArray array = json.getJSONArray("payload");
@@ -102,6 +106,10 @@ public class SaveOnlineFragment extends Fragment {
                             progressBar.setVisibility(View.GONE);
                             emptySession.setVisibility(View.VISIBLE);
                         } else {
+                            if(progressBar == null || listView ==  null){
+                                return;
+                            }
+
                             progressBar.setVisibility(View.GONE);
                             listView.setAdapter(new ArrayAdapter<SessionDto>(getActivity(), android.R.layout.simple_list_item_1, sessions) {
                                 @Override

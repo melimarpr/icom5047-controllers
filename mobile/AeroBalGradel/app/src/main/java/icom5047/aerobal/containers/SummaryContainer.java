@@ -15,5 +15,8 @@ public class SummaryContainer {
 
     }
 
-
+    @Override
+    public String toString() {
+        return type;
+    }
 }

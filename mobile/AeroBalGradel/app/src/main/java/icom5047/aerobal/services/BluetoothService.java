@@ -77,6 +77,9 @@ public class BluetoothService extends Service {
         public static final long BETWEEN_BT_CONNECTION_DELAY = 500; //Delay Between Disconnection and Connection of BT for Run
         public static final long WAIT_BETWEEN_FAN_ON_AND_MEASURES = 2000;
     }
+    //Notification KEYS
+    private static final int ERROR_NOTIFICATION = 9;
+    private static final int SUCCESS_NOTIFICATION = 8;
 
     //Instances
     private StateMachineThread stateMachineThread;
@@ -208,6 +211,24 @@ public class BluetoothService extends Service {
         bundle.putString(Keys.ERROR_STRING, errorString);
         intent.putExtras(bundle);
         sendBroadcast(intent);
+
+        //Notification
+        Notification.Builder builder = new Notification.Builder(this);
+
+        builder.setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle(errorString)
+                .setContentText(getString(R.string.notification_error_desc));
+        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        builder.setSound(alarmSound);
+        builder.setLights(Color.RED, 500, 500);
+        long[] pattern = {500,500,500,500,500,500,500,500,500};
+        builder.setVibrate(pattern);
+        Notification errorNot = builder.build();
+        errorNot.flags |= Notification.FLAG_AUTO_CANCEL;
+        errorNot.flags |= Notification.FLAG_SHOW_LIGHTS;
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(ERROR_NOTIFICATION, errorNot);
+
         stopSelf();
     }
 
@@ -218,6 +239,30 @@ public class BluetoothService extends Service {
         bundle.putSerializable(icom5047.aerobal.resources.Keys.BundleKeys.Experiment, experiment);
         intent.putExtras(bundle);
         sendBroadcast(intent);
+
+
+        Intent intentMain = new Intent(this, MainActivity.class);
+        intentMain.putExtras(bundle);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, Keys.MAIN_FLAG, intentMain, PendingIntent.FLAG_UPDATE_CURRENT);
+        Notification.Builder builder = new Notification.Builder(this);
+
+        builder.setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle(getString(R.string.notification_success_title))
+                .setContentText(getString(R.string.notification_success_desc))
+                .setContentIntent(pendingIntent);
+
+        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        builder.setSound(alarmSound);
+
+        builder.setLights(Color.WHITE, 500, 500);
+        long[] pattern = {500,500,500,500,500,500,500,500,500};
+        builder.setVibrate(pattern);
+
+        Notification successNot = builder.build();
+        successNot.flags |= Notification.FLAG_AUTO_CANCEL;
+        successNot.flags |= Notification.FLAG_SHOW_LIGHTS;
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(SUCCESS_NOTIFICATION, successNot);
         stopSelf();
 
     }
@@ -450,6 +495,8 @@ public class BluetoothService extends Service {
                     Log.v("BS:", "Queue is Finish. Success");
                     this.done = true;
                     this.success = true;
+                    this.isLooping = false;
+                    this.wait = false;
                     return;
                 }
 
@@ -1005,7 +1052,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
-                                    setInitialValues(commands, emptyTunnelNoWind);
+                                    setInitialValues(commands, emptyTunnelWithWind);
                                     return true;
                                 } catch (NumberFormatException e) {
                                     return false;
@@ -1125,7 +1172,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
-                                    setInitialValues(commands, emptyTunnelWithWind);
+                                    setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
                                     return false;
@@ -1147,7 +1194,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
-                                    setInitialValues(commands, emptyTunnelWithWind);
+                                    setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
                                     return false;
@@ -1169,7 +1216,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
-                                    setInitialValues(commands, emptyTunnelWithWind);
+                                    setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
                                     return false;
@@ -1213,7 +1260,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
-                                    setInitialValues(commands, emptyTunnelWithWind);
+                                    setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
                                     e.printStackTrace();
@@ -1235,7 +1282,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
-                                    setInitialValues(commands, emptyTunnelWithWind);
+                                    setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
                                     return false;

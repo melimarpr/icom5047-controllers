@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.aerobal.data.objects.Run;
 import com.aerobal.data.objects.Stats;
 
+import java.text.NumberFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class DataRawDataFragment extends Fragment {
     private LinearLayout linearLayout;
     private RawDataAdapter rawDataAdapter;
     private TextView noDataText;
-
+    private int counter = 0;
     private ListView listView;
     private List<RawContainer> rawData;
 
@@ -94,9 +95,14 @@ public class DataRawDataFragment extends Fragment {
         listView = (ListView) view.findViewById(R.id.fragDataRawList);
         linearLayout = (LinearLayout) view.findViewById(R.id.fragDataRawContainer);
         noDataText = (TextView) view.findViewById(R.id.fragDataRawNoData);
+        //Set Adapter Not Null
+        rawDataAdapter = new RawDataAdapter(this.getActivity(), getRawData());
+
         //Change Typeface
         Typeface face = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Thin.ttf");
         noDataText.setTypeface(face);
+        counter++;
+        Log.v("DataSummary","OnView Called "+counter);
 
         return view;
     }
@@ -105,6 +111,9 @@ public class DataRawDataFragment extends Fragment {
     public void onResume() {
         super.onResume();
         //Set List On Resume
+
+        Log.v("DataRaw", "Called On Resume");
+        Log.v("DataSummary", "Run "+experimentController.getActiveRun());
 
         //Error Message for Experiment
         if (experimentController.getActiveRun().index == ExperimentController.ALL_RUNS ){
@@ -116,6 +125,8 @@ public class DataRawDataFragment extends Fragment {
 
         //Set For Run
         List<RawContainer> data = getRawData();
+        Log.v("DataRaw", "Data Obtained:" +data.toString());
+
         if(data.size() == 0){
             linearLayout.setVisibility(View.GONE);
             noDataText.setText(R.string.frag_data_raw_no_data);
@@ -124,28 +135,31 @@ public class DataRawDataFragment extends Fragment {
         else{
             noDataText.setVisibility(View.GONE);
             linearLayout.setVisibility(View.VISIBLE);
-            rawData = getRawData();
+            //Refresh Vars
+            rawData = data;
             rawDataAdapter = new RawDataAdapter(this.getActivity(), rawData);
             listView.setAdapter(rawDataAdapter);
         }
     }
 
     public void fullRefresh(SpinnerContainer run){
-        Log.v("Refresh", "Changes Run");
+        Log.v("DataRaw", "Full Refresh for"+run);
         experimentController.setActiveRun(run);
+        Log.v("DataRaw", "Set:"+experimentController.getActiveRun());
         refresh();
 
     }
 
     public void refresh(){
-        Log.v("Refresh", "Change Var");
+        Log.v("DataRaw", "Refresh Called Summary Details List Obtain for:" + experimentController.getActiveRun());
 
         if(listView != null && rawDataAdapter != null){
-            rawData = getRawData();
-            rawDataAdapter.notifyDataSetChanged();
-            listView.invalidateViews();
+            Log.v("DataRaw", "Not Null");
             onResume();
+            listView.invalidate();
+            rawDataAdapter.notifyDataSetChanged();
         }
+        Log.v("DataRaw", "Null");
     }
 
 
@@ -166,19 +180,22 @@ public class DataRawDataFragment extends Fragment {
             View view = inflater.inflate(R.layout.row_raw_data, parent, false);
 
 
-            //TextView timeValue = (TextView) view.findViewById(R.id.rowRawDataTimeValue);
+            TextView timeValue = (TextView) view.findViewById(R.id.rowRawDataTimeValue);
             TextView messValue = (TextView) view.findViewById(R.id.rowRawDataMessValue);
             TextView messUnit = (TextView) view.findViewById(R.id.rowRawDataMessUnit);
 
             int unit_type = GlobalConstants.Measurements.measurementToUnitMapping().get(currContainer.index);
 
             messUnit.setText(unitController.getCurrentUnitForType(unit_type));
-            messValue.setText(unitController.convertFromDefaultToCurrent( currContainer.index ,pair.value)+"");
-/*
-            //Values
-            timeValue.setText(TimeUtils.fromNanoToMilis(pair.nanoseconds) +"");
 
-*/
+            NumberFormat nf = NumberFormat.getInstance();
+            nf.setMinimumFractionDigits(GlobalConstants.DecimalPrecision);
+            nf.setMaximumFractionDigits(GlobalConstants.DecimalPrecision);
+            messValue.setText(nf.format(unitController.convertFromDefaultToCurrent( currContainer.index ,pair.value)));
+
+            //Values
+            timeValue.setText(pair.nanoseconds+"");
+
 
             return view;
         }
@@ -196,6 +213,7 @@ public class DataRawDataFragment extends Fragment {
         //Object Stats Contain Values Need
         Stats stats;
         List<Run> runsList = JavaConversions.asJavaList(experimentController.getCloneExperiment().runs());
+        Log.v("Raw LIST:", experimentController.getActiveRun().name);
         if(experimentController.getActiveRun().index == ExperimentController.ALL_RUNS){
             stats = new Stats(GlobalConstants.Measurements.getMessurmentTypeForSpinner(currContainer), experimentController.getCloneExperiment());
         }else{
@@ -212,20 +230,18 @@ public class DataRawDataFragment extends Fragment {
         }
 
         //Run Case Case
-       // Double firstMeasure = (Double) values.get(0);
-
-        for(Object e: values){
-            ret.add(new RawContainer(0, (Double) e));
-        }
-        /*
-        //Add To
+        Double firstMeasure = (Double) values.get(0);
         ret.add(new RawContainer(0, firstMeasure));
+        int timeCounter = 0;
+
 
         for(int i=1; i<values.size(); i++){
-            Measurement tmpMeasure = (Measurement)values.get(i);
-            long relativeTime = tmpMeasure.getTimestamp().getNanos() - zero;
-            ret.add(new RawContainer( relativeTime ,tmpMeasure.getValue()));
-        }*/
+            timeCounter += experimentController.getExperiment().getFrequency();
+            Double e = (Double) values.get(i);
+            ret.add(i,new RawContainer(timeCounter, (Double) e));
+        }
+
+
 
         return ret;
     }

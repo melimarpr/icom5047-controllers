@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +21,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.aerobal.data.objects.Measurement;
 import com.aerobal.data.objects.Run;
 import com.aerobal.data.objects.Stats;
 
@@ -35,7 +35,6 @@ import icom5047.aerobal.fragments.DataRawDataFragment;
 import icom5047.aerobal.fragments.DataSummaryFragment;
 import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
-import icom5047.aerobal.resources.TimeUtils;
 import icom5047.aerobal.resources.ViewGroupUtils;
 import scala.collection.JavaConversions;
 
@@ -60,8 +59,8 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
     private volatile UnitController unitController;
 
     //Fragment References
-    private DataRawDataFragment dataRawDataFragment;
-    private DataSummaryFragment dataSummaryFragment;
+    private volatile DataRawDataFragment dataRawDataFragment;
+    private volatile DataSummaryFragment dataSummaryFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,11 +115,13 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
         this.unitController = (UnitController) bundle.get(Keys.BundleKeys.UnitController);
 
 
+        dataSummaryFragment = DataSummaryFragment.getInstance(experimentController, unitController);
+        dataRawDataFragment = DataRawDataFragment.getInstance(experimentController, unitController);
+
+
         //Add Spinner
         int titleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
         View titleView = findViewById(titleId);
-
-
         //Set Up
         Spinner abSpinner = (Spinner) getLayoutInflater().inflate(R.layout.spinner_action_bar, null);
         ArrayAdapter<SpinnerContainer> adapter = new ArrayAdapter<SpinnerContainer>(this, R.layout.spinner_white_item, experimentController.getRunsListSpinner());
@@ -130,8 +131,11 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.v("DataAct:","OnItemSelected Called");
                 SpinnerContainer spinnerContainer = (SpinnerContainer) adapterView.getItemAtPosition(i);
+
                 experimentController.setActiveRun(spinnerContainer);
+                Log.v("DataAct", "State Active Run Controller:"+experimentController.getActiveRun()+" Selected: "+spinnerContainer+"must be equals");
                 refresh();
             }
 
@@ -140,10 +144,10 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
                 //NoOp
             }
         });
-
-
         //Change in Code
         ViewGroupUtils.replaceView(titleView, abSpinner);
+
+
 
 
 
@@ -159,6 +163,7 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
         switch (item.getItemId()){
             case android.R.id.home:
                 finish();
+                break;
             case R.id.ab_btn_graph:
                 if(experimentController.getActiveRun().index != ExperimentController.ALL_RUNS){
                     showGraphDialog();
@@ -171,7 +176,6 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
         }
         return true;
     }
-
 
 
     @Override
@@ -216,18 +220,15 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
 
-            dataSummaryFragment = DataSummaryFragment.getInstance(experimentController, unitController);
-            dataRawDataFragment = DataRawDataFragment.getInstance(experimentController, unitController);
 
-            Fragment returnFrag = dataSummaryFragment;
             switch (position){
+                case 0:
+                    return dataSummaryFragment;
                 case 1:
-
-                    returnFrag = dataRawDataFragment;
-                    break;
+                    return dataRawDataFragment;
             }
 
-            return returnFrag;
+            return null;
         }
 
         @Override
@@ -325,43 +326,44 @@ public class DataDetailActivity extends FragmentActivity implements ActionBar.Ta
     public double[] getGraphValues(SpinnerContainer container){
 
         //Get Runs
-        List<Run> runs= JavaConversions.asJavaList(experimentController.getExperiment().runs());
-        Map<Integer, Stats> map = ExperimentController.getStatsForRuns(runs.get(experimentController.getActiveRun().index));
+        List<Run> runs= JavaConversions.asJavaList(experimentController.getCloneExperiment().runs());
+        Map<Integer, Stats> map = ExperimentController.getStatsForRuns( runs.get(experimentController.getActiveRun().index));
         Stats stat = map.get(container.index);
 
         List<Object> measurements = JavaConversions.asJavaList(stat.values());
 
+        Log.v("Graph Values", "Runs Size: "+runs.size()+ " Stats: "+stat.toString()+"\nMeasurements "+measurements+"\n stats.value: "+stat.values());
         double[] val_measurements = new double[measurements.size()];
 
         for(int i=0; i<measurements.size(); i++){
-            Measurement tmpMeasure = (Measurement)measurements.get(i);
-            val_measurements[i] = tmpMeasure.getValue();
+            val_measurements[i] = (Double)measurements.get(i);
+            Log.v("DActGraphValue:", val_measurements[i]+"");
         }
-
         return val_measurements;
     }
 
 
     public double[] getTimeValues(SpinnerContainer container){
         //Get Runs
-        List<Run> runs= JavaConversions.asJavaList(experimentController.getExperiment().runs());
-        Map<Integer, Stats> map = ExperimentController.getStatsForRuns(runs.get(experimentController.getActiveRun().index));
+        List<Run> runs= JavaConversions.asJavaList(experimentController.getCloneExperiment().runs());
+        Map<Integer, Stats> map = ExperimentController.getStatsForRuns(ExperimentController.getCloneRun(runs.get(experimentController.getActiveRun().index)));
         Stats stat = map.get(container.index);
 
-        List<Object> measurements = JavaConversions.asJavaList(stat.values());
 
+        List<Object> measurements = JavaConversions.asJavaList(stat.values());
+        Log.v("Time Values", "Runs Size: "+runs.size()+ " Stats: "+stat.toString()+"\nMeasurements "+measurements+"\n stats.value: "+stat.values());
         double[] time_measurements = new double[measurements.size()];
 
-        Measurement firstMeasure = (Measurement) measurements.get(0);
-        long zero = firstMeasure.getTimestamp().getNanos();
-
         //Add To
-        time_measurements[0] = 0.0;
 
+        double timeCounter = 0;
+        time_measurements[0] = 0;
         for(int i=1; i<measurements.size(); i++){
-            Measurement tmpMeasure = (Measurement)measurements.get(i);
-            time_measurements[i] = TimeUtils.fromNanoToMilis(tmpMeasure.getTimestamp().getNanos() - zero);
+            timeCounter +=experimentController.getExperiment().getFrequency();
+            time_measurements[i] = timeCounter;
         }
+
+
         return time_measurements;
     }
 

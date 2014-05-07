@@ -130,8 +130,11 @@ public class OpenLocalFragment extends Fragment implements AdapterView.OnItemCli
                 ObjectInput input = new ObjectInputStream(buffer);
                 try{
                     Experiment experiment = (Experiment) input.readObject();
+
                     openActivity.setActivityResult(experiment);
                 }finally {
+                    file.close();
+                    buffer.close();
                     input.close();
                 }
             } catch (FileNotFoundException e) {

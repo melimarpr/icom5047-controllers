@@ -1450,6 +1450,7 @@ com.aerobal.data.objects.Measurement:
 ====    12:12:public void setTimestamp(java.sql.Timestamp)
 ====    9:9:public com.aerobal.data.objects.measurementTypes.MeasurementType getTypeOf()
 ====    11:11:public long getId()
+====    12:12:public java.sql.Timestamp getTimestamp()
 ====    9:10:public com.aerobal.data.objects.Measurement copy(com.aerobal.data.objects.measurementTypes.MeasurementType,double)
 ====    9:9:public com.aerobal.data.objects.measurementTypes.MeasurementType copy$default$1()
 ====    10:10:public double copy$default$2()
@@ -1599,10 +1600,13 @@ com.aerobal.data.processing.DataProcessing$:
 ====    79:80:private void emptyListCheck(scala.collection.immutable.List)
 com.aerobal.data.processing.DataProcessing$$anonfun$standardDeviation$1:
     public static final long serialVersionUID
+com.aerobal.data.processing.JavaMain
 com.aerobal.data.processing.Main
 com.aerobal.data.processing.Main$
 com.aerobal.data.processing.exceptions.EmptyListException
 com.aerobal.data.serializers.ExperimentSerializer
+com.aerobal.data.serializers.ExperimentSerializer$:
+====    44:44:public com.google.gson.JsonSerializer get()
 com.aerobal.data.serializers.ExperimentSerializer$$anonfun$serialize$1:
     public static final long serialVersionUID
 com.aerobal.data.serializers.JSONifier:

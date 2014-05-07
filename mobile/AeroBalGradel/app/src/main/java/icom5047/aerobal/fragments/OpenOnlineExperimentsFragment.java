@@ -117,6 +117,10 @@ public class OpenOnlineExperimentsFragment extends Fragment{
                             experiments[i] = gson.fromJson(array.getJSONObject(i).toString(), ExperimentDto.class);
                         }
 
+                        if(progressBar == null || listView ==  null){
+                            return;
+                        }
+
                         if (experiments.length == 0) {
                             progressBar.setVisibility(View.GONE);
                             emptySession.setVisibility(View.VISIBLE);

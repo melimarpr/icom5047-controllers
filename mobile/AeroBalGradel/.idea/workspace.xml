@@ -107,48 +107,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3722fa48-10f1-4f96-817a-bd43935d0e2d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/DataLib.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/achartengine_1_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/google_http_client_1_17_0_rc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/google_http_client_android_1_17_0_rc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/google_http_client_gson_1_17_0_rc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/google_http_client_jackson_1_17_0_rc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_asl_1_9_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/jsr305_1_3_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/scala_library_2_10_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v13_19_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_19_1_0.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/libs/DataLib.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_save.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/callback/AeroCallback.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/callbacks/AeroCallback.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/classes-proguard/debug/classes.jar" afterPath="$PROJECT_DIR$/app/build/classes-proguard/debug/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/BluetoothController.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/BluetoothController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/comm/BluetoothDataManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/comm/BluetoothDataManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/dialog/BluetoothDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/dialog/BluetoothDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/services/BluetoothService.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/services/BluetoothService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/DataDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/DataDetailActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataRawDataFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataRawDataFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/ExperimentController.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/ExperimentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/ExperimentFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/ExperimentFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/resources/GlobalConstants.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/resources/GlobalConstants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/dialog/NewDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/dialog/NewDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/dialog/OpenDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/dialog/OpenDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenLocalFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenLocalFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineExperimentsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineExperimentsFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineSessionsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineSessionsFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/icom5047/aerobal/activities/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/icom5047/aerobal/activities/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/SaveActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/SaveActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/UnitController.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/UnitController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/dialog/UnitsDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/dialog/UnitsDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/RawContainer.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/RawContainer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/SaveOnlineFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/SaveOnlineFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/SummaryContainer.java" afterPath="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/SummaryContainer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/proguard/debug/aapt_rules.txt" afterPath="$PROJECT_DIR$/app/build/proguard/debug/aapt_rules.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/proguard/debug/dump.txt" afterPath="$PROJECT_DIR$/app/build/proguard/debug/dump.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_loading.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_loading.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_raw_data.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_raw_data.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/proguard/debug/seeds.txt" afterPath="$PROJECT_DIR$/app/build/proguard/debug/seeds.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/string_toasts.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/string_toasts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/proguard/debug/usage.txt" afterPath="$PROJECT_DIR$/app/build/proguard/debug/usage.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -209,8 +187,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
+    <ui_properties converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -218,52 +196,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GlobalConstants.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/resources/GlobalConstants.java">
+      <file leaf-file-name="DataSummaryFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1890" max-vertical-offset="2370">
-              <caret line="151" column="61" selection-start-line="151" selection-start-column="61" selection-end-line="151" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BluetoothService.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/services/BluetoothService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.875" vertical-offset="12349" max-vertical-offset="21795">
-              <caret line="432" column="0" selection-start-line="432" selection-start-column="0" selection-end-line="432" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="2760">
+              <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#10484#10492#0" expanded="true" />
-                <element signature="e#10550#10558#0" expanded="true" />
-                <element signature="e#10613#10621#0" expanded="true" />
-                <element signature="e#10678#10686#0" expanded="true" />
-                <element signature="e#10744#10752#0" expanded="true" />
-                <element signature="e#10809#10817#0" expanded="true" />
-                <element signature="e#26973#26996#0" expanded="true" />
+                <element signature="e#2076#2077#0" expanded="true" />
+                <element signature="e#2116#2117#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataDetailActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DataDetailActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/DataDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.1923075" vertical-offset="3011" max-vertical-offset="4830">
-              <caret line="254" column="39" selection-start-line="254" selection-start-column="32" selection-end-line="254" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.47619048" vertical-offset="1620" max-vertical-offset="4875">
+              <caret line="165" column="22" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataSummaryFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java">
+      <file leaf-file-name="ExperimentController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/ExperimentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.923077" vertical-offset="1092" max-vertical-offset="2550">
-              <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="513" max-vertical-offset="1980">
+              <caret line="148" column="5" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
               <folding>
-                <element signature="e#6215#6233#0" expanded="true" />
+                <element signature="e#5681#5682#0" expanded="true" />
+                <element signature="e#5718#5719#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -935,25 +898,19 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/values/string_placeholders.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_file_dir.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_open_session.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_open_experiment.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/mockers/Mocker.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenLocalFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/comm/BluetoothTimer.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_experiment_information.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/resources/Keys.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/save.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/SaveOnlineFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_experiment_summary.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_save_experiment.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_new_session.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/UnitController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/resources/TimeUtils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/RawContainer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_data_raw.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/DataDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/string_titles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/LoadingFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/LoadingSupportFragment.java" />
@@ -961,31 +918,37 @@
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/dialog/NewDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/http/HttpRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/http/Server.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineExperimentsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/OpenActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/main_menu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/SaveActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/string_toasts.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/callbacks/StateMachineCallback.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/StateMachineContainer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineSessionsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/comm/BluetoothDataManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/BluetoothController.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/resources/BTResponseCodes.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_loading.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/ExperimentFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/ExperimentController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/resources/GlobalConstants.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenLocalFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/SaveOnlineFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineSessionsFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineExperimentsFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_data_raw.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_raw_data.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataRawDataFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/SummaryContainer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/RawContainer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/services/BluetoothService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataRawDataFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/ExperimentController.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/DataDetailActivity.java" />
       </list>
     </option>
   </component>
@@ -993,9 +956,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1920" />
     <option name="y" value="22" />
     <option name="width" value="1920" />
-    <option name="height" value="1129" />
+    <option name="height" value="1058" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1023,10 +987,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1553,6 +1513,10 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1568,9 +1532,9 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="06e782dc" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="06db8618" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexux7-JellyBean-x86" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../apps_desing_folder/Plan De Negocios/PlanDeNegocioGradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../.." />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="SearchEverywhereHistoryKey" value="Getstats&#9;PSI&#9;JAVA://icom5047.aerobal.controllers.ExperimentController#getStatsForRuns&#10;&#9;FILE&#9;file:///Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/row_file_dir.xml&#10;SpinnerCo&#9;PSI&#9;JAVA://icom5047.aerobal.containers.SpinnerContainer" />
@@ -1639,6 +1603,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1664,19 +1641,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1816,68 +1780,68 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1129" extended-state="6" />
-    <editor active="false" />
+    <frame x="1920" y="22" width="1920" height="1058" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5083909" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3104113" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3692004" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41713747" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36836517" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.54989386" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24968554" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41713747" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5113524" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28238994" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20716685" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.41559723" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" x="36" y="411" width="1920" height="712" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.41559723" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" x="553" y="22" width="1280" height="1002" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3269639" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21565495" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21512248" sideWeight="0.49834436" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51431394" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1996805" sideWeight="0.49834436" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5846501" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3104113" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2354049" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5083909" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5083909" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41713747" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28238994" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41713747" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41713747" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28238994" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3269639" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21512248" sideWeight="0.49834436" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51431394" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51167727" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3104113" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3104113" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2354049" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3692004" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36836517" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24968554" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20716685" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.41559723" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" x="0" y="148" width="1920" height="876" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.41559723" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" x="920" y="602" width="128" height="40" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21565495" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1979,7 +1943,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/services/BluetoothService.java</url>
-          <line>190</line>
+          <line>193</line>
           <properties />
           <option name="timeStamp" value="142" />
         </line-breakpoint>
@@ -2002,142 +1966,22 @@
           <option name="timeStamp" value="147" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java</url>
-          <line>166</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/DataDetailActivity.java</url>
+          <line>306</line>
           <properties />
-          <option name="timeStamp" value="149" />
+          <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java</url>
-          <line>169</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/DataDetailActivity.java</url>
+          <line>309</line>
           <properties />
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataRawDataFragment.java</url>
-          <line>197</line>
-          <properties />
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataRawDataFragment.java</url>
-          <line>199</line>
-          <properties />
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataRawDataFragment.java</url>
-          <line>214</line>
-          <properties />
-          <option name="timeStamp" value="159" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java</url>
-          <line>134</line>
-          <properties />
-          <option name="timeStamp" value="160" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java</url>
-          <line>114</line>
-          <properties />
-          <option name="timeStamp" value="161" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java</url>
-          <line>108</line>
-          <properties />
-          <option name="timeStamp" value="162" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java</url>
-          <line>107</line>
-          <properties />
-          <option name="timeStamp" value="163" />
+          <option name="timeStamp" value="171" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="164" />
+      <option name="time" value="176" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/http/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3938731" vertical-offset="0" max-vertical-offset="914">
-          <caret line="24" column="86" selection-start-line="24" selection-start-column="86" selection-end-line="24" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/LoadingFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3774617" vertical-offset="0" max-vertical-offset="914">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="226" max-vertical-offset="1185">
-          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main_menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
-          <caret line="0" column="65" selection-start-line="0" selection-start-column="65" selection-end-line="0" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/SaveActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3210">
-          <caret line="70" column="13" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/OpenActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0304568" vertical-offset="2075" max-vertical-offset="3060">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-19/android/view/ViewRootImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4784241" vertical-offset="96502" max-vertical-offset="97665">
-          <caret line="6688" column="73" selection-start-line="6688" selection-start-column="73" selection-end-line="6688" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-19/android/os/MessageQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33208254" vertical-offset="4338" max-vertical-offset="8205">
-          <caret line="319" column="0" selection-start-line="319" selection-start-column="0" selection-end-line="319" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_overflow.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="705">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2654462" vertical-offset="853" max-vertical-offset="1290">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/callbacks/StateMachineCallback.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
@@ -2199,11 +2043,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.1343284" vertical-offset="1443" max-vertical-offset="1845">
           <caret line="67" column="57" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="57" />
-          <folding>
-            <element signature="e#3206#3241#0" expanded="false" />
-            <element signature="e#3433#3462#0" expanded="false" />
-            <element signature="e#3548#3569#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2211,14 +2050,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="513" max-vertical-offset="1050">
           <caret line="47" column="75" selection-start-line="47" selection-start-column="75" selection-end-line="47" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/StateMachineContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38551402" vertical-offset="0" max-vertical-offset="428">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -2231,19 +2062,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineSessionsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1755" max-vertical-offset="2610">
-          <caret line="117" column="37" selection-start-line="117" selection-start-column="32" selection-end-line="117" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/sdk/sources/android-19/android/os/Bundle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="29.484535" vertical-offset="555" max-vertical-offset="25965">
           <caret line="1214" column="0" selection-start-line="1214" selection-start-column="0" selection-end-line="1214" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2251,10 +2073,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3901" max-vertical-offset="9420">
           <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
-          <folding>
-            <element signature="e#12056#12391#0" expanded="false" />
-            <element signature="e#12380#12381#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2262,7 +2080,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="18796" max-vertical-offset="72810">
           <caret line="1404" column="0" selection-start-line="1404" selection-start-column="0" selection-end-line="1404" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2270,7 +2087,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.5736041" vertical-offset="3125" max-vertical-offset="4125">
           <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2278,7 +2094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19695431" vertical-offset="1096" max-vertical-offset="11085">
           <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2294,7 +2109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17326732" vertical-offset="0" max-vertical-offset="606">
           <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2310,30 +2124,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2445">
           <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_save_experiment.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_loading.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_login.png">
@@ -2345,25 +2158,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="121" max-vertical-offset="1035">
           <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/ExperimentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="1075" max-vertical-offset="1950">
-          <caret line="113" column="54" selection-start-line="113" selection-start-column="51" selection-end-line="113" selection-end-column="54" />
-          <folding>
-            <element signature="e#2490#2506#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0-sources.jar!/android/support/v4/app/Fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33197555" vertical-offset="20822" max-vertical-offset="23820">
-          <caret line="1543" column="0" selection-start-line="1543" selection-start-column="0" selection-end-line="1543" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2371,226 +2165,209 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="31772" max-vertical-offset="101040">
           <caret line="2239" column="0" selection-start-line="2239" selection-start-column="0" selection-end-line="2239" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#252000#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#27083#27084#0" expanded="false" />
-            <element signature="e#27123#27124#0" expanded="false" />
-            <element signature="e#36769#36770#0" expanded="false" />
-            <element signature="e#36803#36804#0" expanded="false" />
-            <element signature="e#40107#40298#0" expanded="false" />
-            <element signature="e#40279#40280#0" expanded="false" />
-            <element signature="e#41807#42007#0" expanded="false" />
-            <element signature="e#41988#41989#0" expanded="false" />
-            <element signature="e#42351#42352#0" expanded="false" />
-            <element signature="e#42412#42413#0" expanded="false" />
-            <element signature="e#44204#44205#0" expanded="false" />
-            <element signature="e#44248#44249#0" expanded="false" />
-            <element signature="e#45290#45291#0" expanded="false" />
-            <element signature="e#45339#45340#0" expanded="false" />
-            <element signature="e#45639#45640#0" expanded="false" />
-            <element signature="e#45685#45686#0" expanded="false" />
-            <element signature="e#50378#50379#0" expanded="false" />
-            <element signature="e#50423#50424#0" expanded="false" />
-            <element signature="e#52016#52017#0" expanded="false" />
-            <element signature="e#52057#52058#0" expanded="false" />
-            <element signature="e#52984#52985#0" expanded="false" />
-            <element signature="e#53023#53024#0" expanded="false" />
-            <element signature="e#54174#54175#0" expanded="false" />
-            <element signature="e#54215#54216#0" expanded="false" />
-            <element signature="e#56573#56574#0" expanded="false" />
-            <element signature="e#56630#56631#0" expanded="false" />
-            <element signature="e#56706#56707#0" expanded="false" />
-            <element signature="e#56765#56766#0" expanded="false" />
-            <element signature="e#60133#60142#0" expanded="false" />
-            <element signature="e#73203#73204#0" expanded="false" />
-            <element signature="e#73242#73243#0" expanded="false" />
-            <element signature="e#73526#73527#0" expanded="false" />
-            <element signature="e#73568#73569#0" expanded="false" />
-            <element signature="e#73846#73847#0" expanded="false" />
-            <element signature="e#73886#73887#0" expanded="false" />
-            <element signature="e#74167#74168#0" expanded="false" />
-            <element signature="e#74208#74209#0" expanded="false" />
-            <element signature="e#86278#86279#0" expanded="false" />
-            <element signature="e#86320#86321#0" expanded="false" />
-            <element signature="e#86613#86614#0" expanded="false" />
-            <element signature="e#86675#86676#0" expanded="false" />
-            <element signature="e#87439#87440#0" expanded="false" />
-            <element signature="e#87471#87472#0" expanded="false" />
-            <element signature="e#97195#97196#0" expanded="false" />
-            <element signature="e#97264#97265#0" expanded="false" />
-            <element signature="e#97303#97304#0" expanded="false" />
-            <element signature="e#97380#97381#0" expanded="false" />
-            <element signature="e#101389#101390#0" expanded="false" />
-            <element signature="e#101428#101429#0" expanded="false" />
-            <element signature="e#102994#102995#0" expanded="false" />
-            <element signature="e#103022#103023#0" expanded="false" />
-            <element signature="e#127534#128129#0" expanded="false" />
-            <element signature="e#128098#128099#0" expanded="false" />
-            <element signature="e#143837#144806#0" expanded="false" />
-            <element signature="e#144795#144796#0" expanded="false" />
-            <element signature="e#144906#144907#0" expanded="false" />
-            <element signature="e#144972#144973#0" expanded="false" />
-            <element signature="e#148283#148284#0" expanded="false" />
-            <element signature="e#148352#148353#0" expanded="false" />
-            <element signature="e#154470#154617#0" expanded="false" />
-            <element signature="e#154598#154599#0" expanded="false" />
-            <element signature="e#156240#156402#0" expanded="false" />
-            <element signature="e#156383#156384#0" expanded="false" />
-            <element signature="e#159192#159371#0" expanded="false" />
-            <element signature="e#159352#159353#0" expanded="false" />
-            <element signature="e#163139#163140#0" expanded="false" />
-            <element signature="e#163184#163185#0" expanded="false" />
-            <element signature="e#170872#170873#0" expanded="false" />
-            <element signature="e#170910#170911#0" expanded="false" />
-            <element signature="e#177308#177986#0" expanded="false" />
-            <element signature="e#177967#177968#0" expanded="false" />
-            <element signature="e#178290#178291#0" expanded="false" />
-            <element signature="e#178331#178332#0" expanded="false" />
-            <element signature="e#186410#186411#0" expanded="false" />
-            <element signature="e#186434#186435#0" expanded="false" />
-            <element signature="e#186730#186731#0" expanded="false" />
-            <element signature="e#186754#186755#0" expanded="false" />
-            <element signature="e#205996#205997#0" expanded="false" />
-            <element signature="e#206028#206029#0" expanded="false" />
-            <element signature="e#209428#209429#0" expanded="false" />
-            <element signature="e#209472#209473#0" expanded="false" />
-            <element signature="e#213383#213384#0" expanded="false" />
-            <element signature="e#213442#213443#0" expanded="false" />
-            <element signature="e#213501#213502#0" expanded="false" />
-            <element signature="e#213558#213559#0" expanded="false" />
-            <element signature="e#214094#214095#0" expanded="false" />
-            <element signature="e#214136#214137#0" expanded="false" />
-            <element signature="e#216439#216440#0" expanded="false" />
-            <element signature="e#216471#216472#0" expanded="false" />
-            <element signature="e#219913#219914#0" expanded="false" />
-            <element signature="e#219951#219952#0" expanded="false" />
-            <element signature="e#220195#220196#0" expanded="false" />
-            <element signature="e#220233#220234#0" expanded="false" />
-            <element signature="e#220281#220282#0" expanded="false" />
-            <element signature="e#220319#220320#0" expanded="false" />
-            <element signature="e#221478#221479#0" expanded="false" />
-            <element signature="e#221516#221517#0" expanded="false" />
-            <element signature="e#224734#224735#0" expanded="false" />
-            <element signature="e#224783#224784#0" expanded="false" />
-            <element signature="e#228428#228429#0" expanded="false" />
-            <element signature="e#228470#228471#0" expanded="false" />
-            <element signature="e#228517#228518#0" expanded="false" />
-            <element signature="e#228564#228565#0" expanded="false" />
-            <element signature="e#231892#231893#0" expanded="false" />
-            <element signature="e#231931#231932#0" expanded="false" />
-            <element signature="e#231976#231977#0" expanded="false" />
-            <element signature="e#232011#232012#0" expanded="false" />
-            <element signature="e#232205#232206#0" expanded="false" />
-            <element signature="e#232242#232243#0" expanded="false" />
-            <element signature="e#236626#236627#0" expanded="false" />
-            <element signature="e#236670#236671#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataRawDataFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.410959" vertical-offset="255" max-vertical-offset="3615">
-          <caret line="175" column="111" selection-start-line="175" selection-start-column="111" selection-end-line="175" selection-end-column="111" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4128#4170#0" expanded="true" />
-            <element signature="e#7460#7474#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.51724136" vertical-offset="0" max-vertical-offset="1305">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/dialog/OpenDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12931034" vertical-offset="0" max-vertical-offset="1140">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenLocalFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6891892" vertical-offset="1581" max-vertical-offset="2070">
+          <caret line="118" column="35" selection-start-line="118" selection-start-column="35" selection-end-line="118" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/SaveOnlineFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.106383" vertical-offset="1495" max-vertical-offset="1965">
+          <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineSessionsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63829786" vertical-offset="930" max-vertical-offset="2160">
+          <caret line="113" column="24" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/OpenOnlineExperimentsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="960" max-vertical-offset="2730">
+          <caret line="121" column="25" selection-start-line="121" selection-start-column="25" selection-end-line="121" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_data_raw.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
+          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_raw_data.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51487416" vertical-offset="180" max-vertical-offset="840">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
+      <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/ExperimentFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.1438355" vertical-offset="3330" max-vertical-offset="4185">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding>
-            <element signature="e#2689#3799#0" expanded="true" />
-            <element signature="e#3320#3355#0" expanded="true" />
-            <element signature="e#3400#3415#0" expanded="true" />
-            <element signature="e#3466#3479#0" expanded="true" />
-            <element signature="e#3481#3732#0" expanded="true" />
-            <element signature="e#3713#3714#0" expanded="true" />
-            <element signature="e#3788#3789#0" expanded="true" />
-            <element signature="e#5508#5552#0" expanded="true" />
-            <element signature="e#5658#5692#0" expanded="true" />
-            <element signature="e#5974#6012#0" expanded="true" />
-            <element signature="e#6306#6341#0" expanded="true" />
-            <element signature="e#6632#6664#0" expanded="true" />
-            <element signature="e#6946#6978#0" expanded="true" />
-            <element signature="e#7261#7289#0" expanded="true" />
-            <element signature="e#7561#7589#0" expanded="true" />
-            <element signature="e#7861#7889#0" expanded="true" />
-            <element signature="e#8933#8970#0" expanded="true" />
-            <element signature="e#9112#9149#0" expanded="true" />
-            <element signature="e#9323#9360#0" expanded="true" />
-            <element signature="e#9904#9920#0" expanded="true" />
-            <element signature="e#10319#10353#0" expanded="true" />
-            <element signature="e#10518#10552#0" expanded="true" />
-          </folding>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.599138" vertical-offset="11656" max-vertical-offset="12555">
-          <caret line="148" column="50" selection-start-line="148" selection-start-column="50" selection-end-line="148" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="8025" max-vertical-offset="14070">
+          <caret line="535" column="31" selection-start-line="535" selection-start-column="30" selection-end-line="535" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/SpinnerContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.05882353" vertical-offset="125" max-vertical-offset="465">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/RawContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13129103" vertical-offset="0" max-vertical-offset="914">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/SummaryContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29540482" vertical-offset="0" max-vertical-offset="914">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0-sources.jar!/android/support/v4/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="20136" max-vertical-offset="23820">
+          <caret line="1499" column="0" selection-start-line="1499" selection-start-column="0" selection-end-line="1499" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0-sources.jar!/android/support/v4/app/FragmentManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="12741" max-vertical-offset="30060">
+          <caret line="937" column="0" selection-start-line="937" selection-start-column="0" selection-end-line="937" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/containers/StateMachineContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/resources/UnitFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.105820104" vertical-offset="0" max-vertical-offset="5625">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/resources/GlobalConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1590" max-vertical-offset="2370">
+        <state vertical-scroll-proportion="0.6084656" vertical-offset="1680" max-vertical-offset="2370">
           <caret line="151" column="61" selection-start-line="151" selection-start-column="61" selection-end-line="151" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/DataDetailActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataRawDataFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.1923075" vertical-offset="3011" max-vertical-offset="4830">
-          <caret line="254" column="39" selection-start-line="254" selection-start-column="32" selection-end-line="254" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.923077" vertical-offset="1092" max-vertical-offset="2550">
-          <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1152" max-vertical-offset="3855">
+          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
           <folding>
-            <element signature="e#6215#6233#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#8347#8361#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/services/BluetoothService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.875" vertical-offset="12349" max-vertical-offset="21795">
-          <caret line="432" column="0" selection-start-line="432" selection-start-column="0" selection-end-line="432" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.5231054" vertical-offset="19545" max-vertical-offset="22500">
+          <caret line="1284" column="83" selection-start-line="1284" selection-start-column="83" selection-end-line="1284" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#10484#10492#0" expanded="true" />
-            <element signature="e#10550#10558#0" expanded="true" />
-            <element signature="e#10613#10621#0" expanded="true" />
-            <element signature="e#10678#10686#0" expanded="true" />
-            <element signature="e#10744#10752#0" expanded="true" />
-            <element signature="e#10809#10817#0" expanded="true" />
-            <element signature="e#26973#26996#0" expanded="true" />
+            <element signature="e#12718#12726#0" expanded="true" />
+            <element signature="e#12784#12792#0" expanded="true" />
+            <element signature="e#12847#12855#0" expanded="true" />
+            <element signature="e#12912#12920#0" expanded="true" />
+            <element signature="e#12978#12986#0" expanded="true" />
+            <element signature="e#13043#13051#0" expanded="true" />
+            <element signature="e#29290#29313#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/ExperimentFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1038" max-vertical-offset="4095">
+          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/fragments/DataSummaryFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="2760">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+          <folding>
+            <element signature="e#2076#2077#0" expanded="true" />
+            <element signature="e#2116#2117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/controllers/ExperimentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1413" max-vertical-offset="1980">
+          <caret line="148" column="5" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
+          <folding>
+            <element signature="e#5681#5682#0" expanded="true" />
+            <element signature="e#5718#5719#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/icom5047/aerobal/activities/DataDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47619048" vertical-offset="1620" max-vertical-offset="4875">
+          <caret line="165" column="22" selection-start-line="165" selection-start-column="22" selection-end-line="165" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
