@@ -1,8 +1,6 @@
 package icom5047.aerobal.fragments;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,6 +23,8 @@ import java.util.Map;
 
 import icom5047.aerobal.activities.MainActivity;
 import icom5047.aerobal.activities.R;
+import icom5047.aerobal.adapters.ValueAdapter;
+import icom5047.aerobal.containers.ValueContainer;
 import icom5047.aerobal.controllers.ExperimentController;
 import icom5047.aerobal.controllers.UnitController;
 import icom5047.aerobal.controllers.UserController;
@@ -131,35 +130,35 @@ public class ExperimentFragment extends Fragment {
 
         Map<Integer, Stats> statsMap = ExperimentController.getStatsForExperiment(experimentController.getCloneExperiment());
 
-        AverageContainer[] averageContainers = new AverageContainer[]{
-            new AverageContainer(getString(R.string.frag_exp_sum_num_of_runs), experimentController.getExperiment().runs().size() , true, false, ""),
-            new AverageContainer(getString(R.string.ave_wind_speed),
+        ValueContainer[] averageContainers = new ValueContainer[]{
+            new ValueContainer(getString(R.string.frag_exp_sum_num_of_runs), experimentController.getExperiment().runs().size()+"" , true, false, ""),
+            new ValueContainer(getString(R.string.ave_wind_speed),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.WindSpeedKey ,statsMap.get(GlobalConstants.Measurements.WindSpeedKey).getMean()),
                     false, true, unitController.getCurrentSpeedUnit()),
-            new AverageContainer(getString(R.string.ave_wind_direction),
+            new ValueContainer(getString(R.string.ave_wind_direction),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.WindDirectionKey ,statsMap.get(GlobalConstants.Measurements.WindDirectionKey).getMean()),
                     false, true, unitController.getCurrentDirectionUnit()),
-            new AverageContainer(getString(R.string.ave_temperature),
+            new ValueContainer(getString(R.string.ave_temperature),
                     unitController.convertFromDefaultToCurrent(GlobalConstants.Measurements.TemperatureKey, statsMap.get(GlobalConstants.Measurements.TemperatureKey).getMean()),
                     false, true, unitController.getCurrentTemperatureUnit()),
-            new AverageContainer(getString(R.string.ave_humidity),
+            new ValueContainer(getString(R.string.ave_humidity),
                     unitController.convertFromDefaultToCurrent(GlobalConstants.Measurements.HumidityKey, statsMap.get(GlobalConstants.Measurements.HumidityKey).getMean()),
                     false, true, unitController.getCurrentHumidityUnit()),
-            new AverageContainer(getString(R.string.ave_pressure),
+            new ValueContainer(getString(R.string.ave_pressure),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.PressureKey, statsMap.get(GlobalConstants.Measurements.PressureKey).getMean()),
                     false, true, unitController.getCurrentPressureUnit()),
-            new AverageContainer(getString(R.string.ave_side),
+            new ValueContainer(getString(R.string.ave_side),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.SideKey, statsMap.get(GlobalConstants.Measurements.SideKey).getMean()),
                     false, true, unitController.getCurrentForceUnit()),
-            new AverageContainer(getString(R.string.ave_drag),
+            new ValueContainer(getString(R.string.ave_drag),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.DragKey, statsMap.get(GlobalConstants.Measurements.DragKey).getMean()),
                     false, true, unitController.getCurrentForceUnit()),
-            new AverageContainer(getString(R.string.ave_lift),
+            new ValueContainer(getString(R.string.ave_lift),
                     unitController.convertFromDefaultToCurrent( GlobalConstants.Measurements.LiftKey, statsMap.get(GlobalConstants.Measurements.LiftKey).getMean()),
                     false, true, unitController.getCurrentForceUnit())
         };
 
-        summaryLv.setAdapter(new AverageAdapter(this.getActivity(), averageContainers));
+        summaryLv.setAdapter(new ValueAdapter(this.getActivity(), averageContainers));
 
 
 
@@ -233,75 +232,8 @@ public class ExperimentFragment extends Fragment {
     }
 
 
-    public class AverageAdapter extends ArrayAdapter<AverageContainer>{
-
-        public AverageAdapter(Context context, AverageContainer[] values){
-           super(context, R.layout.row_average_2_unit_lv, values);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            AverageContainer container = this.getItem(position);
-
-            LayoutInflater inflater = ((Activity)this.getContext()).getLayoutInflater();
-            //Inflate 3 Value Layout
-            View view = inflater.inflate(R.layout.row_average_3_unit_lv, parent, false);
-
-            if(!container.hasUnit){
-                view = inflater.inflate(R.layout.row_average_2_unit_lv, parent, false);
-            }
-
-            ((TextView) view.findViewById(R.id.rowAveUnitTitle)).setText(container.title);
-
-            TextView tvValue = (TextView) view.findViewById(R.id.rowAveUnitValue);
-
-            if(container.isInteger){
-
-                tvValue.setText( ( (int) container.value )+"" );
-
-            }
-            else{
-                NumberFormat nf = NumberFormat.getInstance();
-                nf.setMinimumFractionDigits(GlobalConstants.DecimalPrecision);
-                nf.setMaximumFractionDigits(GlobalConstants.DecimalPrecision);
-                tvValue.setText(nf.format(container.value));
-
-            }
-
-
-            if(container.hasUnit){
-                ((TextView) view.findViewById(R.id.rowAve3UnitUnit)).setText(container.unit);
-            }
 
 
 
-            return view;
-        }
-
-        @Override
-        public boolean isEnabled(int position) {
-            return false;
-        }
-    }
-
-    public class AverageContainer{
-
-        public String title;
-        public double value;
-        public String unit;
-        public boolean hasUnit;
-        public boolean isInteger;
-
-
-        public AverageContainer(String title, double value, boolean isInteger, boolean hasUnit, String unit ){
-            this.title = title;
-            this.value = value;
-            this.isInteger = isInteger;
-            this.hasUnit = hasUnit;
-            this.unit = unit;
-        }
-
-    }
 
 }

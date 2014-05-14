@@ -88,7 +88,7 @@ public class MainActivity extends FragmentActivity {
 
 
 
-    //Broadcast Reciever
+    //Error, or Success Run Receiver
     private BroadcastReceiver receiver = new BroadcastReceiver() {
 
         @Override
@@ -122,6 +122,21 @@ public class MainActivity extends FragmentActivity {
                 }
             } else{
                 Toast.makeText(MainActivity.this, R.string.toast_error_run_fail, Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+    //Update Bundle
+
+    private Bundle updateBundle;
+    public static final String BROADCAST_CODE = "LoadingSupportFragment";
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle bundle = intent.getExtras();
+            if(bundle != null) {
+                updateBundle = bundle;
+                onResume();
             }
         }
     };
@@ -207,6 +222,7 @@ public class MainActivity extends FragmentActivity {
         super.onResume();
 
         registerReceiver(receiver, new IntentFilter(BluetoothService.BROADCAST_CODE));
+        registerReceiver(broadcastReceiver, new IntentFilter(BROADCAST_CODE));
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             //Edit Values
@@ -272,6 +288,7 @@ public class MainActivity extends FragmentActivity {
     protected void onPause() {
         super.onPause();
         unregisterReceiver(receiver);
+        unregisterReceiver(broadcastReceiver);
     }
 
     private void importFileData(Uri data) {
@@ -886,7 +903,7 @@ public class MainActivity extends FragmentActivity {
     private void setWaitingFragment(){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.content_frame, LoadingSupportFragment.newInstance("Running Experiment..."), Keys.FragmentTag.ExperimentTag);
+        ft.replace(R.id.content_frame, LoadingSupportFragment.newInstance("Running Experiment...", updateBundle, unitController), Keys.FragmentTag.ExperimentTag);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();
         invalidateOptionsMenu();

@@ -71,5 +71,17 @@ public class Keys {
 
     }
 
+    public static class UpdateKeys {
+        public static String State = "state";
+        public static String WindSpeed = "windSpeed";
+        public static String WindDirection = "windDir";
+        public static String Pressure = "pressure";
+        public static String Side = "side";
+        public static String Lift = "lift";
+        public static String Drag = "drag";
+        public static String Humidity = "humidity";
+        public static String Temperature = "temperature";
+    }
+
 
 }

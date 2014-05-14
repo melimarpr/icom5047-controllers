@@ -43,6 +43,7 @@ import icom5047.aerobal.activities.R;
 import icom5047.aerobal.callbacks.StateMachineCallback;
 import icom5047.aerobal.containers.StateMachineContainer;
 import icom5047.aerobal.controllers.BluetoothController;
+import icom5047.aerobal.fragments.LoadingSupportFragment;
 import icom5047.aerobal.resources.BTResponseCodes;
 import icom5047.aerobal.resources.GlobalConstants;
 
@@ -232,6 +233,14 @@ public class BluetoothService extends Service {
         stopSelf();
     }
 
+    private void publishUpdate(StateMachineThread stateMachine){
+        Intent intent = new Intent(LoadingSupportFragment.BROADCAST_CODE);
+        intent.putExtras(stateMachine.getUpdateBundle());
+        sendBroadcast(intent);
+
+    }
+
+
     private void publishResults(StateMachineThread stateMachine) {
         Intent intent = new Intent(BROADCAST_CODE);
         Bundle bundle = new Bundle();
@@ -313,7 +322,6 @@ public class BluetoothService extends Service {
 
         //New Stuff
 
-
         //Store Values
         //{Front, Back, Up, Down, Left, Right }
         double[] emptyTunnelNoWind = new double[6];
@@ -325,8 +333,34 @@ public class BluetoothService extends Service {
         public List<Double> liftDown = new LinkedList<Double>();
         public List<Double> dragFront = new LinkedList<Double>();
         public List<Double> dragBack = new LinkedList<Double>();
+        public int runNum = 0;
+        private Run run = new Run();
 
-        Run run = new Run();
+        //Get Values
+        public String currState = "Placeholder";
+        public double currPressure = 0.0;
+        public double currHumidity = 0.0;
+        public double currWindSpeed = 0.0;
+        public double currWindDir = 0.0;
+        public double currTemp = 0.0;
+        public double currSide = 0.0;
+        public double currDrag = 0.0;
+        public double currLift = 0.0;
+
+        public Bundle getUpdateBundle() {
+            Bundle bundle = new Bundle();
+            bundle.putString(icom5047.aerobal.resources.Keys.UpdateKeys.State, currState);
+            bundle.putDouble(icom5047.aerobal.resources.Keys.UpdateKeys.Pressure, currPressure);
+            bundle.putDouble(icom5047.aerobal.resources.Keys.UpdateKeys.Humidity, currHumidity);
+            bundle.putDouble(icom5047.aerobal.resources.Keys.UpdateKeys.WindSpeed, currWindSpeed);
+            bundle.putDouble(icom5047.aerobal.resources.Keys.UpdateKeys.WindDirection, currWindDir);
+            bundle.putDouble(icom5047.aerobal.resources.Keys.UpdateKeys.Temperature, currTemp);
+            bundle.putDouble(icom5047.aerobal.resources.Keys.UpdateKeys.Side, currSide);
+            bundle.putDouble(icom5047.aerobal.resources.Keys.UpdateKeys.Drag, currDrag);
+            bundle.putDouble(icom5047.aerobal.resources.Keys.UpdateKeys.Lift, currLift);
+            return bundle;
+        }
+
 
         public StateMachineThread(BluetoothDevice device) {
             BluetoothSocket tmp = null;
@@ -802,6 +836,9 @@ public class BluetoothService extends Service {
 
                                 //Waiting for User Response
                                 waitingUserResponse = true;
+
+
+                                currState = "Calibration 1: NONW";
                                 return true;
 
                             }
@@ -822,6 +859,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currLift = Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -845,6 +883,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currLift = currLift - Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -867,6 +906,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currDrag = Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -889,6 +929,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currDrag = currDrag - Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -911,6 +952,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currSide = Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -933,6 +975,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currSide = currSide - Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -951,7 +994,9 @@ public class BluetoothService extends Service {
                         @Override
                         public boolean callback(String receivedString) {
                             String[] commands = BTResponseCodes.splitCommand(receivedString);
+                            publishUpdate(StateMachineThread.this);
                             return commands[0].equals(BTResponseCodes.windSpeedSet);
+
                         }
                     })
             );
@@ -965,8 +1010,13 @@ public class BluetoothService extends Service {
                                 return true;
                             } else if (receivedString.equals(BTResponseCodes.ack)) {
                                 Log.v("BS:", "bt:fan=On acknowledge received");
+                                currState = "Calibrated 1: NOW";
+                                try {
+                                    Thread.sleep(20000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 ackNeeded = false;
-
                                 Log.v("BS:", "Runs Quick");
                                 return true;
                             }
@@ -986,6 +1036,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currLift = Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelWithWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1008,6 +1059,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currDrag = Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelWithWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1030,6 +1082,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currDrag = currDrag - Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelWithWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1052,6 +1105,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currSide = Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelWithWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1074,6 +1128,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currSide = currSide - Double.parseDouble(commands[1]);
                                     setInitialValues(commands, emptyTunnelWithWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1096,6 +1151,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currSide = Double.parseDouble(commands[1]) - currSide;
                                     setInitialValues(commands, emptyTunnelWithWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1131,6 +1187,15 @@ public class BluetoothService extends Service {
                                 noService.putExtras(noBnd);
                                 PendingIntent noPIntent = PendingIntent.getService(BluetoothService.this, Keys.TUNNEL_USER_RESPONSE_INTENT_NO, noService, PendingIntent.FLAG_UPDATE_CURRENT);
 
+                                publishUpdate(StateMachineThread.this);
+                                try {
+                                    Log.v("BT:", "Waiting for Fan to turn off");
+                                    Thread.sleep(20000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                currState = "Calibration 2: ONW";
+
 
                                 Notification.Builder builder = new Notification.Builder(BluetoothService.this)
                                         .setSmallIcon(R.drawable.ic_launcher)
@@ -1153,6 +1218,7 @@ public class BluetoothService extends Service {
 
                                 //Waiting for User Response
                                 waitingUserResponse = true;
+
                                 return true;
 
                             }
@@ -1172,6 +1238,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currLift = Double.parseDouble(commands[1]);
                                     setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1194,6 +1261,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currDrag = Double.parseDouble(commands[1]);
                                     setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1216,6 +1284,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currDrag = currDrag - Double.parseDouble(commands[1]);
                                     setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1238,6 +1307,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currSide = Double.parseDouble(commands[1]);
                                     setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1260,6 +1330,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currSide = currSide - Double.parseDouble(commands[1]);
                                     setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1282,6 +1353,7 @@ public class BluetoothService extends Service {
                             }
                             if (BTResponseCodes.validForce(commands[0])) {
                                 try {
+                                    currLift = Double.parseDouble(commands[1])-currLift;
                                     setInitialValues(commands, nonEmptyTunnelNoWind);
                                     return true;
                                 } catch (NumberFormatException e) {
@@ -1305,6 +1377,17 @@ public class BluetoothService extends Service {
                                 return true;
                             } else if (receivedString.equals(BTResponseCodes.ack)) {
                                 Log.v("BS:", "bt:fan=On acknowledge received");
+
+                                publishUpdate(StateMachineThread.this);
+                                try {
+                                    Log.v("BS:", "Waiting for 20 Secs...");
+                                    Log.v("BS:", "Waiting for 20 Secs...");
+                                    Thread.sleep(20000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+
+
                                 ackNeeded = false;
                                 wait = true;
                                 return true;
@@ -1314,12 +1397,13 @@ public class BluetoothService extends Service {
                     })
             );
             //Loop in Order to Create the Queue for Additional Commands
-            for (int i = 0; i < experiment.getAmountOfValues(); i++) {
+            for (int i = 0, runNum = 1; i < experiment.getAmountOfValues(); i++, runNum++) {
                 queue.add(new StateMachineContainer("bt:ack\r\n", new StateMachineCallback() {
                     @Override
                     public boolean callback(String receivedString) {
                         //To Get Wait Time We Add Time.sleep here
                         Log.v("BS:", "Wait Time: " + experiment.getFrequency());
+                        currState ="Run ";
                         wait = true;
                         return receivedString.equals(BTResponseCodes.ack);
 
@@ -1339,6 +1423,7 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validForce(commands[0])) {
                                     try {
+                                        currLift = Double.parseDouble(commands[1]);
                                         setMeasurement(commands, GlobalConstants.Measurements.BackKey);
                                         return true;
                                     } catch (NumberFormatException e) {
@@ -1363,6 +1448,7 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validForce(commands[0])) {
                                     try {
+                                        currDrag = Double.parseDouble(commands[1]);
                                         setMeasurement(commands, GlobalConstants.Measurements.UpKey);
                                         return true;
                                     } catch (NumberFormatException e) {
@@ -1387,6 +1473,7 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validForce(commands[0])) {
                                     try {
+                                        currDrag = currDrag - Double.parseDouble(commands[1]);
                                         setMeasurement(commands, GlobalConstants.Measurements.DownKey);
                                         return true;
                                     } catch (NumberFormatException e) {
@@ -1411,6 +1498,7 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validForce(commands[0])) {
                                     try {
+                                        currSide = Double.parseDouble(commands[1]);
                                         setMeasurement(commands, GlobalConstants.Measurements.RightKey);
                                         return true;
                                     } catch (NumberFormatException e) {
@@ -1435,6 +1523,7 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validForce(commands[0])) {
                                     try {
+                                        currSide = currSide - Double.parseDouble(commands[1]);
                                         setMeasurement(commands, GlobalConstants.Measurements.LeftKey);
                                         return true;
                                     } catch (NumberFormatException e) {
@@ -1459,6 +1548,7 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validForce(commands[0])) {
                                     try {
+                                        currLift = Double.parseDouble(commands[1])-currLift;
                                         setMeasurement(commands, GlobalConstants.Measurements.FrontKey);
                                         return true;
                                     } catch (NumberFormatException e) {
@@ -1483,6 +1573,7 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validTimerCommand(commands[0])) {
                                     try {
+                                        currHumidity = Double.parseDouble(commands[1]);
                                         setMeasurement(commands, GlobalConstants.Measurements.HumidityKey);
                                         return true;
                                     } catch (NumberFormatException e) {
@@ -1505,6 +1596,7 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validTimerCommand(commands[0])) {
                                     try {
+                                        currTemp = Double.parseDouble(commands[1]);
                                         setMeasurement(commands, GlobalConstants.Measurements.TemperatureKey);
                                         return true;
                                     } catch (NumberFormatException e) {
@@ -1527,6 +1619,7 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validTimerCommand(commands[0])) {
                                     try {
+                                        currWindDir = Double.parseDouble(commands[1]);
                                         setMeasurement(commands, GlobalConstants.Measurements.WindDirectionKey);
                                         return true;
                                     } catch (NumberFormatException e) {
@@ -1551,6 +1644,7 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validTimerCommand(commands[0])) {
                                     try {
+                                        currWindSpeed = Double.parseDouble(commands[1]);
                                         setMeasurement(commands, GlobalConstants.Measurements.WindSpeedKey);
                                         return true;
                                     } catch (NumberFormatException e) {
@@ -1574,7 +1668,9 @@ public class BluetoothService extends Service {
                                 }
                                 if (BTResponseCodes.validTimerCommand(commands[0])) {
                                     try {
+                                        currPressure = Double.parseDouble(commands[1]);
                                         setMeasurement(commands, GlobalConstants.Measurements.PressureKey);
+                                        publishUpdate(StateMachineThread.this);
                                         return true;
                                     } catch (NumberFormatException e) {
                                         return false;
@@ -1604,6 +1700,7 @@ public class BluetoothService extends Service {
 
             return queue;
         }
+
 
 
     }

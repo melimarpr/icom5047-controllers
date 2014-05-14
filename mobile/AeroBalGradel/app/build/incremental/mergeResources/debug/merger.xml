@@ -487,9 +487,9 @@
                 </string>
                 <string name="placeholder_integer_value" >000
                 </string>
-                <string name="placeholder_title" >Lorem Ipsum
-                </string>
                 <string name="placeholder_empty_desc" >Image
+                </string>
+                <string name="placeholder_title" >Lorem Ipsum
                 </string>
                 <string name="placeholder_mac" >01:23:45:67:89:ab
                 </string>
@@ -521,15 +521,15 @@
                 </string>
                 <string name="title_fragment_data_graph" >Graph
                 </string>
-                <string name="title_dialog_empty_tunnel" >Is Tunnel Empty, Open and Secure?
+                <string name="title_dialog_new_session" >New Session?
                 </string>
                 <string name="title_dialog_forgot_password" >Forgot Password?
                 </string>
-                <string name="title_dialog_new_session" >New Session?
-                </string>
-                <string name="title_dialog_bt_disconenct" >Disconnect?
+                <string name="title_dialog_empty_tunnel" >Is Tunnel Empty, Open and Secure?
                 </string>
                 <string name="title_dialog_confirm_run" >Object Added?
+                </string>
+                <string name="title_dialog_bt_disconenct" >Disconnect?
                 </string>
                 <string name="title_dialog_gen_graph" >Generate Graph?
                 </string>
@@ -545,33 +545,63 @@
             <file
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/values/string_toasts.xml"
                 qualifiers="" >
-                <string name="toast_invalid_exp_wind_speed_empty" >Wind Speed Value Missing
-                </string>
                 <string name="toast_bt_unable_to_connect" >Unable to Connect
                 </string>
+                <string name="toast_invalid_exp_wind_speed_empty" >Wind Speed Value Missing
+                </string>
+                <string name="toast_net_error" >Unable to Connect to Server
+                </string>
+                <string name="toast_invalid_exp_interval_empty" >Time Interval Value Missing
+                </string>
+                <string name="toast_error_run_fail" >Unable to Obtain Run Data
+                </string>
                 <string name="toast_error_invalid_service_access" >Invalid Service Access
+                </string>
+                <string name="toast_invalid_email" >Invalid Email
+                </string>
+                <string name="toast_invalid_exp_name_empty" >Experiment Name Missing
                 </string>
                 <string name="toast_error_invalid_state" >Invalid View State
                 </string>
                 <string name="toast_error_bad_username" >Invalid Email Address
                 </string>
+                <string name="toast_net_forgot_success" >Email Sent
+                </string>
+                <string name="toast_bt_enable" >Bluetooth Enable. Try Again.
+                </string>
                 <string name="toast_invalid_exp_interval_max" >Time Interval Value Above Maximum of:
-                </string>
-                <string name="progress_finish" >Finishing…
-                </string>
-                <string name="toast_file_create" >File Successfully Created
                 </string>
                 <string name="toast_error_no_runs" >No Runs Available for Export
                 </string>
-                <string name="toast_bt_not_connected" >Bluetooth Not Connected
+                <string name="toast_file_create" >File Successfully Created
+                </string>
+                <string name="progress_finish" >Finishing…
+                </string>
+                <string name="toast_user_logout" >Log Out Successful
                 </string>
                 <string name="toast_invalid_exp_samples_min" >Samples Value Below Minimum of:
                 </string>
+                <string name="toast_bt_not_connected" >Bluetooth Not Connected
+                </string>
                 <string name="toast_error_bad_password" >Incorrect Password
+                </string>
+                <string name="progress_save_experiment" >Saving Experiments…
                 </string>
                 <string name="progress_load_experiment" >Loading Experiment…
                 </string>
                 <string name="toast_success_new_session_create" >New Session Created
+                </string>
+                <string name="toast_error_json" >Bad JSON Parsing
+                </string>
+                <string name="toast_invalid_exp_wind_speed_max" >Wind Speed Value Above Maximum of:
+                </string>
+                <string name="toast_invalid_exp_samples_max" >Samples Value Above Maximum of:
+                </string>
+                <string name="toast_invalid_filename" >Invalid File Name: Empty or Less than 3 Characters
+                </string>
+                <string name="toast_invalid_exp_wind_speed_min" >Wind Speed Value Below Minimum of:
+                </string>
+                <string name="toast_invalid_exp_interval_min" >Time Interval Value Below Minimum of:
                 </string>
                 <string name="toast_bt_activation_cancel" >Failed to turn on Device Bluetooth
                 </string>
@@ -581,7 +611,15 @@
                 </string>
                 <string name="toast_invalid_open_user_not_login" >User Not Log-In
                 </string>
+                <string name="toast_error_new_session_params" >Empty Parameters
+                </string>
+                <string name="toast_error_unable_to_save" >Unable to Save Experiment Online
+                </string>
                 <string name="toast_no_bt_found" >No Bluetooth Module found in Device.
+                </string>
+                <string name="progress_running" >Running Experiment…
+                </string>
+                <string name="toast_error_emergency_or_invalid" >Emergency Stop
                 </string>
                 <string name="toast_success_name_update" >Experiment Name Updated
                 </string>
@@ -591,53 +629,9 @@
                 </string>
                 <string name="toast_file_not_create" >File Not Successfully Created
                 </string>
-                <string name="toast_error_unable_to_bt" >Unable to Connect to Bluetooth
-                </string>
-                <string name="toast_net_login_fail" >Unable to Log In
-                </string>
-                <string name="toast_invalid_access" >Invalid Access without Log-in
-                </string>
-                <string name="toast_file_parent_error" >Unable to Go Back
-                </string>
-                <string name="toast_net_error" >Unable to Connect to Server
-                </string>
-                <string name="toast_invalid_exp_interval_empty" >Time Interval Value Missing
-                </string>
-                <string name="toast_error_run_fail" >Unable to Obtain Run Data
-                </string>
-                <string name="toast_invalid_exp_name_empty" >Experiment Name Missing
-                </string>
-                <string name="toast_invalid_email" >Invalid Email
-                </string>
-                <string name="toast_net_forgot_success" >Email Sent
-                </string>
-                <string name="toast_bt_enable" >Bluetooth Enable. Try Again.
-                </string>
-                <string name="toast_user_logout" >Log Out Successful
-                </string>
-                <string name="progress_save_experiment" >Saving Experiments…
-                </string>
-                <string name="toast_error_json" >Bad JSON Parsing
-                </string>
-                <string name="toast_invalid_exp_wind_speed_max" >Wind Speed Value Above Maximum of:
-                </string>
-                <string name="toast_invalid_filename" >Invalid File Name: Empty or Less than 3 Characters
-                </string>
-                <string name="toast_invalid_exp_samples_max" >Samples Value Above Maximum of:
-                </string>
-                <string name="toast_invalid_exp_wind_speed_min" >Wind Speed Value Below Minimum of:
-                </string>
-                <string name="toast_invalid_exp_interval_min" >Time Interval Value Below Minimum of:
-                </string>
-                <string name="toast_error_new_session_params" >Empty Parameters
-                </string>
-                <string name="toast_error_unable_to_save" >Unable to Save Experiment Online
-                </string>
-                <string name="progress_running" >Running Experiment…
-                </string>
-                <string name="toast_error_emergency_or_invalid" >Emergency Stop
-                </string>
                 <string name="toast_error_bad_data" >Invalid Data
+                </string>
+                <string name="toast_error_unable_to_bt" >Unable to Connect to Bluetooth
                 </string>
                 <string name="toast_invalid_exp_samples_empty" >Samples Value Missing
                 </string>
@@ -646,6 +640,12 @@
                 <string name="progress_login" >Login-In…
                 </string>
                 <string name="toast_file_mount_error" >Unable to Access External Storage
+                </string>
+                <string name="toast_net_login_fail" >Unable to Log In
+                </string>
+                <string name="toast_file_parent_error" >Unable to Go Back
+                </string>
+                <string name="toast_invalid_access" >Invalid Access without Log-in
                 </string>
                 <string name="toast_file_updated" >File Successfully Updated
                 </string>
@@ -661,15 +661,15 @@
                 </string>
                 <string name="dialog_export_radio_aerobal" >AeroBal
                 </string>
-                <string name="activity_error_no_session_found" >No Sessions Found
+                <string name="ave_temperature" >Average Temperature
                 </string>
                 <string name="dialog_new_exp_samples_hint" >0
                 </string>
-                <string name="ave_temperature" >Average Temperature
-                </string>
-                <string name="ab_btn_export" >Export
+                <string name="activity_error_no_session_found" >No Sessions Found
                 </string>
                 <string name="private_str" >Private 
+                </string>
+                <string name="ab_btn_export" >Export
                 </string>
                 <string name="ab_btn_new_session" >New Session
                 </string>
@@ -703,31 +703,31 @@
                 </string>
                 <string name="cancel" >Cancel
                 </string>
-                <string name="dialog_no_session" >No Session Found
-                </string>
                 <string name="activity_login_button_register" >Register
+                </string>
+                <string name="dialog_no_session" >No Session Found
                 </string>
                 <string name="login" >Log-In
                 </string>
                 <string name="ab_btn_stop" >Stop
                 </string>
-                <string name="units_mili_seconds" >msec
-                </string>
                 <string name="dialog_units_temperature" >Temperature:
+                </string>
+                <string name="units_mili_seconds" >msec
                 </string>
                 <string name="title_activity_save" >Save Expereriment
                 </string>
                 <string name="back" >Back
                 </string>
-                <string name="online" >Online
-                </string>
                 <string name="fragment_folder_no_found" >Folder is Empty
+                </string>
+                <string name="online" >Online
                 </string>
                 <string name="dialog_bt_no" >No
                 </string>
-                <string name="frag_data_raw_full_exp_no_display" >Data Showed Only By Runs
-                </string>
                 <string name="ab_btn_start_run" >Start Run
+                </string>
+                <string name="frag_data_raw_full_exp_no_display" >Data Showed Only By Runs
                 </string>
                 <string name="ave_wind_speed" >Average Wind Speed
                 </string>
@@ -739,13 +739,13 @@
                 </string>
                 <string name="app_name" >AeroBal
                 </string>
-                <string name="ave_humidity" >Average Humidity
-                </string>
                 <string name="dialog_new_exp_samples" >Samples:
                 </string>
-                <string name="dialog_units_pressure" >Pressure:
+                <string name="ave_humidity" >Average Humidity
                 </string>
                 <string name="dialog_new_exp_name" >Name:
+                </string>
+                <string name="dialog_units_pressure" >Pressure:
                 </string>
                 <string name="dialog_units_force" >Force:
                 </string>
@@ -845,9 +845,9 @@
                 </string>
                 <string name="dialog_new_exp_interval" >Time Interval:
                 </string>
-                <string name="ave_drag" >Average Drag Force
-                </string>
                 <string name="dialog_new_session_desc" >Description
+                </string>
+                <string name="ave_drag" >Average Drag Force
                 </string>
                 <string name="title_activity_login" >LoginActivity
                 </string>
@@ -881,21 +881,21 @@
                 </style>
 
                 <style
-                    name="AppTheme"
-                    parent="AppBaseTheme" >
-
-                    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-                    <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
-
-                </style>
-
-                <style
                     name="MyActionBar"
                     parent="android:Widget.Holo.Light.ActionBar.Solid" >
 >
                     <item name="android:background">
 @drawable/ic_actionbar
                     </item>
+                </style>
+
+                <style
+                    name="AppTheme"
+                    parent="AppBaseTheme" >
+
+                    <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+                    <!-- <item name="android:actionBarStyle">@style/MyActionBar</item> -->
+
                 </style>
             </file>
             <file
@@ -1058,6 +1058,11 @@
                 path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/drawable-xxhdpi/ic_no.png"
                 qualifiers="xxhdpi"
                 type="drawable" />
+            <file
+                name="fragment_loading_update"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/fragment_loading_update.xml"
+                qualifiers=""
+                type="layout" />
         </source>
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/rs/debug" />
         <source path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/build/res/generated/debug" />

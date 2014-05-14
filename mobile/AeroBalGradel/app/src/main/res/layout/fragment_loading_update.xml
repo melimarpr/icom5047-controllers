@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/fragment_loading"
+        android:id="@+id/fragLoadingMessage"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp" />
+
+
+    <TextView
+        android:textSize="26sp"
+        android:id="@+id/fragExpLoadingSummary"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical|left"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/frag_exp_sum_summary" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/divider_dark_grey" />
+
+    <ListView
+        android:id="@+id/fragExpLoadingListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:layout_gravity="center_horizontal" />
+
+
+</LinearLayout>
