@@ -659,6 +659,8 @@
                 </string>
                 <string name="notification_max_amount_retry" >Bluetooth Invalid Response
                 </string>
+                <string name="curr_no_data_to_show" >No Data
+                </string>
                 <string name="dialog_export_radio_aerobal" >AeroBal
                 </string>
                 <string name="ave_temperature" >Average Temperature
@@ -688,6 +690,8 @@
                 <string name="send" >Send
                 </string>
                 <string name="action_settings" >Settings
+                </string>
+                <string name="curr_lift" >Current Lift Force
                 </string>
                 <string name="hello_blank_fragment" >Hello blank fragment
                 </string>
@@ -755,6 +759,8 @@
                 </string>
                 <string name="fragment_open_online_no_session" >No Session Found
                 </string>
+                <string name="curr_drag" >Current Drag Force
+                </string>
                 <string name="notification_inactive_bluetooth" >Bluetooth Not Responding
                 </string>
                 <string name="frag_data_raw_no_data" >No Data Recollected
@@ -762,6 +768,8 @@
                 <string name="frag_exp_sum_num_of_runs" >Number of Runs
                 </string>
                 <string name="dialog_units_humidity" >Humidity:
+                </string>
+                <string name="cur_state" >Current State
                 </string>
                 <string name="dialog_bt_empty_list" >No Bluetooth Device Paired
                 </string>
@@ -785,6 +793,12 @@
                 </string>
                 <string name="dialog_new_exp_name_hint" >Experiment Name
                 </string>
+                <string name="curr_calibration_1" >Calibration 1: NONW
+                </string>
+                <string name="curr_calibration_2" >"Calibrated 2: NOW"
+                </string>
+                <string name="curr_calibration_3" >"Calibration 3: ONW"
+                </string>
                 <string name="ab_btn_close" >Close
                 </string>
                 <string name="title_activity_data_detail" >DataDetailActivity
@@ -797,11 +811,15 @@
                 </string>
                 <string name="dialog_file_override" >Override file?
                 </string>
+                <string name="curr_temperature" >Current Temperature
+                </string>
                 <string name="public_str" >Public 
                 </string>
                 <string name="notification_emergency_stop" >Emergency Stop!
                 </string>
                 <string name="dialog_new_exp_interval_hint" >0
+                </string>
+                <string name="curr_wind_direction" >Current Wind Direction
                 </string>
                 <string name="fragment_loading" >Loading…
                 </string>
@@ -817,6 +835,8 @@
                 </string>
                 <string name="dialog_login_forgot_password" >Enter Email Address
                 </string>
+                <string name="curr_wind_speed" >Current Wind Speed
+                </string>
                 <string name="frag_exp_sum_wind_speeds" >Expected Wind Speed:
                 </string>
                 <string name="dialog_units_default" >Default
@@ -829,13 +849,15 @@
                 </string>
                 <string name="frag_exp_sum_summary" >Summary:
                 </string>
+                <string name="curr_side" >Current Side Force
+                </string>
                 <string name="activity_error_no_file_folder_found" >No File or Folder Found
                 </string>
                 <string name="dialog_graph_yaxis" >Y Axis:
                 </string>
-                <string name="create" >Create
-                </string>
                 <string name="email" >Email
+                </string>
+                <string name="create" >Create
                 </string>
                 <string name="dialog_new_session_title" >Title
                 </string>
@@ -848,6 +870,10 @@
                 <string name="dialog_new_session_desc" >Description
                 </string>
                 <string name="ave_drag" >Average Drag Force
+                </string>
+                <string name="curr_pressure" >Current Pressure
+                </string>
+                <string name="curr_humidity" >Current Humidity
                 </string>
                 <string name="title_activity_login" >LoginActivity
                 </string>
@@ -1059,8 +1085,8 @@
                 qualifiers="xxhdpi"
                 type="drawable" />
             <file
-                name="fragment_loading_update"
-                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/fragment_loading_update.xml"
+                name="fragment_update"
+                path="/Users/enrique/Documents/ICOM5047/ICOM5047-Codebase/icom5047-controllers/mobile/AeroBalGradel/app/src/main/res/layout/fragment_update.xml"
                 qualifiers=""
                 type="layout" />
         </source>

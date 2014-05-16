@@ -58,7 +58,7 @@ import icom5047.aerobal.dialog.NewDialog;
 import icom5047.aerobal.dialog.OpenDialog;
 import icom5047.aerobal.fragments.EmptyFragment;
 import icom5047.aerobal.fragments.ExperimentFragment;
-import icom5047.aerobal.fragments.LoadingSupportFragment;
+import icom5047.aerobal.fragments.UpdateStatusFragment;
 import icom5047.aerobal.resources.GlobalConstants;
 import icom5047.aerobal.resources.Keys;
 import icom5047.aerobal.resources.UnitFactory;
@@ -99,7 +99,6 @@ public class MainActivity extends FragmentActivity {
             if(bundle != null){
                 //Edit Values
                 if(bundle.getBoolean(BluetoothService.Keys.ERROR, false)){
-                    String error = bundle.getString(BluetoothService.Keys.ERROR_STRING);
                     experimentController.setRunning(false);
                     btController.reset();
                     expMenuBoolean = true;
@@ -140,13 +139,21 @@ public class MainActivity extends FragmentActivity {
             }
         }
     };
-
+    private Intent btIntent;
 
 
     @SuppressLint("UseSparseArrays")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
+            // Activity was brought to front and not created,
+            // Thus finishing this will get us to the last viewed activity
+            Log.v("MA:", "Closed");
+            finish();
+            return;
+        }
         setContentView(R.layout.activity_main);
 
 		
@@ -158,7 +165,7 @@ public class MainActivity extends FragmentActivity {
 
         HashMap<Integer, Integer> values = new HashMap<Integer, Integer>();
         values.put(UnitFactory.Type.PRESSURE, UnitFactory.Pressure.UNIT_PASCAL);
-        values.put(UnitFactory.Type.FORCE, UnitFactory.Force.UNIT_NEWTON);
+        values.put(UnitFactory.Type.FORCE, UnitFactory.Force.UNIT_POUNDS);
         values.put(UnitFactory.Type.HUMIDITY, UnitFactory.Humidity.UNIT_PERCENTAGE);
         values.put(UnitFactory.Type.TEMPERATURE, UnitFactory.Temperature.UNIT_CELSIUS);
         values.put(UnitFactory.Type.SPEED, UnitFactory.Speed.UNIT_MPH);
@@ -218,13 +225,15 @@ public class MainActivity extends FragmentActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onNewIntent(Intent intent) {
 
-        registerReceiver(receiver, new IntentFilter(BluetoothService.BROADCAST_CODE));
-        registerReceiver(broadcastReceiver, new IntentFilter(BROADCAST_CODE));
-        Bundle bundle = getIntent().getExtras();
+        super.onNewIntent(intent);
+        Log.v("MA:", "onNewIntent");
+        Bundle bundle = intent.getExtras();
+
         if(bundle != null){
+            Log.v("MA:", bundle.toString());
+
             //Edit Values
             if(bundle.getBoolean(BluetoothService.Keys.ERROR, false)){
                 experimentController.setRunning(false);
@@ -233,20 +242,40 @@ public class MainActivity extends FragmentActivity {
 
                 //Invalidate View
                 invalidateOptionsMenu();
+                onResume();
             }
             else{
 
                 Experiment experimentWithRun = (Experiment) bundle.getSerializable(Keys.BundleKeys.Experiment);
-                if(experimentWithRun != null) {
-                    experimentController.setExperiment(experimentWithRun);
-                    experimentController.setRunning(false);
-                    btController.reset();
-                    expMenuBoolean = true;
-                }
+                experimentController.setExperiment(experimentWithRun);
+                experimentController.setRunning(false);
+                btController.reset();
+                expMenuBoolean = true;
 
                 invalidateOptionsMenu();
+                onResume();
+
             }
         }
+
+
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(btIntent != null)
+            stopService(btIntent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        registerReceiver(receiver, new IntentFilter(BluetoothService.BROADCAST_CODE));
+        registerReceiver(broadcastReceiver, new IntentFilter(BROADCAST_CODE));
 
 
         //Refresh Drawer
@@ -378,10 +407,16 @@ public class MainActivity extends FragmentActivity {
         } else {
             menu.findItem(R.id.ab_btn_bluetooth).setIcon(R.drawable.ic_bluetooth);
         }
+
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
 
         getActionBar().setHomeButtonEnabled(!experimentController.isRunning());
         menu.findItem(R.id.ab_btn_bluetooth).setEnabled(!experimentController.isRunning());
+        menu.findItem(R.id.ab_btn_units).setEnabled(!experimentController.isRunning());
+        if(experimentController.isRunning())
+             mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        else
+            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
 
 
         if (expMenuBoolean) {
@@ -902,8 +937,17 @@ public class MainActivity extends FragmentActivity {
 
     private void setWaitingFragment(){
         FragmentManager fm = getSupportFragmentManager();
+        //Removing old Fragment
+
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.content_frame, LoadingSupportFragment.newInstance("Running Experiment...", updateBundle, unitController), Keys.FragmentTag.ExperimentTag);
+        Fragment f = this.getSupportFragmentManager().findFragmentByTag(Keys.FragmentTag.UpdateTag);
+        if( f != null){
+            ft.remove(f);
+            ft.commit();
+            ft = fm.beginTransaction();
+        }
+
+        ft.replace(R.id.content_frame, UpdateStatusFragment.newInstance("Running Experiment...", updateBundle, unitController), Keys.FragmentTag.UpdateTag);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();
         invalidateOptionsMenu();
@@ -917,7 +961,7 @@ public class MainActivity extends FragmentActivity {
         setExperimentMenuVisibility(false);
         btController.disconnectSocket(); //
 
-        Intent btIntent = new Intent(this, BluetoothService.class);
+        btIntent = new Intent(this, BluetoothService.class);
         Bundle bundle = new Bundle();
         bundle.putParcelable(BluetoothService.Keys.BLUETOOTH_DEVICE, btController.getAerobalDevice()); //Send Device
         bundle.putSerializable(Keys.BundleKeys.Experiment, experimentController.getExperiment());

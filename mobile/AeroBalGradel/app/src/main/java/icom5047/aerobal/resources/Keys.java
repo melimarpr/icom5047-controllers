@@ -37,6 +37,7 @@ public class Keys {
     public static class FragmentTag {
         public static String EmptyTag = "emptyFragmentTag";
         public static String ExperimentTag = "experimentFragmentTag";
+        public static String UpdateTag = "updateFragmentTag";
     }
 
     public static class BundleKeys{

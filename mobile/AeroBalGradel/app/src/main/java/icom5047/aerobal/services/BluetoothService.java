@@ -43,7 +43,6 @@ import icom5047.aerobal.activities.R;
 import icom5047.aerobal.callbacks.StateMachineCallback;
 import icom5047.aerobal.containers.StateMachineContainer;
 import icom5047.aerobal.controllers.BluetoothController;
-import icom5047.aerobal.fragments.LoadingSupportFragment;
 import icom5047.aerobal.resources.BTResponseCodes;
 import icom5047.aerobal.resources.GlobalConstants;
 
@@ -135,8 +134,10 @@ public class BluetoothService extends Service {
                     return Service.START_STICKY;
                 } else {
                     Log.v("BS: ", "No: Not Valid");
-                    waitingUserResponse = true;
-                    return Service.START_STICKY;
+                    NotificationManager notificationManager =
+                            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    notificationManager.cancel(Keys.TUNNEL_USER_RESPONSE_NOTIFICATION);
+                    return Service.START_NOT_STICKY;
                 }
             }
 
@@ -149,7 +150,8 @@ public class BluetoothService extends Service {
 
             //Intent if click
             Intent intentMain = new Intent(this, MainActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, Keys.MAIN_FLAG, intentMain, PendingIntent.FLAG_UPDATE_CURRENT);
+            intentMain.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, Keys.MAIN_FLAG, intentMain, PendingIntent.FLAG_CANCEL_CURRENT);
 
             //Intent Sent if Stop
             Bundle emergencyStop = new Bundle();
@@ -214,11 +216,16 @@ public class BluetoothService extends Service {
         sendBroadcast(intent);
 
         //Notification
+        Intent intentMain = new Intent(this, MainActivity.class);
+        intentMain.putExtras(bundle);
+        intentMain.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, Keys.MAIN_FLAG, intentMain, PendingIntent.FLAG_CANCEL_CURRENT);
         Notification.Builder builder = new Notification.Builder(this);
 
         builder.setSmallIcon(R.drawable.ic_launcher)
                 .setContentTitle(errorString)
-                .setContentText(getString(R.string.notification_error_desc));
+                .setContentText(getString(R.string.notification_error_desc))
+                .setContentIntent(pendingIntent);
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         builder.setSound(alarmSound);
         builder.setLights(Color.RED, 500, 500);
@@ -234,7 +241,7 @@ public class BluetoothService extends Service {
     }
 
     private void publishUpdate(StateMachineThread stateMachine){
-        Intent intent = new Intent(LoadingSupportFragment.BROADCAST_CODE);
+        Intent intent = new Intent(MainActivity.BROADCAST_CODE);
         intent.putExtras(stateMachine.getUpdateBundle());
         sendBroadcast(intent);
 
@@ -252,7 +259,8 @@ public class BluetoothService extends Service {
 
         Intent intentMain = new Intent(this, MainActivity.class);
         intentMain.putExtras(bundle);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, Keys.MAIN_FLAG, intentMain, PendingIntent.FLAG_UPDATE_CURRENT);
+        intentMain.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, Keys.MAIN_FLAG, intentMain, PendingIntent.FLAG_CANCEL_CURRENT);
         Notification.Builder builder = new Notification.Builder(this);
 
         builder.setSmallIcon(R.drawable.ic_launcher)
@@ -333,7 +341,6 @@ public class BluetoothService extends Service {
         public List<Double> liftDown = new LinkedList<Double>();
         public List<Double> dragFront = new LinkedList<Double>();
         public List<Double> dragBack = new LinkedList<Double>();
-        public int runNum = 0;
         private Run run = new Run();
 
         //Get Values
@@ -838,7 +845,7 @@ public class BluetoothService extends Service {
                                 waitingUserResponse = true;
 
 
-                                currState = "Calibration 1: NONW";
+                                currState = getString(R.string.curr_calibration_1);
                                 return true;
 
                             }
@@ -1010,7 +1017,7 @@ public class BluetoothService extends Service {
                                 return true;
                             } else if (receivedString.equals(BTResponseCodes.ack)) {
                                 Log.v("BS:", "bt:fan=On acknowledge received");
-                                currState = "Calibrated 1: NOW";
+                                currState = getString(R.string.curr_calibration_2);
                                 try {
                                     Thread.sleep(20000);
                                 } catch (InterruptedException e) {
@@ -1188,13 +1195,7 @@ public class BluetoothService extends Service {
                                 PendingIntent noPIntent = PendingIntent.getService(BluetoothService.this, Keys.TUNNEL_USER_RESPONSE_INTENT_NO, noService, PendingIntent.FLAG_UPDATE_CURRENT);
 
                                 publishUpdate(StateMachineThread.this);
-                                try {
-                                    Log.v("BT:", "Waiting for Fan to turn off");
-                                    Thread.sleep(20000);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                                currState = "Calibration 2: ONW";
+                                currState = getString(R.string.curr_calibration_3);
 
 
                                 Notification.Builder builder = new Notification.Builder(BluetoothService.this)
@@ -1397,13 +1398,14 @@ public class BluetoothService extends Service {
                     })
             );
             //Loop in Order to Create the Queue for Additional Commands
-            for (int i = 0, runNum = 1; i < experiment.getAmountOfValues(); i++, runNum++) {
+            for (int i = 0; i < experiment.getAmountOfValues(); i++) {
+                final int finalI = i+1;
                 queue.add(new StateMachineContainer("bt:ack\r\n", new StateMachineCallback() {
                     @Override
                     public boolean callback(String receivedString) {
                         //To Get Wait Time We Add Time.sleep here
                         Log.v("BS:", "Wait Time: " + experiment.getFrequency());
-                        currState ="Run ";
+                        currState ="Measure "+ finalI;
                         wait = true;
                         return receivedString.equals(BTResponseCodes.ack);
 

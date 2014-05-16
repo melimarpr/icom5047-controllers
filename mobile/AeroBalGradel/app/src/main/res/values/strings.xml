@@ -88,6 +88,22 @@
     <string name="ave_side">Average Side Force</string>
 
 
+    <!-- Update Fragment -->
+    <string name="cur_state">Current State</string>
+    <string name="curr_wind_speed">Current Wind Speed</string>
+    <string name="curr_wind_direction">Current Wind Direction</string>
+    <string name="curr_temperature">Current Temperature</string>
+    <string name="curr_pressure">Current Pressure</string>
+    <string name="curr_humidity">Current Humidity</string>
+    <string name="curr_drag">Current Drag Force</string>
+    <string name="curr_lift">Current Lift Force</string>
+    <string name="curr_side">Current Side Force</string>
+    <string name="curr_no_data_to_show">No Data</string>
+    <string name="curr_calibration_1">Calibration 1: NONW</string>
+    <string name="curr_calibration_2">"Calibrated 2: NOW"</string>
+    <string name="curr_calibration_3">"Calibration 3: ONW"</string>
+
+
 
     <!-- Data Detail Activity -->
 
