@@ -55,7 +55,6 @@ public class OpenDialog extends DialogFragment {
         //Set Buttons
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
-                callback.callback(null);
             }
         });
 
